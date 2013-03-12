@@ -26,4 +26,9 @@ public class Report {
 		System.exit(exitCode);
 	}
 	
+	/** Izpise informacijo o dogajanju */
+	public static void information(String msg, Position position) {
+		System.out.println(":-| " + position + " " + msg );
+	}
+	
 }
