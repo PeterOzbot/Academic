@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<lexanal>
+<symbol token="IDENTIFIER"  lexeme="123">
+<position filename="d:\Proteus.txt" begLine="1" begColumn="1" endLine="1" endColumn="4"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="=">
+<position filename="d:\Proteus.txt" begLine="1" begColumn="4" endLine="1" endColumn="5"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="5">
+<position filename="d:\Proteus.txt" begLine="1" begColumn="5" endLine="1" endColumn="6"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="a123">
+<position filename="d:\Proteus.txt" begLine="1" begColumn="7" endLine="1" endColumn="11"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="a">
+<position filename="d:\Proteus.txt" begLine="2" begColumn="1" endLine="2" endColumn="2"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="=">
+<position filename="d:\Proteus.txt" begLine="2" begColumn="2" endLine="2" endColumn="3"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="1">
+<position filename="d:\Proteus.txt" begLine="2" begColumn="3" endLine="2" endColumn="4"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="a">
+<position filename="d:\Proteus.txt" begLine="2" begColumn="5" endLine="2" endColumn="6"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="=">
+<position filename="d:\Proteus.txt" begLine="2" begColumn="7" endLine="2" endColumn="8"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="1">
+<position filename="d:\Proteus.txt" begLine="2" begColumn="9" endLine="2" endColumn="10"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="c">
+<position filename="d:\Proteus.txt" begLine="2" begColumn="11" endLine="2" endColumn="12"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="=">
+<position filename="d:\Proteus.txt" begLine="2" begColumn="12" endLine="2" endColumn="13"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="a">
+<position filename="d:\Proteus.txt" begLine="2" begColumn="13" endLine="2" endColumn="14"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="+">
+<position filename="d:\Proteus.txt" begLine="2" begColumn="13" endLine="2" endColumn="14"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="b">
+<position filename="d:\Proteus.txt" begLine="2" begColumn="15" endLine="2" endColumn="16"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="c">
+<position filename="d:\Proteus.txt" begLine="3" begColumn="1" endLine="3" endColumn="2"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="=">
+<position filename="d:\Proteus.txt" begLine="3" begColumn="3" endLine="3" endColumn="4"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="a">
+<position filename="d:\Proteus.txt" begLine="3" begColumn="5" endLine="3" endColumn="6"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="+">
+<position filename="d:\Proteus.txt" begLine="3" begColumn="5" endLine="3" endColumn="6"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="b">
+<position filename="d:\Proteus.txt" begLine="3" begColumn="8" endLine="3" endColumn="9"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme=";">
+<position filename="d:\Proteus.txt" begLine="3" begColumn="8" endLine="3" endColumn="9"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="int">
+<position filename="d:\Proteus.txt" begLine="8" begColumn="1" endLine="8" endColumn="4"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="a">
+<position filename="d:\Proteus.txt" begLine="8" begColumn="5" endLine="8" endColumn="6"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="=">
+<position filename="d:\Proteus.txt" begLine="8" begColumn="7" endLine="8" endColumn="8"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="0">
+<position filename="d:\Proteus.txt" begLine="8" begColumn="9" endLine="8" endColumn="10"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme=";">
+<position filename="d:\Proteus.txt" begLine="8" begColumn="9" endLine="8" endColumn="10"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="if">
+<position filename="d:\Proteus.txt" begLine="10" begColumn="1" endLine="10" endColumn="3"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="(">
+<position filename="d:\Proteus.txt" begLine="10" begColumn="3" endLine="10" endColumn="4"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="a">
+<position filename="d:\Proteus.txt" begLine="10" begColumn="5" endLine="10" endColumn="6"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="==">
+<position filename="d:\Proteus.txt" begLine="10" begColumn="10" endLine="10" endColumn="12"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="b">
+<position filename="d:\Proteus.txt" begLine="10" begColumn="14" endLine="10" endColumn="15"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme=")">
+<position filename="d:\Proteus.txt" begLine="10" begColumn="14" endLine="10" endColumn="15"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="{">
+<position filename="d:\Proteus.txt" begLine="10" begColumn="16" endLine="10" endColumn="17"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="while">
+<position filename="d:\Proteus.txt" begLine="11" begColumn="5" endLine="11" endColumn="10"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="(">
+<position filename="d:\Proteus.txt" begLine="11" begColumn="10" endLine="11" endColumn="11"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="a">
+<position filename="d:\Proteus.txt" begLine="11" begColumn="13" endLine="11" endColumn="14"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="&#62;=">
+<position filename="d:\Proteus.txt" begLine="11" begColumn="14" endLine="11" endColumn="16"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="10">
+<position filename="d:\Proteus.txt" begLine="11" begColumn="18" endLine="11" endColumn="20"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme=")">
+<position filename="d:\Proteus.txt" begLine="11" begColumn="19" endLine="11" endColumn="20"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="{">
+<position filename="d:\Proteus.txt" begLine="11" begColumn="21" endLine="11" endColumn="22"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="a">
+<position filename="d:\Proteus.txt" begLine="12" begColumn="9" endLine="12" endColumn="10"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="=">
+<position filename="d:\Proteus.txt" begLine="12" begColumn="11" endLine="12" endColumn="12"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="a">
+<position filename="d:\Proteus.txt" begLine="12" begColumn="13" endLine="12" endColumn="14"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="+">
+<position filename="d:\Proteus.txt" begLine="12" begColumn="13" endLine="12" endColumn="14"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="1">
+<position filename="d:\Proteus.txt" begLine="12" begColumn="15" endLine="12" endColumn="16"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme=";">
+<position filename="d:\Proteus.txt" begLine="12" begColumn="15" endLine="12" endColumn="16"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="}">
+<position filename="d:\Proteus.txt" begLine="13" begColumn="4" endLine="13" endColumn="5"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="}">
+<position filename="d:\Proteus.txt" begLine="14" begColumn="0" endLine="14" endColumn="1"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="string">
+<position filename="d:\Proteus.txt" begLine="16" begColumn="1" endLine="16" endColumn="7"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="c">
+<position filename="d:\Proteus.txt" begLine="16" begColumn="8" endLine="16" endColumn="9"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="=">
+<position filename="d:\Proteus.txt" begLine="16" begColumn="10" endLine="16" endColumn="11"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="&#34;this is a \&#34; \\ string&#34;">
+<position filename="d:\Proteus.txt" begLine="16" begColumn="11" endLine="16" endColumn="35"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme=";">
+<position filename="d:\Proteus.txt" begLine="16" begColumn="35" endLine="16" endColumn="36"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="real">
+<position filename="d:\Proteus.txt" begLine="17" begColumn="1" endLine="17" endColumn="5"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="as23">
+<position filename="d:\Proteus.txt" begLine="17" begColumn="6" endLine="17" endColumn="10"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="=">
+<position filename="d:\Proteus.txt" begLine="17" begColumn="11" endLine="17" endColumn="12"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="-">
+<position filename="d:\Proteus.txt" begLine="17" begColumn="12" endLine="17" endColumn="13"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="12.4556">
+<position filename="d:\Proteus.txt" begLine="17" begColumn="14" endLine="17" endColumn="21"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme=";">
+<position filename="d:\Proteus.txt" begLine="17" begColumn="21" endLine="17" endColumn="22"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="arr">
+<position filename="d:\Proteus.txt" begLine="17" begColumn="23" endLine="17" endColumn="26"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme=";">
+<position filename="d:\Proteus.txt" begLine="17" begColumn="25" endLine="17" endColumn="26"/>
+</symbol>
+</lexanal>
