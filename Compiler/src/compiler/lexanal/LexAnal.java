@@ -1,22 +1,24 @@
 package compiler.lexanal;
 
-import java.awt.List;
 import java.io.*;
-import java.util.ArrayList;
-
-import javax.jws.Oneway;
 
 import compiler.Report;
 
 /** Leksikalni analizator. */
 public class LexAnal {
+	// nastavitve
+	private final Boolean REPORT_COMMENT = false;
+	private final Boolean REPORT_SYMBOL = true;
+	private final int TAB_LENGTH = 4;
+	private final char NEWLINE_CHAR = '\n';
+
 	// za stet vrstice in stolpce
 	private final int START_COLUMN_INDEX = 0;
 	private final int START_LINE_INDEX = 1;
 
 	// regexi
 	private final String IDENTIFIER_REGEX = "[A-Za-z_][A-Za-z0-9_]*";
-	private final String NUMBER_REGEX = "[[0-9]+";
+	private final String NUMBER_REGEX = "[0-9]+";
 	private final String FLOAT_REGEX = "[0-9]+\\.[0-9]+([Ee][+-]?[0-9]+)?";
 	private final String STRING_REGEX = "\\\"([^\\\\\\\"]|\\\\[\\\\\\\"])*\\\"";
 
@@ -27,6 +29,8 @@ public class LexAnal {
 	private int _currentColumnIndex = START_COLUMN_INDEX;
 	// trenuten simbol
 	private StringBuilder _simbol = new StringBuilder();
+	// Position trenutnega simbola
+	private Position _position = null;
 	// trenutno se gradi
 	private TipSimbola _trenutenTip = TipSimbola.UNDEFINED;
 	// oznacuje da pri naslednji zahtevi simbola je simbol ze pripravljen
@@ -54,8 +58,12 @@ public class LexAnal {
 			// shrani ime datoteke
 			_programName = programName;
 
-			// nastavi index vrstice na zacetno
+			// nastavi index vrstice na zacetno in stolpca
 			_currentLineIndex = START_LINE_INDEX;
+			_currentColumnIndex = START_COLUMN_INDEX;
+
+			// inicializira trenuten position razred
+			_position = new Position(_programName);
 
 			// inicializacija buffered reader
 			FileInputStream fileInputStream = new FileInputStream(programName);
@@ -106,14 +114,14 @@ public class LexAnal {
 			if (_simbol.length() == 1
 					&& _simbol.toString().toCharArray()[0] == '"') {
 				// gre cez cel string in vrne simbol
-				Symbol symbol = ZgradiSimbol("\"" + Niz(_bufferedReader));
+				Symbol symbol = ZgradiSimbol(_simbol.toString() + Niz());
 				_simbol = new StringBuilder();
 				return symbol;
 			}
 
 			while (true) {
 				// prebere naslednji znak
-				int prebranaVrednost = _bufferedReader.read();
+				int prebranaVrednost = Preberi();
 
 				if (prebranaVrednost == -1) {
 					// konec datoteke ce se gradi simbol ga vrne in zakljuci
@@ -128,34 +136,44 @@ public class LexAnal {
 				// pretvori v znak
 				char znak = (char) prebranaVrednost;
 
-				// pristeje stevec vrstice
-				_currentColumnIndex++;
-
 				// preveri prazne znake
-				SubResult subResult = CheckWhiteSpaces(znak, _bufferedReader);
-				if (subResult.Symbol != null) {
-					return subResult.Symbol;
+				Object[] subResult = CheckWhiteSpaces(znak, _bufferedReader);
+				if (subResult[0] != null) {
+					return (Symbol) subResult[0];
 				}
-				if (subResult.PreskociZnak) {
+				// ce je za preskocit znak
+				// preskoci se vedno, razen ce znak ni belo besedilo
+				if ((Boolean) subResult[1]) {
 					continue;
 				}
 
 				// preveri ce je znak za novo vrstico
 				if (znak == '\r') {
+					// odsteje znak '/r'
+					_currentColumnIndex--;
 					continue;
 				}
 				// ce je znak za novo vrstico poveca stevec vrstice in
 				// resetira stevec stolpca
-				if (znak == '\n') {
+				if (znak == NEWLINE_CHAR) {
+
 					if (_simbol.length() > 0) {
 						// konec simbola ko pri do nove vrstice
 						Symbol symbol = ZgradiSimbol(_simbol.toString());
+
+						// resetiraj counter
+						_currentColumnIndex = START_COLUMN_INDEX;
+						// nova vrstica
+						_currentLineIndex++;
+
 						_simbol = new StringBuilder();
 						return symbol;
 					}
 
-					_currentLineIndex++;
+					// resetiraj counter
 					_currentColumnIndex = START_COLUMN_INDEX;
+					// nova vrstica
+					_currentLineIndex++;
 
 					// nadaljuje z naslednjim znakom
 					continue;
@@ -168,12 +186,12 @@ public class LexAnal {
 						Symbol symbol = ZgradiSimbol(_simbol.toString());
 						_simbol = new StringBuilder();
 						// dodamo znak za novi simbol
-						_simbol.append(znak);
+						Append(znak);
 						return symbol;
 					}
 
 					// gre cez cel string in vrne simbol
-					Symbol symbol = ZgradiSimbol("\"" + Niz(_bufferedReader));
+					Symbol symbol = ZgradiSimbol("\"" + Niz());
 					_simbol = new StringBuilder();
 					return symbol;
 				}
@@ -182,23 +200,18 @@ public class LexAnal {
 				// ce je se preverja kaj se bo zgodilo naprej
 				if (_simbol.length() > 0) {
 
-					// ce gradi string
-					if(_trenutenTip == TipSimbola.STRING)
-					{
-						int a = 1;
-					}
 					// ce se gradi stevilo
 					if (_trenutenTip == TipSimbola.STEVILO) {
 						// ce je stevilo se doda in nadaljuje z novim znakom
 						if (Character.isDigit(znak)) {
-							_simbol.append(znak);
+							Append(znak);
 							continue;
 						} else {
 							// ce je znak pika je potrebno pretvori v float
 							// stevilo
 							if (znak == '.') {
 								_trenutenTip = TipSimbola.FLOAT;
-								_simbol.append(znak);
+								Append(znak);
 								continue;
 							}
 
@@ -217,28 +230,27 @@ public class LexAnal {
 							// shrani
 							// trenuten znak za naslednji simbol
 							if (CheckIfOneCharOperand(znak)) {
+
 								Symbol symbol = ZgradiSimbol(_simbol.toString());
 								_simbol = new StringBuilder();
-								_simbol.append(znak);
+								Append(znak);
 								_symbolInBuffer = true;
 								return symbol;
 							}
-							
+
 							// preveri ce je mogoce operand iz dveh znakov
-							if(IsTwoCharOperand(znak))
-							{
+							if (IsTwoCharOperand(znak)) {
 								// ce je vrne trenuten simbol
 								Symbol symbol = ZgradiSimbol(_simbol.toString());
 								// doda znak za naprej
 								_simbol = new StringBuilder();
-								_simbol.append(znak);
+								Append(znak);
 								// oznaci da bo operand
 								_trenutenTip = TipSimbola.OPERAND;
-								
+
 								return symbol;
 							}
-							
-							
+
 						}
 					}
 
@@ -249,14 +261,16 @@ public class LexAnal {
 						// ce je prejsnji znak . potem je lahko samo stevilo
 						if (GetLastChar(_simbol) == '.') {
 							if (Character.isDigit(znak)) {
-								_simbol.append(znak);
+								Append(znak);
 								continue;
 							} else {
 								// po piki obvezno stevilo, ce ni je napaka
-								Report.error("Napacno float stevilo", new Position(
-										_programName, _currentLineIndex,
-										_currentColumnIndex, _currentLineIndex,
-										_currentColumnIndex), 1);
+								Report.error("Napacno float stevilo",
+										new Position(_programName,
+												_currentLineIndex,
+												_currentColumnIndex,
+												_currentLineIndex,
+												_currentColumnIndex), 1);
 							}
 						}
 
@@ -265,14 +279,16 @@ public class LexAnal {
 						if (GetLastChar(_simbol) == 'e'
 								|| GetLastChar(_simbol) == 'E') {
 							if (znak == '+' || znak == '-') {
-								_simbol.append(znak);
+								Append(znak);
 								continue;
 							} else {
 								// po E ali e je lahko samo predznak
-								Report.error("Napacno float stevilo", new Position(
-										_programName, _currentLineIndex,
-										_currentColumnIndex, _currentLineIndex,
-										_currentColumnIndex), 1);
+								Report.error("Napacno float stevilo",
+										new Position(_programName,
+												_currentLineIndex,
+												_currentColumnIndex,
+												_currentLineIndex,
+												_currentColumnIndex), 1);
 							}
 						}
 
@@ -281,14 +297,16 @@ public class LexAnal {
 						if (GetLastChar(_simbol) == '+'
 								|| GetLastChar(_simbol) == '-') {
 							if (Character.isDigit(znak)) {
-								_simbol.append(znak);
+								Append(znak);
 								continue;
 							} else {
 								// samo stevilka je lahko za + ali -
-								Report.error("Napacno float stevilo", new Position(
-										_programName, _currentLineIndex,
-										_currentColumnIndex, _currentLineIndex,
-										_currentColumnIndex), 1);
+								Report.error("Napacno float stevilo",
+										new Position(_programName,
+												_currentLineIndex,
+												_currentColumnIndex,
+												_currentLineIndex,
+												_currentColumnIndex), 1);
 							}
 						}
 
@@ -316,7 +334,7 @@ public class LexAnal {
 											// doda trenuten znak za zacetek
 											// novega
 											// naslednjega
-											_simbol.append(znak);
+											Append(znak);
 											// nastavi da se ne gradi vec float
 											SetTipSimbola(znak);
 											// vrne
@@ -324,14 +342,19 @@ public class LexAnal {
 										} else {
 											// ce ni zlozen in je znak e ali E
 											// je napaka
-											Report.error("Napacno float stevilo", new Position(
-													_programName, _currentLineIndex,
-													_currentColumnIndex, _currentLineIndex,
-													_currentColumnIndex), 1);
+											Report.error(
+													"Napacno float stevilo",
+													new Position(
+															_programName,
+															_currentLineIndex,
+															_currentColumnIndex,
+															_currentLineIndex,
+															_currentColumnIndex),
+													1);
 										}
 									} else {
 										// ce ne vsebuje e ali E se doda
-										_simbol.append(znak);
+										Append(znak);
 										continue;
 
 									}
@@ -355,7 +378,7 @@ public class LexAnal {
 											// doda trenuten znak za zacetek
 											// novega
 											// naslednjega
-											_simbol.append(znak);
+											Append(znak);
 											// nastavi da se ne gradi vec float
 											SetTipSimbola(znak);
 											// vrne
@@ -363,14 +386,19 @@ public class LexAnal {
 										} else {
 											// ce ni zlozen in je znak + ali -
 											// je napaka
-											Report.error("Napacno float stevilo", new Position(
-													_programName, _currentLineIndex,
-													_currentColumnIndex, _currentLineIndex,
-													_currentColumnIndex), 1);
+											Report.error(
+													"Napacno float stevilo",
+													new Position(
+															_programName,
+															_currentLineIndex,
+															_currentColumnIndex,
+															_currentLineIndex,
+															_currentColumnIndex),
+													1);
 										}
 									} else {
 										// ce ne vsebuje + ali - se doda
-										_simbol.append(znak);
+										Append(znak);
 										continue;
 
 									}
@@ -385,23 +413,25 @@ public class LexAnal {
 									_simbol = new StringBuilder();
 									// doda trenuten znak za zacetek novega
 									// naslednjega
-									_simbol.append(znak);
+									Append(znak);
 									// nastavi da se ne gradi vec float
 									SetTipSimbola(znak);
 									// vrne
 									return symbol;
 								} else {
-									Report.error("Napacno float stevilo", new Position(
-											_programName, _currentLineIndex,
-											_currentColumnIndex, _currentLineIndex,
-											_currentColumnIndex), 1);
+									Report.error("Napacno float stevilo",
+											new Position(_programName,
+													_currentLineIndex,
+													_currentColumnIndex,
+													_currentLineIndex,
+													_currentColumnIndex), 1);
 								}
 							}
 						} else {
 							// ce je znak stevilka in od prejsnjih pogojev ni
 							// prejsnji .,+,-,e,E
 							// se ga doda in nadaljuje
-							_simbol.append(znak);
+							Append(znak);
 							continue;
 						}
 					}
@@ -412,7 +442,7 @@ public class LexAnal {
 						// se doda besedi in nadaljuje
 						if (Character.isLetter(znak) || Character.isDigit(znak)
 								|| znak == '_') {
-							_simbol.append(znak);
+							Append(znak);
 							continue;
 						} else {
 
@@ -420,7 +450,7 @@ public class LexAnal {
 							if (CheckIfOneCharOperand(znak)) {
 								Symbol symbol = ZgradiSimbol(_simbol.toString());
 								_simbol = new StringBuilder();
-								_simbol.append(znak);
+								Append(znak);
 								_symbolInBuffer = true;
 								return symbol;
 							}
@@ -430,7 +460,7 @@ public class LexAnal {
 							_simbol = new StringBuilder();
 							// doda trenuten znak za zacetek novega
 							// naslednjega
-							_simbol.append(znak);
+							Append(znak);
 							// nastavi da se ne gradi vec besede
 							SetTipSimbola(znak);
 							// vrne
@@ -443,7 +473,7 @@ public class LexAnal {
 						// ce je drugi del operanda vrnemo simbol
 						if (CheckIfTwoCharOperand(GetLastChar(_simbol), znak)) {
 							// dodamo noter
-							_simbol.append(znak);
+							Append(znak);
 							// vrnemo
 							Symbol symbol = ZgradiSimbol(_simbol.toString());
 							_simbol = new StringBuilder();
@@ -459,7 +489,7 @@ public class LexAnal {
 							_simbol = new StringBuilder();
 							// doda trenuten znak za zacetek novega
 							// naslednjega
-							_simbol.append(znak);
+							Append(znak);
 							// nastavi da se ne gradi vec operanda
 							SetTipSimbola(znak);
 							// vrne
@@ -470,7 +500,7 @@ public class LexAnal {
 						if (CheckIfOneCharOperand(znak)) {
 							Symbol symbol = ZgradiSimbol(_simbol.toString());
 							_simbol = new StringBuilder();
-							_simbol.append(znak);
+							Append(znak);
 							_symbolInBuffer = true;
 							return symbol;
 						}
@@ -488,8 +518,10 @@ public class LexAnal {
 				{
 					// za mozne simbole z enim znakom kar vrne
 					if (CheckIfOneCharOperand(znak)) {
+						// doda znak
+						Append(znak);
 
-						Symbol symbol = ZgradiSimbol("" + znak);
+						Symbol symbol = ZgradiSimbol(_simbol.toString());
 						_simbol = new StringBuilder();
 						return symbol;
 					}
@@ -498,7 +530,7 @@ public class LexAnal {
 					SetTipSimbola(znak);
 
 					// ce je mozno da imajo vec znakov doda v buffer
-					_simbol.append(znak);
+					Append(znak);
 				}
 			}
 		}
@@ -507,21 +539,29 @@ public class LexAnal {
 		return null;
 	}
 
-	private SubResult CheckWhiteSpaces(char znak, BufferedReader bufferedReader)
+	private void Append(char znak) {
+		// doda v buffer
+		_simbol.append(znak);
+		// nastavi zacetno pozicijo ce je prvi znak
+		if (_simbol.length() == 1)
+			_position.SetStart(_currentLineIndex, _currentColumnIndex);
+	}
+
+	private Object[] CheckWhiteSpaces(char znak, BufferedReader bufferedReader)
 			throws IOException {
 		// preveri ce je tab
-		// ce je zakjuci prejsnji simbol in dodal k dolzini 3 znake
+		// ce je zakjuci prejsnji simbol in dodal k dolzini TAB_LENGTH - 1 znake
 		// (1 je bil pristet ze)
 		if (znak == '\t') {
-			_currentColumnIndex = _currentColumnIndex + 3;
+			_currentColumnIndex = _currentColumnIndex + TAB_LENGTH - 1;
 
 			if (_simbol.length() > 0) {
 				Symbol symbol = ZgradiSimbol(_simbol.toString());
 				_simbol = new StringBuilder();
-				return new SubResult(symbol, true);
+				return new Object[] { symbol, true };
 			}
 
-			return new SubResult(null, true);
+			return new Object[] { null, true };
 		}
 
 		// preveri ce je presledek
@@ -530,10 +570,10 @@ public class LexAnal {
 			if (_simbol.length() > 0) {
 				Symbol symbol = ZgradiSimbol(_simbol.toString());
 				_simbol = new StringBuilder();
-				return new SubResult(symbol, true);
+				return new Object[] { symbol, true };
 			}
 
-			return new SubResult(null, true);
+			return new Object[] { null, true };
 		}
 
 		// preveri ce je zacetek komentarja
@@ -548,7 +588,7 @@ public class LexAnal {
 			}
 
 			// gre cez cel komentar
-			Komentar(bufferedReader);
+			Komentar();
 
 			// vrstica se poveca - komentar pusti v naslednji vrstici
 			_currentLineIndex++;
@@ -556,21 +596,21 @@ public class LexAnal {
 			_currentColumnIndex = START_COLUMN_INDEX;
 
 			// vrne null ce ni simbola ali pa simbol
-			return new SubResult(symbol, true);
+			return new Object[] { symbol, true };
 		}
 
-		return new SubResult(null, false);
+		return new Object[] { null, false };
 	}
 
 	// gre cez vse znake ki se stejejo za komentar
 	// vrne true ce je konec datoteke po komentarju
-	private Boolean Komentar(BufferedReader bufferedReader) throws IOException {
+	private Boolean Komentar() throws IOException {
 
 		StringBuilder komentar = new StringBuilder();
 
 		while (true) {
 			// prebere naslednji znak
-			int prebranaVrednost = bufferedReader.read();
+			int prebranaVrednost = Preberi();
 
 			// sporoci da je prislo do konca datoteke
 			if (prebranaVrednost == -1) {
@@ -587,7 +627,7 @@ public class LexAnal {
 			}
 
 			// ce pride do znaka \n je konec vrstice
-			if (znak == '\n') {
+			if (znak == NEWLINE_CHAR) {
 				ObvestiOKomentarju(komentar.toString());
 				return false;
 			}
@@ -607,24 +647,28 @@ public class LexAnal {
 
 	private void ObvestiOKomentarju(String komentar) {
 
-		// obvesti o komentarju
-		Report.information("Komentar : " + komentar, new Position(_programName,
-				_currentLineIndex, _currentColumnIndex, _currentLineIndex,
-				_currentColumnIndex + komentar.length()));
+		if (REPORT_COMMENT) {
+			// obvesti o komentarju
+			Report.information("Komentar : " + komentar, new Position(
+					_programName, _currentLineIndex, _currentColumnIndex,
+					_currentLineIndex, _currentColumnIndex + komentar.length()));
+		}
 	}
 
-	private String Niz(BufferedReader bufferedReader) throws IOException {
+	private String Niz() throws IOException {
 		// cel niz
 		StringBuilder niz = new StringBuilder();
 
 		// zapomni si zacetni index vrstice in stolpca
 		int startColumnIndex = _currentColumnIndex;
 		int startLineIndex = _currentLineIndex;
+		// nastavimo zacetek
+		_position.SetStart(startLineIndex, startColumnIndex);
 
 		while (true) {
 
 			// prebere naslednji znak
-			int prebranaVrednost = bufferedReader.read();
+			int prebranaVrednost = Preberi();
 
 			// ce pride do konca datoteke preden se konca niz je napaka
 			if (prebranaVrednost == -1) {
@@ -637,13 +681,10 @@ public class LexAnal {
 			// pretvori v znak
 			char znak = (char) prebranaVrednost;
 
-			// pristeje stevec vrstice
-			_currentColumnIndex++;
-
 			// preveri ce je nova vrstica
 			if (znak == '\r')
 				continue;
-			if (znak == '\n') {
+			if (znak == NEWLINE_CHAR) {
 				Report.error("Nedokoncan niz", new Position(_programName,
 						startLineIndex, startColumnIndex, _currentLineIndex,
 						_currentColumnIndex), 1);
@@ -673,22 +714,8 @@ public class LexAnal {
 		}
 	}
 
-	private Symbol ZgradiSimbol(String simbol) {
-
-		// zgradi pozicijo simbola
-		Position position = new Position(_programName, _currentLineIndex,
-				_currentColumnIndex - simbol.length(), _currentLineIndex,
-				_currentColumnIndex);
-
-		// sporoci dobro novico
-		Report.information("Nov simbol: " + simbol, position);
-
-		// TODO: pohendlat razlicne tipe
-		return new Symbol(Symbol.IDENTIFIER, "" + simbol, position);
-	}
-
 	private Boolean CheckIfOneCharOperand(char znak) {
-		return (znak == '+' || znak == '-' || znak == '*' || znak == '/'
+		return (znak == '+' || znak == '-' || znak == '*' || znak == '/' || znak == '%'
 				|| znak == '!' || znak == '&' || znak == '|' || znak == '('
 				|| znak == ')' || znak == '[' || znak == ']' || znak == '{'
 				|| znak == '}' || znak == '.' || znak == ',' || znak == ':' || znak == ';');
@@ -717,6 +744,9 @@ public class LexAnal {
 
 	private void SetTipSimbola(char znak) {
 
+		// nastavi default tkao da èe ne dobi niè javi napako
+		_trenutenTip = TipSimbola.UNDEFINED;
+
 		// zapomni si kaj naj bi se gradilo
 		if (Character.isLetter(znak))
 			_trenutenTip = TipSimbola.BESEDA;
@@ -728,21 +758,37 @@ public class LexAnal {
 		if (IsTwoCharOperand(znak)) {
 			_trenutenTip = TipSimbola.OPERAND;
 		}
+		
+		if(CheckIfOneCharOperand(znak))
+		{
+			_trenutenTip = TipSimbola.OPERAND;
+			_symbolInBuffer = true;
+		}
 
 		if (znak == '"') {
 			_trenutenTip = TipSimbola.STRING;
 		}
 
 		if (_trenutenTip == TipSimbola.UNDEFINED) {
-			Report.error("Nepravilen znak", new Position(_programName,
+			Report.error("Nepravilen znak :" + znak, new Position(_programName,
 					_currentLineIndex, _currentColumnIndex, _currentLineIndex,
 					_currentColumnIndex), 1);
 		}
 	}
-	
-	private Boolean IsTwoCharOperand(char znak)
-	{
+
+	// ce je mozen znak operand z dvema znakoma
+	private Boolean IsTwoCharOperand(char znak) {
 		return (znak == '=' || znak == '<' || znak == '>');
+	}
+
+	private int Preberi() throws IOException {
+		// prebere naslednji znak
+		int prebranaVrednost = _bufferedReader.read();
+
+		// pristeje stevec vrstice
+		_currentColumnIndex++;
+
+		return prebranaVrednost;
 	}
 
 	// vrne znadji znak
@@ -753,4 +799,157 @@ public class LexAnal {
 	public enum TipSimbola {
 		UNDEFINED, BESEDA, STEVILO, FLOAT, OPERAND, STRING
 	}
+
+	private Symbol ZgradiSimbol(String simbol) {
+
+		// nastavi konec simbola
+		_position.SetEnd(simbol);
+
+		// sporoci dobro novico
+		if (REPORT_SYMBOL)
+			Report.information("Nov simbol: " + simbol, _position);
+
+		// simboli
+		if (simbol.equals("+")) {
+			return new Symbol(Symbol.ADD, simbol, _position);
+		}
+		if (simbol.equals("-")) {
+			return new Symbol(Symbol.SUB, simbol, _position);
+		}
+		if (simbol.equals("*")) {
+			return new Symbol(Symbol.MUL, simbol, _position);
+		}
+		if (simbol.equals("/")) {
+			return new Symbol(Symbol.DIV, simbol, _position);
+		}
+		if (simbol.equals("%")) {
+			return new Symbol(Symbol.MOD, simbol, _position);
+		}
+		if (simbol.equals("!")) {
+			return new Symbol(Symbol.NOT, simbol, _position);
+		}
+		if (simbol.equals("&")) {
+			return new Symbol(Symbol.AND, simbol, _position);
+		}
+		if (simbol.equals("|")) {
+			return new Symbol(Symbol.OR, simbol, _position);
+		}
+		if (simbol.equals("==")) {
+			return new Symbol(Symbol.EQU, simbol, _position);
+		}
+		if (simbol.equals("<>")) {
+			return new Symbol(Symbol.NEQ, simbol, _position);
+		}
+		if (simbol.equals("<")) {
+			return new Symbol(Symbol.LTH, simbol, _position);
+		}
+		if (simbol.equals(">")) {
+			return new Symbol(Symbol.GTH, simbol, _position);
+		}
+		if (simbol.equals("<=")) {
+			return new Symbol(Symbol.LEQ, simbol, _position);
+		}
+		if (simbol.equals(">=")) {
+			return new Symbol(Symbol.GEQ, simbol, _position);
+		}
+		if (simbol.equals("=")) {
+			return new Symbol(Symbol.ASSIGN, simbol, _position);
+		}
+		if (simbol.equals("(")) {
+			return new Symbol(Symbol.LPARENT, simbol, _position);
+		}
+		if (simbol.equals(")")) {
+			return new Symbol(Symbol.RPARENT, simbol, _position);
+		}
+		if (simbol.equals("[")) {
+			return new Symbol(Symbol.LBRACKET, simbol, _position);
+		}
+		if (simbol.equals("]")) {
+			return new Symbol(Symbol.RBRACKET, simbol, _position);
+		}
+		if (simbol.equals("{")) {
+			return new Symbol(Symbol.LBRACE, simbol, _position);
+		}
+		if (simbol.equals("}")) {
+			return new Symbol(Symbol.RBRACE, simbol, _position);
+		}
+		if (simbol.equals(".")) {
+			return new Symbol(Symbol.DOT, simbol, _position);
+		}
+		if (simbol.equals(",")) {
+			return new Symbol(Symbol.COMMA, simbol, _position);
+		}
+		if (simbol.equals(":")) {
+			return new Symbol(Symbol.COLON, simbol, _position);
+		}
+		if (simbol.equals(";")) {
+			return new Symbol(Symbol.SEMIC, simbol, _position);
+		}
+		if (simbol.equals("arr")) {
+			return new Symbol(Symbol.ARR, simbol, _position);
+		}
+		if (simbol.equals("else")) {
+			return new Symbol(Symbol.ELSE, simbol, _position);
+		}
+		if (simbol.equals("for")) {
+			return new Symbol(Symbol.FOR, simbol, _position);
+		}
+		if (simbol.equals("fun")) {
+			return new Symbol(Symbol.FUN, simbol, _position);
+		}
+		if (simbol.equals("if")) {
+			return new Symbol(Symbol.IF, simbol, _position);
+		}
+		if (simbol.equals("rec")) {
+			return new Symbol(Symbol.REC, simbol, _position);
+		}
+		if (simbol.equals("then")) {
+			return new Symbol(Symbol.THEN, simbol, _position);
+		}
+		if (simbol.equals("typ")) {
+			return new Symbol(Symbol.TYP, simbol, _position);
+		}
+		if (simbol.equals("var")) {
+			return new Symbol(Symbol.VAR, simbol, _position);
+		}
+		if (simbol.equals("where")) {
+			return new Symbol(Symbol.WHERE, simbol, _position);
+		}
+		if (simbol.equals("while")) {
+			return new Symbol(Symbol.WHILE, simbol, _position);
+		}
+		if (simbol.equals("int")) {
+			return new Symbol(Symbol.INT, simbol, _position);
+		}
+		if (simbol.equals("bool")) {
+			return new Symbol(Symbol.BOOL, simbol, _position);
+		}
+		if (simbol.equals("real")) {
+			return new Symbol(Symbol.REAL, simbol, _position);
+		}
+		if (simbol.equals("string")) {
+			return new Symbol(Symbol.STRING, simbol, _position);
+		}
+		if (simbol.equals("true") || simbol.equals("false")) {
+			return new Symbol(Symbol.BOOLCONST, simbol, _position);
+		}
+		if (simbol.matches(STRING_REGEX)) {
+			return new Symbol(Symbol.STRINGCONST, simbol, _position);
+		}
+		if (simbol.matches(FLOAT_REGEX)) {
+			return new Symbol(Symbol.REALCONST, simbol, _position);
+		}
+		if (simbol.matches(NUMBER_REGEX)) {
+			return new Symbol(Symbol.INTCONST, simbol, _position);
+		}
+		if (simbol.matches(IDENTIFIER_REGEX)) {
+			return new Symbol(Symbol.IDENTIFIER, simbol, _position);
+		}
+
+		// ce ni nic je neka napaka
+		Report.error("Napaka.", _position, 1);
+
+		return null;
+	}
+
 }
