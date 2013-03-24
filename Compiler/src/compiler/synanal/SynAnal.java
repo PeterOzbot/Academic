@@ -8,7 +8,7 @@ import compiler.lexanal.*;
 /** Sintaksni analizator. */
 public class SynAnal {
 	// nastavitve
-	private final Boolean REPORT_SKIP = true;
+	private final Boolean REPORT_SKIP = false;
 	
 	private LexAnal lexer;
 
@@ -333,8 +333,11 @@ public class SynAnal {
 		switch (symbol != null ? symbol.getToken() : -1) {
 		case -1:
 			break;
-		default:
+		case Symbol.VAR:
+		case Symbol.TYP:
+		case Symbol.FUN:
 			parseDeclarations();
+			break;
 		}
 
 		debug();
@@ -352,8 +355,8 @@ public class SynAnal {
 		case Symbol.FUN:
 			parseFunctionDeclaration();
 			break;
-		//default:
-			//throw new ParseException();
+		default:
+			throw new ParseException();
 		}
 		debug();
 	}
@@ -528,6 +531,12 @@ public class SynAnal {
 		// sporoci skip
 		if (REPORT_SKIP)
 			Report.information("Preverjamo simbol: " + symbol.getLexeme(), symbol.getPosition());
+		
+		// za debugat - lazje dobit kjer prid do napake
+		//if(symbol.getPosition().equals(new Position("",6,17,6,17)))
+		//{
+		//	int a = 2;
+		//}
 		
 		Symbol skippedSymbol = symbol;
 		if (xml != null)

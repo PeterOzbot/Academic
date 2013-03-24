@@ -38,6 +38,23 @@ public class Position implements XMLable {
 		this.endColumn = this.begColumn + simbol.length() - 1;
 		this.endLine = this.begLine;
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		Position objPosition = (Position)obj;
+		if(objPosition != null)
+		{
+			if(begColumn == objPosition.begColumn && begLine == objPosition.begLine && endLine == objPosition.endLine && endColumn == objPosition.endColumn)
+				return true;
+			else return false;
+		}
+		return super.equals(obj);
+	}
+	
+	@Override
+	public int hashCode() {
+		return super.hashCode();
+	}
 
 	@Override
 	public void toXML(PrintStream xml) {
