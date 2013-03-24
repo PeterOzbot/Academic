@@ -1,543 +1,213 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <lexanal>
-<symbol token="IDENTIFIER"  lexeme="a">
-<position filename="d:\ProteusSample.txt" begLine="1" begColumn="1" endLine="1" endColumn="1"/>
-</symbol>
-<symbol token="ASSIGN">
-<position filename="d:\ProteusSample.txt" begLine="1" begColumn="3" endLine="1" endColumn="3"/>
-</symbol>
-<symbol token="IDENTIFIER"  lexeme="v">
-<position filename="d:\ProteusSample.txt" begLine="1" begColumn="6" endLine="1" endColumn="5"/>
-</symbol>
-<symbol token="ADD">
-<position filename="d:\ProteusSample.txt" begLine="1" begColumn="6" endLine="1" endColumn="6"/>
-</symbol>
-<symbol token="IDENTIFIER"  lexeme="c">
-<position filename="d:\ProteusSample.txt" begLine="1" begColumn="8" endLine="1" endColumn="7"/>
-</symbol>
-<symbol token="SEMIC">
-<position filename="d:\ProteusSample.txt" begLine="1" begColumn="8" endLine="1" endColumn="8"/>
-</symbol>
-<symbol token="IDENTIFIER"  lexeme="c">
-<position filename="d:\ProteusSample.txt" begLine="1" begColumn="11" endLine="1" endColumn="10"/>
-</symbol>
-<symbol token="ASSIGN">
-<position filename="d:\ProteusSample.txt" begLine="1" begColumn="12" endLine="1" endColumn="11"/>
-</symbol>
-<symbol token="INTCONST"    lexeme="1">
-<position filename="d:\ProteusSample.txt" begLine="1" begColumn="13" endLine="1" endColumn="12"/>
-</symbol>
-<symbol token="ADD">
-<position filename="d:\ProteusSample.txt" begLine="1" begColumn="13" endLine="1" endColumn="13"/>
-</symbol>
-<symbol token="INTCONST"    lexeme="2">
-<position filename="d:\ProteusSample.txt" begLine="1" begColumn="15" endLine="1" endColumn="14"/>
-</symbol>
-<symbol token="SEMIC">
-<position filename="d:\ProteusSample.txt" begLine="1" begColumn="15" endLine="1" endColumn="15"/>
-</symbol>
-<symbol token="IDENTIFIER"  lexeme="v">
-<position filename="d:\ProteusSample.txt" begLine="1" begColumn="17" endLine="1" endColumn="17"/>
-</symbol>
-<symbol token="GTH">
-<position filename="d:\ProteusSample.txt" begLine="1" begColumn="19" endLine="1" endColumn="19"/>
-</symbol>
-<symbol token="IDENTIFIER"  lexeme="a">
-<position filename="d:\ProteusSample.txt" begLine="1" begColumn="22" endLine="1" endColumn="21"/>
-</symbol>
-<symbol token="LBRACKET">
-<position filename="d:\ProteusSample.txt" begLine="1" begColumn="22" endLine="1" endColumn="22"/>
-</symbol>
-<symbol token="RBRACKET">
-<position filename="d:\ProteusSample.txt" begLine="1" begColumn="23" endLine="1" endColumn="23"/>
-</symbol>
-<symbol token="ASSIGN">
-<position filename="d:\ProteusSample.txt" begLine="1" begColumn="25" endLine="1" endColumn="25"/>
-</symbol>
-<symbol token="IDENTIFIER"  lexeme="a">
-<position filename="d:\ProteusSample.txt" begLine="1" begColumn="28" endLine="1" endColumn="27"/>
-</symbol>
-<symbol token="LBRACKET">
-<position filename="d:\ProteusSample.txt" begLine="1" begColumn="28" endLine="1" endColumn="28"/>
-</symbol>
-<symbol token="INTCONST"    lexeme="5">
-<position filename="d:\ProteusSample.txt" begLine="1" begColumn="30" endLine="1" endColumn="29"/>
-</symbol>
-<symbol token="RBRACKET">
-<position filename="d:\ProteusSample.txt" begLine="1" begColumn="30" endLine="1" endColumn="30"/>
-</symbol>
-<symbol token="SEMIC">
-<position filename="d:\ProteusSample.txt" begLine="1" begColumn="31" endLine="1" endColumn="31"/>
-</symbol>
-<symbol token="IF">
-<position filename="d:\ProteusSample.txt" begLine="4" begColumn="1" endLine="4" endColumn="2"/>
-</symbol>
-<symbol token="LPARENT">
-<position filename="d:\ProteusSample.txt" begLine="4" begColumn="4" endLine="4" endColumn="4"/>
-</symbol>
-<symbol token="IDENTIFIER"  lexeme="a">
-<position filename="d:\ProteusSample.txt" begLine="4" begColumn="5" endLine="4" endColumn="5"/>
-</symbol>
-<symbol token="EQU">
-<position filename="d:\ProteusSample.txt" begLine="4" begColumn="11" endLine="4" endColumn="12"/>
-</symbol>
-<symbol token="IDENTIFIER"  lexeme="b">
-<position filename="d:\ProteusSample.txt" begLine="4" begColumn="15" endLine="4" endColumn="14"/>
-</symbol>
-<symbol token="RPARENT">
-<position filename="d:\ProteusSample.txt" begLine="4" begColumn="15" endLine="4" endColumn="15"/>
-</symbol>
-<symbol token="LBRACE">
-<position filename="d:\ProteusSample.txt" begLine="4" begColumn="17" endLine="4" endColumn="17"/>
-</symbol>
-<symbol token="WHILE">
-<position filename="d:\ProteusSample.txt" begLine="5" begColumn="5" endLine="5" endColumn="9"/>
-</symbol>
-<symbol token="LPARENT">
-<position filename="d:\ProteusSample.txt" begLine="5" begColumn="11" endLine="5" endColumn="11"/>
-</symbol>
-<symbol token="IDENTIFIER"  lexeme="a">
-<position filename="d:\ProteusSample.txt" begLine="5" begColumn="13" endLine="5" endColumn="13"/>
-</symbol>
-<symbol token="GEQ">
-<position filename="d:\ProteusSample.txt" begLine="5" begColumn="15" endLine="5" endColumn="16"/>
-</symbol>
-<symbol token="INTCONST"    lexeme="10">
-<position filename="d:\ProteusSample.txt" begLine="5" begColumn="20" endLine="5" endColumn="19"/>
-</symbol>
-<symbol token="RPARENT">
-<position filename="d:\ProteusSample.txt" begLine="5" begColumn="20" endLine="5" endColumn="20"/>
-</symbol>
-<symbol token="LBRACE">
-<position filename="d:\ProteusSample.txt" begLine="5" begColumn="22" endLine="5" endColumn="22"/>
-</symbol>
-<symbol token="IDENTIFIER"  lexeme="a">
-<position filename="d:\ProteusSample.txt" begLine="6" begColumn="9" endLine="6" endColumn="9"/>
-</symbol>
-<symbol token="ASSIGN">
-<position filename="d:\ProteusSample.txt" begLine="6" begColumn="11" endLine="6" endColumn="11"/>
-</symbol>
-<symbol token="IDENTIFIER"  lexeme="a">
-<position filename="d:\ProteusSample.txt" begLine="6" begColumn="14" endLine="6" endColumn="13"/>
-</symbol>
-<symbol token="ADD">
-<position filename="d:\ProteusSample.txt" begLine="6" begColumn="14" endLine="6" endColumn="14"/>
-</symbol>
-<symbol token="INTCONST"    lexeme="1">
-<position filename="d:\ProteusSample.txt" begLine="6" begColumn="16" endLine="6" endColumn="15"/>
-</symbol>
-<symbol token="SEMIC">
-<position filename="d:\ProteusSample.txt" begLine="6" begColumn="16" endLine="6" endColumn="16"/>
-</symbol>
-<symbol token="RBRACE">
-<position filename="d:\ProteusSample.txt" begLine="7" begColumn="5" endLine="7" endColumn="5"/>
-</symbol>
-<symbol token="RBRACE">
-<position filename="d:\ProteusSample.txt" begLine="8" begColumn="1" endLine="8" endColumn="1"/>
-</symbol>
-<symbol token="STRING">
-<position filename="d:\ProteusSample.txt" begLine="10" begColumn="1" endLine="10" endColumn="6"/>
-</symbol>
-<symbol token="IDENTIFIER"  lexeme="c">
-<position filename="d:\ProteusSample.txt" begLine="10" begColumn="8" endLine="10" endColumn="8"/>
-</symbol>
-<symbol token="ASSIGN">
-<position filename="d:\ProteusSample.txt" begLine="10" begColumn="11" endLine="10" endColumn="10"/>
-</symbol>
-<symbol token="STRINGCONST" lexeme="&#34;this is a \&#34; \\ string&#34;">
-<position filename="d:\ProteusSample.txt" begLine="10" begColumn="11" endLine="10" endColumn="34"/>
-</symbol>
-<symbol token="SEMIC">
-<position filename="d:\ProteusSample.txt" begLine="10" begColumn="35" endLine="10" endColumn="35"/>
-</symbol>
-<symbol token="REAL">
-<position filename="d:\ProteusSample.txt" begLine="11" begColumn="1" endLine="11" endColumn="4"/>
-</symbol>
-<symbol token="IDENTIFIER"  lexeme="as23">
-<position filename="d:\ProteusSample.txt" begLine="11" begColumn="6" endLine="11" endColumn="9"/>
-</symbol>
-<symbol token="ASSIGN">
-<position filename="d:\ProteusSample.txt" begLine="11" begColumn="11" endLine="11" endColumn="11"/>
-</symbol>
-<symbol token="SUB">
-<position filename="d:\ProteusSample.txt" begLine="11" begColumn="13" endLine="11" endColumn="13"/>
-</symbol>
-<symbol token="REALCONST"   lexeme="12.4556">
-<position filename="d:\ProteusSample.txt" begLine="11" begColumn="21" endLine="11" endColumn="20"/>
-</symbol>
-<symbol token="SEMIC">
-<position filename="d:\ProteusSample.txt" begLine="11" begColumn="21" endLine="11" endColumn="21"/>
-</symbol>
-<symbol token="IDENTIFIER"  lexeme="a">
-<position filename="d:\ProteusSample.txt" begLine="11" begColumn="22" endLine="11" endColumn="22"/>
-</symbol>
-<symbol token="ARR">
-<position filename="d:\ProteusSample.txt" begLine="12" begColumn="4" endLine="12" endColumn="3"/>
-</symbol>
-<symbol token="SEMIC">
-<position filename="d:\ProteusSample.txt" begLine="12" begColumn="4" endLine="12" endColumn="4"/>
-</symbol>
-<symbol token="INTCONST"    lexeme="1">
-<position filename="d:\ProteusSample.txt" begLine="14" begColumn="1" endLine="14" endColumn="1"/>
-</symbol>
-<symbol token="REALCONST"   lexeme="1.0">
-<position filename="d:\ProteusSample.txt" begLine="14" begColumn="3" endLine="14" endColumn="5"/>
-</symbol>
-<symbol token="REALCONST"   lexeme="1.0E+1">
-<position filename="d:\ProteusSample.txt" begLine="14" begColumn="7" endLine="14" endColumn="12"/>
-</symbol>
-<symbol token="REALCONST"   lexeme="11.111e+111">
-<position filename="d:\ProteusSample.txt" begLine="16" begColumn="12" endLine="16" endColumn="11"/>
-</symbol>
-<symbol token="IDENTIFIER"  lexeme="e">
-<position filename="d:\ProteusSample.txt" begLine="16" begColumn="12" endLine="16" endColumn="12"/>
-</symbol>
-<symbol token="SUB">
-<position filename="d:\ProteusSample.txt" begLine="17" begColumn="1" endLine="17" endColumn="1"/>
-</symbol>
-<symbol token="REALCONST"   lexeme="11.111E-111">
-<position filename="d:\ProteusSample.txt" begLine="17" begColumn="13" endLine="17" endColumn="12"/>
-</symbol>
-<symbol token="IDENTIFIER"  lexeme="E">
-<position filename="d:\ProteusSample.txt" begLine="17" begColumn="13" endLine="17" endColumn="13"/>
-</symbol>
-<symbol token="REALCONST"   lexeme="11.111E-111">
-<position filename="d:\ProteusSample.txt" begLine="18" begColumn="12" endLine="18" endColumn="11"/>
-</symbol>
-<symbol token="ADD">
-<position filename="d:\ProteusSample.txt" begLine="18" begColumn="12" endLine="18" endColumn="12"/>
-</symbol>
-<symbol token="ADD">
-<position filename="d:\ProteusSample.txt" begLine="20" begColumn="1" endLine="20" endColumn="1"/>
-</symbol>
-<symbol token="SUB">
-<position filename="d:\ProteusSample.txt" begLine="20" begColumn="3" endLine="20" endColumn="3"/>
-</symbol>
-<symbol token="MUL">
-<position filename="d:\ProteusSample.txt" begLine="20" begColumn="5" endLine="20" endColumn="5"/>
-</symbol>
-<symbol token="DIV">
-<position filename="d:\ProteusSample.txt" begLine="20" begColumn="7" endLine="20" endColumn="7"/>
-</symbol>
-<symbol token="MOD">
-<position filename="d:\ProteusSample.txt" begLine="20" begColumn="9" endLine="20" endColumn="9"/>
-</symbol>
-<symbol token="NOT">
-<position filename="d:\ProteusSample.txt" begLine="20" begColumn="11" endLine="20" endColumn="11"/>
-</symbol>
-<symbol token="AND">
-<position filename="d:\ProteusSample.txt" begLine="20" begColumn="13" endLine="20" endColumn="13"/>
-</symbol>
-<symbol token="OR">
-<position filename="d:\ProteusSample.txt" begLine="20" begColumn="15" endLine="20" endColumn="15"/>
-</symbol>
-<symbol token="EQU">
-<position filename="d:\ProteusSample.txt" begLine="20" begColumn="17" endLine="20" endColumn="18"/>
-</symbol>
-<symbol token="NEQ">
-<position filename="d:\ProteusSample.txt" begLine="20" begColumn="20" endLine="20" endColumn="21"/>
-</symbol>
-<symbol token="LEQ">
-<position filename="d:\ProteusSample.txt" begLine="20" begColumn="23" endLine="20" endColumn="24"/>
-</symbol>
-<symbol token="GEQ">
-<position filename="d:\ProteusSample.txt" begLine="20" begColumn="26" endLine="20" endColumn="27"/>
-</symbol>
-<symbol token="LTH">
-<position filename="d:\ProteusSample.txt" begLine="20" begColumn="29" endLine="20" endColumn="29"/>
-</symbol>
-<symbol token="GTH">
-<position filename="d:\ProteusSample.txt" begLine="20" begColumn="31" endLine="20" endColumn="31"/>
-</symbol>
-<symbol token="LPARENT">
-<position filename="d:\ProteusSample.txt" begLine="20" begColumn="33" endLine="20" endColumn="33"/>
-</symbol>
-<symbol token="RPARENT">
-<position filename="d:\ProteusSample.txt" begLine="20" begColumn="35" endLine="20" endColumn="35"/>
-</symbol>
-<symbol token="LBRACKET">
-<position filename="d:\ProteusSample.txt" begLine="20" begColumn="37" endLine="20" endColumn="37"/>
-</symbol>
-<symbol token="RBRACKET">
-<position filename="d:\ProteusSample.txt" begLine="20" begColumn="39" endLine="20" endColumn="39"/>
-</symbol>
-<symbol token="LBRACE">
-<position filename="d:\ProteusSample.txt" begLine="20" begColumn="41" endLine="20" endColumn="41"/>
-</symbol>
-<symbol token="RBRACE">
-<position filename="d:\ProteusSample.txt" begLine="20" begColumn="43" endLine="20" endColumn="43"/>
-</symbol>
-<symbol token="ASSIGN">
-<position filename="d:\ProteusSample.txt" begLine="20" begColumn="45" endLine="20" endColumn="45"/>
-</symbol>
-<symbol token="DOT">
-<position filename="d:\ProteusSample.txt" begLine="20" begColumn="47" endLine="20" endColumn="47"/>
-</symbol>
-<symbol token="COMMA">
-<position filename="d:\ProteusSample.txt" begLine="20" begColumn="49" endLine="20" endColumn="49"/>
-</symbol>
-<symbol token="COLON">
-<position filename="d:\ProteusSample.txt" begLine="20" begColumn="51" endLine="20" endColumn="51"/>
-</symbol>
-<symbol token="SEMIC">
-<position filename="d:\ProteusSample.txt" begLine="20" begColumn="53" endLine="20" endColumn="53"/>
-</symbol>
-<symbol token="IDENTIFIER"  lexeme="a123">
-<position filename="d:\ProteusSample.txt" begLine="22" begColumn="1" endLine="22" endColumn="4"/>
-</symbol>
-<symbol token="IDENTIFIER"  lexeme="a">
-<position filename="d:\ProteusSample.txt" begLine="24" begColumn="2" endLine="24" endColumn="1"/>
-</symbol>
-<symbol token="ASSIGN">
-<position filename="d:\ProteusSample.txt" begLine="24" begColumn="3" endLine="24" endColumn="2"/>
-</symbol>
-<symbol token="INTCONST"    lexeme="1">
-<position filename="d:\ProteusSample.txt" begLine="24" begColumn="3" endLine="24" endColumn="3"/>
-</symbol>
-<symbol token="IDENTIFIER"  lexeme="a">
-<position filename="d:\ProteusSample.txt" begLine="25" begColumn="1" endLine="25" endColumn="1"/>
-</symbol>
-<symbol token="ASSIGN">
-<position filename="d:\ProteusSample.txt" begLine="25" begColumn="3" endLine="25" endColumn="3"/>
-</symbol>
-<symbol token="INTCONST"    lexeme="1">
-<position filename="d:\ProteusSample.txt" begLine="25" begColumn="5" endLine="25" endColumn="5"/>
-</symbol>
-<symbol token="IDENTIFIER"  lexeme="c">
-<position filename="d:\ProteusSample.txt" begLine="26" begColumn="2" endLine="26" endColumn="1"/>
-</symbol>
-<symbol token="ASSIGN">
-<position filename="d:\ProteusSample.txt" begLine="26" begColumn="3" endLine="26" endColumn="2"/>
-</symbol>
-<symbol token="IDENTIFIER"  lexeme="a">
-<position filename="d:\ProteusSample.txt" begLine="26" begColumn="4" endLine="26" endColumn="3"/>
-</symbol>
-<symbol token="ADD">
-<position filename="d:\ProteusSample.txt" begLine="26" begColumn="4" endLine="26" endColumn="4"/>
-</symbol>
-<symbol token="IDENTIFIER"  lexeme="b">
-<position filename="d:\ProteusSample.txt" begLine="26" begColumn="5" endLine="26" endColumn="5"/>
-</symbol>
-<symbol token="IDENTIFIER"  lexeme="c">
-<position filename="d:\ProteusSample.txt" begLine="27" begColumn="1" endLine="27" endColumn="1"/>
-</symbol>
-<symbol token="ASSIGN">
-<position filename="d:\ProteusSample.txt" begLine="27" begColumn="3" endLine="27" endColumn="3"/>
-</symbol>
-<symbol token="IDENTIFIER"  lexeme="a">
-<position filename="d:\ProteusSample.txt" begLine="27" begColumn="6" endLine="27" endColumn="5"/>
-</symbol>
-<symbol token="ADD">
-<position filename="d:\ProteusSample.txt" begLine="27" begColumn="6" endLine="27" endColumn="6"/>
-</symbol>
-<symbol token="IDENTIFIER"  lexeme="b">
-<position filename="d:\ProteusSample.txt" begLine="27" begColumn="9" endLine="27" endColumn="8"/>
-</symbol>
-<symbol token="SEMIC">
-<position filename="d:\ProteusSample.txt" begLine="27" begColumn="9" endLine="27" endColumn="9"/>
-</symbol>
-<symbol token="INT">
-<position filename="d:\ProteusSample.txt" begLine="29" begColumn="1" endLine="29" endColumn="3"/>
-</symbol>
-<symbol token="IDENTIFIER"  lexeme="a">
-<position filename="d:\ProteusSample.txt" begLine="29" begColumn="6" endLine="29" endColumn="5"/>
-</symbol>
-<symbol token="ASSIGN">
-<position filename="d:\ProteusSample.txt" begLine="29" begColumn="7" endLine="29" endColumn="6"/>
-</symbol>
-<symbol token="INTCONST"    lexeme="1">
-<position filename="d:\ProteusSample.txt" begLine="29" begColumn="8" endLine="29" endColumn="7"/>
-</symbol>
-<symbol token="DIV">
-<position filename="d:\ProteusSample.txt" begLine="29" begColumn="8" endLine="29" endColumn="8"/>
-</symbol>
-<symbol token="INTCONST"    lexeme="2">
-<position filename="d:\ProteusSample.txt" begLine="29" begColumn="10" endLine="29" endColumn="9"/>
-</symbol>
-<symbol token="SEMIC">
-<position filename="d:\ProteusSample.txt" begLine="29" begColumn="10" endLine="29" endColumn="10"/>
-</symbol>
-<symbol token="ARR">
-<position filename="d:\ProteusSample.txt" begLine="31" begColumn="1" endLine="31" endColumn="3"/>
-</symbol>
-<symbol token="ELSE">
-<position filename="d:\ProteusSample.txt" begLine="31" begColumn="5" endLine="31" endColumn="8"/>
-</symbol>
-<symbol token="FOR">
-<position filename="d:\ProteusSample.txt" begLine="31" begColumn="10" endLine="31" endColumn="12"/>
-</symbol>
-<symbol token="FUN">
-<position filename="d:\ProteusSample.txt" begLine="31" begColumn="14" endLine="31" endColumn="16"/>
-</symbol>
-<symbol token="IF">
-<position filename="d:\ProteusSample.txt" begLine="31" begColumn="18" endLine="31" endColumn="19"/>
-</symbol>
-<symbol token="REC">
-<position filename="d:\ProteusSample.txt" begLine="31" begColumn="21" endLine="31" endColumn="23"/>
-</symbol>
-<symbol token="THEN">
-<position filename="d:\ProteusSample.txt" begLine="31" begColumn="25" endLine="31" endColumn="28"/>
-</symbol>
-<symbol token="TYP">
-<position filename="d:\ProteusSample.txt" begLine="31" begColumn="30" endLine="31" endColumn="32"/>
-</symbol>
-<symbol token="VAR">
-<position filename="d:\ProteusSample.txt" begLine="31" begColumn="34" endLine="31" endColumn="36"/>
+<symbol token="REALCONST"   lexeme="1.2">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="1" begColumn="1" endLine="1" endColumn="3"/>
 </symbol>
 <symbol token="WHERE">
-<position filename="d:\ProteusSample.txt" begLine="31" begColumn="38" endLine="31" endColumn="42"/>
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="1" begColumn="5" endLine="1" endColumn="9"/>
 </symbol>
-<symbol token="WHILE">
-<position filename="d:\ProteusSample.txt" begLine="31" begColumn="44" endLine="31" endColumn="48"/>
+<symbol token="TYP">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="1" begColumn="11" endLine="1" endColumn="13"/>
 </symbol>
-<symbol token="WHILE">
-<position filename="d:\ProteusSample.txt" begLine="33" begColumn="6" endLine="33" endColumn="5"/>
+<symbol token="IDENTIFIER"  lexeme="i">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="1" begColumn="16" endLine="1" endColumn="15"/>
 </symbol>
-<symbol token="LPARENT">
-<position filename="d:\ProteusSample.txt" begLine="33" begColumn="6" endLine="33" endColumn="6"/>
+<symbol token="COLON">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="1" begColumn="16" endLine="1" endColumn="16"/>
 </symbol>
-<symbol token="IDENTIFIER"  lexeme="a">
-<position filename="d:\ProteusSample.txt" begLine="33" begColumn="8" endLine="33" endColumn="7"/>
+<symbol token="REAL">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="1" begColumn="21" endLine="1" endColumn="20"/>
 </symbol>
-<symbol token="GTH">
-<position filename="d:\ProteusSample.txt" begLine="33" begColumn="9" endLine="33" endColumn="8"/>
+<symbol token="SEMIC">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="1" begColumn="21" endLine="1" endColumn="21"/>
 </symbol>
-<symbol token="IDENTIFIER"  lexeme="b">
-<position filename="d:\ProteusSample.txt" begLine="33" begColumn="10" endLine="33" endColumn="9"/>
-</symbol>
-<symbol token="RPARENT">
-<position filename="d:\ProteusSample.txt" begLine="33" begColumn="10" endLine="33" endColumn="10"/>
+<symbol token="COMMA">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="1" begColumn="22" endLine="1" endColumn="22"/>
 </symbol>
 <symbol token="LBRACE">
-<position filename="d:\ProteusSample.txt" begLine="34" begColumn="1" endLine="34" endColumn="1"/>
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="2" begColumn="1" endLine="2" endColumn="1"/>
 </symbol>
 <symbol token="IF">
-<position filename="d:\ProteusSample.txt" begLine="35" begColumn="7" endLine="35" endColumn="6"/>
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="2" begColumn="2" endLine="2" endColumn="3"/>
 </symbol>
-<symbol token="LPARENT">
-<position filename="d:\ProteusSample.txt" begLine="35" begColumn="7" endLine="35" endColumn="7"/>
+<symbol token="IDENTIFIER"  lexeme="i">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="2" begColumn="6" endLine="2" endColumn="5"/>
 </symbol>
-<symbol token="IDENTIFIER"  lexeme="a">
-<position filename="d:\ProteusSample.txt" begLine="35" begColumn="9" endLine="35" endColumn="8"/>
-</symbol>
-<symbol token="RPARENT">
-<position filename="d:\ProteusSample.txt" begLine="35" begColumn="9" endLine="35" endColumn="9"/>
-</symbol>
-<symbol token="LBRACE">
-<position filename="d:\ProteusSample.txt" begLine="36" begColumn="5" endLine="36" endColumn="5"/>
-</symbol>
-<symbol token="INT">
-<position filename="d:\ProteusSample.txt" begLine="37" begColumn="9" endLine="37" endColumn="11"/>
-</symbol>
-<symbol token="IDENTIFIER"  lexeme="abc">
-<position filename="d:\ProteusSample.txt" begLine="37" begColumn="13" endLine="37" endColumn="15"/>
-</symbol>
-<symbol token="ASSIGN">
-<position filename="d:\ProteusSample.txt" begLine="37" begColumn="17" endLine="37" endColumn="17"/>
-</symbol>
-<symbol token="INTCONST"    lexeme="1">
-<position filename="d:\ProteusSample.txt" begLine="37" begColumn="20" endLine="37" endColumn="19"/>
-</symbol>
-<symbol token="MUL">
-<position filename="d:\ProteusSample.txt" begLine="37" begColumn="20" endLine="37" endColumn="20"/>
-</symbol>
-<symbol token="LPARENT">
-<position filename="d:\ProteusSample.txt" begLine="37" begColumn="21" endLine="37" endColumn="21"/>
+<symbol token="GTH">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="2" begColumn="7" endLine="2" endColumn="6"/>
 </symbol>
 <symbol token="INTCONST"    lexeme="2">
-<position filename="d:\ProteusSample.txt" begLine="37" begColumn="23" endLine="37" endColumn="22"/>
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="2" begColumn="7" endLine="2" endColumn="7"/>
 </symbol>
-<symbol token="ADD">
-<position filename="d:\ProteusSample.txt" begLine="37" begColumn="23" endLine="37" endColumn="23"/>
+<symbol token="THEN">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="2" begColumn="9" endLine="2" endColumn="12"/>
 </symbol>
-<symbol token="INTCONST"    lexeme="3">
-<position filename="d:\ProteusSample.txt" begLine="37" begColumn="25" endLine="37" endColumn="24"/>
+<symbol token="LBRACE">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="2" begColumn="14" endLine="2" endColumn="14"/>
 </symbol>
-<symbol token="RPARENT">
-<position filename="d:\ProteusSample.txt" begLine="37" begColumn="25" endLine="37" endColumn="25"/>
-</symbol>
-<symbol token="DIV">
-<position filename="d:\ProteusSample.txt" begLine="37" begColumn="26" endLine="37" endColumn="26"/>
-</symbol>
-<symbol token="INTCONST"    lexeme="5">
-<position filename="d:\ProteusSample.txt" begLine="37" begColumn="28" endLine="37" endColumn="27"/>
-</symbol>
-<symbol token="SEMIC">
-<position filename="d:\ProteusSample.txt" begLine="37" begColumn="28" endLine="37" endColumn="28"/>
-</symbol>
-<symbol token="RBRACE">
-<position filename="d:\ProteusSample.txt" begLine="38" begColumn="5" endLine="38" endColumn="5"/>
-</symbol>
-<symbol token="RBRACE">
-<position filename="d:\ProteusSample.txt" begLine="39" begColumn="1" endLine="39" endColumn="1"/>
-</symbol>
-<symbol token="INT">
-<position filename="d:\ProteusSample.txt" begLine="42" begColumn="1" endLine="42" endColumn="3"/>
-</symbol>
-<symbol token="IDENTIFIER"  lexeme="l">
-<position filename="d:\ProteusSample.txt" begLine="42" begColumn="5" endLine="42" endColumn="5"/>
+<symbol token="IDENTIFIER"  lexeme="j">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="2" begColumn="16" endLine="2" endColumn="15"/>
 </symbol>
 <symbol token="ASSIGN">
-<position filename="d:\ProteusSample.txt" begLine="42" begColumn="7" endLine="42" endColumn="7"/>
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="2" begColumn="17" endLine="2" endColumn="16"/>
 </symbol>
-<symbol token="SUB">
-<position filename="d:\ProteusSample.txt" begLine="42" begColumn="9" endLine="42" endColumn="9"/>
+<symbol token="REALCONST"   lexeme="1.2">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="2" begColumn="20" endLine="2" endColumn="19"/>
 </symbol>
-<symbol token="INTCONST"    lexeme="1">
-<position filename="d:\ProteusSample.txt" begLine="42" begColumn="10" endLine="42" endColumn="10"/>
+<symbol token="RBRACE">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="2" begColumn="20" endLine="2" endColumn="20"/>
 </symbol>
-<symbol token="ADD">
-<position filename="d:\ProteusSample.txt" begLine="42" begColumn="12" endLine="42" endColumn="12"/>
+<symbol token="RBRACE">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="2" begColumn="21" endLine="2" endColumn="21"/>
 </symbol>
-<symbol token="SUB">
-<position filename="d:\ProteusSample.txt" begLine="42" begColumn="14" endLine="42" endColumn="14"/>
+<symbol token="WHERE">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="2" begColumn="23" endLine="2" endColumn="27"/>
 </symbol>
-<symbol token="INTCONST"    lexeme="3">
-<position filename="d:\ProteusSample.txt" begLine="42" begColumn="16" endLine="42" endColumn="15"/>
-</symbol>
-<symbol token="SEMIC">
-<position filename="d:\ProteusSample.txt" begLine="42" begColumn="16" endLine="42" endColumn="16"/>
+<symbol token="VAR">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="2" begColumn="29" endLine="2" endColumn="31"/>
 </symbol>
 <symbol token="IDENTIFIER"  lexeme="i">
-<position filename="d:\ProteusSample.txt" begLine="43" begColumn="1" endLine="43" endColumn="1"/>
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="2" begColumn="34" endLine="2" endColumn="33"/>
 </symbol>
-<symbol token="IDENTIFIER"  lexeme="i">
-<position filename="d:\ProteusSample.txt" begLine="43" begColumn="6" endLine="43" endColumn="6"/>
-</symbol>
-<symbol token="IDENTIFIER"  lexeme="i">
-<position filename="d:\ProteusSample.txt" begLine="43" begColumn="8" endLine="43" endColumn="8"/>
-</symbol>
-<symbol token="IDENTIFIER"  lexeme="c">
-<position filename="d:\ProteusSample.txt" begLine="45" begColumn="2" endLine="45" endColumn="1"/>
-</symbol>
-<symbol token="ASSIGN">
-<position filename="d:\ProteusSample.txt" begLine="45" begColumn="3" endLine="45" endColumn="2"/>
-</symbol>
-<symbol token="INTCONST"    lexeme="1">
-<position filename="d:\ProteusSample.txt" begLine="45" begColumn="4" endLine="45" endColumn="3"/>
-</symbol>
-<symbol token="ADD">
-<position filename="d:\ProteusSample.txt" begLine="45" begColumn="4" endLine="45" endColumn="4"/>
-</symbol>
-<symbol token="INTCONST"    lexeme="1">
-<position filename="d:\ProteusSample.txt" begLine="45" begColumn="6" endLine="45" endColumn="5"/>
-</symbol>
-<symbol token="SEMIC">
-<position filename="d:\ProteusSample.txt" begLine="45" begColumn="6" endLine="45" endColumn="6"/>
+<symbol token="COLON">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="2" begColumn="34" endLine="2" endColumn="34"/>
 </symbol>
 <symbol token="INT">
-<position filename="d:\ProteusSample.txt" begLine="49" begColumn="1" endLine="49" endColumn="3"/>
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="2" begColumn="38" endLine="2" endColumn="37"/>
+</symbol>
+<symbol token="SEMIC">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="2" begColumn="38" endLine="2" endColumn="38"/>
+</symbol>
+<symbol token="VAR">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="2" begColumn="40" endLine="2" endColumn="42"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="j">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="2" begColumn="45" endLine="2" endColumn="44"/>
+</symbol>
+<symbol token="COLON">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="2" begColumn="45" endLine="2" endColumn="45"/>
+</symbol>
+<symbol token="REAL">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="2" begColumn="50" endLine="2" endColumn="49"/>
+</symbol>
+<symbol token="SEMIC">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="2" begColumn="50" endLine="2" endColumn="50"/>
+</symbol>
+<symbol token="COMMA">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="2" begColumn="51" endLine="2" endColumn="51"/>
+</symbol>
+<symbol token="INTCONST"    lexeme="1">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="3" begColumn="1" endLine="3" endColumn="1"/>
+</symbol>
+<symbol token="WHERE">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="3" begColumn="3" endLine="3" endColumn="7"/>
+</symbol>
+<symbol token="TYP">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="3" begColumn="9" endLine="3" endColumn="11"/>
 </symbol>
 <symbol token="IDENTIFIER"  lexeme="a">
-<position filename="d:\ProteusSample.txt" begLine="49" begColumn="5" endLine="49" endColumn="5"/>
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="3" begColumn="14" endLine="3" endColumn="13"/>
 </symbol>
-<symbol token="ASSIGN">
-<position filename="d:\ProteusSample.txt" begLine="49" begColumn="7" endLine="49" endColumn="7"/>
+<symbol token="COLON">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="3" begColumn="14" endLine="3" endColumn="14"/>
 </symbol>
-<symbol token="INTCONST"    lexeme="0">
-<position filename="d:\ProteusSample.txt" begLine="49" begColumn="10" endLine="49" endColumn="9"/>
+<symbol token="REC">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="3" begColumn="18" endLine="3" endColumn="17"/>
+</symbol>
+<symbol token="LPARENT">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="3" begColumn="18" endLine="3" endColumn="18"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="b">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="3" begColumn="20" endLine="3" endColumn="19"/>
+</symbol>
+<symbol token="COLON">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="3" begColumn="20" endLine="3" endColumn="20"/>
+</symbol>
+<symbol token="INT">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="3" begColumn="24" endLine="3" endColumn="23"/>
+</symbol>
+<symbol token="RPARENT">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="3" begColumn="24" endLine="3" endColumn="24"/>
 </symbol>
 <symbol token="SEMIC">
-<position filename="d:\ProteusSample.txt" begLine="49" begColumn="10" endLine="49" endColumn="10"/>
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="3" begColumn="25" endLine="3" endColumn="25"/>
+</symbol>
+<symbol token="COMMA">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="3" begColumn="26" endLine="3" endColumn="26"/>
+</symbol>
+<symbol token="LBRACE">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="4" begColumn="1" endLine="4" endColumn="1"/>
+</symbol>
+<symbol token="IF">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="4" begColumn="2" endLine="4" endColumn="3"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="i">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="4" begColumn="6" endLine="4" endColumn="5"/>
+</symbol>
+<symbol token="EQU">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="4" begColumn="6" endLine="4" endColumn="7"/>
+</symbol>
+<symbol token="INTCONST"    lexeme="1">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="4" begColumn="8" endLine="4" endColumn="8"/>
+</symbol>
+<symbol token="THEN">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="4" begColumn="10" endLine="4" endColumn="13"/>
+</symbol>
+<symbol token="LBRACE">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="4" begColumn="15" endLine="4" endColumn="15"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="j">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="4" begColumn="17" endLine="4" endColumn="16"/>
+</symbol>
+<symbol token="ASSIGN">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="4" begColumn="18" endLine="4" endColumn="17"/>
+</symbol>
+<symbol token="INTCONST"    lexeme="2">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="4" begColumn="19" endLine="4" endColumn="18"/>
+</symbol>
+<symbol token="RBRACE">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="4" begColumn="19" endLine="4" endColumn="19"/>
+</symbol>
+<symbol token="RBRACE">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="4" begColumn="20" endLine="4" endColumn="20"/>
+</symbol>
+<symbol token="WHERE">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="4" begColumn="22" endLine="4" endColumn="26"/>
+</symbol>
+<symbol token="FUN">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="4" begColumn="28" endLine="4" endColumn="30"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="izpis">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="4" begColumn="37" endLine="4" endColumn="36"/>
+</symbol>
+<symbol token="LPARENT">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="4" begColumn="37" endLine="4" endColumn="37"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="niz">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="4" begColumn="41" endLine="4" endColumn="40"/>
+</symbol>
+<symbol token="COLON">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="4" begColumn="41" endLine="4" endColumn="41"/>
+</symbol>
+<symbol token="STRING">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="4" begColumn="48" endLine="4" endColumn="47"/>
+</symbol>
+<symbol token="RPARENT">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="4" begColumn="48" endLine="4" endColumn="48"/>
+</symbol>
+<symbol token="COLON">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="4" begColumn="49" endLine="4" endColumn="49"/>
+</symbol>
+<symbol token="STRING">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="4" begColumn="56" endLine="4" endColumn="55"/>
+</symbol>
+<symbol token="ASSIGN">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="4" begColumn="57" endLine="4" endColumn="56"/>
+</symbol>
+<symbol token="STRINGCONST" lexeme="&#34;bla&#34;">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="4" begColumn="57" endLine="4" endColumn="61"/>
+</symbol>
+<symbol token="SEMIC">
+<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="4" begColumn="62" endLine="4" endColumn="62"/>
 </symbol>
 </lexanal>

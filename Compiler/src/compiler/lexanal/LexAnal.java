@@ -8,7 +8,7 @@ import compiler.Report;
 public class LexAnal {
 	// nastavitve
 	private final Boolean REPORT_COMMENT = false;
-	private final Boolean REPORT_SYMBOL = true;
+	private final Boolean REPORT_SYMBOL = false;
 	private final int TAB_LENGTH = 4;
 	private final char NEWLINE_CHAR = '\n';
 
@@ -148,7 +148,7 @@ public class LexAnal {
 				}
 
 				// preveri ce je znak za novo vrstico
-				if (znak == '\r') {
+				if (znak == '\r' && NEWLINE_CHAR != '\r') {
 					// odsteje znak '/r'
 					_currentColumnIndex--;
 					continue;

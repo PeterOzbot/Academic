@@ -11,11 +11,12 @@ public class Main {
 			Report.error("No file name specified.", 1);
 			break;
 		case 1:
-			compiler.lexanal.Main.main(args[0]);
+			compiler.synanal.Main.main(args[0]);
 			break;
 		case 2:
-			if (args[1].equals("lexanal")) compiler.lexanal.Main.main(args[0]);
-			else {
+			if (args[1].equals("lexanal")) compiler.lexanal.Main.main(args[0]); else
+			if (args[1].equals("synanal")) compiler.synanal.Main.main(args[0]); else
+			{
 				Report.warning("Illegal compiler phase specified.");
 				compiler.lexanal.Main.main(args[0]);
 			}
