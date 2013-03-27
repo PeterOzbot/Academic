@@ -745,7 +745,7 @@ public class LexAnal {
 
 	private void SetTipSimbola(char znak) {
 
-		// nastavi default tkao da èe ne dobi niè javi napako
+		// nastavi default tkao da ce ne dobi nic javi napako
 		_trenutenTip = TipSimbola.UNDEFINED;
 
 		// zapomni si kaj naj bi se gradilo
@@ -792,7 +792,7 @@ public class LexAnal {
 		return prebranaVrednost;
 	}
 
-	// vrne znadji znak
+	// vrne zadnji znak
 	private char GetLastChar(StringBuilder stringBuilder) {
 		return stringBuilder.toString().toCharArray()[stringBuilder.length() - 1];
 	}
