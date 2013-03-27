@@ -1,213 +1,798 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <lexanal>
-<symbol token="REALCONST"   lexeme="1.2">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="1" begColumn="1" endLine="1" endColumn="3"/>
-</symbol>
-<symbol token="WHERE">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="1" begColumn="5" endLine="1" endColumn="9"/>
-</symbol>
-<symbol token="TYP">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="1" begColumn="11" endLine="1" endColumn="13"/>
-</symbol>
-<symbol token="IDENTIFIER"  lexeme="i">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="1" begColumn="16" endLine="1" endColumn="15"/>
-</symbol>
-<symbol token="COLON">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="1" begColumn="16" endLine="1" endColumn="16"/>
-</symbol>
-<symbol token="REAL">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="1" begColumn="21" endLine="1" endColumn="20"/>
-</symbol>
-<symbol token="SEMIC">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="1" begColumn="21" endLine="1" endColumn="21"/>
-</symbol>
-<symbol token="COMMA">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="1" begColumn="22" endLine="1" endColumn="22"/>
-</symbol>
-<symbol token="LBRACE">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="2" begColumn="1" endLine="2" endColumn="1"/>
-</symbol>
-<symbol token="IF">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="2" begColumn="2" endLine="2" endColumn="3"/>
-</symbol>
-<symbol token="IDENTIFIER"  lexeme="i">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="2" begColumn="6" endLine="2" endColumn="5"/>
-</symbol>
-<symbol token="GTH">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="2" begColumn="7" endLine="2" endColumn="6"/>
-</symbol>
-<symbol token="INTCONST"    lexeme="2">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="2" begColumn="7" endLine="2" endColumn="7"/>
-</symbol>
-<symbol token="THEN">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="2" begColumn="9" endLine="2" endColumn="12"/>
-</symbol>
-<symbol token="LBRACE">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="2" begColumn="14" endLine="2" endColumn="14"/>
-</symbol>
-<symbol token="IDENTIFIER"  lexeme="j">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="2" begColumn="16" endLine="2" endColumn="15"/>
-</symbol>
-<symbol token="ASSIGN">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="2" begColumn="17" endLine="2" endColumn="16"/>
-</symbol>
-<symbol token="REALCONST"   lexeme="1.2">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="2" begColumn="20" endLine="2" endColumn="19"/>
-</symbol>
-<symbol token="RBRACE">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="2" begColumn="20" endLine="2" endColumn="20"/>
-</symbol>
-<symbol token="RBRACE">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="2" begColumn="21" endLine="2" endColumn="21"/>
-</symbol>
-<symbol token="WHERE">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="2" begColumn="23" endLine="2" endColumn="27"/>
-</symbol>
-<symbol token="VAR">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="2" begColumn="29" endLine="2" endColumn="31"/>
-</symbol>
-<symbol token="IDENTIFIER"  lexeme="i">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="2" begColumn="34" endLine="2" endColumn="33"/>
-</symbol>
-<symbol token="COLON">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="2" begColumn="34" endLine="2" endColumn="34"/>
-</symbol>
-<symbol token="INT">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="2" begColumn="38" endLine="2" endColumn="37"/>
-</symbol>
-<symbol token="SEMIC">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="2" begColumn="38" endLine="2" endColumn="38"/>
-</symbol>
-<symbol token="VAR">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="2" begColumn="40" endLine="2" endColumn="42"/>
-</symbol>
-<symbol token="IDENTIFIER"  lexeme="j">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="2" begColumn="45" endLine="2" endColumn="44"/>
-</symbol>
-<symbol token="COLON">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="2" begColumn="45" endLine="2" endColumn="45"/>
-</symbol>
-<symbol token="REAL">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="2" begColumn="50" endLine="2" endColumn="49"/>
-</symbol>
-<symbol token="SEMIC">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="2" begColumn="50" endLine="2" endColumn="50"/>
-</symbol>
-<symbol token="COMMA">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="2" begColumn="51" endLine="2" endColumn="51"/>
-</symbol>
 <symbol token="INTCONST"    lexeme="1">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="3" begColumn="1" endLine="3" endColumn="1"/>
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="1" endLine="1" endColumn="1"/>
 </symbol>
-<symbol token="WHERE">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="3" begColumn="3" endLine="3" endColumn="7"/>
+<symbol token="ADD">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="3" endLine="1" endColumn="3"/>
 </symbol>
-<symbol token="TYP">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="3" begColumn="9" endLine="3" endColumn="11"/>
+<symbol token="REALCONST"   lexeme="2.3">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="5" endLine="1" endColumn="7"/>
+</symbol>
+<symbol token="MUL">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="9" endLine="1" endColumn="9"/>
+</symbol>
+<symbol token="BOOLCONST"   lexeme="true">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="11" endLine="1" endColumn="14"/>
+</symbol>
+<symbol token="MUL">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="16" endLine="1" endColumn="16"/>
+</symbol>
+<symbol token="STRINGCONST" lexeme="&#34;asd&#34;">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="18" endLine="1" endColumn="22"/>
+</symbol>
+<symbol token="OR">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="24" endLine="1" endColumn="24"/>
+</symbol>
+<symbol token="AND">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="26" endLine="1" endColumn="26"/>
+</symbol>
+<symbol token="LBRACE">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="28" endLine="1" endColumn="28"/>
+</symbol>
+<symbol token="RBRACE">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="29" endLine="1" endColumn="29"/>
+</symbol>
+<symbol token="SUB">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="31" endLine="1" endColumn="31"/>
 </symbol>
 <symbol token="IDENTIFIER"  lexeme="a">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="3" begColumn="14" endLine="3" endColumn="13"/>
-</symbol>
-<symbol token="COLON">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="3" begColumn="14" endLine="3" endColumn="14"/>
-</symbol>
-<symbol token="REC">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="3" begColumn="18" endLine="3" endColumn="17"/>
-</symbol>
-<symbol token="LPARENT">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="3" begColumn="18" endLine="3" endColumn="18"/>
-</symbol>
-<symbol token="IDENTIFIER"  lexeme="b">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="3" begColumn="20" endLine="3" endColumn="19"/>
-</symbol>
-<symbol token="COLON">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="3" begColumn="20" endLine="3" endColumn="20"/>
-</symbol>
-<symbol token="INT">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="3" begColumn="24" endLine="3" endColumn="23"/>
-</symbol>
-<symbol token="RPARENT">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="3" begColumn="24" endLine="3" endColumn="24"/>
-</symbol>
-<symbol token="SEMIC">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="3" begColumn="25" endLine="3" endColumn="25"/>
-</symbol>
-<symbol token="COMMA">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="3" begColumn="26" endLine="3" endColumn="26"/>
-</symbol>
-<symbol token="LBRACE">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="4" begColumn="1" endLine="4" endColumn="1"/>
-</symbol>
-<symbol token="IF">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="4" begColumn="2" endLine="4" endColumn="3"/>
-</symbol>
-<symbol token="IDENTIFIER"  lexeme="i">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="4" begColumn="6" endLine="4" endColumn="5"/>
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="33" endLine="1" endColumn="33"/>
 </symbol>
 <symbol token="EQU">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="4" begColumn="6" endLine="4" endColumn="7"/>
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="35" endLine="1" endColumn="36"/>
 </symbol>
-<symbol token="INTCONST"    lexeme="1">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="4" begColumn="8" endLine="4" endColumn="8"/>
+<symbol token="ADD">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="38" endLine="1" endColumn="38"/>
 </symbol>
-<symbol token="THEN">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="4" begColumn="10" endLine="4" endColumn="13"/>
-</symbol>
-<symbol token="LBRACE">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="4" begColumn="15" endLine="4" endColumn="15"/>
-</symbol>
-<symbol token="IDENTIFIER"  lexeme="j">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="4" begColumn="17" endLine="4" endColumn="16"/>
-</symbol>
-<symbol token="ASSIGN">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="4" begColumn="18" endLine="4" endColumn="17"/>
-</symbol>
-<symbol token="INTCONST"    lexeme="2">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="4" begColumn="19" endLine="4" endColumn="18"/>
-</symbol>
-<symbol token="RBRACE">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="4" begColumn="19" endLine="4" endColumn="19"/>
-</symbol>
-<symbol token="RBRACE">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="4" begColumn="20" endLine="4" endColumn="20"/>
-</symbol>
-<symbol token="WHERE">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="4" begColumn="22" endLine="4" endColumn="26"/>
-</symbol>
-<symbol token="FUN">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="4" begColumn="28" endLine="4" endColumn="30"/>
-</symbol>
-<symbol token="IDENTIFIER"  lexeme="izpis">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="4" begColumn="37" endLine="4" endColumn="36"/>
+<symbol token="IDENTIFIER"  lexeme="a">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="40" endLine="1" endColumn="40"/>
 </symbol>
 <symbol token="LPARENT">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="4" begColumn="37" endLine="4" endColumn="37"/>
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="42" endLine="1" endColumn="42"/>
 </symbol>
-<symbol token="IDENTIFIER"  lexeme="niz">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="4" begColumn="41" endLine="4" endColumn="40"/>
+<symbol token="INTCONST"    lexeme="1">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="44" endLine="1" endColumn="44"/>
 </symbol>
-<symbol token="COLON">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="4" begColumn="41" endLine="4" endColumn="41"/>
+<symbol token="DIV">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="46" endLine="1" endColumn="46"/>
 </symbol>
-<symbol token="STRING">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="4" begColumn="48" endLine="4" endColumn="47"/>
+<symbol token="MUL">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="49" endLine="1" endColumn="49"/>
 </symbol>
-<symbol token="RPARENT">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="4" begColumn="48" endLine="4" endColumn="48"/>
+<symbol token="INTCONST"    lexeme="1">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="51" endLine="1" endColumn="51"/>
 </symbol>
-<symbol token="COLON">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="4" begColumn="49" endLine="4" endColumn="49"/>
+<symbol token="NEQ">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="53" endLine="1" endColumn="54"/>
 </symbol>
-<symbol token="STRING">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="4" begColumn="56" endLine="4" endColumn="55"/>
+<symbol token="LBRACE">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="56" endLine="1" endColumn="56"/>
+</symbol>
+<symbol token="IF">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="57" endLine="1" endColumn="58"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="i">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="61" endLine="1" endColumn="60"/>
+</symbol>
+<symbol token="GTH">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="62" endLine="1" endColumn="61"/>
+</symbol>
+<symbol token="INTCONST"    lexeme="2">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="62" endLine="1" endColumn="62"/>
+</symbol>
+<symbol token="THEN">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="64" endLine="1" endColumn="67"/>
+</symbol>
+<symbol token="LBRACE">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="69" endLine="1" endColumn="69"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="j">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="71" endLine="1" endColumn="70"/>
 </symbol>
 <symbol token="ASSIGN">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="4" begColumn="57" endLine="4" endColumn="56"/>
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="72" endLine="1" endColumn="71"/>
 </symbol>
-<symbol token="STRINGCONST" lexeme="&#34;bla&#34;">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="4" begColumn="57" endLine="4" endColumn="61"/>
+<symbol token="REALCONST"   lexeme="1.2">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="75" endLine="1" endColumn="74"/>
+</symbol>
+<symbol token="RBRACE">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="75" endLine="1" endColumn="75"/>
+</symbol>
+<symbol token="RBRACE">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="76" endLine="1" endColumn="76"/>
+</symbol>
+<symbol token="WHERE">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="78" endLine="1" endColumn="82"/>
+</symbol>
+<symbol token="VAR">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="84" endLine="1" endColumn="86"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="i">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="89" endLine="1" endColumn="88"/>
+</symbol>
+<symbol token="COLON">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="89" endLine="1" endColumn="89"/>
+</symbol>
+<symbol token="INT">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="93" endLine="1" endColumn="92"/>
 </symbol>
 <symbol token="SEMIC">
-<position filename="C:\Users\Validus\Downloads\testSinAnal.txt" begLine="4" begColumn="62" endLine="4" endColumn="62"/>
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="93" endLine="1" endColumn="93"/>
+</symbol>
+<symbol token="VAR">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="95" endLine="1" endColumn="97"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="j">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="100" endLine="1" endColumn="99"/>
+</symbol>
+<symbol token="COLON">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="100" endLine="1" endColumn="100"/>
+</symbol>
+<symbol token="REAL">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="105" endLine="1" endColumn="104"/>
+</symbol>
+<symbol token="SEMIC">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="105" endLine="1" endColumn="105"/>
+</symbol>
+<symbol token="MUL">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="107" endLine="1" endColumn="107"/>
+</symbol>
+<symbol token="MUL">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="109" endLine="1" endColumn="109"/>
+</symbol>
+<symbol token="INTCONST"    lexeme="1">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="111" endLine="1" endColumn="111"/>
+</symbol>
+<symbol token="AND">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="113" endLine="1" endColumn="113"/>
+</symbol>
+<symbol token="INTCONST"    lexeme="1">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="115" endLine="1" endColumn="115"/>
+</symbol>
+<symbol token="LEQ">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="117" endLine="1" endColumn="118"/>
+</symbol>
+<symbol token="INTCONST"    lexeme="1">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="120" endLine="1" endColumn="120"/>
+</symbol>
+<symbol token="OR">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="122" endLine="1" endColumn="122"/>
+</symbol>
+<symbol token="INTCONST"    lexeme="1">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="124" endLine="1" endColumn="124"/>
+</symbol>
+<symbol token="AND">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="126" endLine="1" endColumn="126"/>
+</symbol>
+<symbol token="INTCONST"    lexeme="1">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="128" endLine="1" endColumn="128"/>
+</symbol>
+<symbol token="OR">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="130" endLine="1" endColumn="130"/>
+</symbol>
+<symbol token="NOT">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="132" endLine="1" endColumn="132"/>
+</symbol>
+<symbol token="LPARENT">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="134" endLine="1" endColumn="134"/>
+</symbol>
+<symbol token="INTCONST"    lexeme="1">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="136" endLine="1" endColumn="135"/>
+</symbol>
+<symbol token="RPARENT">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="136" endLine="1" endColumn="136"/>
+</symbol>
+<symbol token="RPARENT">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="138" endLine="1" endColumn="138"/>
+</symbol>
+<symbol token="COMMA">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="139" endLine="1" endColumn="139"/>
+</symbol>
+<symbol token="INTCONST"    lexeme="1">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="2" begColumn="1" endLine="2" endColumn="1"/>
+</symbol>
+<symbol token="DIV">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="2" begColumn="3" endLine="2" endColumn="3"/>
+</symbol>
+<symbol token="MUL">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="2" begColumn="6" endLine="2" endColumn="6"/>
+</symbol>
+<symbol token="LBRACE">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="2" begColumn="8" endLine="2" endColumn="8"/>
+</symbol>
+<symbol token="FOR">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="2" begColumn="9" endLine="2" endColumn="11"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="g">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="2" begColumn="13" endLine="2" endColumn="13"/>
+</symbol>
+<symbol token="ASSIGN">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="2" begColumn="15" endLine="2" endColumn="15"/>
+</symbol>
+<symbol token="INTCONST"    lexeme="5">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="2" begColumn="18" endLine="2" endColumn="17"/>
+</symbol>
+<symbol token="COMMA">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="2" begColumn="18" endLine="2" endColumn="18"/>
+</symbol>
+<symbol token="INTCONST"    lexeme="5">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="2" begColumn="20" endLine="2" endColumn="19"/>
+</symbol>
+<symbol token="COLON">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="2" begColumn="20" endLine="2" endColumn="20"/>
+</symbol>
+<symbol token="INTCONST"    lexeme="2">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="2" begColumn="22" endLine="2" endColumn="21"/>
+</symbol>
+<symbol token="RBRACE">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="2" begColumn="22" endLine="2" endColumn="22"/>
+</symbol>
+<symbol token="NEQ">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="2" begColumn="24" endLine="2" endColumn="25"/>
+</symbol>
+<symbol token="INTCONST"    lexeme="1">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="2" begColumn="27" endLine="2" endColumn="27"/>
+</symbol>
+<symbol token="MUL">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="2" begColumn="29" endLine="2" endColumn="29"/>
+</symbol>
+<symbol token="MUL">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="2" begColumn="31" endLine="2" endColumn="31"/>
+</symbol>
+<symbol token="INTCONST"    lexeme="1">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="2" begColumn="33" endLine="2" endColumn="33"/>
+</symbol>
+<symbol token="AND">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="2" begColumn="35" endLine="2" endColumn="35"/>
+</symbol>
+<symbol token="INTCONST"    lexeme="1">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="2" begColumn="37" endLine="2" endColumn="37"/>
+</symbol>
+<symbol token="LEQ">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="2" begColumn="39" endLine="2" endColumn="40"/>
+</symbol>
+<symbol token="INTCONST"    lexeme="1">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="2" begColumn="42" endLine="2" endColumn="42"/>
+</symbol>
+<symbol token="OR">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="2" begColumn="44" endLine="2" endColumn="44"/>
+</symbol>
+<symbol token="INTCONST"    lexeme="1">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="2" begColumn="46" endLine="2" endColumn="46"/>
+</symbol>
+<symbol token="AND">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="2" begColumn="48" endLine="2" endColumn="48"/>
+</symbol>
+<symbol token="INTCONST"    lexeme="1">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="2" begColumn="50" endLine="2" endColumn="50"/>
+</symbol>
+<symbol token="OR">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="2" begColumn="52" endLine="2" endColumn="52"/>
+</symbol>
+<symbol token="NOT">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="2" begColumn="54" endLine="2" endColumn="54"/>
+</symbol>
+<symbol token="INTCONST"    lexeme="1">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="2" begColumn="57" endLine="2" endColumn="56"/>
+</symbol>
+<symbol token="COMMA">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="2" begColumn="57" endLine="2" endColumn="57"/>
+</symbol>
+<symbol token="INTCONST"    lexeme="1">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="3" begColumn="1" endLine="3" endColumn="1"/>
+</symbol>
+<symbol token="OR">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="3" begColumn="3" endLine="3" endColumn="3"/>
+</symbol>
+<symbol token="INTCONST"    lexeme="1">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="3" begColumn="5" endLine="3" endColumn="5"/>
+</symbol>
+<symbol token="WHERE">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="3" begColumn="7" endLine="3" endColumn="11"/>
+</symbol>
+<symbol token="TYP">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="3" begColumn="13" endLine="3" endColumn="15"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="i">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="3" begColumn="18" endLine="3" endColumn="17"/>
+</symbol>
+<symbol token="COLON">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="3" begColumn="18" endLine="3" endColumn="18"/>
+</symbol>
+<symbol token="REAL">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="3" begColumn="23" endLine="3" endColumn="22"/>
+</symbol>
+<symbol token="SEMIC">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="3" begColumn="23" endLine="3" endColumn="23"/>
+</symbol>
+<symbol token="TYP">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="3" begColumn="24" endLine="3" endColumn="26"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="i">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="3" begColumn="29" endLine="3" endColumn="28"/>
+</symbol>
+<symbol token="COLON">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="3" begColumn="29" endLine="3" endColumn="29"/>
+</symbol>
+<symbol token="REAL">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="3" begColumn="34" endLine="3" endColumn="33"/>
+</symbol>
+<symbol token="SEMIC">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="3" begColumn="34" endLine="3" endColumn="34"/>
+</symbol>
+<symbol token="TYP">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="3" begColumn="35" endLine="3" endColumn="37"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="i">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="3" begColumn="40" endLine="3" endColumn="39"/>
+</symbol>
+<symbol token="COLON">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="3" begColumn="40" endLine="3" endColumn="40"/>
+</symbol>
+<symbol token="REAL">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="3" begColumn="45" endLine="3" endColumn="44"/>
+</symbol>
+<symbol token="SEMIC">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="3" begColumn="45" endLine="3" endColumn="45"/>
+</symbol>
+<symbol token="MUL">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="3" begColumn="47" endLine="3" endColumn="47"/>
+</symbol>
+<symbol token="INTCONST"    lexeme="1">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="3" begColumn="49" endLine="3" endColumn="49"/>
+</symbol>
+<symbol token="LTH">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="3" begColumn="51" endLine="3" endColumn="51"/>
+</symbol>
+<symbol token="INTCONST"    lexeme="1">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="3" begColumn="53" endLine="3" endColumn="53"/>
+</symbol>
+<symbol token="AND">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="3" begColumn="55" endLine="3" endColumn="55"/>
+</symbol>
+<symbol token="INTCONST"    lexeme="1">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="3" begColumn="57" endLine="3" endColumn="57"/>
+</symbol>
+<symbol token="GTH">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="3" begColumn="59" endLine="3" endColumn="59"/>
+</symbol>
+<symbol token="INTCONST"    lexeme="1">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="3" begColumn="61" endLine="3" endColumn="61"/>
+</symbol>
+<symbol token="AND">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="3" begColumn="63" endLine="3" endColumn="63"/>
+</symbol>
+<symbol token="INTCONST"    lexeme="1">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="3" begColumn="65" endLine="3" endColumn="65"/>
+</symbol>
+<symbol token="MOD">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="3" begColumn="67" endLine="3" endColumn="67"/>
+</symbol>
+<symbol token="LBRACE">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="3" begColumn="69" endLine="3" endColumn="69"/>
+</symbol>
+<symbol token="WHILE">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="3" begColumn="71" endLine="3" endColumn="75"/>
+</symbol>
+<symbol token="REALCONST"   lexeme="1.2">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="3" begColumn="77" endLine="3" endColumn="79"/>
+</symbol>
+<symbol token="WHERE">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="3" begColumn="81" endLine="3" endColumn="85"/>
+</symbol>
+<symbol token="TYP">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="3" begColumn="87" endLine="3" endColumn="89"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="i">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="3" begColumn="92" endLine="3" endColumn="91"/>
+</symbol>
+<symbol token="COLON">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="3" begColumn="92" endLine="3" endColumn="92"/>
+</symbol>
+<symbol token="REAL">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="3" begColumn="97" endLine="3" endColumn="96"/>
+</symbol>
+<symbol token="SEMIC">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="3" begColumn="97" endLine="3" endColumn="97"/>
+</symbol>
+<symbol token="COLON">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="3" begColumn="99" endLine="3" endColumn="99"/>
+</symbol>
+<symbol token="REALCONST"   lexeme="1.2">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="3" begColumn="101" endLine="3" endColumn="103"/>
+</symbol>
+<symbol token="WHERE">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="3" begColumn="105" endLine="3" endColumn="109"/>
+</symbol>
+<symbol token="TYP">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="3" begColumn="111" endLine="3" endColumn="113"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="i">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="3" begColumn="116" endLine="3" endColumn="115"/>
+</symbol>
+<symbol token="COLON">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="3" begColumn="116" endLine="3" endColumn="116"/>
+</symbol>
+<symbol token="REAL">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="3" begColumn="121" endLine="3" endColumn="120"/>
+</symbol>
+<symbol token="SEMIC">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="3" begColumn="121" endLine="3" endColumn="121"/>
+</symbol>
+<symbol token="RBRACE">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="3" begColumn="122" endLine="3" endColumn="122"/>
+</symbol>
+<symbol token="ADD">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="3" begColumn="124" endLine="3" endColumn="124"/>
+</symbol>
+<symbol token="ADD">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="1" endLine="4" endColumn="1"/>
+</symbol>
+<symbol token="LPARENT">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="3" endLine="4" endColumn="3"/>
+</symbol>
+<symbol token="INTCONST"    lexeme="1">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="4" endLine="4" endColumn="4"/>
+</symbol>
+<symbol token="ADD">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="6" endLine="4" endColumn="6"/>
+</symbol>
+<symbol token="REALCONST"   lexeme="2.3">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="8" endLine="4" endColumn="10"/>
+</symbol>
+<symbol token="MUL">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="12" endLine="4" endColumn="12"/>
+</symbol>
+<symbol token="BOOLCONST"   lexeme="true">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="14" endLine="4" endColumn="17"/>
+</symbol>
+<symbol token="MUL">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="19" endLine="4" endColumn="19"/>
+</symbol>
+<symbol token="STRINGCONST" lexeme="&#34;asd&#34;">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="21" endLine="4" endColumn="25"/>
+</symbol>
+<symbol token="OR">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="27" endLine="4" endColumn="27"/>
+</symbol>
+<symbol token="AND">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="29" endLine="4" endColumn="29"/>
+</symbol>
+<symbol token="LBRACE">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="31" endLine="4" endColumn="31"/>
+</symbol>
+<symbol token="RBRACE">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="32" endLine="4" endColumn="32"/>
+</symbol>
+<symbol token="SUB">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="34" endLine="4" endColumn="34"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="a">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="36" endLine="4" endColumn="36"/>
+</symbol>
+<symbol token="EQU">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="38" endLine="4" endColumn="39"/>
+</symbol>
+<symbol token="ADD">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="41" endLine="4" endColumn="41"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="a">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="43" endLine="4" endColumn="43"/>
+</symbol>
+<symbol token="LPARENT">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="45" endLine="4" endColumn="45"/>
+</symbol>
+<symbol token="INTCONST"    lexeme="1">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="47" endLine="4" endColumn="47"/>
+</symbol>
+<symbol token="DIV">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="49" endLine="4" endColumn="49"/>
+</symbol>
+<symbol token="MUL">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="52" endLine="4" endColumn="52"/>
+</symbol>
+<symbol token="INTCONST"    lexeme="1">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="54" endLine="4" endColumn="54"/>
+</symbol>
+<symbol token="NEQ">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="56" endLine="4" endColumn="57"/>
+</symbol>
+<symbol token="LBRACE">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="59" endLine="4" endColumn="59"/>
+</symbol>
+<symbol token="IF">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="60" endLine="4" endColumn="61"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="i">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="64" endLine="4" endColumn="63"/>
+</symbol>
+<symbol token="GTH">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="65" endLine="4" endColumn="64"/>
+</symbol>
+<symbol token="INTCONST"    lexeme="2">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="65" endLine="4" endColumn="65"/>
+</symbol>
+<symbol token="THEN">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="67" endLine="4" endColumn="70"/>
+</symbol>
+<symbol token="LBRACE">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="72" endLine="4" endColumn="72"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="j">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="74" endLine="4" endColumn="73"/>
+</symbol>
+<symbol token="ASSIGN">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="75" endLine="4" endColumn="74"/>
+</symbol>
+<symbol token="REALCONST"   lexeme="1.2">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="78" endLine="4" endColumn="77"/>
+</symbol>
+<symbol token="RBRACE">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="78" endLine="4" endColumn="78"/>
+</symbol>
+<symbol token="RBRACE">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="79" endLine="4" endColumn="79"/>
+</symbol>
+<symbol token="WHERE">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="81" endLine="4" endColumn="85"/>
+</symbol>
+<symbol token="VAR">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="87" endLine="4" endColumn="89"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="i">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="92" endLine="4" endColumn="91"/>
+</symbol>
+<symbol token="COLON">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="92" endLine="4" endColumn="92"/>
+</symbol>
+<symbol token="INT">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="96" endLine="4" endColumn="95"/>
+</symbol>
+<symbol token="SEMIC">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="96" endLine="4" endColumn="96"/>
+</symbol>
+<symbol token="VAR">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="98" endLine="4" endColumn="100"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="j">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="103" endLine="4" endColumn="102"/>
+</symbol>
+<symbol token="COLON">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="103" endLine="4" endColumn="103"/>
+</symbol>
+<symbol token="REAL">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="108" endLine="4" endColumn="107"/>
+</symbol>
+<symbol token="SEMIC">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="108" endLine="4" endColumn="108"/>
+</symbol>
+<symbol token="MUL">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="110" endLine="4" endColumn="110"/>
+</symbol>
+<symbol token="MUL">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="112" endLine="4" endColumn="112"/>
+</symbol>
+<symbol token="INTCONST"    lexeme="1">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="114" endLine="4" endColumn="114"/>
+</symbol>
+<symbol token="AND">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="116" endLine="4" endColumn="116"/>
+</symbol>
+<symbol token="INTCONST"    lexeme="1">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="118" endLine="4" endColumn="118"/>
+</symbol>
+<symbol token="LEQ">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="120" endLine="4" endColumn="121"/>
+</symbol>
+<symbol token="INTCONST"    lexeme="1">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="123" endLine="4" endColumn="123"/>
+</symbol>
+<symbol token="OR">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="125" endLine="4" endColumn="125"/>
+</symbol>
+<symbol token="INTCONST"    lexeme="1">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="127" endLine="4" endColumn="127"/>
+</symbol>
+<symbol token="AND">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="129" endLine="4" endColumn="129"/>
+</symbol>
+<symbol token="INTCONST"    lexeme="1">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="131" endLine="4" endColumn="131"/>
+</symbol>
+<symbol token="OR">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="133" endLine="4" endColumn="133"/>
+</symbol>
+<symbol token="NOT">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="135" endLine="4" endColumn="135"/>
+</symbol>
+<symbol token="LPARENT">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="137" endLine="4" endColumn="137"/>
+</symbol>
+<symbol token="INTCONST"    lexeme="1">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="139" endLine="4" endColumn="138"/>
+</symbol>
+<symbol token="RPARENT">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="139" endLine="4" endColumn="139"/>
+</symbol>
+<symbol token="RPARENT">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="141" endLine="4" endColumn="141"/>
+</symbol>
+<symbol token="RPARENT">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="142" endLine="4" endColumn="142"/>
+</symbol>
+<symbol token="OR">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="144" endLine="4" endColumn="144"/>
+</symbol>
+<symbol token="INTCONST"    lexeme="1">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="5" begColumn="2" endLine="5" endColumn="1"/>
+</symbol>
+<symbol token="LBRACKET">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="5" begColumn="2" endLine="5" endColumn="2"/>
+</symbol>
+<symbol token="INTCONST"    lexeme="1">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="5" begColumn="4" endLine="5" endColumn="4"/>
+</symbol>
+<symbol token="DIV">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="5" begColumn="6" endLine="5" endColumn="6"/>
+</symbol>
+<symbol token="MUL">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="5" begColumn="9" endLine="5" endColumn="9"/>
+</symbol>
+<symbol token="INTCONST"    lexeme="1">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="5" begColumn="11" endLine="5" endColumn="11"/>
+</symbol>
+<symbol token="NEQ">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="5" begColumn="13" endLine="5" endColumn="14"/>
+</symbol>
+<symbol token="INTCONST"    lexeme="1">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="5" begColumn="16" endLine="5" endColumn="16"/>
+</symbol>
+<symbol token="MUL">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="5" begColumn="18" endLine="5" endColumn="18"/>
+</symbol>
+<symbol token="MUL">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="5" begColumn="20" endLine="5" endColumn="20"/>
+</symbol>
+<symbol token="INTCONST"    lexeme="1">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="5" begColumn="22" endLine="5" endColumn="22"/>
+</symbol>
+<symbol token="AND">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="5" begColumn="24" endLine="5" endColumn="24"/>
+</symbol>
+<symbol token="INTCONST"    lexeme="1">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="5" begColumn="26" endLine="5" endColumn="26"/>
+</symbol>
+<symbol token="LEQ">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="5" begColumn="28" endLine="5" endColumn="29"/>
+</symbol>
+<symbol token="INTCONST"    lexeme="1">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="5" begColumn="31" endLine="5" endColumn="31"/>
+</symbol>
+<symbol token="OR">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="5" begColumn="33" endLine="5" endColumn="33"/>
+</symbol>
+<symbol token="LBRACE">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="5" begColumn="35" endLine="5" endColumn="35"/>
+</symbol>
+<symbol token="IF">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="5" begColumn="36" endLine="5" endColumn="37"/>
+</symbol>
+<symbol token="INTCONST"    lexeme="1">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="5" begColumn="39" endLine="5" endColumn="39"/>
+</symbol>
+<symbol token="THEN">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="5" begColumn="41" endLine="5" endColumn="44"/>
+</symbol>
+<symbol token="INTCONST"    lexeme="2">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="5" begColumn="46" endLine="5" endColumn="46"/>
+</symbol>
+<symbol token="ELSE">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="5" begColumn="48" endLine="5" endColumn="51"/>
+</symbol>
+<symbol token="INTCONST"    lexeme="3">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="5" begColumn="54" endLine="5" endColumn="53"/>
+</symbol>
+<symbol token="RBRACE">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="5" begColumn="54" endLine="5" endColumn="54"/>
+</symbol>
+<symbol token="AND">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="5" begColumn="56" endLine="5" endColumn="56"/>
+</symbol>
+<symbol token="INTCONST"    lexeme="1">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="5" begColumn="58" endLine="5" endColumn="58"/>
+</symbol>
+<symbol token="OR">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="5" begColumn="60" endLine="5" endColumn="60"/>
+</symbol>
+<symbol token="NOT">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="5" begColumn="62" endLine="5" endColumn="62"/>
+</symbol>
+<symbol token="LBRACE">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="5" begColumn="64" endLine="5" endColumn="64"/>
+</symbol>
+<symbol token="IF">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="5" begColumn="65" endLine="5" endColumn="66"/>
+</symbol>
+<symbol token="INTCONST"    lexeme="1">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="5" begColumn="68" endLine="5" endColumn="68"/>
+</symbol>
+<symbol token="THEN">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="5" begColumn="70" endLine="5" endColumn="73"/>
+</symbol>
+<symbol token="INTCONST"    lexeme="2">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="5" begColumn="76" endLine="5" endColumn="75"/>
+</symbol>
+<symbol token="RBRACE">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="5" begColumn="76" endLine="5" endColumn="76"/>
+</symbol>
+<symbol token="RBRACKET">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="5" begColumn="78" endLine="5" endColumn="78"/>
+</symbol>
+<symbol token="AND">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="6" begColumn="1" endLine="6" endColumn="1"/>
+</symbol>
+<symbol token="REALCONST"   lexeme="1.2">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="6" begColumn="6" endLine="6" endColumn="5"/>
+</symbol>
+<symbol token="DOT">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="6" begColumn="6" endLine="6" endColumn="6"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="v">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="6" begColumn="7" endLine="6" endColumn="7"/>
+</symbol>
+<symbol token="OR">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="6" begColumn="9" endLine="6" endColumn="9"/>
+</symbol>
+<symbol token="INTCONST"    lexeme="1">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="6" begColumn="11" endLine="6" endColumn="11"/>
+</symbol>
+<symbol token="DIV">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="6" begColumn="13" endLine="6" endColumn="13"/>
+</symbol>
+<symbol token="SUB">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="6" begColumn="15" endLine="6" endColumn="15"/>
+</symbol>
+<symbol token="INTCONST"    lexeme="1">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="6" begColumn="17" endLine="6" endColumn="17"/>
+</symbol>
+<symbol token="WHERE">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="6" begColumn="19" endLine="6" endColumn="23"/>
+</symbol>
+<symbol token="FUN">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="6" begColumn="25" endLine="6" endColumn="27"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="t">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="6" begColumn="30" endLine="6" endColumn="29"/>
+</symbol>
+<symbol token="LPARENT">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="6" begColumn="30" endLine="6" endColumn="30"/>
+</symbol>
+<symbol token="IDENTIFIER"  lexeme="t">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="6" begColumn="32" endLine="6" endColumn="31"/>
+</symbol>
+<symbol token="COLON">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="6" begColumn="32" endLine="6" endColumn="32"/>
+</symbol>
+<symbol token="INT">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="6" begColumn="36" endLine="6" endColumn="35"/>
+</symbol>
+<symbol token="RPARENT">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="6" begColumn="36" endLine="6" endColumn="36"/>
+</symbol>
+<symbol token="COLON">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="6" begColumn="37" endLine="6" endColumn="37"/>
+</symbol>
+<symbol token="STRING">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="6" begColumn="44" endLine="6" endColumn="43"/>
+</symbol>
+<symbol token="ASSIGN">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="6" begColumn="45" endLine="6" endColumn="44"/>
+</symbol>
+<symbol token="INTCONST"    lexeme="5">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="6" begColumn="46" endLine="6" endColumn="45"/>
+</symbol>
+<symbol token="SEMIC">
+<position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="6" begColumn="46" endLine="6" endColumn="46"/>
 </symbol>
 </lexanal>

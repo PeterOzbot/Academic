@@ -8,7 +8,7 @@ import compiler.Report;
 public class LexAnal {
 	// nastavitve
 	private final Boolean REPORT_COMMENT = false;
-	private final Boolean REPORT_SYMBOL = false;
+	private final Boolean REPORT_SYMBOL = true;
 	private final int TAB_LENGTH = 4;
 	private final char NEWLINE_CHAR = '\n';
 
@@ -158,6 +158,7 @@ public class LexAnal {
 				if (znak == NEWLINE_CHAR) {
 
 					if (_simbol.length() > 0) {
+						
 						// konec simbola ko pri do nove vrstice
 						Symbol symbol = ZgradiSimbol(_simbol.toString());
 
@@ -622,7 +623,7 @@ public class LexAnal {
 			char znak = (char) prebranaVrednost;
 
 			// preskocimo znak za novo vrstico
-			if (znak == '\r') {
+			if (znak == '\r' && NEWLINE_CHAR != '\r') {
 				continue;
 			}
 
@@ -682,7 +683,7 @@ public class LexAnal {
 			char znak = (char) prebranaVrednost;
 
 			// preveri ce je nova vrstica
-			if (znak == '\r')
+			if (znak == '\r' && NEWLINE_CHAR != '\r')
 				continue;
 			if (znak == NEWLINE_CHAR) {
 				Report.error("Nedokoncan niz", new Position(_programName,
