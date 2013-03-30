@@ -4,19 +4,19 @@
 <leftside nonterminal="source"/>
 <rightside>
 <production>
-<leftside nonterminal="parseExpressions"/>
+<leftside nonterminal="parse_Expressions"/>
 <rightside>
 <production>
-<leftside nonterminal="parseExpression"/>
+<leftside nonterminal="parse_Expression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseOrExpression"/>
+<leftside nonterminal="parse_OrExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseAndExpression"/>
+<leftside nonterminal="parse_AndExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseRelationalExpression"/>
+<leftside nonterminal="parse_RelationalExpression"/>
 <rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
@@ -134,21 +134,31 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
 </rightside>
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_AndExpression'"/>
+<rightside>
+</rightside>
+</production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_OrExpression'"/>
+<rightside>
 <symbol token="OR">
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="24" endLine="1" endColumn="24"/>
 </symbol>
 <production>
-<leftside nonterminal="parseOrExpression"/>
+<leftside nonterminal="parse_AndExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseAndExpression"/>
-<rightside>
-<production>
-<leftside nonterminal="parseRelationalExpression"/>
+<leftside nonterminal="parse_RelationalExpression"/>
 <rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
@@ -230,12 +240,12 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
 <symbol token="EQU">
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="35" endLine="1" endColumn="36"/>
 </symbol>
-<production>
-<leftside nonterminal="parseRelationalExpression"/>
-<rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
 <rightside>
@@ -261,16 +271,16 @@
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="42" endLine="1" endColumn="42"/>
 </symbol>
 <production>
-<leftside nonterminal="parseExpression"/>
+<leftside nonterminal="parse_Expression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseOrExpression"/>
+<leftside nonterminal="parse_OrExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseAndExpression"/>
+<leftside nonterminal="parse_AndExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseRelationalExpression"/>
+<leftside nonterminal="parse_RelationalExpression"/>
 <rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
@@ -339,12 +349,12 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
 <symbol token="NEQ">
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="53" endLine="1" endColumn="54"/>
 </symbol>
-<production>
-<leftside nonterminal="parseRelationalExpression"/>
-<rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
 <rightside>
@@ -367,16 +377,16 @@
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="57" endLine="1" endColumn="58"/>
 </symbol>
 <production>
-<leftside nonterminal="parseExpression"/>
+<leftside nonterminal="parse_Expression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseOrExpression"/>
+<leftside nonterminal="parse_OrExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseAndExpression"/>
+<leftside nonterminal="parse_AndExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseRelationalExpression"/>
+<leftside nonterminal="parse_RelationalExpression"/>
 <rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
@@ -411,12 +421,12 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
 <symbol token="GTH">
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="62" endLine="1" endColumn="61"/>
 </symbol>
-<production>
-<leftside nonterminal="parseRelationalExpression"/>
-<rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
 <rightside>
@@ -450,10 +460,25 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
 </rightside>
 </production>
 </rightside>
 </production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_AndExpression'"/>
+<rightside>
+</rightside>
+</production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_OrExpression'"/>
+<rightside>
 </rightside>
 </production>
 </rightside>
@@ -464,16 +489,16 @@
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="64" endLine="1" endColumn="67"/>
 </symbol>
 <production>
-<leftside nonterminal="parseExpression"/>
+<leftside nonterminal="parse_Expression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseOrExpression"/>
+<leftside nonterminal="parse_OrExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseAndExpression"/>
+<leftside nonterminal="parse_AndExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseRelationalExpression"/>
+<leftside nonterminal="parse_RelationalExpression"/>
 <rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
@@ -500,16 +525,16 @@
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="72" endLine="1" endColumn="71"/>
 </symbol>
 <production>
-<leftside nonterminal="parseExpression"/>
+<leftside nonterminal="parse_Expression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseOrExpression"/>
+<leftside nonterminal="parse_OrExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseAndExpression"/>
+<leftside nonterminal="parse_AndExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseRelationalExpression"/>
+<leftside nonterminal="parse_RelationalExpression"/>
 <rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
@@ -544,8 +569,23 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
 </rightside>
 </production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_AndExpression'"/>
+<rightside>
+</rightside>
+</production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_OrExpression'"/>
+<rightside>
 </rightside>
 </production>
 </rightside>
@@ -575,8 +615,23 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
 </rightside>
 </production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_AndExpression'"/>
+<rightside>
+</rightside>
+</production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_OrExpression'"/>
+<rightside>
 </rightside>
 </production>
 </rightside>
@@ -713,18 +768,23 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
 </rightside>
 </production>
 </rightside>
 </production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_AndExpression'"/>
+<rightside>
 <symbol token="AND">
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="113" endLine="1" endColumn="113"/>
 </symbol>
 <production>
-<leftside nonterminal="parseAndExpression"/>
-<rightside>
-<production>
-<leftside nonterminal="parseRelationalExpression"/>
+<leftside nonterminal="parse_RelationalExpression"/>
 <rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
@@ -759,12 +819,12 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
 <symbol token="LEQ">
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="117" endLine="1" endColumn="118"/>
 </symbol>
-<production>
-<leftside nonterminal="parseRelationalExpression"/>
-<rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
 <rightside>
@@ -798,25 +858,35 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
 </rightside>
 </production>
 </rightside>
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_AndExpression'"/>
+<rightside>
 </rightside>
 </production>
+</rightside>
+</production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_OrExpression'"/>
+<rightside>
 <symbol token="OR">
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="122" endLine="1" endColumn="122"/>
 </symbol>
 <production>
-<leftside nonterminal="parseOrExpression"/>
+<leftside nonterminal="parse_AndExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseAndExpression"/>
-<rightside>
-<production>
-<leftside nonterminal="parseRelationalExpression"/>
+<leftside nonterminal="parse_RelationalExpression"/>
 <rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
@@ -851,16 +921,21 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
 </rightside>
 </production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_AndExpression'"/>
+<rightside>
 <symbol token="AND">
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="126" endLine="1" endColumn="126"/>
 </symbol>
 <production>
-<leftside nonterminal="parseAndExpression"/>
-<rightside>
-<production>
-<leftside nonterminal="parseRelationalExpression"/>
+<leftside nonterminal="parse_RelationalExpression"/>
 <rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
@@ -895,23 +970,33 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
+</rightside>
+</production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_AndExpression'"/>
+<rightside>
 </rightside>
 </production>
 </rightside>
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_OrExpression'"/>
+<rightside>
 <symbol token="OR">
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="130" endLine="1" endColumn="130"/>
 </symbol>
 <production>
-<leftside nonterminal="parseOrExpression"/>
+<leftside nonterminal="parse_AndExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseAndExpression"/>
-<rightside>
-<production>
-<leftside nonterminal="parseRelationalExpression"/>
+<leftside nonterminal="parse_RelationalExpression"/>
 <rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
@@ -935,16 +1020,16 @@
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="134" endLine="1" endColumn="134"/>
 </symbol>
 <production>
-<leftside nonterminal="parseExpression"/>
+<leftside nonterminal="parse_Expression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseOrExpression"/>
+<leftside nonterminal="parse_OrExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseAndExpression"/>
+<leftside nonterminal="parse_AndExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseRelationalExpression"/>
+<leftside nonterminal="parse_RelationalExpression"/>
 <rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
@@ -979,8 +1064,23 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
 </rightside>
 </production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_AndExpression'"/>
+<rightside>
+</rightside>
+</production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_OrExpression'"/>
+<rightside>
 </rightside>
 </production>
 </rightside>
@@ -1010,8 +1110,23 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
 </rightside>
 </production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_AndExpression'"/>
+<rightside>
+</rightside>
+</production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_OrExpression'"/>
+<rightside>
 </rightside>
 </production>
 </rightside>
@@ -1045,6 +1160,25 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
+</rightside>
+</production>
+</rightside>
+</production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_AndExpression'"/>
+<rightside>
+</rightside>
+</production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_OrExpression'"/>
+<rightside>
 </rightside>
 </production>
 </rightside>
@@ -1053,27 +1187,23 @@
 </production>
 </rightside>
 </production>
-</rightside>
-</production>
-</rightside>
-</production>
+<production>
+<leftside nonterminal="parse_Expressions'"/>
+<rightside>
 <symbol token="COMMA">
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="1" begColumn="139" endLine="1" endColumn="139"/>
 </symbol>
 <production>
-<leftside nonterminal="parseExpressions"/>
+<leftside nonterminal="parse_Expression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseExpression"/>
+<leftside nonterminal="parse_OrExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseOrExpression"/>
+<leftside nonterminal="parse_AndExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseAndExpression"/>
-<rightside>
-<production>
-<leftside nonterminal="parseRelationalExpression"/>
+<leftside nonterminal="parse_RelationalExpression"/>
 <rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
@@ -1133,16 +1263,16 @@
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="2" begColumn="15" endLine="2" endColumn="15"/>
 </symbol>
 <production>
-<leftside nonterminal="parseExpression"/>
+<leftside nonterminal="parse_Expression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseOrExpression"/>
+<leftside nonterminal="parse_OrExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseAndExpression"/>
+<leftside nonterminal="parse_AndExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseRelationalExpression"/>
+<leftside nonterminal="parse_RelationalExpression"/>
 <rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
@@ -1177,8 +1307,23 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
 </rightside>
 </production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_AndExpression'"/>
+<rightside>
+</rightside>
+</production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_OrExpression'"/>
+<rightside>
 </rightside>
 </production>
 </rightside>
@@ -1189,16 +1334,16 @@
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="2" begColumn="18" endLine="2" endColumn="18"/>
 </symbol>
 <production>
-<leftside nonterminal="parseExpression"/>
+<leftside nonterminal="parse_Expression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseOrExpression"/>
+<leftside nonterminal="parse_OrExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseAndExpression"/>
+<leftside nonterminal="parse_AndExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseRelationalExpression"/>
+<leftside nonterminal="parse_RelationalExpression"/>
 <rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
@@ -1233,8 +1378,23 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
 </rightside>
 </production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_AndExpression'"/>
+<rightside>
+</rightside>
+</production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_OrExpression'"/>
+<rightside>
 </rightside>
 </production>
 </rightside>
@@ -1245,16 +1405,16 @@
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="2" begColumn="20" endLine="2" endColumn="20"/>
 </symbol>
 <production>
-<leftside nonterminal="parseExpression"/>
+<leftside nonterminal="parse_Expression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseOrExpression"/>
+<leftside nonterminal="parse_OrExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseAndExpression"/>
+<leftside nonterminal="parse_AndExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseRelationalExpression"/>
+<leftside nonterminal="parse_RelationalExpression"/>
 <rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
@@ -1289,8 +1449,23 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
 </rightside>
 </production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_AndExpression'"/>
+<rightside>
+</rightside>
+</production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_OrExpression'"/>
+<rightside>
 </rightside>
 </production>
 </rightside>
@@ -1324,12 +1499,12 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
 <symbol token="NEQ">
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="2" begColumn="24" endLine="2" endColumn="25"/>
 </symbol>
-<production>
-<leftside nonterminal="parseRelationalExpression"/>
-<rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
 <rightside>
@@ -1397,18 +1572,23 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
 </rightside>
 </production>
 </rightside>
 </production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_AndExpression'"/>
+<rightside>
 <symbol token="AND">
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="2" begColumn="35" endLine="2" endColumn="35"/>
 </symbol>
 <production>
-<leftside nonterminal="parseAndExpression"/>
-<rightside>
-<production>
-<leftside nonterminal="parseRelationalExpression"/>
+<leftside nonterminal="parse_RelationalExpression"/>
 <rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
@@ -1443,12 +1623,12 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
 <symbol token="LEQ">
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="2" begColumn="39" endLine="2" endColumn="40"/>
 </symbol>
-<production>
-<leftside nonterminal="parseRelationalExpression"/>
-<rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
 <rightside>
@@ -1482,25 +1662,35 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
 </rightside>
 </production>
 </rightside>
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_AndExpression'"/>
+<rightside>
 </rightside>
 </production>
+</rightside>
+</production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_OrExpression'"/>
+<rightside>
 <symbol token="OR">
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="2" begColumn="44" endLine="2" endColumn="44"/>
 </symbol>
 <production>
-<leftside nonterminal="parseOrExpression"/>
+<leftside nonterminal="parse_AndExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseAndExpression"/>
-<rightside>
-<production>
-<leftside nonterminal="parseRelationalExpression"/>
+<leftside nonterminal="parse_RelationalExpression"/>
 <rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
@@ -1535,16 +1725,21 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
 </rightside>
 </production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_AndExpression'"/>
+<rightside>
 <symbol token="AND">
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="2" begColumn="48" endLine="2" endColumn="48"/>
 </symbol>
 <production>
-<leftside nonterminal="parseAndExpression"/>
-<rightside>
-<production>
-<leftside nonterminal="parseRelationalExpression"/>
+<leftside nonterminal="parse_RelationalExpression"/>
 <rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
@@ -1579,23 +1774,33 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
+</rightside>
+</production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_AndExpression'"/>
+<rightside>
 </rightside>
 </production>
 </rightside>
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_OrExpression'"/>
+<rightside>
 <symbol token="OR">
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="2" begColumn="52" endLine="2" endColumn="52"/>
 </symbol>
 <production>
-<leftside nonterminal="parseOrExpression"/>
+<leftside nonterminal="parse_AndExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseAndExpression"/>
-<rightside>
-<production>
-<leftside nonterminal="parseRelationalExpression"/>
+<leftside nonterminal="parse_RelationalExpression"/>
 <rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
@@ -1638,6 +1843,23 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
+</rightside>
+</production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_AndExpression'"/>
+<rightside>
+</rightside>
+</production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_OrExpression'"/>
+<rightside>
 </rightside>
 </production>
 </rightside>
@@ -1648,25 +1870,23 @@
 </production>
 </rightside>
 </production>
-</rightside>
-</production>
+<production>
+<leftside nonterminal="parse_Expressions'"/>
+<rightside>
 <symbol token="COMMA">
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="2" begColumn="57" endLine="2" endColumn="57"/>
 </symbol>
 <production>
-<leftside nonterminal="parseExpressions"/>
+<leftside nonterminal="parse_Expression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseExpression"/>
+<leftside nonterminal="parse_OrExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseOrExpression"/>
+<leftside nonterminal="parse_AndExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseAndExpression"/>
-<rightside>
-<production>
-<leftside nonterminal="parseRelationalExpression"/>
+<leftside nonterminal="parse_RelationalExpression"/>
 <rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
@@ -1701,21 +1921,31 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
 </rightside>
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_AndExpression'"/>
+<rightside>
+</rightside>
+</production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_OrExpression'"/>
+<rightside>
 <symbol token="OR">
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="3" begColumn="3" endLine="3" endColumn="3"/>
 </symbol>
 <production>
-<leftside nonterminal="parseOrExpression"/>
+<leftside nonterminal="parse_AndExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseAndExpression"/>
-<rightside>
-<production>
-<leftside nonterminal="parseRelationalExpression"/>
+<leftside nonterminal="parse_RelationalExpression"/>
 <rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
@@ -1884,12 +2114,12 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
 <symbol token="LTH">
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="3" begColumn="51" endLine="3" endColumn="51"/>
 </symbol>
-<production>
-<leftside nonterminal="parseRelationalExpression"/>
-<rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
 <rightside>
@@ -1923,18 +2153,23 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
 </rightside>
 </production>
 </rightside>
 </production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_AndExpression'"/>
+<rightside>
 <symbol token="AND">
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="3" begColumn="55" endLine="3" endColumn="55"/>
 </symbol>
 <production>
-<leftside nonterminal="parseAndExpression"/>
-<rightside>
-<production>
-<leftside nonterminal="parseRelationalExpression"/>
+<leftside nonterminal="parse_RelationalExpression"/>
 <rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
@@ -1969,12 +2204,12 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
 <symbol token="GTH">
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="3" begColumn="59" endLine="3" endColumn="59"/>
 </symbol>
-<production>
-<leftside nonterminal="parseRelationalExpression"/>
-<rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
 <rightside>
@@ -2008,18 +2243,23 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
 </rightside>
 </production>
 </rightside>
 </production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_AndExpression'"/>
+<rightside>
 <symbol token="AND">
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="3" begColumn="63" endLine="3" endColumn="63"/>
 </symbol>
 <production>
-<leftside nonterminal="parseAndExpression"/>
-<rightside>
-<production>
-<leftside nonterminal="parseRelationalExpression"/>
+<leftside nonterminal="parse_RelationalExpression"/>
 <rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
@@ -2067,16 +2307,16 @@
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="3" begColumn="71" endLine="3" endColumn="75"/>
 </symbol>
 <production>
-<leftside nonterminal="parseExpression"/>
+<leftside nonterminal="parse_Expression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseOrExpression"/>
+<leftside nonterminal="parse_OrExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseAndExpression"/>
+<leftside nonterminal="parse_AndExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseRelationalExpression"/>
+<leftside nonterminal="parse_RelationalExpression"/>
 <rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
@@ -2149,8 +2389,23 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
 </rightside>
 </production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_AndExpression'"/>
+<rightside>
+</rightside>
+</production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_OrExpression'"/>
+<rightside>
 </rightside>
 </production>
 </rightside>
@@ -2161,16 +2416,16 @@
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="3" begColumn="99" endLine="3" endColumn="99"/>
 </symbol>
 <production>
-<leftside nonterminal="parseExpression"/>
+<leftside nonterminal="parse_Expression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseOrExpression"/>
+<leftside nonterminal="parse_OrExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseAndExpression"/>
+<leftside nonterminal="parse_AndExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseRelationalExpression"/>
+<leftside nonterminal="parse_RelationalExpression"/>
 <rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
@@ -2243,8 +2498,23 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
 </rightside>
 </production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_AndExpression'"/>
+<rightside>
+</rightside>
+</production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_OrExpression'"/>
+<rightside>
 </rightside>
 </production>
 </rightside>
@@ -2294,16 +2564,16 @@
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="3" endLine="4" endColumn="3"/>
 </symbol>
 <production>
-<leftside nonterminal="parseExpression"/>
+<leftside nonterminal="parse_Expression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseOrExpression"/>
+<leftside nonterminal="parse_OrExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseAndExpression"/>
+<leftside nonterminal="parse_AndExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseRelationalExpression"/>
+<leftside nonterminal="parse_RelationalExpression"/>
 <rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
@@ -2421,21 +2691,31 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
 </rightside>
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_AndExpression'"/>
+<rightside>
+</rightside>
+</production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_OrExpression'"/>
+<rightside>
 <symbol token="OR">
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="27" endLine="4" endColumn="27"/>
 </symbol>
 <production>
-<leftside nonterminal="parseOrExpression"/>
+<leftside nonterminal="parse_AndExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseAndExpression"/>
-<rightside>
-<production>
-<leftside nonterminal="parseRelationalExpression"/>
+<leftside nonterminal="parse_RelationalExpression"/>
 <rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
@@ -2517,12 +2797,12 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
 <symbol token="EQU">
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="38" endLine="4" endColumn="39"/>
 </symbol>
-<production>
-<leftside nonterminal="parseRelationalExpression"/>
-<rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
 <rightside>
@@ -2548,16 +2828,16 @@
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="45" endLine="4" endColumn="45"/>
 </symbol>
 <production>
-<leftside nonterminal="parseExpression"/>
+<leftside nonterminal="parse_Expression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseOrExpression"/>
+<leftside nonterminal="parse_OrExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseAndExpression"/>
+<leftside nonterminal="parse_AndExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseRelationalExpression"/>
+<leftside nonterminal="parse_RelationalExpression"/>
 <rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
@@ -2626,12 +2906,12 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
 <symbol token="NEQ">
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="56" endLine="4" endColumn="57"/>
 </symbol>
-<production>
-<leftside nonterminal="parseRelationalExpression"/>
-<rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
 <rightside>
@@ -2654,16 +2934,16 @@
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="60" endLine="4" endColumn="61"/>
 </symbol>
 <production>
-<leftside nonterminal="parseExpression"/>
+<leftside nonterminal="parse_Expression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseOrExpression"/>
+<leftside nonterminal="parse_OrExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseAndExpression"/>
+<leftside nonterminal="parse_AndExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseRelationalExpression"/>
+<leftside nonterminal="parse_RelationalExpression"/>
 <rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
@@ -2698,12 +2978,12 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
 <symbol token="GTH">
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="65" endLine="4" endColumn="64"/>
 </symbol>
-<production>
-<leftside nonterminal="parseRelationalExpression"/>
-<rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
 <rightside>
@@ -2737,10 +3017,25 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
 </rightside>
 </production>
 </rightside>
 </production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_AndExpression'"/>
+<rightside>
+</rightside>
+</production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_OrExpression'"/>
+<rightside>
 </rightside>
 </production>
 </rightside>
@@ -2751,16 +3046,16 @@
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="67" endLine="4" endColumn="70"/>
 </symbol>
 <production>
-<leftside nonterminal="parseExpression"/>
+<leftside nonterminal="parse_Expression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseOrExpression"/>
+<leftside nonterminal="parse_OrExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseAndExpression"/>
+<leftside nonterminal="parse_AndExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseRelationalExpression"/>
+<leftside nonterminal="parse_RelationalExpression"/>
 <rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
@@ -2787,16 +3082,16 @@
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="75" endLine="4" endColumn="74"/>
 </symbol>
 <production>
-<leftside nonterminal="parseExpression"/>
+<leftside nonterminal="parse_Expression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseOrExpression"/>
+<leftside nonterminal="parse_OrExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseAndExpression"/>
+<leftside nonterminal="parse_AndExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseRelationalExpression"/>
+<leftside nonterminal="parse_RelationalExpression"/>
 <rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
@@ -2831,8 +3126,23 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
 </rightside>
 </production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_AndExpression'"/>
+<rightside>
+</rightside>
+</production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_OrExpression'"/>
+<rightside>
 </rightside>
 </production>
 </rightside>
@@ -2862,8 +3172,23 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
 </rightside>
 </production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_AndExpression'"/>
+<rightside>
+</rightside>
+</production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_OrExpression'"/>
+<rightside>
 </rightside>
 </production>
 </rightside>
@@ -3000,18 +3325,23 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
 </rightside>
 </production>
 </rightside>
 </production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_AndExpression'"/>
+<rightside>
 <symbol token="AND">
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="116" endLine="4" endColumn="116"/>
 </symbol>
 <production>
-<leftside nonterminal="parseAndExpression"/>
-<rightside>
-<production>
-<leftside nonterminal="parseRelationalExpression"/>
+<leftside nonterminal="parse_RelationalExpression"/>
 <rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
@@ -3046,12 +3376,12 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
 <symbol token="LEQ">
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="120" endLine="4" endColumn="121"/>
 </symbol>
-<production>
-<leftside nonterminal="parseRelationalExpression"/>
-<rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
 <rightside>
@@ -3085,25 +3415,35 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
 </rightside>
 </production>
 </rightside>
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_AndExpression'"/>
+<rightside>
 </rightside>
 </production>
+</rightside>
+</production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_OrExpression'"/>
+<rightside>
 <symbol token="OR">
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="125" endLine="4" endColumn="125"/>
 </symbol>
 <production>
-<leftside nonterminal="parseOrExpression"/>
+<leftside nonterminal="parse_AndExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseAndExpression"/>
-<rightside>
-<production>
-<leftside nonterminal="parseRelationalExpression"/>
+<leftside nonterminal="parse_RelationalExpression"/>
 <rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
@@ -3138,16 +3478,21 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
 </rightside>
 </production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_AndExpression'"/>
+<rightside>
 <symbol token="AND">
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="129" endLine="4" endColumn="129"/>
 </symbol>
 <production>
-<leftside nonterminal="parseAndExpression"/>
-<rightside>
-<production>
-<leftside nonterminal="parseRelationalExpression"/>
+<leftside nonterminal="parse_RelationalExpression"/>
 <rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
@@ -3182,23 +3527,33 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
+</rightside>
+</production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_AndExpression'"/>
+<rightside>
 </rightside>
 </production>
 </rightside>
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_OrExpression'"/>
+<rightside>
 <symbol token="OR">
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="133" endLine="4" endColumn="133"/>
 </symbol>
 <production>
-<leftside nonterminal="parseOrExpression"/>
+<leftside nonterminal="parse_AndExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseAndExpression"/>
-<rightside>
-<production>
-<leftside nonterminal="parseRelationalExpression"/>
+<leftside nonterminal="parse_RelationalExpression"/>
 <rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
@@ -3222,16 +3577,16 @@
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="137" endLine="4" endColumn="137"/>
 </symbol>
 <production>
-<leftside nonterminal="parseExpression"/>
+<leftside nonterminal="parse_Expression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseOrExpression"/>
+<leftside nonterminal="parse_OrExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseAndExpression"/>
+<leftside nonterminal="parse_AndExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseRelationalExpression"/>
+<leftside nonterminal="parse_RelationalExpression"/>
 <rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
@@ -3266,8 +3621,23 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
 </rightside>
 </production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_AndExpression'"/>
+<rightside>
+</rightside>
+</production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_OrExpression'"/>
+<rightside>
 </rightside>
 </production>
 </rightside>
@@ -3297,8 +3667,23 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
 </rightside>
 </production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_AndExpression'"/>
+<rightside>
+</rightside>
+</production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_OrExpression'"/>
+<rightside>
 </rightside>
 </production>
 </rightside>
@@ -3332,10 +3717,25 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
 </rightside>
 </production>
 </rightside>
 </production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_AndExpression'"/>
+<rightside>
+</rightside>
+</production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_OrExpression'"/>
+<rightside>
 </rightside>
 </production>
 </rightside>
@@ -3369,6 +3769,16 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
+</rightside>
+</production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_AndExpression'"/>
+<rightside>
 </rightside>
 </production>
 </rightside>
@@ -3377,17 +3787,17 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_OrExpression'"/>
+<rightside>
 <symbol token="OR">
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="4" begColumn="144" endLine="4" endColumn="144"/>
 </symbol>
 <production>
-<leftside nonterminal="parseOrExpression"/>
+<leftside nonterminal="parse_AndExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseAndExpression"/>
-<rightside>
-<production>
-<leftside nonterminal="parseRelationalExpression"/>
+<leftside nonterminal="parse_RelationalExpression"/>
 <rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
@@ -3411,16 +3821,16 @@
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="5" begColumn="2" endLine="5" endColumn="2"/>
 </symbol>
 <production>
-<leftside nonterminal="parseExpression"/>
+<leftside nonterminal="parse_Expression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseOrExpression"/>
+<leftside nonterminal="parse_OrExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseAndExpression"/>
+<leftside nonterminal="parse_AndExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseRelationalExpression"/>
+<leftside nonterminal="parse_RelationalExpression"/>
 <rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
@@ -3489,12 +3899,12 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
 <symbol token="NEQ">
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="5" begColumn="13" endLine="5" endColumn="14"/>
 </symbol>
-<production>
-<leftside nonterminal="parseRelationalExpression"/>
-<rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
 <rightside>
@@ -3562,18 +3972,23 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
 </rightside>
 </production>
 </rightside>
 </production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_AndExpression'"/>
+<rightside>
 <symbol token="AND">
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="5" begColumn="24" endLine="5" endColumn="24"/>
 </symbol>
 <production>
-<leftside nonterminal="parseAndExpression"/>
-<rightside>
-<production>
-<leftside nonterminal="parseRelationalExpression"/>
+<leftside nonterminal="parse_RelationalExpression"/>
 <rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
@@ -3608,12 +4023,12 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
 <symbol token="LEQ">
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="5" begColumn="28" endLine="5" endColumn="29"/>
 </symbol>
-<production>
-<leftside nonterminal="parseRelationalExpression"/>
-<rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
 <rightside>
@@ -3647,25 +4062,35 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
 </rightside>
 </production>
 </rightside>
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_AndExpression'"/>
+<rightside>
 </rightside>
 </production>
+</rightside>
+</production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_OrExpression'"/>
+<rightside>
 <symbol token="OR">
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="5" begColumn="33" endLine="5" endColumn="33"/>
 </symbol>
 <production>
-<leftside nonterminal="parseOrExpression"/>
+<leftside nonterminal="parse_AndExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseAndExpression"/>
-<rightside>
-<production>
-<leftside nonterminal="parseRelationalExpression"/>
+<leftside nonterminal="parse_RelationalExpression"/>
 <rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
@@ -3689,16 +4114,16 @@
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="5" begColumn="36" endLine="5" endColumn="37"/>
 </symbol>
 <production>
-<leftside nonterminal="parseExpression"/>
+<leftside nonterminal="parse_Expression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseOrExpression"/>
+<leftside nonterminal="parse_OrExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseAndExpression"/>
+<leftside nonterminal="parse_AndExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseRelationalExpression"/>
+<leftside nonterminal="parse_RelationalExpression"/>
 <rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
@@ -3733,8 +4158,23 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
 </rightside>
 </production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_AndExpression'"/>
+<rightside>
+</rightside>
+</production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_OrExpression'"/>
+<rightside>
 </rightside>
 </production>
 </rightside>
@@ -3745,16 +4185,16 @@
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="5" begColumn="41" endLine="5" endColumn="44"/>
 </symbol>
 <production>
-<leftside nonterminal="parseExpression"/>
+<leftside nonterminal="parse_Expression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseOrExpression"/>
+<leftside nonterminal="parse_OrExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseAndExpression"/>
+<leftside nonterminal="parse_AndExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseRelationalExpression"/>
+<leftside nonterminal="parse_RelationalExpression"/>
 <rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
@@ -3789,8 +4229,23 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
 </rightside>
 </production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_AndExpression'"/>
+<rightside>
+</rightside>
+</production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_OrExpression'"/>
+<rightside>
 </rightside>
 </production>
 </rightside>
@@ -3801,16 +4256,16 @@
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="5" begColumn="48" endLine="5" endColumn="51"/>
 </symbol>
 <production>
-<leftside nonterminal="parseExpression"/>
+<leftside nonterminal="parse_Expression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseOrExpression"/>
+<leftside nonterminal="parse_OrExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseAndExpression"/>
+<leftside nonterminal="parse_AndExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseRelationalExpression"/>
+<leftside nonterminal="parse_RelationalExpression"/>
 <rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
@@ -3845,8 +4300,23 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
 </rightside>
 </production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_AndExpression'"/>
+<rightside>
+</rightside>
+</production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_OrExpression'"/>
+<rightside>
 </rightside>
 </production>
 </rightside>
@@ -3876,16 +4346,21 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
 </rightside>
 </production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_AndExpression'"/>
+<rightside>
 <symbol token="AND">
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="5" begColumn="56" endLine="5" endColumn="56"/>
 </symbol>
 <production>
-<leftside nonterminal="parseAndExpression"/>
-<rightside>
-<production>
-<leftside nonterminal="parseRelationalExpression"/>
+<leftside nonterminal="parse_RelationalExpression"/>
 <rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
@@ -3920,23 +4395,33 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
+</rightside>
+</production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_AndExpression'"/>
+<rightside>
 </rightside>
 </production>
 </rightside>
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_OrExpression'"/>
+<rightside>
 <symbol token="OR">
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="5" begColumn="60" endLine="5" endColumn="60"/>
 </symbol>
 <production>
-<leftside nonterminal="parseOrExpression"/>
+<leftside nonterminal="parse_AndExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseAndExpression"/>
-<rightside>
-<production>
-<leftside nonterminal="parseRelationalExpression"/>
+<leftside nonterminal="parse_RelationalExpression"/>
 <rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
@@ -3966,16 +4451,16 @@
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="5" begColumn="65" endLine="5" endColumn="66"/>
 </symbol>
 <production>
-<leftside nonterminal="parseExpression"/>
+<leftside nonterminal="parse_Expression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseOrExpression"/>
+<leftside nonterminal="parse_OrExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseAndExpression"/>
+<leftside nonterminal="parse_AndExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseRelationalExpression"/>
+<leftside nonterminal="parse_RelationalExpression"/>
 <rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
@@ -4010,8 +4495,23 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
 </rightside>
 </production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_AndExpression'"/>
+<rightside>
+</rightside>
+</production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_OrExpression'"/>
+<rightside>
 </rightside>
 </production>
 </rightside>
@@ -4022,16 +4522,16 @@
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="5" begColumn="70" endLine="5" endColumn="73"/>
 </symbol>
 <production>
-<leftside nonterminal="parseExpression"/>
+<leftside nonterminal="parse_Expression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseOrExpression"/>
+<leftside nonterminal="parse_OrExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseAndExpression"/>
+<leftside nonterminal="parse_AndExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseRelationalExpression"/>
+<leftside nonterminal="parse_RelationalExpression"/>
 <rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
@@ -4066,8 +4566,23 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
 </rightside>
 </production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_AndExpression'"/>
+<rightside>
+</rightside>
+</production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_OrExpression'"/>
+<rightside>
 </rightside>
 </production>
 </rightside>
@@ -4099,8 +4614,23 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
 </rightside>
 </production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_AndExpression'"/>
+<rightside>
+</rightside>
+</production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_OrExpression'"/>
+<rightside>
 </rightside>
 </production>
 </rightside>
@@ -4129,16 +4659,21 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
 </rightside>
 </production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_AndExpression'"/>
+<rightside>
 <symbol token="AND">
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="6" begColumn="1" endLine="6" endColumn="1"/>
 </symbol>
 <production>
-<leftside nonterminal="parseAndExpression"/>
-<rightside>
-<production>
-<leftside nonterminal="parseRelationalExpression"/>
+<leftside nonterminal="parse_RelationalExpression"/>
 <rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
@@ -4179,23 +4714,33 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
+</rightside>
+</production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_AndExpression'"/>
+<rightside>
 </rightside>
 </production>
 </rightside>
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_OrExpression'"/>
+<rightside>
 <symbol token="OR">
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="6" begColumn="9" endLine="6" endColumn="9"/>
 </symbol>
 <production>
-<leftside nonterminal="parseOrExpression"/>
+<leftside nonterminal="parse_AndExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseAndExpression"/>
-<rightside>
-<production>
-<leftside nonterminal="parseRelationalExpression"/>
+<leftside nonterminal="parse_RelationalExpression"/>
 <rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
@@ -4308,16 +4853,16 @@
 <position filename="C:\Users\Validus\Desktop\SinAnalSample.txt" begLine="6" begColumn="45" endLine="6" endColumn="44"/>
 </symbol>
 <production>
-<leftside nonterminal="parseExpression"/>
+<leftside nonterminal="parse_Expression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseOrExpression"/>
+<leftside nonterminal="parse_OrExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseAndExpression"/>
+<leftside nonterminal="parse_AndExpression"/>
 <rightside>
 <production>
-<leftside nonterminal="parseRelationalExpression"/>
+<leftside nonterminal="parse_RelationalExpression"/>
 <rightside>
 <production>
 <leftside nonterminal="additive_expression"/>
@@ -4352,8 +4897,23 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
 </rightside>
 </production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_AndExpression'"/>
+<rightside>
+</rightside>
+</production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_OrExpression'"/>
+<rightside>
 </rightside>
 </production>
 </rightside>
@@ -4388,6 +4948,23 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_RelationalExpression'"/>
+<rightside>
+</rightside>
+</production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_AndExpression'"/>
+<rightside>
+</rightside>
+</production>
+</rightside>
+</production>
+<production>
+<leftside nonterminal="parse_OrExpression'"/>
+<rightside>
 </rightside>
 </production>
 </rightside>
@@ -4400,6 +4977,9 @@
 </production>
 </rightside>
 </production>
+<production>
+<leftside nonterminal="parse_Expressions'"/>
+<rightside>
 </rightside>
 </production>
 </rightside>

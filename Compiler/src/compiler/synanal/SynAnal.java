@@ -1,15 +1,40 @@
 package compiler.synanal;
 
 import java.io.*;
+import java.util.Vector;
 
 import compiler.*;
+import compiler.abstree.AbsArrType;
+import compiler.abstree.AbsAssignStmt;
+import compiler.abstree.AbsAtomExpr;
+import compiler.abstree.AbsAtomType;
+import compiler.abstree.AbsBinExpr;
+import compiler.abstree.AbsDecl;
+import compiler.abstree.AbsDecls;
+import compiler.abstree.AbsExpr;
+import compiler.abstree.AbsExprName;
+import compiler.abstree.AbsExprs;
+import compiler.abstree.AbsForStmt;
+import compiler.abstree.AbsFunCall;
+import compiler.abstree.AbsFunDecl;
+import compiler.abstree.AbsIfStmt;
+import compiler.abstree.AbsPtrType;
+import compiler.abstree.AbsRecType;
+import compiler.abstree.AbsTree;
+import compiler.abstree.AbsTypDecl;
+import compiler.abstree.AbsType;
+import compiler.abstree.AbsTypeName;
+import compiler.abstree.AbsUnExpr;
+import compiler.abstree.AbsVarDecl;
+import compiler.abstree.AbsWhereExpr;
+import compiler.abstree.AbsWhileStmt;
 import compiler.lexanal.*;
 
 /** Sintaksni analizator. */
 public class SynAnal {
 	// nastavitve
-	private final Boolean REPORT_SKIP = false;
-	
+	private final Boolean REPORT_SKIP = true;
+
 	private LexAnal lexer;
 
 	private Symbol symbol;
@@ -26,309 +51,587 @@ public class SynAnal {
 	 * @throws IOException
 	 *             Ce je prislo do napake pri branju vhodne datoteke.
 	 */
-	public void parse() throws IOException {
+	public AbsTree parse() throws IOException {
 		symbol = lexer.getNextSymbol();
-
+		AbsTree abstraktnoDrevo = null;
 		try {
-			parseSource();
+			abstraktnoDrevo = parseSource();
 			if (symbol != null)
 				throw new ParseException();
 		} catch (ParseException exception) {
 			Report.error("Syntax error.", -1);
 		}
+		return abstraktnoDrevo;
 	}
 
-	private void parseSource() throws IOException, ParseException {
+	private AbsTree parseSource() throws IOException, ParseException {
+		AbsTree abstraktnoDrevo = null;
+
 		debug("source");
-		parseExpressions();
+
+		abstraktnoDrevo = parseExpressions();
+
 		debug();
+
+		return abstraktnoDrevo;
 	}
 
-	private void parseExpressions() throws IOException, ParseException {
-		debug("parseExpressions");
+	private AbsExprs parseExpressions() throws IOException, ParseException {
+		debug("parse_Expressions");
 
-		parseExpression();
+		AbsExprs seznamIzrazov = null;
+
+		Vector<AbsExpr> vectorIzrazov = new Vector<AbsExpr>();
+
+		vectorIzrazov.add(parseExpression());
+		vectorIzrazov = parseExpressionsRest(vectorIzrazov);
+
+		seznamIzrazov = new AbsExprs(vectorIzrazov);
+
+		debug();
+
+		return seznamIzrazov;
+	}
+
+	private Vector<AbsExpr> parseExpressionsRest(Vector<AbsExpr> vectorIzrazov)
+			throws IOException, ParseException {
+		debug("parse_Expressions'");
 
 		switch (symbol != null ? symbol.getToken() : -1) {
 		case Symbol.COMMA:
 			skip(Symbol.COMMA);
-			parseExpressions();
+			vectorIzrazov.add(parseExpression());
+			vectorIzrazov = parseExpressionsRest(vectorIzrazov);
 			break;
-		case -1:
-			break;// konec
-		default:
-			throw new ParseException();
 		}
-		debug();
-	}
-
-	private void parseExpression() throws IOException, ParseException {
-		debug("parseExpression");
-
-		parseOrExpression();
 
 		debug();
+
+		return vectorIzrazov;
 	}
 
-	private void parseOrExpression() throws IOException, ParseException {
-		debug("parseOrExpression");
+	private AbsExpr parseExpression() throws IOException, ParseException {
+		debug("parse_Expression");
 
-		parseAndExpression();
+		AbsExpr izraz = null;
+
+		izraz = parseOrExpression();
+
+		debug();
+
+		return izraz;
+	}
+
+	private AbsExpr parseOrExpression() throws IOException, ParseException {
+		debug("parse_OrExpression");
+
+		AbsExpr izrazBinarniOperatorOr = null;
+
+		izrazBinarniOperatorOr = parseAndExpression();
+
+		izrazBinarniOperatorOr = parseOrExpressionRest(izrazBinarniOperatorOr);
+
+		debug();
+
+		return izrazBinarniOperatorOr;
+	}
+
+	private AbsExpr parseOrExpressionRest(AbsExpr izrazBinarniOperatorOr)
+			throws IOException, ParseException {
+		debug("parse_OrExpression'");
 
 		switch (symbol != null ? symbol.getToken() : -1) {
 		case Symbol.OR:
 			skip(Symbol.OR);
-			parseOrExpression();
+
+			AbsExpr izrazBinarniOperatorAnd = parseAndExpression();
+
+			izrazBinarniOperatorOr = new AbsBinExpr(AbsBinExpr.OR,
+					izrazBinarniOperatorOr, izrazBinarniOperatorAnd);
+
+			izrazBinarniOperatorOr = parseOrExpressionRest(izrazBinarniOperatorOr);
 			break;
 		}
 
 		debug();
+
+		return izrazBinarniOperatorOr;
 	}
 
-	private void parseAndExpression() throws IOException, ParseException {
-		debug("parseAndExpression");
+	private AbsExpr parseAndExpression() throws IOException, ParseException {
+		debug("parse_AndExpression");
 
-		parseRelationalExpression();
+		AbsExpr izrazBinarniOperatorAnd = null;
+
+		izrazBinarniOperatorAnd = parseRelationalExpression();
+
+		izrazBinarniOperatorAnd = parseAndExpressionRest(izrazBinarniOperatorAnd);
+
+		debug();
+
+		return izrazBinarniOperatorAnd;
+	}
+
+	private AbsExpr parseAndExpressionRest(AbsExpr izrazBinarniOperatorAnd)
+			throws IOException, ParseException {
+		debug("parse_AndExpression'");
 
 		switch (symbol != null ? symbol.getToken() : -1) {
 		case Symbol.AND:
 			skip(Symbol.AND);
-			parseAndExpression();
+
+			AbsExpr izrazBinarniRealational = parseRelationalExpression();
+
+			izrazBinarniOperatorAnd = new AbsBinExpr(AbsBinExpr.AND,
+					izrazBinarniOperatorAnd, izrazBinarniRealational);
+
+			izrazBinarniOperatorAnd = parseAndExpressionRest(izrazBinarniOperatorAnd);
 			break;
 		}
 
 		debug();
+
+		return izrazBinarniOperatorAnd;
 	}
 
-	private void parseRelationalExpression() throws IOException, ParseException {
-		debug("parseRelationalExpression");
+	private AbsExpr parseRelationalExpression() throws IOException,
+			ParseException {
+		debug("parse_RelationalExpression");
 
-		parseAdditiveExpression();
+		AbsExpr izrazBinarniRelational = null;
+
+		izrazBinarniRelational = parseAdditiveExpression();
+
+		izrazBinarniRelational = parseRelationalExpressionRest(izrazBinarniRelational);
+
+		debug();
+
+		return izrazBinarniRelational;
+	}
+
+	private AbsExpr parseRelationalExpressionRest(AbsExpr izrazBinarniRelational)
+			throws IOException, ParseException {
+		debug("parse_RelationalExpression'");
+
+		AbsExpr izrazBinarniAdditive = null;
 
 		switch (symbol != null ? symbol.getToken() : -1) {
 		case Symbol.EQU:
 			skip(Symbol.EQU);
-			parseRelationalExpression();
+			izrazBinarniAdditive = parseAdditiveExpression();
+
+			izrazBinarniRelational = new AbsBinExpr(AbsBinExpr.EQU,
+					izrazBinarniRelational, izrazBinarniAdditive);
+
+			izrazBinarniRelational = parseRelationalExpressionRest(izrazBinarniRelational);
 			break;
 		case Symbol.NEQ:
 			skip(Symbol.NEQ);
-			parseRelationalExpression();
+			izrazBinarniAdditive = parseAdditiveExpression();
+
+			izrazBinarniRelational = new AbsBinExpr(AbsBinExpr.NEQ,
+					izrazBinarniRelational, izrazBinarniAdditive);
+
+			izrazBinarniRelational = parseRelationalExpressionRest(izrazBinarniRelational);
 			break;
 		case Symbol.LTH:
 			skip(Symbol.LTH);
-			parseRelationalExpression();
+			izrazBinarniAdditive = parseAdditiveExpression();
+
+			izrazBinarniRelational = new AbsBinExpr(AbsBinExpr.LTH,
+					izrazBinarniRelational, izrazBinarniAdditive);
+
+			izrazBinarniRelational = parseRelationalExpressionRest(izrazBinarniRelational);
 			break;
 
 		case Symbol.GTH:
 			skip(Symbol.GTH);
-			parseRelationalExpression();
+			izrazBinarniAdditive = parseAdditiveExpression();
+
+			izrazBinarniRelational = new AbsBinExpr(AbsBinExpr.GTH,
+					izrazBinarniRelational, izrazBinarniAdditive);
+
+			izrazBinarniRelational = parseRelationalExpressionRest(izrazBinarniRelational);
 			break;
 
 		case Symbol.LEQ:
 			skip(Symbol.LEQ);
-			parseRelationalExpression();
+			izrazBinarniAdditive = parseAdditiveExpression();
+
+			izrazBinarniRelational = new AbsBinExpr(AbsBinExpr.LEQ,
+					izrazBinarniRelational, izrazBinarniAdditive);
+
+			izrazBinarniRelational = parseRelationalExpressionRest(izrazBinarniRelational);
 			break;
 
 		case Symbol.GEQ:
 			skip(Symbol.GEQ);
-			parseRelationalExpression();
+			izrazBinarniAdditive = parseAdditiveExpression();
+
+			izrazBinarniRelational = new AbsBinExpr(AbsBinExpr.GEQ,
+					izrazBinarniRelational, izrazBinarniAdditive);
+
+			izrazBinarniRelational = parseRelationalExpressionRest(izrazBinarniRelational);
 			break;
 		}
 
 		debug();
+
+		return izrazBinarniRelational;
 	}
 
-	private void parseAdditiveExpression() throws IOException, ParseException {
-		debug("additive_expression");
-		parseMultiplicativeExpression();
-		parseAdditiveExpressionRest();
-		debug();
-	}
-
-	private void parseAdditiveExpressionRest() throws IOException,
+	private AbsExpr parseAdditiveExpression() throws IOException,
 			ParseException {
+		debug("additive_expression");
+
+		AbsExpr izrazBinarniAdditive = null;
+
+		izrazBinarniAdditive = parseMultiplicativeExpression();
+
+		izrazBinarniAdditive = parseAdditiveExpressionRest(izrazBinarniAdditive);
+
+		debug();
+
+		return izrazBinarniAdditive;
+	}
+
+	private AbsExpr parseAdditiveExpressionRest(AbsExpr izrazBinarniAdditive)
+			throws IOException, ParseException {
 		debug("additive_expression'");
+
+		AbsExpr izrazBinarniMulti = null;
+
 		switch (symbol != null ? symbol.getToken() : -1) {
 		case Symbol.ADD:
 			skip(Symbol.ADD);
-			parseMultiplicativeExpression();
-			parseAdditiveExpressionRest();
+			izrazBinarniMulti = parseMultiplicativeExpression();
+
+			izrazBinarniAdditive = new AbsBinExpr(AbsBinExpr.ADD,
+					izrazBinarniAdditive, izrazBinarniMulti);
+
+			izrazBinarniAdditive = parseAdditiveExpressionRest(izrazBinarniAdditive);
 			break;
 		case Symbol.SUB:
 			skip(Symbol.SUB);
-			parseMultiplicativeExpression();
-			parseAdditiveExpressionRest();
+			izrazBinarniMulti = parseMultiplicativeExpression();
+
+			izrazBinarniAdditive = new AbsBinExpr(AbsBinExpr.SUB,
+					izrazBinarniAdditive, izrazBinarniMulti);
+
+			izrazBinarniAdditive = parseAdditiveExpressionRest(izrazBinarniAdditive);
 			break;
 		default:
 			break;
 		}
+
 		debug();
+
+		return izrazBinarniAdditive;
 	}
 
-	private void parseMultiplicativeExpression() throws IOException,
+	private AbsExpr parseMultiplicativeExpression() throws IOException,
 			ParseException {
-		debug("parseMultiplicativeExpression");
+		debug("parse_MultiplicativeExpression");
 
-		parsePrefixExpression();
+		AbsExpr izrazBinarniMulti = null;
+
+		izrazBinarniMulti = parsePrefixExpression();
+
+		izrazBinarniMulti = parseMultiplicativeExpressionRest(izrazBinarniMulti);
+
+		debug();
+
+		return izrazBinarniMulti;
+	}
+
+	private AbsExpr parseMultiplicativeExpressionRest(AbsExpr izrazBinarniMulti)
+			throws IOException, ParseException {
+		debug("parse_MultiplicativeExpression'");
+
+		AbsExpr izrazUnarniPrefix = null;
 
 		switch (symbol != null ? symbol.getToken() : -1) {
 		case Symbol.MUL:
 			skip(Symbol.MUL);
-			parseMultiplicativeExpression();
+
+			izrazUnarniPrefix = parsePrefixExpression();
+
+			izrazBinarniMulti = new AbsBinExpr(AbsBinExpr.MUL,
+					izrazBinarniMulti, izrazUnarniPrefix);
+
+			izrazBinarniMulti = parseMultiplicativeExpressionRest(izrazBinarniMulti);
 			break;
 		case Symbol.DIV:
 			skip(Symbol.DIV);
-			parseMultiplicativeExpression();
+
+			izrazUnarniPrefix = parsePrefixExpression();
+
+			izrazBinarniMulti = new AbsBinExpr(AbsBinExpr.DIV,
+					izrazBinarniMulti, izrazUnarniPrefix);
+
+			izrazBinarniMulti = parseMultiplicativeExpressionRest(izrazBinarniMulti);
 			break;
 		case Symbol.MOD:
 			skip(Symbol.MOD);
-			parseMultiplicativeExpression();
+
+			izrazUnarniPrefix = parsePrefixExpression();
+
+			izrazBinarniMulti = new AbsBinExpr(AbsBinExpr.MOD,
+					izrazBinarniMulti, izrazUnarniPrefix);
+
+			izrazBinarniMulti = parseMultiplicativeExpressionRest(izrazBinarniMulti);
 			break;
 		}
+
 		debug();
+
+		return izrazBinarniMulti;
 	}
 
-	private void parsePrefixExpression() throws IOException, ParseException {
-		debug("parsePrefixExpression");
+	private AbsExpr parsePrefixExpression() throws IOException, ParseException {
+		debug("parse_PrefixExpression");
+
+		AbsExpr izrazUnarniPrefix = null;
 
 		switch (symbol != null ? symbol.getToken() : -1) {
 		case Symbol.ADD:
 			skip(Symbol.ADD);
-			parsePrefixExpression();
+			izrazUnarniPrefix = new AbsUnExpr(AbsUnExpr.ADD,
+					parsePrefixExpression());
 			break;
 		case Symbol.SUB:
 			skip(Symbol.SUB);
-			parsePrefixExpression();
+			izrazUnarniPrefix = new AbsUnExpr(AbsUnExpr.SUB,
+					parsePrefixExpression());
+			;
 			break;
 		case Symbol.MUL:
 			skip(Symbol.MUL);
-			parsePrefixExpression();
+			izrazUnarniPrefix = new AbsUnExpr(AbsUnExpr.MUL,
+					parsePrefixExpression());
 			break;
 		case Symbol.NOT:
 			skip(Symbol.NOT);
-			parsePrefixExpression();
+			izrazUnarniPrefix = new AbsUnExpr(AbsUnExpr.NOT,
+					parsePrefixExpression());
 			break;
 		case Symbol.AND:
 			skip(Symbol.AND);
-			parsePrefixExpression();
+			izrazUnarniPrefix = new AbsUnExpr(AbsUnExpr.AND,
+					parsePrefixExpression());
 			break;
 		default:
-			parsePostfixExpression();
+			izrazUnarniPrefix = parsePostfixExpression();
 			break;
 		}
 
 		debug();
+
+		return izrazUnarniPrefix;
 	}
 
-	private void parsePostfixExpression() throws IOException, ParseException {
+	private AbsExpr parsePostfixExpression() throws IOException, ParseException {
 		debug("parsePostfixExpression");
+
+		AbsExpr izrazPostfix = null;
 
 		switch (symbol != null ? symbol.getToken() : -1) {
 		case Symbol.INTCONST:
+
+			izrazPostfix = new AbsAtomExpr(symbol);
+
 			skip(Symbol.INTCONST);
 			break;
 		case Symbol.REALCONST:
+
+			izrazPostfix = new AbsAtomExpr(symbol);
+
 			skip(Symbol.REALCONST);
 			break;
 		case Symbol.BOOLCONST:
+
+			izrazPostfix = new AbsAtomExpr(symbol);
+
 			skip(Symbol.BOOLCONST);
 			break;
 		case Symbol.STRINGCONST:
+
+			izrazPostfix = new AbsAtomExpr(symbol);
+
 			skip(Symbol.STRINGCONST);
+
 			break;
 		case Symbol.LBRACE:
+
 			skip(Symbol.LBRACE);
-			parsePostfixExpressionBrace();
+
+			izrazPostfix = parsePostfixExpressionBrace();
+
 			skip(Symbol.RBRACE);
 			break;
 		case Symbol.IDENTIFIER:
-			skip(Symbol.IDENTIFIER);
+			Symbol identifier = skip(Symbol.IDENTIFIER);
+
 			if (Symbol.LPARENT == (symbol != null ? symbol.getToken() : -1)) {
 				skip(Symbol.LPARENT);
-				parseExpression();
+				
+				AbsExprs expressions = parseExpressions();
+				
+				izrazPostfix = new AbsFunCall(new AbsExprName(identifier),expressions);
+
 				skip(Symbol.RPARENT);
-			}
+			} else
+				izrazPostfix = new AbsExprName(identifier);
+
 			break;
 		case Symbol.LPARENT:
 			skip(Symbol.LPARENT);
-			parseExpression();
+
+			izrazPostfix = parseExpressions();
+
 			skip(Symbol.RPARENT);
 			break;
 		}
-		
-		parsePostfixExpressionAddon();
-		
+
+		izrazPostfix = parsePostfixExpressionAddon(izrazPostfix);
+
 		debug();
+
+		return izrazPostfix;
 	}
 
-	private void parsePostfixExpressionAddon() throws IOException,
-			ParseException {
+	private AbsExpr parsePostfixExpressionAddon(AbsExpr izrazPostfix)
+			throws IOException, ParseException {
 		debug("parsePostfixExpression");
 
 		switch (symbol != null ? symbol.getToken() : -1) {
 		case Symbol.DOT:
 			skip(Symbol.DOT);
-			skip(Symbol.IDENTIFIER);
+			Symbol identifier = skip(Symbol.IDENTIFIER);
+			// TODO: kaj je to?		
 			break;
 		case Symbol.LBRACKET:
 			skip(Symbol.LBRACKET);
-			parseExpression();
+			AbsExpr izraz = parseExpression();
+			
+			// TODO: kaj je to?	
 			skip(Symbol.RBRACKET);
+
 			break;
 		case Symbol.WHERE:
 			skip(Symbol.WHERE);
-			parseDeclarations();
+			AbsDecls izrazDeklaracij = parseDeclarations();
+			izrazPostfix = new AbsWhereExpr(izrazPostfix, izrazDeklaracij);
 			break;
 		}
 
 		debug();
+
+		return izrazPostfix;
 	}
 
-	private void parsePostfixExpressionBrace() throws IOException,
+	private AbsExpr parsePostfixExpressionBrace() throws IOException,
 			ParseException {
-		debug("parsePostfixExpressionBrace");
+		debug("parse_PostfixExpressionBrace");
+
+		// TODO: vprasat kaksen razred je za prazen statement { }
+		// posebnost prazen brace, ce je prazen se tukej nastavi kaj bi bil
+		// prazen
+		AbsExpr izrazPostfixBrace = new AbsAtomExpr(new Symbol(1,"{",symbol.getPosition()));
+		Symbol identifier = null;
+		AbsExprs loopExprs = null;
+		AbsExpr condExpr = null;
 
 		switch (symbol != null ? symbol.getToken() : -1) {
 		case Symbol.IDENTIFIER:
-			skip(Symbol.IDENTIFIER);
+			identifier = skip(Symbol.IDENTIFIER);
 			skip(Symbol.ASSIGN);
-			parseExpression();
+
+			AbsExpr izraz = parseExpression();
+
+			izrazPostfixBrace = new AbsAssignStmt(new AbsExprName(identifier),
+					izraz);
+
 			break;
 		case Symbol.IF:
 			skip(Symbol.IF);
-			parseExpression();
+
+			condExpr = parseExpression();
+
 			skip(Symbol.THEN);
-			parseExpression();
+
+			AbsExprs thenExprs = parseExpressions();
+
+			AbsExprs elseExprs = null;
 			if (Symbol.ELSE == (symbol != null ? symbol.getToken() : -1)) {
 				skip(Symbol.ELSE);
-				parseExpression();
+				elseExprs = parseExpressions();
 			}
+
+			izrazPostfixBrace = new AbsIfStmt(condExpr, thenExprs, elseExprs);
+
 			break;
 		case Symbol.FOR:
 			skip(Symbol.FOR);
-			skip(Symbol.IDENTIFIER);
+
+			identifier = skip(Symbol.IDENTIFIER);
+
 			skip(Symbol.ASSIGN);
-			parseExpression();
+
+			AbsExpr loBound = parseExpression();
+
 			skip(Symbol.COMMA);
-			parseExpression();
+
+			AbsExpr hiBound = parseExpression();
+
 			skip(Symbol.COLON);
-			parseExpression();
+
+			loopExprs = parseExpressions();
+
+			izrazPostfixBrace = new AbsForStmt(new AbsExprName(identifier),
+					loBound, hiBound, loopExprs);
 			break;
 		case Symbol.WHILE:
+
 			skip(Symbol.WHILE);
-			parseExpression();
+
+			condExpr = parseExpression();
+
 			skip(Symbol.COLON);
-			parseExpression();
+
+			loopExprs = parseExpressions();
+
+			izrazPostfixBrace = new AbsWhileStmt(condExpr, loopExprs);
 			break;
 		}
 
 		debug();
+
+		return izrazPostfixBrace;
 	}
 
-	private void parseDeclarations() throws IOException, ParseException {
-		debug("parseDeclarations");
+	private AbsDecls parseDeclarations() throws IOException, ParseException {
+		debug("parse_Declarations");
 
-		parseDeclaration();
+		AbsDecls izrazDeklaracij = null;
+
+		Vector<AbsDecl> vectorDecklaracij = new Vector<AbsDecl>();
+
+		vectorDecklaracij.add(parseDeclaration());
+
+		vectorDecklaracij = parseDeclarationsRest(vectorDecklaracij);
+
+		izrazDeklaracij = new AbsDecls(vectorDecklaracij);
+
+		debug();
+
+		return izrazDeklaracij;
+	}
+
+	private Vector<AbsDecl> parseDeclarationsRest(
+			Vector<AbsDecl> vectorDecklaracij) throws IOException,
+			ParseException {
+		debug("parse_Declarations'");
 
 		switch (symbol != null ? symbol.getToken() : -1) {
 		case -1:
@@ -336,208 +639,351 @@ public class SynAnal {
 		case Symbol.VAR:
 		case Symbol.TYP:
 		case Symbol.FUN:
-			parseDeclarations();
+			vectorDecklaracij.add(parseDeclaration());
+			vectorDecklaracij = parseDeclarationsRest(vectorDecklaracij);
 			break;
 		}
 
 		debug();
+
+		return vectorDecklaracij;
 	}
 
-	private void parseDeclaration() throws IOException, ParseException {
+	private AbsDecl parseDeclaration() throws IOException, ParseException {
 		debug("Declaration");
+
+		AbsDecl deklaracija = null;
+
 		switch (symbol != null ? symbol.getToken() : -1) {
 		case Symbol.VAR:
-			parseVariableDeclaration();
+			deklaracija = parseVariableDeclaration();
 			break;
 		case Symbol.TYP:
-			parseTypeDeclaration();
+			deklaracija = parseTypeDeclaration();
 			break;
 		case Symbol.FUN:
-			parseFunctionDeclaration();
+			deklaracija = parseFunctionDeclaration();
 			break;
 		default:
 			throw new ParseException();
 		}
+
 		debug();
+
+		return deklaracija;
 	}
 
-	private void parseFunctionDeclaration() throws IOException, ParseException {
+	private AbsDecl parseFunctionDeclaration() throws IOException,
+			ParseException {
 		debug("FunctionDeclaration");
+
+		AbsFunDecl deklaracijaFunkcije = null;
+
 		switch (symbol != null ? symbol.getToken() : -1) {
 		case Symbol.FUN:
 			skip(Symbol.FUN);
-			skip(Symbol.IDENTIFIER);
+			Symbol identifier = skip(Symbol.IDENTIFIER);
 			skip(Symbol.LPARENT);
-			parseFunctionParameters();
+			AbsDecls parametriFunkcije = parseFunctionParameters();
 			skip(Symbol.RPARENT);
 			skip(Symbol.COLON);
-			parseType();
+			AbsType tip = parseType();
 			skip(Symbol.ASSIGN);
-			parseExpression();
+			AbsExpr izraz = parseExpression();
 			skip(Symbol.SEMIC);
+
+			deklaracijaFunkcije = new AbsFunDecl(new AbsExprName(identifier),
+					parametriFunkcije, tip, izraz);
+
 			break;
 		default:
 			throw new ParseException();
 		}
+
 		debug();
+
+		return deklaracijaFunkcije;
 	}
-	
-	private void parseFunctionParameters() throws IOException, ParseException {
+
+	private AbsDecls parseFunctionParameters() throws IOException,
+			ParseException {
 		debug("FunctionParameters");
 
-		parseFunctionParameter();
+		AbsDecls parametriFuncije = null;
+
+		Vector<AbsDecl> vektorParametrovFunkcije = new Vector<AbsDecl>();
+
+		vektorParametrovFunkcije.add(parseFunctionParameter());
+		
+		vektorParametrovFunkcije = parseFunctionParametersRest(vektorParametrovFunkcije);
+
+		parametriFuncije = new AbsDecls(vektorParametrovFunkcije);
+		
+		debug();
+		
+		return parametriFuncije;
+	}
+
+	private Vector<AbsDecl> parseFunctionParametersRest(
+			Vector<AbsDecl> vektorParametrovFunkcije) throws IOException,
+			ParseException {
+		debug("FunctionParameters");
 
 		switch (symbol != null ? symbol.getToken() : -1) {
 		case Symbol.COMMA:
 			skip(Symbol.COMMA);
-			parseRecordComponents();
+
+			vektorParametrovFunkcije.add(parseFunctionParameter());
+
+			vektorParametrovFunkcije = parseFunctionParametersRest(vektorParametrovFunkcije);
 			break;
 		}
+
 		debug();
+		
+		return vektorParametrovFunkcije;
 	}
 
-	private void parseFunctionParameter() throws IOException, ParseException {
+	private AbsDecl parseFunctionParameter() throws IOException, ParseException {
 		debug("FunctionParameter");
+
+		AbsDecl parameterFunkcije = null;
 
 		switch (symbol != null ? symbol.getToken() : -1) {
 		case Symbol.IDENTIFIER:
-			skip(Symbol.IDENTIFIER);
+			Symbol identifier = skip(Symbol.IDENTIFIER);
+			
 			skip(Symbol.COLON);
-			parseType();
+			
+			AbsType tip = parseType();
+			
+			parameterFunkcije = new AbsTypDecl(new AbsTypeName(identifier),tip);
 			break;
 		default:
 			throw new ParseException();
 		}
 		debug();
+
+		return parameterFunkcije;
 	}
-	
-	private void parseTypeDeclaration() throws IOException, ParseException {
+
+	private AbsDecl parseTypeDeclaration() throws IOException, ParseException {
 		debug("TypeDeclaration");
+
+		AbsDecl deklaracijaTipa = null;
+
 		switch (symbol != null ? symbol.getToken() : -1) {
 		case Symbol.TYP:
 			skip(Symbol.TYP);
-			skip(Symbol.IDENTIFIER);
+
+			Symbol identifier = skip(Symbol.IDENTIFIER);
+
 			skip(Symbol.COLON);
-			parseType();
+
+			AbsType tip = parseType();
+
 			skip(Symbol.SEMIC);
+
+			deklaracijaTipa = new AbsTypDecl(new AbsTypeName(identifier), tip);
 			break;
 		default:
 			throw new ParseException();
 		}
+
 		debug();
+
+		return deklaracijaTipa;
 	}
-	
-	private void parseVariableDeclaration() throws IOException, ParseException {
+
+	private AbsVarDecl parseVariableDeclaration() throws IOException,
+			ParseException {
 		debug("variable_declaration");
+
+		AbsVarDecl deklaracijaSpremenljivke = null;
+
 		switch (symbol != null ? symbol.getToken() : -1) {
 		case Symbol.VAR:
 			skip(Symbol.VAR);
-			skip(Symbol.IDENTIFIER);
+
+			Symbol identifier = skip(Symbol.IDENTIFIER);
+
 			skip(Symbol.COLON);
-			parseType();
+
+			AbsType tip = parseType();
+
 			skip(Symbol.SEMIC);
+
+			deklaracijaSpremenljivke = new AbsVarDecl(new AbsExprName(
+					identifier), tip);
 			break;
 		default:
 			throw new ParseException();
 		}
+
 		debug();
+
+		return deklaracijaSpremenljivke;
 	}
 
-	private void parseType() throws IOException, ParseException {
+	private AbsType parseType() throws IOException, ParseException {
 		debug("type");
+
+		AbsType tip = null;
+		AbsType tempTip = null;
+
 		switch (symbol != null ? symbol.getToken() : -1) {
 		case Symbol.INT:
 			skip(Symbol.INT);
+
+			tip = new AbsAtomType(AbsAtomType.INT);
 			break;
 		case Symbol.REAL:
 			skip(Symbol.REAL);
+
+			tip = new AbsAtomType(AbsAtomType.REAL);
 			break;
 		case Symbol.BOOL:
 			skip(Symbol.BOOL);
+
+			tip = new AbsAtomType(AbsAtomType.BOOL);
 			break;
 		case Symbol.STRING:
 			skip(Symbol.STRING);
+
+			tip = new AbsAtomType(AbsAtomType.STRING);
 			break;
 		case Symbol.LBRACE:
 			skip(Symbol.LBRACE);
 			skip(Symbol.RBRACE);
+
+			tip = new AbsAtomType(AbsAtomType.VOID);
 			break;
 		case Symbol.IDENTIFIER:
-			skip(Symbol.IDENTIFIER);
+			Symbol identifier = skip(Symbol.IDENTIFIER);
+
+			tip = new AbsTypeName(identifier);
 			break;
 		case Symbol.MUL:
 			skip(Symbol.MUL);
-			parseType();
+			tempTip = parseType();
+
+			tip = new AbsPtrType(tempTip);
 			break;
 		case Symbol.ARR:
 			skip(Symbol.ARR);
 			skip(Symbol.LBRACKET);
-			parseExpression();
+
+			AbsExpr izraz = parseExpression();
+
 			skip(Symbol.RBRACKET);
-			parseType();
+
+			tempTip = parseType();
+
+			tip = new AbsArrType(tempTip, izraz);
 			break;
 		case Symbol.REC:
 			skip(Symbol.REC);
 			skip(Symbol.LPARENT);
-			parseRecordComponents();
+
+			AbsDecls recordComponents = parseRecordComponents();
+
 			skip(Symbol.RPARENT);
+
+			tip = new AbsRecType(recordComponents);
 			break;
 		case Symbol.LPARENT:
 			skip(Symbol.LPARENT);
-			parseType();
+			tip = parseType();// TODO:kako je to, samo ignoriramo oklepaje??
 			skip(Symbol.RPARENT);
 			break;
 		default:
 			throw new ParseException();
 		}
+
 		debug();
+
+		return tip;
 	}
 
-	private void parseRecordComponents() throws IOException, ParseException {
+	private AbsDecls parseRecordComponents() throws IOException, ParseException {
 		debug("RecordComponents");
 
-		parseRecordComponent();
+		AbsDecls seznamDeklaracij = null;
+
+		Vector<AbsDecl> vektorDeklaracij = new Vector<AbsDecl>();
+
+		vektorDeklaracij.add(parseRecordComponent());
+
+		vektorDeklaracij = parseRecordComponentsRest(vektorDeklaracij);
+
+		seznamDeklaracij = new AbsDecls(vektorDeklaracij);
+		
+		debug();
+
+		return seznamDeklaracij;
+	}
+
+	private Vector<AbsDecl> parseRecordComponentsRest(
+			Vector<AbsDecl> vektorDeklaracij) throws IOException,
+			ParseException {
+		debug("RecordComponents'");
 
 		switch (symbol != null ? symbol.getToken() : -1) {
 		case Symbol.COMMA:
 			skip(Symbol.COMMA);
-			parseRecordComponents();
+			vektorDeklaracij.add(parseRecordComponent());
+			vektorDeklaracij = parseRecordComponentsRest(vektorDeklaracij);
 			break;
 		}
+
 		debug();
+
+		return vektorDeklaracij;
 	}
 
-	private void parseRecordComponent() throws IOException, ParseException {
+	private AbsDecl parseRecordComponent() throws IOException, ParseException {
 		debug("RecordComponent");
+
+		AbsDecl deklaracija = null;
 
 		switch (symbol != null ? symbol.getToken() : -1) {
 		case Symbol.IDENTIFIER:
-			skip(Symbol.IDENTIFIER);
+			Symbol identifier = skip(Symbol.IDENTIFIER);
+
 			skip(Symbol.COLON);
-			parseType();
+
+			AbsType tip = parseType();
+
+			deklaracija = new AbsTypDecl(new AbsTypeName(identifier), tip);
 			break;
 		default:
 			throw new ParseException();
 		}
 		debug();
+
+		return deklaracija;
 	}
+
+	// podporne metode
 
 	private Symbol skip(int token) throws IOException, ParseException {
 		if (symbol == null)
 			throw new ParseException();
 		if (symbol.getToken() != token)
 			throw new ParseException();
-		
+
 		// sporoci skip
 		if (REPORT_SKIP)
-			Report.information("Preverjamo simbol: " + symbol.getLexeme(), symbol.getPosition());
-		
+			Report.information("Preverjamo simbol: " + symbol.getLexeme(),
+					symbol.getPosition());
+
 		// za debugat - lazje dobit kjer prid do napake
-		//if(symbol.getPosition().equals(new Position("",6,17,6,17)))
-		//{
-		//	int a = 2;
-		//}
-		
+		 //if(symbol.getPosition().equals(new Position("",1,18,1,22)))
+		 //{
+			 	//
+		 //int a = 2;
+		 //}
+
 		Symbol skippedSymbol = symbol;
 		if (xml != null)
 			skippedSymbol.toXML(xml);

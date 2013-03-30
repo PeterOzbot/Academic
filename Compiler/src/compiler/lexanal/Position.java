@@ -55,6 +55,34 @@ public class Position implements XMLable {
 	public int hashCode() {
 		return super.hashCode();
 	}
+	
+	/** Doloci skupen zacetek obeh obmocij.
+	 * 
+	 * @param position Dodatno obmocje.
+	 */
+	public void setMin(Position position) {
+		if ((position.begLine < this.begLine) ||
+			((position.begLine == this.begLine) && (position.begColumn < this.begColumn))) {
+			this.begLine = position.begLine;
+			this.begColumn = position.begColumn;
+		}
+	}
+		
+	/** Doloci skupen konec obeh obmocij.
+	 * 
+	 * @param position Dodatno obmocje.
+	 */
+	public void setMax(Position position) {
+		if ((position.endLine > this.endLine) ||
+			((position.endLine == this.endLine) && (position.endColumn > this.endColumn))) {
+			this.endLine = position.endLine;
+			this.endColumn = position.endColumn;
+		}
+	}
+	
+	public Position clone() {
+		return new Position(filename, begLine, begColumn, endLine, endColumn);
+	}
 
 	@Override
 	public void toXML(PrintStream xml) {
@@ -63,9 +91,13 @@ public class Position implements XMLable {
 				+ endLine + "\" endColumn=\"" + endColumn + "\"/>");
 	}
 
+	//@Override
+	//public String toString() {
+	//	return "BegLine=" + begLine + " BegColumn=" + begColumn + " EndLine ="
+	//			+ endLine + " EndColumn=" + endColumn;
+	//}
 	@Override
 	public String toString() {
-		return "BegLine=" + begLine + " BegColumn=" + begColumn + " EndLine ="
-				+ endLine + " EndColumn=" + endColumn;
+		return "[" + filename + ":" + begLine + "." + begColumn + "-" + endLine + "." + endColumn + "]";
 	}
 }
