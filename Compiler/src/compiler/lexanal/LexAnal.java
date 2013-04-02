@@ -808,7 +808,7 @@ public class LexAnal {
 
 		// sporoci dobro novico
 		if (REPORT_SYMBOL)
-			Report.information("Nov simbol: " + simbol, _position);
+			Report.information("LexAnal = Nov simbol: " + simbol, _position);
 
 		// simboli
 		if (simbol.equals("+")) {

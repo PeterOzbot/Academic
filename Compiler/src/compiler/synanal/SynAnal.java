@@ -33,7 +33,7 @@ import compiler.lexanal.*;
 /** Sintaksni analizator. */
 public class SynAnal {
 	// nastavitve
-	private final Boolean REPORT_SKIP = true;
+	private final Boolean REPORT_SKIP = false;
 
 	private LexAnal lexer;
 
@@ -55,6 +55,7 @@ public class SynAnal {
 		symbol = lexer.getNextSymbol();
 		AbsTree abstraktnoDrevo = null;
 		try {
+			// zacne parsat vse source
 			abstraktnoDrevo = parseSource();
 			if (symbol != null)
 				throw new ParseException();
@@ -69,6 +70,7 @@ public class SynAnal {
 
 		debug("source");
 
+		// zacne parsat celoten source kot Expressions
 		abstraktnoDrevo = parseExpressions();
 
 		debug();
@@ -82,8 +84,11 @@ public class SynAnal {
 		AbsExprs seznamIzrazov = null;
 
 		Vector<AbsExpr> vectorIzrazov = new Vector<AbsExpr>();
-
+		
+		// parsa prvi Expression
 		vectorIzrazov.add(parseExpression());
+		
+		// parsa ostale Expressions ce obstajajo
 		vectorIzrazov = parseExpressionsRest(vectorIzrazov);
 
 		seznamIzrazov = new AbsExprs(vectorIzrazov);
@@ -100,7 +105,10 @@ public class SynAnal {
 		switch (symbol != null ? symbol.getToken() : -1) {
 		case Symbol.COMMA:
 			skip(Symbol.COMMA);
+			// v primeru vejice parsa naslednji Expression
 			vectorIzrazov.add(parseExpression());
+			// zacne parsat ostale Expressions
+			// ce jih ni nebo nic naredila ta metoda in se bo koncalo
 			vectorIzrazov = parseExpressionsRest(vectorIzrazov);
 			break;
 		}
@@ -114,7 +122,7 @@ public class SynAnal {
 		debug("parse_Expression");
 
 		AbsExpr izraz = null;
-
+		// parsa OrExpression
 		izraz = parseOrExpression();
 
 		debug();
@@ -127,8 +135,10 @@ public class SynAnal {
 
 		AbsExpr izrazBinarniOperatorOr = null;
 
+		// parsa AndExpression
 		izrazBinarniOperatorOr = parseAndExpression();
 
+		// parsa ostali del OrExpression
 		izrazBinarniOperatorOr = parseOrExpressionRest(izrazBinarniOperatorOr);
 
 		debug();
@@ -143,12 +153,12 @@ public class SynAnal {
 		switch (symbol != null ? symbol.getToken() : -1) {
 		case Symbol.OR:
 			skip(Symbol.OR);
-
+			// ce je  | parsa drugi cel AndExpression
 			AbsExpr izrazBinarniOperatorAnd = parseAndExpression();
-
+			// zdruzi prvi del in parsan drugi del
 			izrazBinarniOperatorOr = new AbsBinExpr(AbsBinExpr.OR,
 					izrazBinarniOperatorOr, izrazBinarniOperatorAnd);
-
+			// parsa ostali del OrExpressio
 			izrazBinarniOperatorOr = parseOrExpressionRest(izrazBinarniOperatorOr);
 			break;
 		}
@@ -162,9 +172,9 @@ public class SynAnal {
 		debug("parse_AndExpression");
 
 		AbsExpr izrazBinarniOperatorAnd = null;
-
+		// parsa RelationalExpression
 		izrazBinarniOperatorAnd = parseRelationalExpression();
-
+		// ostal del RelationalExpression
 		izrazBinarniOperatorAnd = parseAndExpressionRest(izrazBinarniOperatorAnd);
 
 		debug();
@@ -179,12 +189,12 @@ public class SynAnal {
 		switch (symbol != null ? symbol.getToken() : -1) {
 		case Symbol.AND:
 			skip(Symbol.AND);
-
+			// ce je znak & parsa drugi del RelationalExpression
 			AbsExpr izrazBinarniRealational = parseRelationalExpression();
-
+			// zdruzi
 			izrazBinarniOperatorAnd = new AbsBinExpr(AbsBinExpr.AND,
 					izrazBinarniOperatorAnd, izrazBinarniRealational);
-
+			
 			izrazBinarniOperatorAnd = parseAndExpressionRest(izrazBinarniOperatorAnd);
 			break;
 		}
@@ -199,9 +209,9 @@ public class SynAnal {
 		debug("parse_RelationalExpression");
 
 		AbsExpr izrazBinarniRelational = null;
-
+		// parsa AdditiveExpression
 		izrazBinarniRelational = parseAdditiveExpression();
-
+		// ostali del AdditiveExpression
 		izrazBinarniRelational = parseRelationalExpressionRest(izrazBinarniRelational);
 
 		debug();
@@ -228,7 +238,6 @@ public class SynAnal {
 		case Symbol.NEQ:
 			skip(Symbol.NEQ);
 			izrazBinarniAdditive = parseAdditiveExpression();
-
 			izrazBinarniRelational = new AbsBinExpr(AbsBinExpr.NEQ,
 					izrazBinarniRelational, izrazBinarniAdditive);
 
@@ -237,7 +246,7 @@ public class SynAnal {
 		case Symbol.LTH:
 			skip(Symbol.LTH);
 			izrazBinarniAdditive = parseAdditiveExpression();
-
+			
 			izrazBinarniRelational = new AbsBinExpr(AbsBinExpr.LTH,
 					izrazBinarniRelational, izrazBinarniAdditive);
 
@@ -474,10 +483,11 @@ public class SynAnal {
 
 			if (Symbol.LPARENT == (symbol != null ? symbol.getToken() : -1)) {
 				skip(Symbol.LPARENT);
-				
+
 				AbsExprs expressions = parseExpressions();
-				
-				izrazPostfix = new AbsFunCall(new AbsExprName(identifier),expressions);
+
+				izrazPostfix = new AbsFunCall(new AbsExprName(identifier),
+						expressions);
 
 				skip(Symbol.RPARENT);
 			} else
@@ -507,21 +517,28 @@ public class SynAnal {
 		switch (symbol != null ? symbol.getToken() : -1) {
 		case Symbol.DOT:
 			skip(Symbol.DOT);
+
 			Symbol identifier = skip(Symbol.IDENTIFIER);
-			// TODO: kaj je to?		
+
+			izrazPostfix = new AbsBinExpr(AbsBinExpr.REC, izrazPostfix,
+					new AbsExprName(identifier));
 			break;
 		case Symbol.LBRACKET:
 			skip(Symbol.LBRACKET);
+
 			AbsExpr izraz = parseExpression();
-			
-			// TODO: kaj je to?	
+
+			izrazPostfix = new AbsBinExpr(AbsBinExpr.ARR, izrazPostfix, izraz);
 			skip(Symbol.RBRACKET);
 
 			break;
 		case Symbol.WHERE:
 			skip(Symbol.WHERE);
+
 			AbsDecls izrazDeklaracij = parseDeclarations();
+
 			izrazPostfix = new AbsWhereExpr(izrazPostfix, izrazDeklaracij);
+
 			break;
 		}
 
@@ -534,10 +551,10 @@ public class SynAnal {
 			ParseException {
 		debug("parse_PostfixExpressionBrace");
 
-		// TODO: vprasat kaksen razred je za prazen statement { }
 		// posebnost prazen brace, ce je prazen se tukej nastavi kaj bi bil
-		// prazen
-		AbsExpr izrazPostfixBrace = new AbsAtomExpr(new Symbol(1,"{",symbol.getPosition()));
+		// prazen, ker potem gre ven in zunaj preveri se drugi }, tukaj pa ne
+		// naredi nic in ostane default
+		AbsExpr izrazPostfixBrace = new AbsAtomExpr(null);
 		Symbol identifier = null;
 		AbsExprs loopExprs = null;
 		AbsExpr condExpr = null;
@@ -714,13 +731,13 @@ public class SynAnal {
 		Vector<AbsDecl> vektorParametrovFunkcije = new Vector<AbsDecl>();
 
 		vektorParametrovFunkcije.add(parseFunctionParameter());
-		
+
 		vektorParametrovFunkcije = parseFunctionParametersRest(vektorParametrovFunkcije);
 
 		parametriFuncije = new AbsDecls(vektorParametrovFunkcije);
-		
+
 		debug();
-		
+
 		return parametriFuncije;
 	}
 
@@ -740,7 +757,7 @@ public class SynAnal {
 		}
 
 		debug();
-		
+
 		return vektorParametrovFunkcije;
 	}
 
@@ -752,12 +769,12 @@ public class SynAnal {
 		switch (symbol != null ? symbol.getToken() : -1) {
 		case Symbol.IDENTIFIER:
 			Symbol identifier = skip(Symbol.IDENTIFIER);
-			
+
 			skip(Symbol.COLON);
-			
+
 			AbsType tip = parseType();
-			
-			parameterFunkcije = new AbsTypDecl(new AbsTypeName(identifier),tip);
+
+			parameterFunkcije = new AbsTypDecl(new AbsTypeName(identifier), tip);
 			break;
 		default:
 			throw new ParseException();
@@ -893,7 +910,11 @@ public class SynAnal {
 			break;
 		case Symbol.LPARENT:
 			skip(Symbol.LPARENT);
-			tip = parseType();// TODO:kako je to, samo ignoriramo oklepaje??
+			// tukaj nisem siguren, verjetno je pravilno tako
+			// ( type ) -> lahko generira ( ( ( ( type ) ) ) ), drugega itak
+			// nemore
+			tip = parseType();
+			
 			skip(Symbol.RPARENT);
 			break;
 		default:
@@ -917,7 +938,7 @@ public class SynAnal {
 		vektorDeklaracij = parseRecordComponentsRest(vektorDeklaracij);
 
 		seznamDeklaracij = new AbsDecls(vektorDeklaracij);
-		
+
 		debug();
 
 		return seznamDeklaracij;
@@ -974,15 +995,16 @@ public class SynAnal {
 
 		// sporoci skip
 		if (REPORT_SKIP)
-			Report.information("Preverjamo simbol: " + symbol.getLexeme(),
+			Report.information("SynAnal = Preverjamo simbol: " + symbol.getLexeme(),
 					symbol.getPosition());
 
 		// za debugat - lazje dobit kjer prid do napake
-		 //if(symbol.getPosition().equals(new Position("",1,18,1,22)))
-		 //{
-			 	//
-		 //int a = 2;
-		 //}
+		// napise se position zadnjega znaka ki uspe
+		// if(symbol.getPosition().equals(new Position("",1,18,1,22)))
+		// {
+		//
+		// int a = 2;
+		// }
 
 		Symbol skippedSymbol = symbol;
 		if (xml != null)
