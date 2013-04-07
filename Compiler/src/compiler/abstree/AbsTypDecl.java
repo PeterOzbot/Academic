@@ -1,7 +1,5 @@
 package compiler.abstree;
 
-import java.io.*;
-
 /** Deklaracija tipa. */
 public class AbsTypDecl extends AbsDecl {
 
@@ -17,12 +15,6 @@ public class AbsTypDecl extends AbsDecl {
 	}
 	
 	@Override
-	public void toXML(PrintStream xml) {
-		xml.println("<absnode node=\"TypDecl\">");
-		if (getPosition() != null) getPosition().toXML(xml);
-		name.toXML(xml);
-		type.toXML(xml);
-		xml.println("</absnode>");
-	}
+	public void accept(Visitor visitor) { visitor.visit(this); }
 	
 }

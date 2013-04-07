@@ -33,7 +33,7 @@ import compiler.lexanal.*;
 /** Sintaksni analizator. */
 public class SynAnal {
 	// nastavitve
-	private final Boolean REPORT_SKIP = false;
+	private final Boolean REPORT_SKIP = true;
 
 	private LexAnal lexer;
 

@@ -1,7 +1,5 @@
 package compiler.abstree;
 
-import java.io.*;
-
 /** Opis <code>if</code> stavka.  */
 public class AbsIfStmt extends AbsStmt {
 	
@@ -20,13 +18,7 @@ public class AbsIfStmt extends AbsStmt {
 		this.elseExprs = elseExprs;
 	}
 
-	public void toXML(PrintStream xml) {
-		xml.println("<absnode node=\"IfStmt\">");
-		if (getPosition() != null) getPosition().toXML(xml);
-		condExpr.toXML(xml);
-		thenExprs.toXML(xml);
-		if (elseExprs != null) elseExprs.toXML(xml);
-		xml.println("</absnode>");
-	}
-
+	@Override
+	public void accept(Visitor visitor) { visitor.visit(this); }
+	
 }

@@ -1,6 +1,5 @@
 package compiler.abstree;
 
-import java.io.*;
 import java.util.*;
 
 /** Seznam deklaracij.  */
@@ -13,11 +12,6 @@ public class AbsDecls extends AbsDecl {
 	}
 	
 	@Override
-	public void toXML(PrintStream xml) {
-		xml.println("<absnode node=\"Decls\">");
-		if (getPosition() != null) getPosition().toXML(xml);
-		for (AbsDecl decl: decls) decl.toXML(xml);
-		xml.println("</absnode>");
-	}
+	public void accept(Visitor visitor) { visitor.visit(this); }
 	
 }

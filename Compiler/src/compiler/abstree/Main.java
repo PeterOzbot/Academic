@@ -18,13 +18,14 @@ public class Main {
 				
 				SynAnal parser = new SynAnal(lexer, null);
 				AbsTree absTree = parser.parse();
-				absTree.toXML(xml);
+				PrintXML printXML = new PrintXML(xml);
+				absTree.accept(printXML);
 					
 				lexer.closeSourceFile();
 			}
 			XML.close("abstree", xml);
 		} catch (IOException exception) {
-			Report.error("Cannot perform syntax analysis.", 1);
+			Report.error("Cannot construct abstract syntax tree.", 1);
 		}
 	}
 

@@ -1,11 +1,9 @@
 package compiler.abstree;
 
-import java.io.*;
-
 /** Deklaracija funkcije. */
 public class AbsFunDecl extends AbsDecl {
 
-	/** Ime funckije.  */
+	/** Ime funkcije.  */
 	public final AbsExprName name;
 	
 	/** Parametri funkcije.  */
@@ -23,16 +21,8 @@ public class AbsFunDecl extends AbsDecl {
 		this.type = type;
 		this.expr = expr;
 	}
-	
+
 	@Override
-	public void toXML(PrintStream xml) {
-		xml.println("<absnode node=\"FunDecl\">");
-		if (getPosition() != null) getPosition().toXML(xml);
-		name.toXML(xml);
-		pars.toXML(xml);
-		type.toXML(xml);
-		expr.toXML(xml);
-		xml.println("</absnode>");
-	}
+	public void accept(Visitor visitor) { visitor.visit(this); }
 	
 }

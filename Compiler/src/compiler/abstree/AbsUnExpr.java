@@ -1,7 +1,5 @@
 package compiler.abstree;
 
-import java.io.*;
-
 /** Izraz z unarnim operatorjem.  */
 public class AbsUnExpr extends AbsExpr {
 
@@ -23,20 +21,6 @@ public class AbsUnExpr extends AbsExpr {
 	}
 	
 	@Override
-	public void toXML(PrintStream xml) {
-		String operName;
-		switch (oper) {
-		case ADD: operName = "ADD"  ; break;
-		case SUB: operName = "SUB"  ; break;
-		case MUL: operName = "MUL"  ; break;
-		case AND: operName = "AND"  ; break;
-		case NOT: operName = "NOT"  ; break;
-		default : operName = "ERROR"; break;
-		}
-		xml.println("<absnode node=\"UnExpr\" value=\"" + operName + "\">");
-		if (getPosition() != null) getPosition().toXML(xml);	
-		subExpr.toXML(xml);
-		xml.println("</absnode>");
-	}
+	public void accept(Visitor visitor) { visitor.visit(this); }
 	
 }

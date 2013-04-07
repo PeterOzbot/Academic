@@ -1,7 +1,5 @@
 package compiler.abstree;
 
-import java.io.*;
-
 /** Opis <code>while</code> stavka.  */
 public class AbsWhileStmt extends AbsStmt {
 
@@ -16,12 +14,7 @@ public class AbsWhileStmt extends AbsStmt {
 		this.loopExpr = loopExpr;
 	}
 	
-	public void toXML(PrintStream xml) {
-		xml.println("<absnode node=\"WhileStmt\">");
-		if (getPosition() != null) getPosition().toXML(xml);
-		condExpr.toXML(xml);
-		loopExpr.toXML(xml);
-		xml.println("</absnode>");
-	}
-
+	@Override
+	public void accept(Visitor visitor) { visitor.visit(this); }
+	
 }

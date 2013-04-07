@@ -1,7 +1,5 @@
 package compiler.abstree;
 
-import java.io.*;
-
 import compiler.*;
 
 /** Atomarni tip.  */
@@ -32,19 +30,6 @@ public class AbsAtomType extends AbsType {
 	}
 	
 	@Override
-	public void toXML(PrintStream xml) {
-		String typName;
-		switch (typ) {
-		case INT   : typName = "INT"   ; break;
-		case REAL  : typName = "REAL"  ; break;
-		case BOOL  : typName = "BOOL"  ; break;
-		case STRING: typName = "STRING"; break;
-		case VOID  : typName = "VOID"  ; break;
-		default    : typName = "ERROR" ; break;
-		}
-		xml.println("<absnode node=\"AtomType\" value=\"" + typName + "\">");
-		if (getPosition() != null) getPosition().toXML(xml);
-		xml.println("</absnode>");
-	}
-	
+	public void accept(Visitor visitor) { visitor.visit(this); }
+
 }

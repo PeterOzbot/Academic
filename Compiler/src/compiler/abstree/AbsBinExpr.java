@@ -1,7 +1,5 @@
 package compiler.abstree;
 
-import java.io.*;
-
 /** Izraz z binarnim operatorjem.  */
 public class AbsBinExpr extends AbsExpr {
 
@@ -37,31 +35,6 @@ public class AbsBinExpr extends AbsExpr {
 	}
 	
 	@Override
-	public void toXML(PrintStream xml) {
-		String operName;
-		switch (oper) {
-		case OR : operName = "OR"   ; break;
-		case AND: operName = "AND"  ; break;
-		case EQU: operName = "EQU"  ; break;
-		case NEQ: operName = "NEQ"  ; break;
-		case LTH: operName = "LTH"  ; break;
-		case GTH: operName = "GTH"  ; break;
-		case LEQ: operName = "LEQ"  ; break;
-		case GEQ: operName = "GEQ"  ; break;
-		case ADD: operName = "ADD"  ; break;
-		case SUB: operName = "SUB"  ; break;
-		case MUL: operName = "MUL"  ; break;
-		case DIV: operName = "DIV"  ; break;
-		case MOD: operName = "MOD"  ; break;
-		case ARR: operName = "ARR"  ; break;
-		case REC: operName = "REC"  ; break;
-		default : operName = "ERROR"; break;
-		}
-		xml.println("<absnode node=\"BinExpr\" value=\"" + operName + "\">");
-		if (getPosition() != null) getPosition().toXML(xml);
-		fstSubExpr.toXML(xml);
-		sndSubExpr.toXML(xml);
-		xml.println("</absnode>");
-	}
+	public void accept(Visitor visitor) { visitor.visit(this); }
 	
 }

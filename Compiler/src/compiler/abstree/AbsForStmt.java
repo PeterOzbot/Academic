@@ -1,7 +1,5 @@
 package compiler.abstree;
 
-import java.io.*;
-
 /** Opis <code>for</code> stavka.  */
 public class AbsForStmt extends AbsStmt {
 
@@ -24,14 +22,7 @@ public class AbsForStmt extends AbsStmt {
 		this.loopExpr = loopExpr;
 	}
 
-	public void toXML(PrintStream xml) {
-		xml.println("<absnode node=\"ForStmt\">");
-		if (getPosition() != null) getPosition().toXML(xml);
-		name.toXML(xml);
-		loBound.toXML(xml);
-		hiBound.toXML(xml);
-		loopExpr.toXML(xml);
-		xml.println("</absnode>");
-	}
-
+	@Override
+	public void accept(Visitor visitor) { visitor.visit(this); }
+	
 }

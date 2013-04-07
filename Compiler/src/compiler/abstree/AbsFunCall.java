@@ -1,7 +1,5 @@
 package compiler.abstree;
 
-import java.io.*;
-
 /** Klic funkcije.  */
 public class AbsFunCall extends AbsExpr {
 	
@@ -17,12 +15,6 @@ public class AbsFunCall extends AbsExpr {
 	}
 	
 	@Override
-	public void toXML(PrintStream xml) {
-		xml.println("<absnode node=\"FunCall\">");
-		if (getPosition() != null) getPosition().toXML(xml);
-		name.toXML(xml);
-		args.toXML(xml);
-		xml.println("</absnode>");
-	}
+	public void accept(Visitor visitor) { visitor.visit(this); }
 	
 }

@@ -1,7 +1,5 @@
 package compiler.abstree;
 
-import java.io.*;
-
 /** Opis <code>where</code> izraza.  */
 public class AbsWhereExpr extends AbsExpr {
 
@@ -16,12 +14,7 @@ public class AbsWhereExpr extends AbsExpr {
 		this.decls = decls;
 	}
 	
-	public void toXML(PrintStream xml) {
-		xml.println("<absnode node=\"WhereExpr\">");
-		if (getPosition() != null) getPosition().toXML(xml);
-		subExpr.toXML(xml);
-		decls.toXML(xml);
-		xml.println("</absnode>");
-	}
+	@Override
+	public void accept(Visitor visitor) { visitor.visit(this); }
 	
 }

@@ -1,7 +1,5 @@
 package compiler.abstree;
 
-import java.io.*;
-
 /** Tabelarni tip.  */
 public class AbsArrType extends AbsType {
 
@@ -17,12 +15,6 @@ public class AbsArrType extends AbsType {
 	}
 	
 	@Override
-	public void toXML(PrintStream xml) {
-		xml.println("<absnode node=\"ArrType\">");
-		if (getPosition() != null) getPosition().toXML(xml);
-		type.toXML(xml);
-		size.toXML(xml);
-		xml.println("</absnode>");
-	}
-
+	public void accept(Visitor visitor) { visitor.visit(this); }
+	
 }

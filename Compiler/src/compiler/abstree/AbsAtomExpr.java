@@ -1,7 +1,5 @@
 package compiler.abstree;
 
-import java.io.*;
-
 import compiler.*;
 import compiler.lexanal.*;
 
@@ -27,11 +25,6 @@ public class AbsAtomExpr extends AbsExpr {
 	}
 	
 	@Override
-	public void toXML(PrintStream xml) {
-		xml.println("<absnode node=\"AtomExpr\">");
-		if (getPosition() != null) getPosition().toXML(xml);
-		if (expr != null) expr.toXML(xml);
-		xml.println("</absnode>");
-	}
-
+	public void accept(Visitor visitor) { visitor.visit(this); }
+	
 }

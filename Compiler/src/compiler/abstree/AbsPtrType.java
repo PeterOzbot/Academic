@@ -1,7 +1,5 @@
 package compiler.abstree;
 
-import java.io.*;
-
 /** Opis kazalcev.  */
 public class AbsPtrType extends AbsType {
 
@@ -13,11 +11,6 @@ public class AbsPtrType extends AbsType {
 	}
 	
 	@Override
-	public void toXML(PrintStream xml) {
-		xml.println("<absnode node=\"PtrType\">");
-		if (getPosition() != null) getPosition().toXML(xml);
-		type.toXML(xml);
-		xml.println("</absnode>");
-	}
-
+	public void accept(Visitor visitor) { visitor.visit(this); }
+	
 }

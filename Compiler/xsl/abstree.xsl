@@ -16,8 +16,10 @@
 				<xsl:variable name="node" select="@node"/>
 				<xsl:variable name="value" select="@value"/>
 				<text>
-   					<xsl:value-of select="$node"/>:<xsl:value-of select="$value"/>
-   					<xsl:apply-templates select="position"/>
+					<nobr>
+	   					<xsl:value-of select="$node"/>:<xsl:value-of select="$value"/>
+   						<xsl:apply-templates select="position"/>
+   					</nobr>
     			</text>
 			</td>
 		</tr>
@@ -39,13 +41,15 @@
 
 <xsl:template match="symbol">
 	<table cellspacing="0">
-		<tr><td>
-	<xsl:variable name="token" select="@token"/>
-  	<xsl:variable name="lexeme" select="@lexeme"/>
-    <text style="background-color:#F5D02B">
-    	<nobr><xsl:value-of select="$token"/><xsl:if test="$lexeme">=<xsl:value-of select="$lexeme"/></xsl:if><xsl:apply-templates select="position"/></nobr>
-    </text>
-    	</td></tr>
+		<tr>
+			<td>
+				<xsl:variable name="token" select="@token"/>
+  				<xsl:variable name="lexeme" select="@lexeme"/>
+    			<text style="background-color:#F5D02B">
+    				<nobr><xsl:value-of select="$token"/><xsl:if test="$lexeme">=<xsl:value-of select="$lexeme"/></xsl:if><xsl:apply-templates select="position"/></nobr>
+    			</text>
+    		</td>
+    	</tr>
     </table>
 </xsl:template>
 

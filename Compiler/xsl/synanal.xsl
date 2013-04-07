@@ -11,12 +11,16 @@
 
 <xsl:template match="production">
 	<table cellspacing="0">
-		<tr><td align="center" style="background-color:#E69D26">
-			<xsl:apply-templates select="leftside"/>
-		</td></tr>
-		<tr><td>
-			<xsl:apply-templates select="rightside"/>
-		</td></tr>
+		<tr>
+			<td align="center" style="background-color:#E69D26">
+				<xsl:apply-templates select="leftside"/>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<xsl:apply-templates select="rightside"/>
+			</td>
+		</tr>
 	</table>
 </xsl:template>
 
@@ -30,11 +34,11 @@
 <xsl:template match="rightside">
 	<table cellspacing="0">
 		<tr>
-		<xsl:for-each select="production|symbol">
-			<td valign="top">
-			<xsl:apply-templates select="."/>
-			</td>
-		</xsl:for-each>
+			<xsl:for-each select="production|symbol">
+				<td valign="top">
+					<xsl:apply-templates select="."/>
+				</td>
+			</xsl:for-each>
 		</tr>
 	</table>
 </xsl:template>
@@ -42,11 +46,11 @@
 <xsl:template match="symbol">
 	<table cellspacing="0">
 		<tr><td>
-	<xsl:variable name="token" select="@token"/>
-  	<xsl:variable name="lexeme" select="@lexeme"/>
-    <text style="background-color:#F5D02B">
-    	<xsl:value-of select="$token"/><xsl:if test="$lexeme">=<xsl:value-of select="$lexeme"/></xsl:if><xsl:apply-templates select="position"/>
-    </text>
+			<xsl:variable name="token" select="@token"/>
+  			<xsl:variable name="lexeme" select="@lexeme"/>
+    		<text style="background-color:#F5D02B">
+    			<nobr><xsl:value-of select="$token"/><xsl:if test="$lexeme">=<xsl:value-of select="$lexeme"/></xsl:if><xsl:apply-templates select="position"/></nobr>
+    		</text>
     	</td></tr>
     </table>
 </xsl:template>

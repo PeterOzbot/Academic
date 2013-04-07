@@ -1,6 +1,5 @@
 package compiler.abstree;
 
-import java.io.*;
 import java.util.*;
 
 /** Seznam izrazov.  */
@@ -13,11 +12,6 @@ public class AbsExprs extends AbsExpr {
 	}
 	
 	@Override
-	public void toXML(PrintStream xml) {
-		xml.println("<absnode node=\"Exprs\">");
-		if (getPosition() != null) getPosition().toXML(xml);
-		for (AbsExpr expr: exprs) expr.toXML(xml);
-		xml.println("</absnode>");
-	}
+	public void accept(Visitor visitor) { visitor.visit(this); }
 	
 }
