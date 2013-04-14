@@ -812,139 +812,139 @@ public class LexAnal {
 
 		// simboli
 		if (simbol.equals("+")) {
-			return new Symbol(Symbol.ADD, simbol, _position);
+			return new Symbol(Symbol.ADD, simbol, _position.clone());
 		}
 		if (simbol.equals("-")) {
-			return new Symbol(Symbol.SUB, simbol, _position);
+			return new Symbol(Symbol.SUB, simbol, _position.clone());
 		}
 		if (simbol.equals("*")) {
-			return new Symbol(Symbol.MUL, simbol, _position);
+			return new Symbol(Symbol.MUL, simbol, _position.clone());
 		}
 		if (simbol.equals("/")) {
-			return new Symbol(Symbol.DIV, simbol, _position);
+			return new Symbol(Symbol.DIV, simbol, _position.clone());
 		}
 		if (simbol.equals("%")) {
-			return new Symbol(Symbol.MOD, simbol, _position);
+			return new Symbol(Symbol.MOD, simbol, _position.clone());
 		}
 		if (simbol.equals("!")) {
-			return new Symbol(Symbol.NOT, simbol, _position);
+			return new Symbol(Symbol.NOT, simbol, _position.clone());
 		}
 		if (simbol.equals("&")) {
-			return new Symbol(Symbol.AND, simbol, _position);
+			return new Symbol(Symbol.AND, simbol, _position.clone());
 		}
 		if (simbol.equals("|")) {
-			return new Symbol(Symbol.OR, simbol, _position);
+			return new Symbol(Symbol.OR, simbol, _position.clone());
 		}
 		if (simbol.equals("==")) {
-			return new Symbol(Symbol.EQU, simbol, _position);
+			return new Symbol(Symbol.EQU, simbol, _position.clone());
 		}
 		if (simbol.equals("<>")) {
-			return new Symbol(Symbol.NEQ, simbol, _position);
+			return new Symbol(Symbol.NEQ, simbol, _position.clone());
 		}
 		if (simbol.equals("<")) {
-			return new Symbol(Symbol.LTH, simbol, _position);
+			return new Symbol(Symbol.LTH, simbol, _position.clone());
 		}
 		if (simbol.equals(">")) {
-			return new Symbol(Symbol.GTH, simbol, _position);
+			return new Symbol(Symbol.GTH, simbol, _position.clone());
 		}
 		if (simbol.equals("<=")) {
-			return new Symbol(Symbol.LEQ, simbol, _position);
+			return new Symbol(Symbol.LEQ, simbol, _position.clone());
 		}
 		if (simbol.equals(">=")) {
-			return new Symbol(Symbol.GEQ, simbol, _position);
+			return new Symbol(Symbol.GEQ, simbol, _position.clone());
 		}
 		if (simbol.equals("=")) {
-			return new Symbol(Symbol.ASSIGN, simbol, _position);
+			return new Symbol(Symbol.ASSIGN, simbol, _position.clone());
 		}
 		if (simbol.equals("(")) {
-			return new Symbol(Symbol.LPARENT, simbol, _position);
+			return new Symbol(Symbol.LPARENT, simbol, _position.clone());
 		}
 		if (simbol.equals(")")) {
-			return new Symbol(Symbol.RPARENT, simbol, _position);
+			return new Symbol(Symbol.RPARENT, simbol, _position.clone());
 		}
 		if (simbol.equals("[")) {
-			return new Symbol(Symbol.LBRACKET, simbol, _position);
+			return new Symbol(Symbol.LBRACKET, simbol, _position.clone());
 		}
 		if (simbol.equals("]")) {
-			return new Symbol(Symbol.RBRACKET, simbol, _position);
+			return new Symbol(Symbol.RBRACKET, simbol, _position.clone());
 		}
 		if (simbol.equals("{")) {
-			return new Symbol(Symbol.LBRACE, simbol, _position);
+			return new Symbol(Symbol.LBRACE, simbol, _position.clone());
 		}
 		if (simbol.equals("}")) {
-			return new Symbol(Symbol.RBRACE, simbol, _position);
+			return new Symbol(Symbol.RBRACE, simbol, _position.clone());
 		}
 		if (simbol.equals(".")) {
-			return new Symbol(Symbol.DOT, simbol, _position);
+			return new Symbol(Symbol.DOT, simbol, _position.clone());
 		}
 		if (simbol.equals(",")) {
-			return new Symbol(Symbol.COMMA, simbol, _position);
+			return new Symbol(Symbol.COMMA, simbol, _position.clone());
 		}
 		if (simbol.equals(":")) {
-			return new Symbol(Symbol.COLON, simbol, _position);
+			return new Symbol(Symbol.COLON, simbol, _position.clone());
 		}
 		if (simbol.equals(";")) {
-			return new Symbol(Symbol.SEMIC, simbol, _position);
+			return new Symbol(Symbol.SEMIC, simbol, _position.clone());
 		}
 		if (simbol.equals("arr")) {
-			return new Symbol(Symbol.ARR, simbol, _position);
+			return new Symbol(Symbol.ARR, simbol, _position.clone());
 		}
 		if (simbol.equals("else")) {
-			return new Symbol(Symbol.ELSE, simbol, _position);
+			return new Symbol(Symbol.ELSE, simbol, _position.clone());
 		}
 		if (simbol.equals("for")) {
-			return new Symbol(Symbol.FOR, simbol, _position);
+			return new Symbol(Symbol.FOR, simbol, _position.clone());
 		}
 		if (simbol.equals("fun")) {
-			return new Symbol(Symbol.FUN, simbol, _position);
+			return new Symbol(Symbol.FUN, simbol, _position.clone());
 		}
 		if (simbol.equals("if")) {
-			return new Symbol(Symbol.IF, simbol, _position);
+			return new Symbol(Symbol.IF, simbol, _position.clone());
 		}
 		if (simbol.equals("rec")) {
-			return new Symbol(Symbol.REC, simbol, _position);
+			return new Symbol(Symbol.REC, simbol, _position.clone());
 		}
 		if (simbol.equals("then")) {
-			return new Symbol(Symbol.THEN, simbol, _position);
+			return new Symbol(Symbol.THEN, simbol, _position.clone());
 		}
 		if (simbol.equals("typ")) {
-			return new Symbol(Symbol.TYP, simbol, _position);
+			return new Symbol(Symbol.TYP, simbol, _position.clone());
 		}
 		if (simbol.equals("var")) {
-			return new Symbol(Symbol.VAR, simbol, _position);
+			return new Symbol(Symbol.VAR, simbol, _position.clone());
 		}
 		if (simbol.equals("where")) {
-			return new Symbol(Symbol.WHERE, simbol, _position);
+			return new Symbol(Symbol.WHERE, simbol, _position.clone());
 		}
 		if (simbol.equals("while")) {
-			return new Symbol(Symbol.WHILE, simbol, _position);
+			return new Symbol(Symbol.WHILE, simbol, _position.clone());
 		}
 		if (simbol.equals("int")) {
-			return new Symbol(Symbol.INT, simbol, _position);
+			return new Symbol(Symbol.INT, simbol, _position.clone());
 		}
 		if (simbol.equals("bool")) {
-			return new Symbol(Symbol.BOOL, simbol, _position);
+			return new Symbol(Symbol.BOOL, simbol, _position.clone());
 		}
 		if (simbol.equals("real")) {
-			return new Symbol(Symbol.REAL, simbol, _position);
+			return new Symbol(Symbol.REAL, simbol, _position.clone());
 		}
 		if (simbol.equals("string")) {
-			return new Symbol(Symbol.STRING, simbol, _position);
+			return new Symbol(Symbol.STRING, simbol, _position.clone());
 		}
 		if (simbol.equals("true") || simbol.equals("false")) {
-			return new Symbol(Symbol.BOOLCONST, simbol, _position);
+			return new Symbol(Symbol.BOOLCONST, simbol, _position.clone());
 		}
 		if (simbol.matches(STRING_REGEX)) {
-			return new Symbol(Symbol.STRINGCONST, simbol, _position);
+			return new Symbol(Symbol.STRINGCONST, simbol, _position.clone());
 		}
 		if (simbol.matches(FLOAT_REGEX)) {
-			return new Symbol(Symbol.REALCONST, simbol, _position);
+			return new Symbol(Symbol.REALCONST, simbol, _position.clone());
 		}
 		if (simbol.matches(NUMBER_REGEX)) {
-			return new Symbol(Symbol.INTCONST, simbol, _position);
+			return new Symbol(Symbol.INTCONST, simbol, _position.clone());
 		}
 		if (simbol.matches(IDENTIFIER_REGEX)) {
-			return new Symbol(Symbol.IDENTIFIER, simbol, _position);
+			return new Symbol(Symbol.IDENTIFIER, simbol, _position.clone());
 		}
 
 		// ce ni nic je neka napaka

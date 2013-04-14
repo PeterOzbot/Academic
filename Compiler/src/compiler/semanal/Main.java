@@ -28,7 +28,7 @@ public class Main {
 			XML.close("semanal", xml);
 		} catch (IOException exception) {
 			Report.error("Cannot perform semantic analysis.", 1);
-		}
+		} 
 	}
 
 }

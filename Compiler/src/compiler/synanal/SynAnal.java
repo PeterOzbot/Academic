@@ -33,7 +33,7 @@ import compiler.lexanal.*;
 /** Sintaksni analizator. */
 public class SynAnal {
 	// nastavitve
-	private final Boolean REPORT_SKIP = true;
+	private final Boolean REPORT_SKIP = false;
 
 	private LexAnal lexer;
 
@@ -84,14 +84,18 @@ public class SynAnal {
 		AbsExprs seznamIzrazov = null;
 
 		Vector<AbsExpr> vectorIzrazov = new Vector<AbsExpr>();
-		
+
 		// parsa prvi Expression
 		vectorIzrazov.add(parseExpression());
-		
+
 		// parsa ostale Expressions ce obstajajo
 		vectorIzrazov = parseExpressionsRest(vectorIzrazov);
 
 		seznamIzrazov = new AbsExprs(vectorIzrazov);
+
+		// set min set max
+		seznamIzrazov.setMax(vectorIzrazov.firstElement());
+		seznamIzrazov.setMin(vectorIzrazov.lastElement());
 
 		debug();
 
@@ -150,14 +154,22 @@ public class SynAnal {
 			throws IOException, ParseException {
 		debug("parse_OrExpression'");
 
+		AbsExpr lastIzrazBinarniOperatorOr = izrazBinarniOperatorOr;
+
 		switch (symbol != null ? symbol.getToken() : -1) {
 		case Symbol.OR:
 			skip(Symbol.OR);
-			// ce je  | parsa drugi cel AndExpression
+			// ce je | parsa drugi cel AndExpression
 			AbsExpr izrazBinarniOperatorAnd = parseAndExpression();
+
 			// zdruzi prvi del in parsan drugi del
 			izrazBinarniOperatorOr = new AbsBinExpr(AbsBinExpr.OR,
 					izrazBinarniOperatorOr, izrazBinarniOperatorAnd);
+
+			// set min/max
+			izrazBinarniOperatorOr.setMin(lastIzrazBinarniOperatorOr);
+			izrazBinarniOperatorOr.setMax(izrazBinarniOperatorAnd);
+
 			// parsa ostali del OrExpressio
 			izrazBinarniOperatorOr = parseOrExpressionRest(izrazBinarniOperatorOr);
 			break;
@@ -186,6 +198,8 @@ public class SynAnal {
 			throws IOException, ParseException {
 		debug("parse_AndExpression'");
 
+		AbsExpr lastIzrazBinarniOperatorAnd = izrazBinarniOperatorAnd;
+
 		switch (symbol != null ? symbol.getToken() : -1) {
 		case Symbol.AND:
 			skip(Symbol.AND);
@@ -194,7 +208,11 @@ public class SynAnal {
 			// zdruzi
 			izrazBinarniOperatorAnd = new AbsBinExpr(AbsBinExpr.AND,
 					izrazBinarniOperatorAnd, izrazBinarniRealational);
-			
+
+			// set min/max
+			izrazBinarniOperatorAnd.setMin(lastIzrazBinarniOperatorAnd);
+			izrazBinarniOperatorAnd.setMax(izrazBinarniRealational);
+
 			izrazBinarniOperatorAnd = parseAndExpressionRest(izrazBinarniOperatorAnd);
 			break;
 		}
@@ -225,6 +243,8 @@ public class SynAnal {
 
 		AbsExpr izrazBinarniAdditive = null;
 
+		AbsExpr lastIzrazBinarniRelational = izrazBinarniRelational;
+
 		switch (symbol != null ? symbol.getToken() : -1) {
 		case Symbol.EQU:
 			skip(Symbol.EQU);
@@ -233,22 +253,35 @@ public class SynAnal {
 			izrazBinarniRelational = new AbsBinExpr(AbsBinExpr.EQU,
 					izrazBinarniRelational, izrazBinarniAdditive);
 
+			// set min/max
+			izrazBinarniRelational.setMin(lastIzrazBinarniRelational);
+			izrazBinarniRelational.setMax(izrazBinarniAdditive);
+
 			izrazBinarniRelational = parseRelationalExpressionRest(izrazBinarniRelational);
 			break;
 		case Symbol.NEQ:
 			skip(Symbol.NEQ);
 			izrazBinarniAdditive = parseAdditiveExpression();
+
 			izrazBinarniRelational = new AbsBinExpr(AbsBinExpr.NEQ,
 					izrazBinarniRelational, izrazBinarniAdditive);
+
+			// set min/max
+			izrazBinarniRelational.setMin(lastIzrazBinarniRelational);
+			izrazBinarniRelational.setMax(izrazBinarniAdditive);
 
 			izrazBinarniRelational = parseRelationalExpressionRest(izrazBinarniRelational);
 			break;
 		case Symbol.LTH:
 			skip(Symbol.LTH);
 			izrazBinarniAdditive = parseAdditiveExpression();
-			
+
 			izrazBinarniRelational = new AbsBinExpr(AbsBinExpr.LTH,
 					izrazBinarniRelational, izrazBinarniAdditive);
+
+			// set min/max
+			izrazBinarniRelational.setMin(lastIzrazBinarniRelational);
+			izrazBinarniRelational.setMax(izrazBinarniAdditive);
 
 			izrazBinarniRelational = parseRelationalExpressionRest(izrazBinarniRelational);
 			break;
@@ -260,6 +293,10 @@ public class SynAnal {
 			izrazBinarniRelational = new AbsBinExpr(AbsBinExpr.GTH,
 					izrazBinarniRelational, izrazBinarniAdditive);
 
+			// set min/max
+			izrazBinarniRelational.setMin(lastIzrazBinarniRelational);
+			izrazBinarniRelational.setMax(izrazBinarniAdditive);
+
 			izrazBinarniRelational = parseRelationalExpressionRest(izrazBinarniRelational);
 			break;
 
@@ -270,6 +307,10 @@ public class SynAnal {
 			izrazBinarniRelational = new AbsBinExpr(AbsBinExpr.LEQ,
 					izrazBinarniRelational, izrazBinarniAdditive);
 
+			// set min/max
+			izrazBinarniRelational.setMin(lastIzrazBinarniRelational);
+			izrazBinarniRelational.setMax(izrazBinarniAdditive);
+
 			izrazBinarniRelational = parseRelationalExpressionRest(izrazBinarniRelational);
 			break;
 
@@ -279,6 +320,10 @@ public class SynAnal {
 
 			izrazBinarniRelational = new AbsBinExpr(AbsBinExpr.GEQ,
 					izrazBinarniRelational, izrazBinarniAdditive);
+
+			// set min/max
+			izrazBinarniRelational.setMin(lastIzrazBinarniRelational);
+			izrazBinarniRelational.setMax(izrazBinarniAdditive);
 
 			izrazBinarniRelational = parseRelationalExpressionRest(izrazBinarniRelational);
 			break;
@@ -309,6 +354,7 @@ public class SynAnal {
 		debug("additive_expression'");
 
 		AbsExpr izrazBinarniMulti = null;
+		AbsExpr lastIzrazBinarniAdditive = izrazBinarniAdditive;
 
 		switch (symbol != null ? symbol.getToken() : -1) {
 		case Symbol.ADD:
@@ -318,6 +364,10 @@ public class SynAnal {
 			izrazBinarniAdditive = new AbsBinExpr(AbsBinExpr.ADD,
 					izrazBinarniAdditive, izrazBinarniMulti);
 
+			// set min/max
+			izrazBinarniAdditive.setMin(lastIzrazBinarniAdditive);
+			izrazBinarniAdditive.setMax(izrazBinarniMulti);
+
 			izrazBinarniAdditive = parseAdditiveExpressionRest(izrazBinarniAdditive);
 			break;
 		case Symbol.SUB:
@@ -326,6 +376,10 @@ public class SynAnal {
 
 			izrazBinarniAdditive = new AbsBinExpr(AbsBinExpr.SUB,
 					izrazBinarniAdditive, izrazBinarniMulti);
+
+			// set min/max
+			izrazBinarniAdditive.setMin(lastIzrazBinarniAdditive);
+			izrazBinarniAdditive.setMax(izrazBinarniMulti);
 
 			izrazBinarniAdditive = parseAdditiveExpressionRest(izrazBinarniAdditive);
 			break;
@@ -358,6 +412,7 @@ public class SynAnal {
 		debug("parse_MultiplicativeExpression'");
 
 		AbsExpr izrazUnarniPrefix = null;
+		AbsExpr lastIzrazBinarniMulti = izrazBinarniMulti;
 
 		switch (symbol != null ? symbol.getToken() : -1) {
 		case Symbol.MUL:
@@ -367,6 +422,10 @@ public class SynAnal {
 
 			izrazBinarniMulti = new AbsBinExpr(AbsBinExpr.MUL,
 					izrazBinarniMulti, izrazUnarniPrefix);
+
+			// set min/max
+			izrazBinarniMulti.setMin(lastIzrazBinarniMulti);
+			izrazBinarniMulti.setMax(izrazUnarniPrefix);
 
 			izrazBinarniMulti = parseMultiplicativeExpressionRest(izrazBinarniMulti);
 			break;
@@ -378,6 +437,10 @@ public class SynAnal {
 			izrazBinarniMulti = new AbsBinExpr(AbsBinExpr.DIV,
 					izrazBinarniMulti, izrazUnarniPrefix);
 
+			// set min/max
+			izrazBinarniMulti.setMin(lastIzrazBinarniMulti);
+			izrazBinarniMulti.setMax(izrazUnarniPrefix);
+
 			izrazBinarniMulti = parseMultiplicativeExpressionRest(izrazBinarniMulti);
 			break;
 		case Symbol.MOD:
@@ -387,6 +450,10 @@ public class SynAnal {
 
 			izrazBinarniMulti = new AbsBinExpr(AbsBinExpr.MOD,
 					izrazBinarniMulti, izrazUnarniPrefix);
+
+			// set min/max
+			izrazBinarniMulti.setMin(lastIzrazBinarniMulti);
+			izrazBinarniMulti.setMax(izrazUnarniPrefix);
 
 			izrazBinarniMulti = parseMultiplicativeExpressionRest(izrazBinarniMulti);
 			break;
@@ -401,33 +468,69 @@ public class SynAnal {
 		debug("parse_PrefixExpression");
 
 		AbsExpr izrazUnarniPrefix = null;
+		AbsExpr prefixExpression = null;
+		Symbol starterSymbol = null;
 
 		switch (symbol != null ? symbol.getToken() : -1) {
 		case Symbol.ADD:
-			skip(Symbol.ADD);
-			izrazUnarniPrefix = new AbsUnExpr(AbsUnExpr.ADD,
-					parsePrefixExpression());
+			starterSymbol = skip(Symbol.ADD);
+
+			prefixExpression = parsePrefixExpression();
+
+			izrazUnarniPrefix = new AbsUnExpr(AbsUnExpr.ADD, prefixExpression);
+
+			// set min/max
+			izrazUnarniPrefix.setMin(starterSymbol);
+			izrazUnarniPrefix.setMax(prefixExpression);
+
 			break;
 		case Symbol.SUB:
-			skip(Symbol.SUB);
-			izrazUnarniPrefix = new AbsUnExpr(AbsUnExpr.SUB,
-					parsePrefixExpression());
-			;
+			starterSymbol = skip(Symbol.SUB);
+
+			prefixExpression = parsePrefixExpression();
+
+			izrazUnarniPrefix = new AbsUnExpr(AbsUnExpr.SUB, prefixExpression);
+
+			// set min/max
+			izrazUnarniPrefix.setMin(starterSymbol);
+			izrazUnarniPrefix.setMax(prefixExpression);
+
 			break;
 		case Symbol.MUL:
-			skip(Symbol.MUL);
-			izrazUnarniPrefix = new AbsUnExpr(AbsUnExpr.MUL,
-					parsePrefixExpression());
+			starterSymbol = skip(Symbol.MUL);
+
+			prefixExpression = parsePrefixExpression();
+
+			izrazUnarniPrefix = new AbsUnExpr(AbsUnExpr.MUL, prefixExpression);
+
+			// set min/max
+			izrazUnarniPrefix.setMin(starterSymbol);
+			izrazUnarniPrefix.setMax(prefixExpression);
+
 			break;
 		case Symbol.NOT:
-			skip(Symbol.NOT);
-			izrazUnarniPrefix = new AbsUnExpr(AbsUnExpr.NOT,
-					parsePrefixExpression());
+			starterSymbol = skip(Symbol.NOT);
+
+			prefixExpression = parsePrefixExpression();
+
+			izrazUnarniPrefix = new AbsUnExpr(AbsUnExpr.NOT, prefixExpression);
+
+			// set min/max
+			izrazUnarniPrefix.setMin(starterSymbol);
+			izrazUnarniPrefix.setMax(prefixExpression);
+
 			break;
 		case Symbol.AND:
-			skip(Symbol.AND);
-			izrazUnarniPrefix = new AbsUnExpr(AbsUnExpr.AND,
-					parsePrefixExpression());
+			starterSymbol = skip(Symbol.AND);
+
+			prefixExpression = parsePrefixExpression();
+
+			izrazUnarniPrefix = new AbsUnExpr(AbsUnExpr.AND, prefixExpression);
+
+			// set min/max
+			izrazUnarniPrefix.setMin(starterSymbol);
+			izrazUnarniPrefix.setMax(prefixExpression);
+
 			break;
 		default:
 			izrazUnarniPrefix = parsePostfixExpression();
@@ -449,11 +552,19 @@ public class SynAnal {
 
 			izrazPostfix = new AbsAtomExpr(symbol);
 
+			// set min/max
+			izrazPostfix.setMin(symbol);
+			izrazPostfix.setMax(symbol);
+
 			skip(Symbol.INTCONST);
 			break;
 		case Symbol.REALCONST:
 
 			izrazPostfix = new AbsAtomExpr(symbol);
+
+			// set min/max
+			izrazPostfix.setMin(symbol);
+			izrazPostfix.setMax(symbol);
 
 			skip(Symbol.REALCONST);
 			break;
@@ -461,11 +572,19 @@ public class SynAnal {
 
 			izrazPostfix = new AbsAtomExpr(symbol);
 
+			// set min/max
+			izrazPostfix.setMin(symbol);
+			izrazPostfix.setMax(symbol);
+
 			skip(Symbol.BOOLCONST);
 			break;
 		case Symbol.STRINGCONST:
 
 			izrazPostfix = new AbsAtomExpr(symbol);
+
+			// set min/max
+			izrazPostfix.setMin(symbol);
+			izrazPostfix.setMax(symbol);
 
 			skip(Symbol.STRINGCONST);
 
@@ -486,12 +605,25 @@ public class SynAnal {
 
 				AbsExprs expressions = parseExpressions();
 
-				izrazPostfix = new AbsFunCall(new AbsExprName(identifier),
-						expressions);
+				AbsExprName exprName = new AbsExprName(identifier);
+
+				// set min/max
+				exprName.setMin(identifier);
+				exprName.setMax(identifier);
+
+				izrazPostfix = new AbsFunCall(exprName, expressions);
+
+				// set min/max
+				izrazPostfix.setMin(exprName);
+				izrazPostfix.setMax(expressions);
 
 				skip(Symbol.RPARENT);
-			} else
+			} else {
 				izrazPostfix = new AbsExprName(identifier);
+				// set min/max
+				izrazPostfix.setMin(identifier);
+				izrazPostfix.setMax(identifier);
+			}
 
 			break;
 		case Symbol.LPARENT:
@@ -514,14 +646,27 @@ public class SynAnal {
 			throws IOException, ParseException {
 		debug("parsePostfixExpression");
 
+		AbsExpr lastIzrazPostfix= izrazPostfix;
+		
 		switch (symbol != null ? symbol.getToken() : -1) {
 		case Symbol.DOT:
 			skip(Symbol.DOT);
 
 			Symbol identifier = skip(Symbol.IDENTIFIER);
 
+			AbsExprName exprName = new AbsExprName(identifier);
+
+			// set min/max
+			izrazPostfix.setMin(identifier);
+			izrazPostfix.setMax(identifier);
+
 			izrazPostfix = new AbsBinExpr(AbsBinExpr.REC, izrazPostfix,
-					new AbsExprName(identifier));
+					exprName);
+
+			// set min/max
+			izrazPostfix.setMin(lastIzrazPostfix);
+			izrazPostfix.setMax(exprName);
+
 			break;
 		case Symbol.LBRACKET:
 			skip(Symbol.LBRACKET);
@@ -529,7 +674,12 @@ public class SynAnal {
 			AbsExpr izraz = parseExpression();
 
 			izrazPostfix = new AbsBinExpr(AbsBinExpr.ARR, izrazPostfix, izraz);
-			skip(Symbol.RBRACKET);
+
+			Symbol simbol = skip(Symbol.RBRACKET);
+
+			// set min/max
+			izrazPostfix.setMin(lastIzrazPostfix);
+			izrazPostfix.setMax(simbol);
 
 			break;
 		case Symbol.WHERE:
@@ -538,6 +688,10 @@ public class SynAnal {
 			AbsDecls izrazDeklaracij = parseDeclarations();
 
 			izrazPostfix = new AbsWhereExpr(izrazPostfix, izrazDeklaracij);
+
+			// set min/max
+			izrazPostfix.setMin(lastIzrazPostfix);
+			izrazPostfix.setMax(izrazDeklaracij);
 
 			break;
 		}
@@ -558,6 +712,8 @@ public class SynAnal {
 		Symbol identifier = null;
 		AbsExprs loopExprs = null;
 		AbsExpr condExpr = null;
+		AbsExprName exprName = null;
+		Symbol simbol = null;
 
 		switch (symbol != null ? symbol.getToken() : -1) {
 		case Symbol.IDENTIFIER:
@@ -566,12 +722,21 @@ public class SynAnal {
 
 			AbsExpr izraz = parseExpression();
 
-			izrazPostfixBrace = new AbsAssignStmt(new AbsExprName(identifier),
-					izraz);
+			exprName = new AbsExprName(identifier);
+
+			// set min/max
+			exprName.setMin(identifier);
+			exprName.setMax(identifier);
+
+			izrazPostfixBrace = new AbsAssignStmt(exprName, izraz);
+
+			// set min/max
+			izrazPostfixBrace.setMin(exprName);
+			izrazPostfixBrace.setMax(izraz);
 
 			break;
 		case Symbol.IF:
-			skip(Symbol.IF);
+			simbol = skip(Symbol.IF);
 
 			condExpr = parseExpression();
 
@@ -587,9 +752,17 @@ public class SynAnal {
 
 			izrazPostfixBrace = new AbsIfStmt(condExpr, thenExprs, elseExprs);
 
+			// set min/max
+			izrazPostfixBrace.setMin(simbol);
+			if (elseExprs != null) {
+				izrazPostfixBrace.setMax(elseExprs);
+			} else {
+				izrazPostfixBrace.setMax(thenExprs);
+			}
+
 			break;
 		case Symbol.FOR:
-			skip(Symbol.FOR);
+			simbol = skip(Symbol.FOR);
 
 			identifier = skip(Symbol.IDENTIFIER);
 
@@ -605,12 +778,23 @@ public class SynAnal {
 
 			loopExprs = parseExpressions();
 
-			izrazPostfixBrace = new AbsForStmt(new AbsExprName(identifier),
-					loBound, hiBound, loopExprs);
+			exprName = new AbsExprName(identifier);
+
+			// set min/max
+			exprName.setMin(identifier);
+			exprName.setMax(identifier);
+
+			izrazPostfixBrace = new AbsForStmt(exprName, loBound, hiBound,
+					loopExprs);
+
+			// set min/max
+			izrazPostfixBrace.setMin(exprName);
+			izrazPostfixBrace.setMax(loopExprs);
+
 			break;
 		case Symbol.WHILE:
 
-			skip(Symbol.WHILE);
+			simbol = skip(Symbol.WHILE);
 
 			condExpr = parseExpression();
 
@@ -619,6 +803,11 @@ public class SynAnal {
 			loopExprs = parseExpressions();
 
 			izrazPostfixBrace = new AbsWhileStmt(condExpr, loopExprs);
+
+			// set min/max
+			izrazPostfixBrace.setMin(simbol);
+			izrazPostfixBrace.setMax(loopExprs);
+
 			break;
 		}
 
@@ -639,6 +828,10 @@ public class SynAnal {
 		vectorDecklaracij = parseDeclarationsRest(vectorDecklaracij);
 
 		izrazDeklaracij = new AbsDecls(vectorDecklaracij);
+
+		// set min/max
+		izrazDeklaracij.setMin(vectorDecklaracij.firstElement());
+		izrazDeklaracij.setMax(vectorDecklaracij.lastElement());
 
 		debug();
 
@@ -698,7 +891,7 @@ public class SynAnal {
 
 		switch (symbol != null ? symbol.getToken() : -1) {
 		case Symbol.FUN:
-			skip(Symbol.FUN);
+			Symbol firstSimbol = skip(Symbol.FUN);
 			Symbol identifier = skip(Symbol.IDENTIFIER);
 			skip(Symbol.LPARENT);
 			AbsDecls parametriFunkcije = parseFunctionParameters();
@@ -707,10 +900,20 @@ public class SynAnal {
 			AbsType tip = parseType();
 			skip(Symbol.ASSIGN);
 			AbsExpr izraz = parseExpression();
-			skip(Symbol.SEMIC);
+			Symbol lastSimbol = skip(Symbol.SEMIC);
 
-			deklaracijaFunkcije = new AbsFunDecl(new AbsExprName(identifier),
-					parametriFunkcije, tip, izraz);
+			AbsExprName exprName = new AbsExprName(identifier);
+
+			// set min/max
+			exprName.setMin(identifier);
+			exprName.setMax(identifier);
+
+			deklaracijaFunkcije = new AbsFunDecl(exprName, parametriFunkcije,
+					tip, izraz);
+
+			// set min/max
+			deklaracijaFunkcije.setMin(firstSimbol);
+			deklaracijaFunkcije.setMax(lastSimbol);
 
 			break;
 		default:
@@ -735,6 +938,10 @@ public class SynAnal {
 		vektorParametrovFunkcije = parseFunctionParametersRest(vektorParametrovFunkcije);
 
 		parametriFuncije = new AbsDecls(vektorParametrovFunkcije);
+
+		// set min/max
+		parametriFuncije.setMin(vektorParametrovFunkcije.firstElement());
+		parametriFuncije.setMax(vektorParametrovFunkcije.lastElement());
 
 		debug();
 
@@ -774,7 +981,18 @@ public class SynAnal {
 
 			AbsType tip = parseType();
 
-			parameterFunkcije = new AbsTypDecl(new AbsTypeName(identifier), tip);
+			AbsExprName exprName = new AbsExprName(identifier);
+
+			// set min/max
+			exprName.setMin(identifier);
+			exprName.setMax(identifier);
+
+			parameterFunkcije = new AbsVarDecl(exprName, tip);
+
+			// set min/max
+			parameterFunkcije.setMin(exprName);
+			parameterFunkcije.setMax(tip);
+
 			break;
 		default:
 			throw new ParseException();
@@ -791,7 +1009,7 @@ public class SynAnal {
 
 		switch (symbol != null ? symbol.getToken() : -1) {
 		case Symbol.TYP:
-			skip(Symbol.TYP);
+			Symbol starterSimbol = skip(Symbol.TYP);
 
 			Symbol identifier = skip(Symbol.IDENTIFIER);
 
@@ -801,7 +1019,16 @@ public class SynAnal {
 
 			skip(Symbol.SEMIC);
 
-			deklaracijaTipa = new AbsTypDecl(new AbsTypeName(identifier), tip);
+			AbsTypeName typeName = new AbsTypeName(identifier);
+			// set min/max
+			typeName.setMin(identifier);
+			typeName.setMax(identifier);
+
+			deklaracijaTipa = new AbsTypDecl(typeName, tip);
+
+			// set min/max
+			deklaracijaTipa.setMin(starterSimbol);
+			deklaracijaTipa.setMax(tip);
 			break;
 		default:
 			throw new ParseException();
@@ -820,7 +1047,7 @@ public class SynAnal {
 
 		switch (symbol != null ? symbol.getToken() : -1) {
 		case Symbol.VAR:
-			skip(Symbol.VAR);
+			Symbol starterSimbol = skip(Symbol.VAR);
 
 			Symbol identifier = skip(Symbol.IDENTIFIER);
 
@@ -830,8 +1057,16 @@ public class SynAnal {
 
 			skip(Symbol.SEMIC);
 
-			deklaracijaSpremenljivke = new AbsVarDecl(new AbsExprName(
-					identifier), tip);
+			AbsExprName exprName = new AbsExprName(identifier);
+			// set min/max
+			exprName.setMin(identifier);
+			exprName.setMax(identifier);
+
+			deklaracijaSpremenljivke = new AbsVarDecl(exprName, tip);
+
+			// set min/max
+			deklaracijaSpremenljivke.setMin(starterSimbol);
+			deklaracijaSpremenljivke.setMax(tip);
 			break;
 		default:
 			throw new ParseException();
@@ -847,66 +1082,112 @@ public class SynAnal {
 
 		AbsType tip = null;
 		AbsType tempTip = null;
+		Symbol starterSimbol = null;
+		Symbol endSimbol = null;
 
 		switch (symbol != null ? symbol.getToken() : -1) {
 		case Symbol.INT:
-			skip(Symbol.INT);
+			starterSimbol = skip(Symbol.INT);
 
 			tip = new AbsAtomType(AbsAtomType.INT);
+
+			// set min/max
+			tip.setMin(starterSimbol);
+			tip.setMax(starterSimbol);
+
 			break;
 		case Symbol.REAL:
-			skip(Symbol.REAL);
+			starterSimbol = skip(Symbol.REAL);
 
 			tip = new AbsAtomType(AbsAtomType.REAL);
+
+			// set min/max
+			tip.setMin(starterSimbol);
+			tip.setMax(starterSimbol);
+
 			break;
 		case Symbol.BOOL:
-			skip(Symbol.BOOL);
+			starterSimbol = skip(Symbol.BOOL);
 
 			tip = new AbsAtomType(AbsAtomType.BOOL);
+
+			// set min/max
+			tip.setMin(starterSimbol);
+			tip.setMax(starterSimbol);
+
 			break;
 		case Symbol.STRING:
-			skip(Symbol.STRING);
+			starterSimbol = skip(Symbol.STRING);
 
 			tip = new AbsAtomType(AbsAtomType.STRING);
+
+			// set min/max
+			tip.setMin(starterSimbol);
+			tip.setMax(starterSimbol);
+
 			break;
 		case Symbol.LBRACE:
-			skip(Symbol.LBRACE);
-			skip(Symbol.RBRACE);
+			starterSimbol = skip(Symbol.LBRACE);
+			endSimbol = skip(Symbol.RBRACE);
 
 			tip = new AbsAtomType(AbsAtomType.VOID);
+
+			// set min/max
+			tip.setMin(starterSimbol);
+			tip.setMax(endSimbol);
+
 			break;
 		case Symbol.IDENTIFIER:
 			Symbol identifier = skip(Symbol.IDENTIFIER);
 
 			tip = new AbsTypeName(identifier);
+
+			// set min/max
+			tip.setMin(identifier);
+			tip.setMax(identifier);
+
 			break;
 		case Symbol.MUL:
-			skip(Symbol.MUL);
+			starterSimbol = skip(Symbol.MUL);
 			tempTip = parseType();
 
 			tip = new AbsPtrType(tempTip);
+
+			// set min/max
+			tip.setMin(starterSimbol);
+			tip.setMax(tempTip);
 			break;
 		case Symbol.ARR:
-			skip(Symbol.ARR);
+			starterSimbol = skip(Symbol.ARR);
 			skip(Symbol.LBRACKET);
 
 			AbsExpr izraz = parseExpression();
 
-			skip(Symbol.RBRACKET);
+			endSimbol = skip(Symbol.RBRACKET);
 
 			tempTip = parseType();
 
 			tip = new AbsArrType(tempTip, izraz);
+
+			// set min/max
+			tip.setMin(starterSimbol);
+			tip.setMax(tempTip);
+
 			break;
 		case Symbol.REC:
-			skip(Symbol.REC);
+			starterSimbol = skip(Symbol.REC);
 			skip(Symbol.LPARENT);
 
 			AbsDecls recordComponents = parseRecordComponents();
 
-			skip(Symbol.RPARENT);
+			endSimbol = skip(Symbol.RPARENT);
 
 			tip = new AbsRecType(recordComponents);
+
+			// set min/max
+			tip.setMin(starterSimbol);
+			tip.setMax(endSimbol);
+
 			break;
 		case Symbol.LPARENT:
 			skip(Symbol.LPARENT);
@@ -914,7 +1195,7 @@ public class SynAnal {
 			// ( type ) -> lahko generira ( ( ( ( type ) ) ) ), drugega itak
 			// nemore
 			tip = parseType();
-			
+
 			skip(Symbol.RPARENT);
 			break;
 		default:
@@ -938,6 +1219,10 @@ public class SynAnal {
 		vektorDeklaracij = parseRecordComponentsRest(vektorDeklaracij);
 
 		seznamDeklaracij = new AbsDecls(vektorDeklaracij);
+
+		// set min/max
+		seznamDeklaracij.setMin(vektorDeklaracij.firstElement());
+		seznamDeklaracij.setMax(vektorDeklaracij.lastElement());
 
 		debug();
 
@@ -975,7 +1260,12 @@ public class SynAnal {
 
 			AbsType tip = parseType();
 
-			deklaracija = new AbsTypDecl(new AbsTypeName(identifier), tip);
+			deklaracija = new AbsVarDecl(new AbsExprName(identifier), tip);
+
+			// set min/max
+			deklaracija.setMin(identifier);
+			deklaracija.setMax(tip);
+
 			break;
 		default:
 			throw new ParseException();
@@ -995,7 +1285,8 @@ public class SynAnal {
 
 		// sporoci skip
 		if (REPORT_SKIP)
-			Report.information("SynAnal = Preverjamo simbol: " + symbol.getLexeme(),
+			Report.information(
+					"SynAnal = Preverjamo simbol: " + symbol.getLexeme(),
 					symbol.getPosition());
 
 		// za debugat - lazje dobit kjer prid do napake
@@ -1021,6 +1312,7 @@ public class SynAnal {
 			xml.println("<leftside nonterminal=\"" + nonterminal + "\"/>");
 			xml.println("<rightside>");
 		}
+		//Report.information(nonterminal, new Position("",0,0,0,0));
 	}
 
 	private void debug() {
@@ -1028,5 +1320,6 @@ public class SynAnal {
 			xml.println("</rightside>");
 			xml.println("</production>");
 		}
+		//Report.information("end", new Position("",0,0,0,0));
 	}
 }

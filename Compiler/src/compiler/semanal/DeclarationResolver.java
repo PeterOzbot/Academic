@@ -13,6 +13,8 @@ public class DeclarationResolver implements Visitor {
 
 	private static final HashMap<AbsTree, AbsDecl> decls = new HashMap<AbsTree, AbsDecl>();
 
+	private final DeclarationResolverMainTour declarationResolverMainTour = new DeclarationResolverMainTour();
+
 	/**
 	 * Doloci deklaracijo imena.
 	 * 
@@ -42,25 +44,30 @@ public class DeclarationResolver implements Visitor {
 	}
 
 	// Poskusa in obravnava vstavljanje imena
-	public static void InsertName(String name, AbsDecl declaration) {
+	public static void InsertName(AbsDecl absDecl, String name) {
+
 		try {
 			// vstavi v simbolno tabelo
-			names.ins(name, declaration);
+			names.ins(name, absDecl);
 
 		} catch (DeclarationAlreadyExistsException e) {
 			if (PRINT_EX_STACK) {
 				e.printStackTrace();
 			}
-			Report.error("Can't be resolved to variable - " + name, 1);
+			Report.warning("Declaration already exists for variable - " + name,
+					absDecl.getPosition());
 		}
 	}
 
 	// Poskusa in obravnava iskanje imena
-	public static void FindName(String name) {
+	public static void FindName(AbsTree absNode, String name) {
 		try {
 			// preveri èe je med imeni
-			names.fnd(name);
+			AbsDecl absDecl = names.fnd(name);
 
+			// ce je naredimo povezavo - dodamo v decls
+			setDecl(absNode, absDecl);
+			
 		} catch (DeclarationDoesNotExistException e) {
 			if (PRINT_EX_STACK) {
 				e.printStackTrace();
@@ -69,201 +76,111 @@ public class DeclarationResolver implements Visitor {
 		}
 	}
 
-	@Override
-	public void visit(AbsArrType acceptor) {
-		// preveri notranji expression
-		acceptor.size.accept(this);
-		// TODO: je se kaj?
+	public static void newScope() {
+		names.newScope();
+	}
 
+	public static void oldScope() {
+		names.oldScope();
 	}
 
 	@Override
 	public void visit(AbsAssignStmt acceptor) {
-
-		// preveri èe je med imeni
-		acceptor.fstSubExpr.accept(this);
-
-		// prveri expression ki je drugi del
-		acceptor.sndSubExpr.accept(this);
+		acceptor.accept(declarationResolverMainTour);
 	}
 
 	@Override
 	public void visit(AbsAtomExpr acceptor) {
-		// TODO: tukaj ne naredimo nic?
-	}
-
-	@Override
-	public void visit(AbsAtomType acceptor) {
-		// TODO: tukaj ne naredimo nic?
+		acceptor.accept(declarationResolverMainTour);
 	}
 
 	@Override
 	public void visit(AbsBinExpr acceptor) {
-		// ce je tipa rec je potrebno pogledat ce je spremenjivka vidna
-		// TODO: tukaj potrebno pogledat v postfix_expression ce je vidna ali v
-		// globalnem trenutnem?
-		if (acceptor.oper == AbsBinExpr.REC) {
-
-			// preveri èe obstaja tip
-			acceptor.fstSubExpr.accept(this);
-
-			// preveri drugi del
-			acceptor.sndSubExpr.accept(this);
-		} else {
-			// preveri oba dela posebej
-			acceptor.fstSubExpr.accept(this);
-			acceptor.sndSubExpr.accept(this);
-		}
+		acceptor.accept(declarationResolverMainTour);
 	}
 
 	@Override
 	public void visit(AbsDecls acceptor) {
-		// pregleda vse expressin-e
-		for (AbsDecl decl : acceptor.decls) {
-			decl.accept(this);
-		}
-
+		acceptor.accept(declarationResolverMainTour);
 	}
 
 	@Override
 	public void visit(AbsExprName acceptor) {
-		// tukaj samo preverimo -> ker je potrebno dajat ime in deklaracijo ->
-		// to je samo ime
-		// potrebno je pazit da se to ne klice ko je potreba po vstavljanju
-
-		// preveri èe je med imeni
-		FindName(acceptor.identifier.getLexeme());
+		acceptor.accept(declarationResolverMainTour);
 	}
 
 	@Override
 	public void visit(AbsExprs acceptor) {
-		// pregleda vse expressin-e
-		for (AbsExpr expr : acceptor.exprs) {
-			expr.accept(this);
-		}
+		acceptor.accept(declarationResolverMainTour);
 	}
 
 	@Override
 	public void visit(AbsForStmt acceptor) {
-		// TODO: ali je potrebno ugotovit ali je bil identifier deklariran do
-		// zdaj, ali je za naprej -> glede tega da ni tipa bi reku da za nazaj
-
-		// preveri èe je med imeni
-		FindName(acceptor.name.identifier.getLexeme());
-
-		// preveri se ostale dele for zanke
-		acceptor.hiBound.accept(this);
-		acceptor.loBound.accept(this);
-		acceptor.loopExpr.accept(this);
+		acceptor.accept(declarationResolverMainTour);
 	}
 
 	@Override
 	public void visit(AbsFunCall acceptor) {
-
-		// preveri èe je med imeni
-		FindName(acceptor.name.identifier.getLexeme());
-
-		// preveri se ostal del klica funkcije
-		acceptor.args.accept(this);
-	}
-
-	@Override
-	public void visit(AbsFunDecl acceptor) {
-		// potrebno dati ime funkcije v ta scope
-		InsertName(acceptor.name.identifier.getLexeme(), acceptor);
-
-		// narediti nov scope
-		names.newScope();
-
-		// dodati funkcijske parametre med imena
-		acceptor.pars.accept(this);
-
-		// preveriti expression
-		acceptor.expr.accept(this);
-
-		// zapreti scope
-		names.oldScope();
+		acceptor.accept(declarationResolverMainTour);
 	}
 
 	@Override
 	public void visit(AbsIfStmt acceptor) {
-		// preveri if
-		acceptor.condExpr.accept(this);
-
-		// preveri then
-		acceptor.thenExprs.accept(this);
-
-		// preveri else
-		acceptor.elseExprs.accept(this);
+		acceptor.accept(declarationResolverMainTour);
 	}
 
 	@Override
-	public void visit(AbsPtrType acceptor) {
-		// preveri tip globlje
-		acceptor.type.accept(this);
-
-	}
-
-	@Override
-	public void visit(AbsRecType acceptor) {
-		// preveri posamezne komponente
-		acceptor.comps.accept(this);
-
-	}
-
-	@Override
-	public void visit(AbsTypDecl acceptor) {
-		// doda med imena
-		InsertName(acceptor.name.identifier.getLexeme(), acceptor);
-
-		// preveri ostali del tipa
-		acceptor.type.accept(this);
-
-	}
-
-	@Override
-	public void visit(AbsTypeName acceptor) {
-		// tukaj ne naredimo nic -> ker je potrebno dajat ime in deklaracijo ->
-		// to je samo ime
-		// pri preverjanju ce obstaja je dovolj preprosto da se kar direktno
-		// klice kjer se rabi
-	}
-
-	@Override
-	public void visit(AbsUnExpr acceptor) {
-		// preveri drugi del(prvi je del predznak)
-		acceptor.subExpr.accept(this);
-	}
-
-	@Override
-	public void visit(AbsVarDecl acceptor) {
-		// preveri ce obstaja v scope-u deklaracija spremneljivke
-		FindName(acceptor.name.identifier.getLexeme());
-	}
-
-	@Override
-	public void visit(AbsWhereExpr acceptor) {// tukaj je posebnost da je prvo
-												// drugi del(deklaracije), potem
-												// prvi(izrazi)
-		// naredimo nov scope
-		names.newScope();
-
-		// dodamo vse deklaracije
-		acceptor.decls.accept(this);
-
-		// preverimo vse expression-e
-		acceptor.subExpr.accept(this);
-
-		// zapremo scope
-		names.oldScope();
-
+	public void visit(AbsWhereExpr acceptor) {
+		acceptor.accept(declarationResolverMainTour);
 	}
 
 	@Override
 	public void visit(AbsWhileStmt acceptor) {
-		// preverit posamezne expression-e
-		acceptor.condExpr.accept(this);
-		acceptor.loopExpr.accept(this);
+		acceptor.accept(declarationResolverMainTour);
+	}
 
+	@Override
+	public void visit(AbsUnExpr acceptor) {
+		acceptor.accept(declarationResolverMainTour);
+	}
+
+	@Override
+	public void visit(AbsTypeName acceptor) {
+		acceptor.accept(declarationResolverMainTour);
+	}
+
+	@Override
+	public void visit(AbsAtomType acceptor) {
+		acceptor.accept(declarationResolverMainTour);
+	}
+
+	@Override
+	public void visit(AbsPtrType acceptor) {
+		acceptor.accept(declarationResolverMainTour);
+	}
+
+	@Override
+	public void visit(AbsArrType acceptor) {
+		acceptor.accept(declarationResolverMainTour);
+	}
+
+	@Override
+	public void visit(AbsRecType acceptor) {
+		acceptor.accept(declarationResolverMainTour);
+	}
+
+	@Override
+	public void visit(AbsTypDecl acceptor) {
+		acceptor.accept(declarationResolverMainTour);
+	}
+
+	@Override
+	public void visit(AbsVarDecl acceptor) {
+		acceptor.accept(declarationResolverMainTour);
+	}
+
+	@Override
+	public void visit(AbsFunDecl acceptor) {
+		acceptor.accept(declarationResolverMainTour);
 	}
 }
