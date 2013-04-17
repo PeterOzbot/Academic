@@ -50,7 +50,6 @@ public class DeclarationResolverFirstFlight implements Visitor {
 		// doda med imena
 		DeclarationResolver.InsertName(acceptor,
 				acceptor.name.identifier.getLexeme());
-
 	}
 
 	@Override

@@ -212,7 +212,7 @@ public class DeclarationResolverMainTour implements Visitor {
 		// v tem obhodu tukaj povezemo deklaracijo tipa in izrabo le tega
 		// ampak samo v primeru ce je custom tip
 		if (acceptor.type instanceof AbsTypeName) {
-			DeclarationResolver.FindName(acceptor.name, ((AbsTypeName) acceptor.type).identifier.getLexeme());
+			DeclarationResolver.FindName(acceptor.type, ((AbsTypeName) acceptor.type).identifier.getLexeme());
 		}
 	}
 
