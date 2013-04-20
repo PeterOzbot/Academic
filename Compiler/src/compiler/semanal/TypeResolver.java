@@ -9,257 +9,616 @@ import compiler.lexanal.*;
 public class TypeResolver implements Visitor {
 
 	private static final HashMap<AbsTree, SemType> types = new HashMap<AbsTree, SemType>();
-	
-	/** Doloci tip vozlisca abstraktnega sintaksnega drevesa.
+
+	/**
+	 * Doloci tip vozlisca abstraktnega sintaksnega drevesa.
 	 * 
-	 * @param absNode Vozlisce abstraktnega sintaksnega drevesa.
-	 * @param semType Tip vozlisca abstraktnega sintaksnega drevesa.
+	 * @param absNode
+	 *            Vozlisce abstraktnega sintaksnega drevesa.
+	 * @param semType
+	 *            Tip vozlisca abstraktnega sintaksnega drevesa.
 	 */
 	public static void setType(AbsTree absNode, SemType semType) {
-		if (types.get(absNode) != null) Report.error("Internal error.", 1);
+		if (types.get(absNode) != null)
+			Report.error("Internal error. Node already in types.", 1);
 		types.put(absNode, semType);
 	}
-	
-	/** Vrne tip vozlisca abstraktnega sintaksnega drevesa.
+
+	/**
+	 * Vrne tip vozlisca abstraktnega sintaksnega drevesa.
 	 * 
-	 * @param absNode Vozlisce abstraktnega sintaksnega drevesa.
-	 * @return Tip vozlisca abstraktnega sintaksnega drevesa ali <code>null</code>, ce tip se ni dolocen.
+	 * @param absNode
+	 *            Vozlisce abstraktnega sintaksnega drevesa.
+	 * @return Tip vozlisca abstraktnega sintaksnega drevesa ali
+	 *         <code>null</code>, ce tip se ni dolocen.
 	 */
 	public static SemType getType(AbsTree absNode) {
 		return types.get(absNode);
 	}
 
-	private static boolean structEqual(HashMap<SemType, HashSet<SemType>> eqs, SemType type1, SemType type2) {
+	private static boolean structEqual(HashMap<SemType, HashSet<SemType>> eqs,
+			SemType type1, SemType type2) {
 		type1 = type1.actualType();
 		type2 = type2.actualType();
-		
+
 		if ((type1 instanceof SemAtomType) || (type2 instanceof SemAtomType)) {
-			SemAtomType atomType1 = (SemAtomType)type1;
-			SemAtomType atomType2 = (SemAtomType)type2;
+			SemAtomType atomType1 = (SemAtomType) type1;
+			SemAtomType atomType2 = (SemAtomType) type2;
 			return (atomType1.typ == atomType2.typ);
 		}
 
 		if ((type1 instanceof SemArrType) || (type2 instanceof SemArrType)) {
-			SemArrType arrType1 = (SemArrType)type1;
-			SemArrType arrType2 = (SemArrType)type2;
-			if (eqs.get(arrType1) == null) eqs.put(arrType1, new HashSet<SemType>());
-			if (eqs.get(arrType2) == null) eqs.put(arrType2, new HashSet<SemType>());
-			if (eqs.get(arrType1).contains(arrType2) && eqs.get(arrType1).contains(arrType2)) return true;
-			if (eqs.get(arrType1).contains(arrType2) || eqs.get(arrType1).contains(arrType2))
+			SemArrType arrType1 = (SemArrType) type1;
+			SemArrType arrType2 = (SemArrType) type2;
+			if (eqs.get(arrType1) == null)
+				eqs.put(arrType1, new HashSet<SemType>());
+			if (eqs.get(arrType2) == null)
+				eqs.put(arrType2, new HashSet<SemType>());
+			if (eqs.get(arrType1).contains(arrType2)
+					&& eqs.get(arrType1).contains(arrType2))
+				return true;
+			if (eqs.get(arrType1).contains(arrType2)
+					|| eqs.get(arrType1).contains(arrType2))
 				Report.error("Internal error.", 1);
-			if (arrType1.arity != arrType2.arity) return false;
+			if (arrType1.arity != arrType2.arity)
+				return false;
 			eqs.get(arrType1).add(arrType2);
 			eqs.get(arrType2).add(arrType1);
 			return structEqual(eqs, arrType1.type, arrType2.type);
 		}
-		
+
 		if ((type1 instanceof SemPtrType) || (type2 instanceof SemPtrType)) {
-			SemPtrType ptrType1 = (SemPtrType)type1;
-			SemPtrType ptrType2 = (SemPtrType)type2;
-			if (eqs.get(ptrType1) == null) eqs.put(ptrType1, new HashSet<SemType>());
-			if (eqs.get(ptrType2) == null) eqs.put(ptrType2, new HashSet<SemType>());
-			if (eqs.get(ptrType1).contains(ptrType2) && eqs.get(ptrType1).contains(ptrType2)) return true;
-			if (eqs.get(ptrType1).contains(ptrType2) || eqs.get(ptrType1).contains(ptrType2))
+			SemPtrType ptrType1 = (SemPtrType) type1;
+			SemPtrType ptrType2 = (SemPtrType) type2;
+			if (eqs.get(ptrType1) == null)
+				eqs.put(ptrType1, new HashSet<SemType>());
+			if (eqs.get(ptrType2) == null)
+				eqs.put(ptrType2, new HashSet<SemType>());
+			if (eqs.get(ptrType1).contains(ptrType2)
+					&& eqs.get(ptrType1).contains(ptrType2))
+				return true;
+			if (eqs.get(ptrType1).contains(ptrType2)
+					|| eqs.get(ptrType1).contains(ptrType2))
 				Report.error("Internal error.", 1);
 			eqs.get(ptrType1).add(ptrType2);
 			eqs.get(ptrType2).add(ptrType1);
 			return structEqual(eqs, ptrType1.type, ptrType2.type);
 		}
-		
+
 		if ((type1 instanceof SemRecType) || (type2 instanceof SemRecType)) {
-			SemRecType recType1 = (SemRecType)type1;
-			SemRecType recType2 = (SemRecType)type2;
-			if (eqs.get(recType1) == null) eqs.put(recType1, new HashSet<SemType>());
-			if (eqs.get(recType2) == null) eqs.put(recType2, new HashSet<SemType>());
-			if (eqs.get(recType1).contains(recType2) && eqs.get(recType1).contains(recType2)) return true;
-			if (eqs.get(recType1).contains(recType2) || eqs.get(recType1).contains(recType2))
+			SemRecType recType1 = (SemRecType) type1;
+			SemRecType recType2 = (SemRecType) type2;
+			if (eqs.get(recType1) == null)
+				eqs.put(recType1, new HashSet<SemType>());
+			if (eqs.get(recType2) == null)
+				eqs.put(recType2, new HashSet<SemType>());
+			if (eqs.get(recType1).contains(recType2)
+					&& eqs.get(recType1).contains(recType2))
+				return true;
+			if (eqs.get(recType1).contains(recType2)
+					|| eqs.get(recType1).contains(recType2))
 				Report.error("Internal error.", 1);
-			if (recType1.compNames.size() != recType2.compNames.size()) return false;
+			if (recType1.compNames.size() != recType2.compNames.size())
+				return false;
 			for (int i = 0; i < recType1.compNames.size(); i++) {
-				if (! (structEqual(eqs, recType1.compTypes.get(i), recType2.compTypes.get(i)))) return false;
+				if (!(structEqual(eqs, recType1.compTypes.get(i),
+						recType2.compTypes.get(i))))
+					return false;
 			}
 			return true;
 		}
-		
+
 		return false;
 	}
-	
-	/** Ugotovi enakost tipov.
+
+	/**
+	 * Ugotovi enakost tipov.
 	 * 
-	 * @param type1 Prvi tip.
-	 * @param type2 Drugi tip.
+	 * @param type1
+	 *            Prvi tip.
+	 * @param type2
+	 *            Drugi tip.
 	 * @return <code>true</code>, ce sta tipa enaka, <code>false</code> sicer.
 	 */
 	public static boolean equal(SemType type1, SemType type2) {
-		return structEqual(new HashMap<SemType, HashSet<SemType>>(), type1, type2);
+		return structEqual(new HashMap<SemType, HashSet<SemType>>(), type1,
+				type2);
 	}
-
-	// TODO
-	
-	public void visit(AbsDecls acceptor) {
-		for (AbsDecl decl: acceptor.decls)
-			if (decl instanceof AbsTypDecl) {
-				AbsTypDecl typDecl = (AbsTypDecl)decl;
-				TypeResolver.setType(typDecl.name, new SemTypeName(typDecl.name.identifier.getLexeme()));
-			}
-		for (AbsDecl decl: acceptor.decls) decl.accept(this);
-		TypeResolver.setType(acceptor, new SemAtomType(SemAtomType.VOID));
-	}
-	
-	// TODO
 
 	public void visit(AbsUnExpr acceptor) {
 		acceptor.subExpr.accept(this);
 		switch (acceptor.oper) {
 		case AbsUnExpr.ADD:
-		case AbsUnExpr.SUB:
-		{
+		case AbsUnExpr.SUB: {
 			SemType type = TypeResolver.getType(acceptor.subExpr);
 			if (TypeResolver.equal(type, new SemAtomType(SemAtomType.INT))) {
-				TypeResolver.setType(acceptor, new SemAtomType(SemAtomType.INT));
+				TypeResolver
+						.setType(acceptor, new SemAtomType(SemAtomType.INT));
 				return;
 			}
 			if (TypeResolver.equal(type, new SemAtomType(SemAtomType.REAL))) {
-				TypeResolver.setType(acceptor, new SemAtomType(SemAtomType.REAL));
+				TypeResolver.setType(acceptor,
+						new SemAtomType(SemAtomType.REAL));
 				return;
 			}
 			Report.error("Illegal operand type.", acceptor.getPosition(), 1);
 		}
-		case AbsUnExpr.NOT:
-		{
+		case AbsUnExpr.NOT: {
 			SemType type = TypeResolver.getType(acceptor.subExpr);
 			if (TypeResolver.equal(type, new SemAtomType(SemAtomType.BOOL))) {
-				TypeResolver.setType(acceptor, new SemAtomType(SemAtomType.BOOL));
+				TypeResolver.setType(acceptor,
+						new SemAtomType(SemAtomType.BOOL));
 				return;
 			}
 			Report.error("Illegal operand type.", acceptor.getPosition(), 1);
 		}
-		case AbsUnExpr.MUL:
-		{
+		case AbsUnExpr.MUL: {
 			SemType type = TypeResolver.getType(acceptor.subExpr).actualType();
 			if (type instanceof SemPtrType) {
-				SemPtrType ptrType = (SemPtrType)type;
+				SemPtrType ptrType = (SemPtrType) type;
 				TypeResolver.setType(acceptor, ptrType.type);
 				return;
 			}
 			Report.error("Illegal operand type.", acceptor.getPosition(), 1);
 		}
-		case AbsUnExpr.AND:
-		{
+		case AbsUnExpr.AND: {
 			SemType type = TypeResolver.getType(acceptor.subExpr);
 			TypeResolver.setType(acceptor, new SemPtrType(type));
 			return;
 		}
-		default           :
+		default:
 			Report.error("Internal error.", acceptor.getPosition(), 1);
 		}
 	}
 
 	@Override
-	public void visit(AbsArrType acceptor) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void visit(AbsAssignStmt acceptor) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public void visit(AbsAtomExpr acceptor) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void visit(AbsAtomType acceptor) {
-		// TODO Auto-generated method stub
-		
+		switch (acceptor.GetType()) {
+		case AbsAtomExpr.INT:
+			TypeResolver.setType(acceptor, new SemAtomType(SemAtomType.INT));
+			break;
+		case AbsAtomExpr.STRING:
+			TypeResolver.setType(acceptor, new SemAtomType(SemAtomType.STRING));
+			break;
+		case AbsAtomExpr.BOOL:
+			TypeResolver.setType(acceptor, new SemAtomType(SemAtomType.BOOL));
+			break;
+		case AbsAtomExpr.REAL:
+			TypeResolver.setType(acceptor, new SemAtomType(SemAtomType.REAL));
+			break;
+		case AbsAtomExpr.VOID:
+			TypeResolver.setType(acceptor, new SemAtomType(SemAtomType.VOID));
+			break;
+		default:
+			Report.error("Internal error.", acceptor.getPosition(), 1);
+			break;
+		}
 	}
 
 	@Override
 	public void visit(AbsBinExpr acceptor) {
-		// TODO Auto-generated method stub
-		
+		// preverimo levi del in dobimo tip
+		acceptor.fstSubExpr.accept(this);
+		SemType fstSubExprSemType = TypeResolver.getType(acceptor.fstSubExpr);
+
+		// preverimo desni del in dobimo tip
+		acceptor.sndSubExpr.accept(this);
+		SemType sndSubExprSemType = TypeResolver.getType(acceptor.sndSubExpr);
+
+		// preverimo ce so tipi vredu
+		switch (acceptor.oper) {
+		case AbsBinExpr.AND:
+		case AbsBinExpr.OR:
+			// oba morata bit bool, vse skupaj je bool
+			if (!equal(fstSubExprSemType, new SemAtomType(SemAtomType.BOOL))) {
+				Report.error("Illegal operand type. Should be bool.",
+						acceptor.fstSubExpr.getPosition(), 1);
+			}
+			if (!equal(sndSubExprSemType, new SemAtomType(SemAtomType.BOOL))) {
+				Report.error("Illegal operand type. Should be bool.",
+						acceptor.sndSubExpr.getPosition(), 1);
+			}
+
+			// celoten izraz je bool
+			TypeResolver.setType(acceptor, new SemAtomType(SemAtomType.BOOL));
+			break;
+		case AbsBinExpr.EQU:
+		case AbsBinExpr.NEQ:
+		case AbsBinExpr.LTH:
+		case AbsBinExpr.GTH:
+		case AbsBinExpr.LEQ:
+		case AbsBinExpr.GEQ:
+			// oba moreta bit isti tip
+			if (!equal(fstSubExprSemType, sndSubExprSemType)) {
+				Report.error(
+						"Illegal operand type. Statements are not equal type.",
+						acceptor.getPosition(), 1);
+			}
+
+			// celoten izraz je bool
+			TypeResolver.setType(acceptor, new SemAtomType(SemAtomType.BOOL));
+			break;
+		case AbsBinExpr.ADD:
+		case AbsBinExpr.SUB:
+		case AbsBinExpr.MUL:
+		case AbsBinExpr.DIV:
+		case AbsBinExpr.MOD:
+			// oba tipa ista
+			if (!equal(fstSubExprSemType, sndSubExprSemType)) {
+				Report.error(
+						"Illegal operand type. Statements are not equal type.",
+						acceptor.getPosition(), 1);
+			}
+
+			// skupen tip je lahko int
+			SemType commonSemType = new SemAtomType(SemAtomType.INT);
+			if (!equal(fstSubExprSemType, commonSemType)) {
+				// skupen tip je lahko real
+				commonSemType = new SemAtomType(SemAtomType.REAL);
+				if (!equal(fstSubExprSemType, commonSemType)) {
+					Report.error(
+							"Illegal operand type. Statements are not type INT or REAL.",
+							acceptor.getPosition(), 1);
+				}
+
+			}
+
+			// celoten izraz je skupnega tipa
+			TypeResolver.setType(acceptor, commonSemType);
+			break;
+		case AbsBinExpr.REC:
+			// katera komponenta je drugi statement
+			SemRecType semRecType = (SemRecType) fstSubExprSemType;
+
+			for (String compName : semRecType.compNames) {
+				AbsExpr absExpr = acceptor.fstSubExpr;
+				// TODO: dokoncati rec
+			}
+
+			// celoten izraz je tipa drugega dela po operatorju("x1.x2")
+			TypeResolver.setType(acceptor, sndSubExprSemType);
+			break;
+		case AbsBinExpr.ARR:
+			// preverit da je notranji statement int
+			if (!equal(sndSubExprSemType, new SemAtomType(SemAtomType.INT))) {
+				Report.error("Illegal operand type. Should be int.",
+						acceptor.fstSubExpr.getPosition(), 1);
+			}
+
+			// dobit tip arraya
+			SemArrType semArrType = (SemArrType) fstSubExprSemType;
+
+			// vse skupej je tipa arraya
+			TypeResolver.setType(acceptor, semArrType.type);
+			break;
+		default:
+			Report.error("Internal error.", acceptor.getPosition(), 1);
+			break;
+		}
 	}
 
 	@Override
 	public void visit(AbsExprName acceptor) {
-		// TODO Auto-generated method stub
-		
+		// pridobimo tip
+		AbsDecl absDecl = DeclarationResolver.getDecl(acceptor);
+		if (absDecl instanceof AbsVarDecl) {
+			AbsVarDecl absVarDecl = (AbsVarDecl) absDecl;
+
+			SemType semType = null;
+			// ce je tip osnoven potem ne pridobivamo
+			if (absVarDecl.type instanceof AbsAtomType) {
+				AbsAtomType atomType = (AbsAtomType) absVarDecl.type;
+				semType = new SemAtomType(atomType.typ);
+			} else {
+				// pridobimo tip
+				semType = TypeResolver.getType(absVarDecl.type);
+			}
+
+			// nastavimo trenutnemu
+			TypeResolver.setType(acceptor, semType.actualType());
+
+		} else { /* TODO: verjetno nikoli ne pride sem ? */
+		}
 	}
 
 	@Override
 	public void visit(AbsExprs acceptor) {
-		// TODO Auto-generated method stub
-		
-	}
+		for (AbsExpr expr : acceptor.exprs)
+			expr.accept(this);
 
-	@Override
-	public void visit(AbsForStmt acceptor) {
-		// TODO Auto-generated method stub
-		
-	}
+		// dobimo tip zadnjega expressiona
+		SemType semType = TypeResolver.getType(acceptor.exprs.lastElement());
 
-	@Override
-	public void visit(AbsFunCall acceptor) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void visit(AbsFunDecl acceptor) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void visit(AbsIfStmt acceptor) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void visit(AbsPtrType acceptor) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void visit(AbsRecType acceptor) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void visit(AbsTypDecl acceptor) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void visit(AbsTypeName acceptor) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void visit(AbsVarDecl acceptor) {
-		// TODO Auto-generated method stub
-		
+		// dolocimo tip where expressiona
+		TypeResolver.setType(acceptor, semType);
 	}
 
 	@Override
 	public void visit(AbsWhereExpr acceptor) {
-		// TODO Auto-generated method stub
-		
+		// gremo cez deklaracije za povezave
+		acceptor.decls.accept(this);
+
+		// povezeno custom tipe
+		acceptor.decls.accept(new NamedTypeResolver());
+
+		// cez expressione
+		acceptor.subExpr.accept(this);
+
+		// potem dobi tip expressiona
+		SemType semType = TypeResolver.getType(acceptor.subExpr);
+
+		// dolocimo tip where expressiona
+		TypeResolver.setType(acceptor, semType);
+	}
+
+	@Override
+	public void visit(AbsFunCall acceptor) {
+		// gremo cez exprs
+		acceptor.args.accept(this);
+
+		// dobimo tip funkcije
+		AbsDecl absDecl = DeclarationResolver.getDecl(acceptor.name);
+
+		// dobimo tip
+		SemType semType = TypeResolver.getType(absDecl);
+
+		// preverimo ce je stevilo ergumentov isto
+		int callNumberArgs = acceptor.args.exprs.size();
+		int declNumberArgs = ((AbsFunDecl) absDecl).pars.decls.size();
+		if (callNumberArgs != declNumberArgs) {
+			Report.error(
+					"Illegal operand type. Number of arguments missmatch.",
+					acceptor.getPosition(), 1);
+		}
+
+		// preverimo tip argumentov
+		for (int i = 0; i < declNumberArgs; i++) {
+			SemType semTypeCall = TypeResolver.getType(acceptor.args.exprs
+					.elementAt(i));
+			SemType semTypeDecl = TypeResolver
+					.getType(((AbsFunDecl) absDecl).pars.decls.elementAt(i));
+
+			// preveri enakost
+			if (!equal(semTypeDecl, semTypeCall)) {
+				Report.error(
+						"Illegal operand type. Function call argument wrong type.",
+						acceptor.args.exprs.elementAt(i).getPosition(), 1);
+			}
+		}
+
+		// dolocimo tip klica funkcije
+		TypeResolver.setType(acceptor, semType);
+	}
+
+	// STATEMENT
+
+	@Override
+	public void visit(AbsIfStmt acceptor) {
+		// naredimo obhod po pogoju
+		acceptor.condExpr.accept(this);
+
+		// pridobimo generiran tip
+		SemType semTypCondition = TypeResolver.getType(acceptor.condExpr);
+
+		// condition more biti tipa BOOL
+		if (!equal(semTypCondition, new SemAtomType(SemAtomType.BOOL))) {
+			Report.error(
+					"Illegal operand type. Condition should be type of Bool.",
+					acceptor.condExpr.getPosition(), 1);
+		}
+
+		// gremo cez oba expressiona ce sta
+		acceptor.thenExprs.accept(this);
+		// pridobimo tip
+		SemType semTypeThenExpr = TypeResolver.getType(acceptor.thenExprs);
+
+		// gremo cez ce obstaja else expr in pridobimo tip
+		SemType semTypeElseExpr = null;
+		if (acceptor.elseExprs != null) {
+			acceptor.elseExprs.accept(this);
+			semTypeElseExpr = TypeResolver.getType(acceptor.elseExprs);
+		}
+
+		// ce je tip elseExpr null - ker elseExpr ne obstaja potem je tip klica
+		// void, cene je tip klica funkcije tip elseExpr
+		if (semTypeElseExpr != null) {
+
+			// preverimo še da je tip else in then expr enak
+			if (!equal(semTypeThenExpr, semTypeElseExpr)) {
+				Report.error(
+						"Illegal operand type. Then and Else Expr should be the same type.",
+						acceptor.condExpr.getPosition(), 1);
+			}
+			// dodamo
+			TypeResolver.setType(acceptor, semTypeElseExpr);
+		} else {
+			TypeResolver.setType(acceptor, new SemAtomType(SemAtomType.VOID));
+		}
 	}
 
 	@Override
 	public void visit(AbsWhileStmt acceptor) {
-		// TODO Auto-generated method stub
-		
+		// gremo cez pogoj in pridobimo tip
+		acceptor.condExpr.accept(this);
+
+		// tip pogoja more bit BOOL
+		SemType semTypeCondExpr = TypeResolver.getType(acceptor.condExpr);
+		if (!equal(semTypeCondExpr, new SemAtomType(SemAtomType.BOOL))) {
+			Report.error(
+					"Illegal operand type. Condition expr for while must be bool.",
+					acceptor.condExpr.getPosition(), 1);
+		}
+
+		// gremo cez tel zanke
+		acceptor.loopExpr.accept(this);
+
+		// celotna zanka while je void
+		TypeResolver.setType(acceptor, new SemAtomType(SemAtomType.VOID));
+	}
+
+	@Override
+	public void visit(AbsForStmt acceptor) {
+		// dobimo tip identifikatorja
+		acceptor.name.accept(this);
+		SemType semTypeName = TypeResolver.getType(acceptor.name);
+
+		// dobimo tip spodnje meje in zgornje
+		acceptor.loBound.accept(this);
+		SemType semTypeLoBound = TypeResolver.getType(acceptor.loBound);
+		acceptor.hiBound.accept(this);
+		SemType semTypeHiBound = TypeResolver.getType(acceptor.hiBound);
+
+		// vsi morejo bit int
+		if (!equal(semTypeName, new SemAtomType(SemAtomType.INT))) {
+			Report.error("Illegal operand type. Loop variable not type Int.",
+					acceptor.name.getPosition(), 1);
+		}
+		if (!equal(semTypeLoBound, new SemAtomType(SemAtomType.INT))) {
+			Report.error("Illegal operand type. LoBound not type Int.",
+					acceptor.name.getPosition(), 1);
+		}
+		if (!equal(semTypeHiBound, new SemAtomType(SemAtomType.INT))) {
+			Report.error("Illegal operand type. HiBound not type Int.",
+					acceptor.name.getPosition(), 1);
+		}
+
+		// celotna zanka for je void
+		TypeResolver.setType(acceptor, new SemAtomType(SemAtomType.VOID));
+	}
+
+	@Override
+	public void visit(AbsAssignStmt acceptor) {
+		// gremo cez desni in levi podizraz
+		acceptor.fstSubExpr.accept(this);
+		acceptor.sndSubExpr.accept(this);
+		// pridobimo oba tipa
+		SemType semTypeFstSubExpr = TypeResolver.getType(acceptor.fstSubExpr);
+		SemType semTypeSndSubExpr = TypeResolver.getType(acceptor.sndSubExpr);
+
+		// oba tipa moreta bit ista
+		if (!equal(semTypeFstSubExpr, semTypeSndSubExpr)) {
+			Report.error(
+					"Illegal operand type. Both expressions must be the same type.",
+					acceptor.getPosition(), 1);
+		}
+	}
+
+	// TIPI
+
+	@Override
+	public void visit(AbsTypeName acceptor) {
+		// naredimo SemTypeName
+		SemTypeName semTypeName = new SemTypeName(
+				acceptor.identifier.getLexeme());
+
+		// dodamo
+		TypeResolver.setType(acceptor, semTypeName);
+	}
+
+	@Override
+	public void visit(AbsAtomType acceptor) {
+		// povezemo celoten atom type?
+		TypeResolver.setType(acceptor, new SemAtomType(acceptor.typ));
+	}
+
+	@Override
+	public void visit(AbsPtrType acceptor) {
+		// pregledamo tip
+		acceptor.type.accept(this);
+
+		// pridobimo sem type
+		SemType semType = TypeResolver.getType(acceptor.type);
+
+		// dodamo ptr type
+		TypeResolver.setType(acceptor, semType);
+	}
+
+	@Override
+	public void visit(AbsArrType acceptor) {
+
+		// gremo cez tip
+		acceptor.type.accept(this);
+
+		// pridobimo sem type, poberemo ven kar se naredi
+		SemType semType = TypeResolver.getType(acceptor.type);
+
+		// pridobimo konstanto
+		int size = ConstExprEvaluator.getValue(acceptor.size);
+
+		TypeResolver.setType(acceptor, new SemArrType(semType, size));
+	}
+
+	@Override
+	public void visit(AbsRecType acceptor) {
+		// zgraditi je potrebno seznama komponent(ime/tip)
+		// naj to naredi RecTypeResolver, ko konca preberemo kar je zgradil
+		RecTypeResolver recTypeResolver = new RecTypeResolver(this);
+
+		acceptor.accept(recTypeResolver);
+
+		SemRecType recType = recTypeResolver.GetConstructedType();
+
+		// dodamo sam rec
+		TypeResolver.setType(acceptor, recType);
+	}
+
+	// DEKLARACIJE
+	public void visit(AbsDecls acceptor) {
+		for (AbsDecl decl : acceptor.decls)
+			decl.accept(this);
+	}
+
+	@Override
+	public void visit(AbsVarDecl acceptor) {
+		// obhodimo tip
+		acceptor.type.accept(this);
+
+		// dobimo tip
+		SemType semType = TypeResolver.getType(acceptor.type);
+
+		TypeResolver.setType(acceptor, semType);
+	}
+
+	@Override
+	public void visit(AbsFunDecl acceptor) {
+		// obhodimo tip
+		acceptor.type.accept(this);
+		acceptor.type.accept(new NamedTypeResolver());
+
+		// dobimo tip
+		SemType semAcceptorType = TypeResolver.getType(acceptor.type);
+
+		// TODO:kaj pa ce ni atom
+
+		// dodamo tip funkcije, preden gremo cez deklaracijo in expression
+		TypeResolver.setType(acceptor, semAcceptorType);
+
+		// obhodimo deklracije
+		acceptor.pars.accept(this);
+		// obhodimo da povezemo povezane tipe
+		acceptor.pars.accept(new NamedTypeResolver());
+
+		// obhodimo expression
+		acceptor.expr.accept(this);
+
+		// pridobimo tip expressiona
+		SemType semFstExprType = TypeResolver.getType(acceptor.expr);
+		// preverimo tip expressiona in tip funkcije
+		if (!TypeResolver.equal(semAcceptorType, semFstExprType)) {
+			Report.error(
+					"Illegal type. Function type not the same as its expression.",
+					acceptor.getPosition(), 1);
+		}
+	}
+
+	@Override
+	public void visit(AbsTypDecl acceptor) {
+		// preverimo tip
+		acceptor.type.accept(this);
+
+		// pridobimo tip
+		SemType semType = TypeResolver.getType(acceptor.type);
+
+		TypeResolver.setType(acceptor, semType);
 	}
 }

@@ -7,7 +7,7 @@ import compiler.abstree.*;
 
 public class DeclarationResolver implements Visitor {
 	// nastavitve
-	private static final Boolean PRINT_EX_STACK = false;
+	public static final Boolean PRINT_EX_STACK = false;
 
 	private static final SymbolTable names = new SymbolTable();
 
@@ -67,7 +67,7 @@ public class DeclarationResolver implements Visitor {
 
 			// ce je naredimo povezavo - dodamo v decls
 			setDecl(absNode, absDecl);
-			
+
 		} catch (DeclarationDoesNotExistException e) {
 			if (PRINT_EX_STACK) {
 				e.printStackTrace();

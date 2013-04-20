@@ -33,4 +33,4 @@ Navodila:
 		- AbsPtrType - *
 		- AbsArrType - ARR
 		- AbsRecType - record components
-		- 
+		

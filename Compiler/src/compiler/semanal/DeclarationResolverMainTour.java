@@ -45,16 +45,15 @@ public class DeclarationResolverMainTour implements Visitor {
 
 	@Override
 	public void visit(AbsBinExpr acceptor) {
-		// ce je tipa rec je potrebno pogledat ce je spremenjivka vidna
-		// TODO: tukaj potrebno pogledat v postfix_expression ce je vidna ali v
-		// globalnem trenutnem?
+		// rec je potrebno posebno obravnavat
 		if (acceptor.oper == AbsBinExpr.REC) {
 
 			// preveri èe obstaja tip
-			acceptor.fstSubExpr.accept(this);
+			//acceptor.fstSubExpr.accept(this);
 
 			// preveri drugi del
-			acceptor.sndSubExpr.accept(this);
+			//acceptor.sndSubExpr.accept(new DeclarationResolverRecTyp());
+
 		} else {
 			// preveri oba dela posebej
 			acceptor.fstSubExpr.accept(this);
@@ -92,7 +91,8 @@ public class DeclarationResolverMainTour implements Visitor {
 		// zdaj, ali je za naprej -> glede tega da ni tipa bi reku da za nazaj
 
 		// preveri èe je med imeni
-		DeclarationResolver.FindName(acceptor.name, acceptor.name.identifier.getLexeme());
+		DeclarationResolver.FindName(acceptor.name,
+				acceptor.name.identifier.getLexeme());
 
 		// preveri se ostale dele for zanke
 		acceptor.hiBound.accept(this);
@@ -104,7 +104,8 @@ public class DeclarationResolverMainTour implements Visitor {
 	public void visit(AbsFunCall acceptor) {
 
 		// preveri èe je med imeni
-		DeclarationResolver.FindName(acceptor.name, acceptor.name.identifier.getLexeme());
+		DeclarationResolver.FindName(acceptor.name,
+				acceptor.name.identifier.getLexeme());
 
 		// preveri se ostal del klica funkcije
 		acceptor.args.accept(this);
@@ -118,8 +119,9 @@ public class DeclarationResolverMainTour implements Visitor {
 		// preveri then
 		acceptor.thenExprs.accept(this);
 
-		// preveri else
-		acceptor.elseExprs.accept(this);
+		// preveri else èe je dolocen
+		if(acceptor.elseExprs!= null)
+			acceptor.elseExprs.accept(this);
 	}
 
 	// tukaj je posebnost da je prvo
@@ -134,11 +136,11 @@ public class DeclarationResolverMainTour implements Visitor {
 		// dodamo vse deklaracije
 		acceptor.decls.accept(declarationResolverFirstFlight);
 
-		// preverimo vse expression-e
-		acceptor.subExpr.accept(this);
-
 		// pregledamo deklaracije še s tem resolverjem
 		acceptor.decls.accept(this);
+
+		// preverimo vse expression-e
+		acceptor.subExpr.accept(this);
 
 		// zapremo scope
 		DeclarationResolver.oldScope();
@@ -201,9 +203,15 @@ public class DeclarationResolverMainTour implements Visitor {
 	@Override
 	public void visit(AbsTypDecl acceptor) {
 		// ime se doda pri prvem preletu - DeclarationResolverFirstFlight
-
-		// preveri ostali del tipa
-		acceptor.type.accept(this);
+		// v tem obhodu tukaj povezemo deklaracijo tipa in izrabo le tega
+		// ampak samo v primeru ce je custom tip
+		if (acceptor.type instanceof AbsTypeName) {
+			DeclarationResolver.FindName(acceptor.type,
+					((AbsTypeName) acceptor.type).identifier.getLexeme());
+		} else {
+			// ce ni custom tip se preveri ostali del tipa
+			acceptor.type.accept(this);
+		}
 	}
 
 	@Override
@@ -212,7 +220,12 @@ public class DeclarationResolverMainTour implements Visitor {
 		// v tem obhodu tukaj povezemo deklaracijo tipa in izrabo le tega
 		// ampak samo v primeru ce je custom tip
 		if (acceptor.type instanceof AbsTypeName) {
-			DeclarationResolver.FindName(acceptor.type, ((AbsTypeName) acceptor.type).identifier.getLexeme());
+			DeclarationResolver.FindName(acceptor.type,
+					((AbsTypeName) acceptor.type).identifier.getLexeme());
+		}
+		// ce je record se doda, njegove dele oznacene z # da se ve
+		if (acceptor.type instanceof AbsRecType) {
+			acceptor.type.accept(new DeclarationResolverRecTyp());
 		}
 	}
 
@@ -226,12 +239,15 @@ public class DeclarationResolverMainTour implements Visitor {
 		// dodati funkcijske parametre med imena - naj to doda
 		// DeclarationResolverFirstFlight
 		acceptor.pars.accept(declarationResolverFirstFlight);
-		
+
 		// preveri custom tipe deklaracij
 		acceptor.pars.accept(this);
 
 		// preveriti expression
 		acceptor.expr.accept(this);
+		
+		// preveri tip
+		acceptor.type.accept(this);
 
 		// zapreti scope
 		DeclarationResolver.oldScope();

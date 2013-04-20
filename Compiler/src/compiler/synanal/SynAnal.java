@@ -94,8 +94,8 @@ public class SynAnal {
 		seznamIzrazov = new AbsExprs(vectorIzrazov);
 
 		// set min set max
-		seznamIzrazov.setMax(vectorIzrazov.firstElement());
-		seznamIzrazov.setMin(vectorIzrazov.lastElement());
+		seznamIzrazov.setMin(vectorIzrazov.firstElement());
+		seznamIzrazov.setMax(vectorIzrazov.lastElement());
 
 		debug();
 
@@ -646,8 +646,8 @@ public class SynAnal {
 			throws IOException, ParseException {
 		debug("parsePostfixExpression");
 
-		AbsExpr lastIzrazPostfix= izrazPostfix;
-		
+		AbsExpr lastIzrazPostfix = izrazPostfix;
+
 		switch (symbol != null ? symbol.getToken() : -1) {
 		case Symbol.DOT:
 			skip(Symbol.DOT);
@@ -657,8 +657,8 @@ public class SynAnal {
 			AbsExprName exprName = new AbsExprName(identifier);
 
 			// set min/max
-			izrazPostfix.setMin(identifier);
-			izrazPostfix.setMax(identifier);
+			exprName.setMin(identifier);
+			exprName.setMax(identifier);
 
 			izrazPostfix = new AbsBinExpr(AbsBinExpr.REC, izrazPostfix,
 					exprName);
@@ -694,7 +694,12 @@ public class SynAnal {
 			izrazPostfix.setMax(izrazDeklaracij);
 
 			break;
+		default:
+			debug();
+			return izrazPostfix;
 		}
+
+		izrazPostfix = parsePostfixExpressionAddon(izrazPostfix);
 
 		debug();
 
@@ -1312,7 +1317,7 @@ public class SynAnal {
 			xml.println("<leftside nonterminal=\"" + nonterminal + "\"/>");
 			xml.println("<rightside>");
 		}
-		//Report.information(nonterminal, new Position("",0,0,0,0));
+		// Report.information(nonterminal, new Position("",0,0,0,0));
 	}
 
 	private void debug() {
@@ -1320,6 +1325,6 @@ public class SynAnal {
 			xml.println("</rightside>");
 			xml.println("</production>");
 		}
-		//Report.information("end", new Position("",0,0,0,0));
+		// Report.information("end", new Position("",0,0,0,0));
 	}
 }
