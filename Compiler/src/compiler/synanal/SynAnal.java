@@ -108,9 +108,15 @@ public class SynAnal {
 
 		switch (symbol != null ? symbol.getToken() : -1) {
 		case Symbol.COMMA:
-			skip(Symbol.COMMA);
+			Symbol simbol = skip(Symbol.COMMA);
 			// v primeru vejice parsa naslednji Expression
-			vectorIzrazov.add(parseExpression());
+			AbsExpr absExpr = parseExpression();
+			if(absExpr == null)
+			{
+				Report.warning("Po vejici ni nobenega expressiona.",simbol.getPosition());
+				throw new ParseException();
+			}
+			vectorIzrazov.add(absExpr);
 			// zacne parsat ostale Expressions
 			// ce jih ni nebo nic naredila ta metoda in se bo koncalo
 			vectorIzrazov = parseExpressionsRest(vectorIzrazov);

@@ -4,7 +4,6 @@ import java.util.*;
 
 import compiler.*;
 import compiler.abstree.*;
-import compiler.lexanal.*;
 
 public class TypeResolver implements Visitor {
 
@@ -24,7 +23,7 @@ public class TypeResolver implements Visitor {
 		types.put(absNode, semType);
 	}
 
-	/**
+	/** 
 	 * Vrne tip vozlisca abstraktnega sintaksnega drevesa.
 	 * 
 	 * @param absNode
@@ -267,16 +266,38 @@ public class TypeResolver implements Visitor {
 			TypeResolver.setType(acceptor, commonSemType);
 			break;
 		case AbsBinExpr.REC:
-			// katera komponenta je drugi statement
+			// dobimo definicijo rec komponente
 			SemRecType semRecType = (SemRecType) fstSubExprSemType;
 
-			for (String compName : semRecType.compNames) {
-				AbsExpr absExpr = acceptor.fstSubExpr;
-				// TODO: dokoncati rec
+			// pridobimo in preverimo èe so res konkretna imena x1.x2
+			AbsExprName absExprNameFst = (AbsExprName) acceptor.fstSubExpr;
+			AbsExprName absExprNameSnd = (AbsExprName) acceptor.sndSubExpr;
+			if (absExprNameFst == null) {
+				Report.error(
+						"Rec call does not have AbsExprName as first statement.",
+						1);
 			}
+			if (absExprNameSnd == null) {
+				Report.error(
+						"Rec call does not have AbsExprName as second statement.",
+						1);
+			}
+			// preverimo ce je druga komponenta med komponentami
+			if (!semRecType.compNames.contains(absExprNameSnd.identifier
+					.getLexeme())) {
+				Report.error("Illegal operand type. Record - "
+						+ absExprNameFst.identifier.getLexeme()
+						+ " does not have component - "
+						+ absExprNameSnd.identifier.getLexeme(),
+						acceptor.fstSubExpr.getPosition(), 1);
+			}
+			// pridobimo tip druge komponente
+			int compIndex = semRecType.compNames
+					.indexOf(absExprNameSnd.identifier.getLexeme());
+			SemType compType = semRecType.compTypes.elementAt(compIndex);
 
 			// celoten izraz je tipa drugega dela po operatorju("x1.x2")
-			TypeResolver.setType(acceptor, sndSubExprSemType);
+			TypeResolver.setType(acceptor, compType);
 			break;
 		case AbsBinExpr.ARR:
 			// preverit da je notranji statement int
@@ -335,11 +356,12 @@ public class TypeResolver implements Visitor {
 
 	@Override
 	public void visit(AbsWhereExpr acceptor) {
-		// gremo cez deklaracije za povezave
-		acceptor.decls.accept(this);
-
+		// gremo cez deklaracije za pridobit imena
+		acceptor.decls.accept(new TypeResolverName());
 		// povezeno custom tipe
-		acceptor.decls.accept(new NamedTypeResolver());
+		acceptor.decls.accept(new TypeResolverNameNamed());
+		// preverimo s tem deklaracije
+		acceptor.decls.accept(this);
 
 		// cez expressione
 		acceptor.subExpr.accept(this);
@@ -501,65 +523,51 @@ public class TypeResolver implements Visitor {
 					"Illegal operand type. Both expressions must be the same type.",
 					acceptor.getPosition(), 1);
 		}
+
+		// nastavimo tip assign stmt
+		TypeResolver.setType(acceptor, semTypeFstSubExpr);
 	}
 
 	// TIPI
 
 	@Override
 	public void visit(AbsTypeName acceptor) {
-		// naredimo SemTypeName
-		SemTypeName semTypeName = new SemTypeName(
-				acceptor.identifier.getLexeme());
-
-		// dodamo
-		TypeResolver.setType(acceptor, semTypeName);
+		// ne naredimo nic
 	}
 
 	@Override
 	public void visit(AbsAtomType acceptor) {
-		// povezemo celoten atom type?
-		TypeResolver.setType(acceptor, new SemAtomType(acceptor.typ));
+		// ne naredimo nic
 	}
 
 	@Override
 	public void visit(AbsPtrType acceptor) {
-		// pregledamo tip
-		acceptor.type.accept(this);
-
-		// pridobimo sem type
-		SemType semType = TypeResolver.getType(acceptor.type);
-
-		// dodamo ptr type
-		TypeResolver.setType(acceptor, semType);
+		// ne naredimo nic
 	}
 
 	@Override
 	public void visit(AbsArrType acceptor) {
 
-		// gremo cez tip
-		acceptor.type.accept(this);
-
-		// pridobimo sem type, poberemo ven kar se naredi
-		SemType semType = TypeResolver.getType(acceptor.type);
-
-		// pridobimo konstanto
-		int size = ConstExprEvaluator.getValue(acceptor.size);
-
-		TypeResolver.setType(acceptor, new SemArrType(semType, size));
+		// ne naredimo nic
 	}
 
 	@Override
 	public void visit(AbsRecType acceptor) {
+		// gremo cez tipe
+		acceptor.comps.accept(new TypeResolverName());
+		acceptor.comps.accept(new TypeResolverNameNamed());
 		// zgraditi je potrebno seznama komponent(ime/tip)
-		// naj to naredi RecTypeResolver, ko konca preberemo kar je zgradil
-		RecTypeResolver recTypeResolver = new RecTypeResolver(this);
+		SemRecType recType = (SemRecType) TypeResolver.getType(acceptor);
+		for (AbsDecl absDecl : acceptor.comps.decls) {
 
-		acceptor.accept(recTypeResolver);
+			// dodamo koponenti ime
+			AbsVarDecl absVarDecl = (AbsVarDecl) absDecl;
+			recType.compNames.add(absVarDecl.name.identifier.getLexeme());
 
-		SemRecType recType = recTypeResolver.GetConstructedType();
-
-		// dodamo sam rec
-		TypeResolver.setType(acceptor, recType);
+			// pridobimo tip in dodamo
+			SemType semType = TypeResolver.getType(absVarDecl.type);
+			recType.compTypes.add(semType);
+		}
 	}
 
 	// DEKLARACIJE
@@ -570,33 +578,22 @@ public class TypeResolver implements Visitor {
 
 	@Override
 	public void visit(AbsVarDecl acceptor) {
-		// obhodimo tip
 		acceptor.type.accept(this);
-
-		// dobimo tip
-		SemType semType = TypeResolver.getType(acceptor.type);
-
-		TypeResolver.setType(acceptor, semType);
 	}
 
 	@Override
 	public void visit(AbsFunDecl acceptor) {
-		// obhodimo tip
-		acceptor.type.accept(this);
-		acceptor.type.accept(new NamedTypeResolver());
-
 		// dobimo tip
 		SemType semAcceptorType = TypeResolver.getType(acceptor.type);
 
-		// TODO:kaj pa ce ni atom
+		// obhodimo deklracije
+		acceptor.pars.accept(new TypeResolverName());
 
-		// dodamo tip funkcije, preden gremo cez deklaracijo in expression
-		TypeResolver.setType(acceptor, semAcceptorType);
+		// obhodimo da povezemo povezane tipe
+		acceptor.pars.accept(new TypeResolverNameNamed());
 
 		// obhodimo deklracije
 		acceptor.pars.accept(this);
-		// obhodimo da povezemo povezane tipe
-		acceptor.pars.accept(new NamedTypeResolver());
 
 		// obhodimo expression
 		acceptor.expr.accept(this);
@@ -613,12 +610,6 @@ public class TypeResolver implements Visitor {
 
 	@Override
 	public void visit(AbsTypDecl acceptor) {
-		// preverimo tip
 		acceptor.type.accept(this);
-
-		// pridobimo tip
-		SemType semType = TypeResolver.getType(acceptor.type);
-
-		TypeResolver.setType(acceptor, semType);
 	}
 }

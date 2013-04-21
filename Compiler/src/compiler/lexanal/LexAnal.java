@@ -158,7 +158,7 @@ public class LexAnal {
 				if (znak == NEWLINE_CHAR) {
 
 					if (_simbol.length() > 0) {
-						
+
 						// konec simbola ko pri do nove vrstice
 						Symbol symbol = ZgradiSimbol(_simbol.toString());
 
@@ -635,8 +635,9 @@ public class LexAnal {
 
 			// v komentarju so lahko samo znaki od 32-126
 			if (prebranaVrednost < 32 || prebranaVrednost > 126) {
-				Report.error("Nepravilen znak v komentarju = "  + (char)prebranaVrednost, new Position(
-						_programName, _currentLineIndex, _currentColumnIndex,
+				Report.error("Nepravilen znak v komentarju = "
+						+ (char) prebranaVrednost, new Position(_programName,
+						_currentLineIndex, _currentColumnIndex,
 						_currentLineIndex + komentar.length(),
 						_currentColumnIndex), 1);
 			}
@@ -716,10 +717,11 @@ public class LexAnal {
 	}
 
 	private Boolean CheckIfOneCharOperand(char znak) {
-		return (znak == '+' || znak == '-' || znak == '*' || znak == '/' || znak == '%'
-				|| znak == '!' || znak == '&' || znak == '|' || znak == '('
-				|| znak == ')' || znak == '[' || znak == ']' || znak == '{'
-				|| znak == '}' || znak == '.' || znak == ',' || znak == ':' || znak == ';');
+		return (znak == '+' || znak == '-' || znak == '*' || znak == '/'
+				|| znak == '%' || znak == '!' || znak == '&' || znak == '|'
+				|| znak == '(' || znak == ')' || znak == '[' || znak == ']'
+				|| znak == '{' || znak == '}' || znak == '.' || znak == ','
+				|| znak == ':' || znak == ';');
 	}
 
 	private Boolean CheckIfTwoCharOperand(char prviZnak, char drugiZnak) {
@@ -759,9 +761,8 @@ public class LexAnal {
 		if (IsTwoCharOperand(znak)) {
 			_trenutenTip = TipSimbola.OPERAND;
 		}
-		
-		if(CheckIfOneCharOperand(znak))
-		{
+
+		if (CheckIfOneCharOperand(znak)) {
 			_trenutenTip = TipSimbola.OPERAND;
 			_symbolInBuffer = true;
 		}
@@ -794,7 +795,13 @@ public class LexAnal {
 
 	// vrne zadnji znak
 	private char GetLastChar(StringBuilder stringBuilder) {
-		return stringBuilder.toString().toCharArray()[stringBuilder.length() - 1];
+		char[] charArray = stringBuilder.toString().toCharArray();
+		int lastIndex = stringBuilder.length() - 1;
+
+		if (lastIndex < 0)
+			return ' ';
+		else
+			return charArray[lastIndex];
 	}
 
 	public enum TipSimbola {

@@ -1,3 +1,985 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <?xml-stylesheet type="text/xsl" href="D:\Programiranje\Repositories\Git\Academic\Compiler\xsl/semanal.xsl"?>
 <semanal>
+<absnode node="Exprs">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="1" begColumn="1" endLine="67" endColumn="14"/>
+<absnode node="WhereExpr">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="1" begColumn="1" endLine="1" endColumn="28"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="1" begColumn="1" endLine="1" endColumn="1"/>
+<symbol token="IDENTIFIER"  lexeme="a">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="1" begColumn="1" endLine="1" endColumn="1"/>
+</symbol>
+<semdeclpos>
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="1" begColumn="9" endLine="1" endColumn="16"/>
+</semdeclpos>
+</absnode>
+<absnode node="Decls">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="1" begColumn="9" endLine="1" endColumn="28"/>
+<absnode node="VarDecl">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="1" begColumn="9" endLine="1" endColumn="16"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="1" begColumn="13" endLine="1" endColumn="13"/>
+<symbol token="IDENTIFIER"  lexeme="a">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="1" begColumn="13" endLine="1" endColumn="13"/>
+</symbol>
+</absnode>
+<absnode node="TypeName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="1" begColumn="15" endLine="1" endColumn="16"/>
+<symbol token="IDENTIFIER"  lexeme="aa">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="1" begColumn="15" endLine="1" endColumn="16"/>
+</symbol>
+<semdeclpos>
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="1" begColumn="19" endLine="1" endColumn="28"/>
+</semdeclpos>
+</absnode>
+</absnode>
+<absnode node="TypDecl">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="1" begColumn="19" endLine="1" endColumn="28"/>
+<absnode node="TypeName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="1" begColumn="23" endLine="1" endColumn="24"/>
+<symbol token="IDENTIFIER"  lexeme="aa">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="1" begColumn="23" endLine="1" endColumn="24"/>
+</symbol>
+</absnode>
+<absnode node="AtomType" value="INT">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="1" begColumn="26" endLine="1" endColumn="28"/>
+</absnode>
+</absnode>
+</absnode>
+</absnode>
+<absnode node="WhereExpr">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="3" begColumn="2" endLine="3" endColumn="48"/>
+<absnode node="Exprs">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="3" begColumn="2" endLine="3" endColumn="29"/>
+<absnode node="BinExpr" value="ADD">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="3" begColumn="2" endLine="3" endColumn="29"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="3" begColumn="2" endLine="3" endColumn="2"/>
+<symbol token="IDENTIFIER"  lexeme="i">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="3" begColumn="2" endLine="3" endColumn="2"/>
+</symbol>
+<semdeclpos>
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="3" begColumn="40" endLine="3" endColumn="48"/>
+</semdeclpos>
+</absnode>
+<absnode node="WhereExpr">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="3" begColumn="8" endLine="3" endColumn="29"/>
+<absnode node="Exprs">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="3" begColumn="8" endLine="3" endColumn="11"/>
+<absnode node="BinExpr" value="ADD">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="3" begColumn="8" endLine="3" endColumn="11"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="3" begColumn="8" endLine="3" endColumn="9"/>
+<symbol token="IDENTIFIER"  lexeme="i1">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="3" begColumn="8" endLine="3" endColumn="9"/>
+</symbol>
+<semdeclpos>
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="3" begColumn="20" endLine="3" endColumn="29"/>
+</semdeclpos>
+</absnode>
+<absnode node="AtomExpr">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="3" begColumn="11" endLine="3" endColumn="11"/>
+<symbol token="INTCONST"    lexeme="1">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="3" begColumn="11" endLine="3" endColumn="11"/>
+</symbol>
+<semintvalue value="1"/>
+</absnode>
+</absnode>
+</absnode>
+<absnode node="Decls">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="3" begColumn="20" endLine="3" endColumn="29"/>
+<absnode node="VarDecl">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="3" begColumn="20" endLine="3" endColumn="29"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="3" begColumn="24" endLine="3" endColumn="25"/>
+<symbol token="IDENTIFIER"  lexeme="i1">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="3" begColumn="24" endLine="3" endColumn="25"/>
+</symbol>
+</absnode>
+<absnode node="AtomType" value="INT">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="3" begColumn="27" endLine="3" endColumn="29"/>
+</absnode>
+</absnode>
+</absnode>
+</absnode>
+</absnode>
+</absnode>
+<absnode node="Decls">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="3" begColumn="40" endLine="3" endColumn="48"/>
+<absnode node="VarDecl">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="3" begColumn="40" endLine="3" endColumn="48"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="3" begColumn="44" endLine="3" endColumn="44"/>
+<symbol token="IDENTIFIER"  lexeme="i">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="3" begColumn="44" endLine="3" endColumn="44"/>
+</symbol>
+</absnode>
+<absnode node="AtomType" value="INT">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="3" begColumn="46" endLine="3" endColumn="48"/>
+</absnode>
+</absnode>
+</absnode>
+</absnode>
+<absnode node="WhereExpr">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="5" begColumn="2" endLine="5" endColumn="49"/>
+<absnode node="Exprs">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="5" begColumn="2" endLine="5" endColumn="6"/>
+<absnode node="FunCall">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="5" begColumn="2" endLine="5" endColumn="6"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="5" begColumn="2" endLine="5" endColumn="2"/>
+<symbol token="IDENTIFIER"  lexeme="f">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="5" begColumn="2" endLine="5" endColumn="2"/>
+</symbol>
+<semdeclpos>
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="5" begColumn="16" endLine="5" endColumn="39"/>
+</semdeclpos>
+</absnode>
+<absnode node="Exprs">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="5" begColumn="4" endLine="5" endColumn="6"/>
+<absnode node="BinExpr" value="ADD">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="5" begColumn="4" endLine="5" endColumn="6"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="5" begColumn="4" endLine="5" endColumn="4"/>
+<symbol token="IDENTIFIER"  lexeme="i">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="5" begColumn="4" endLine="5" endColumn="4"/>
+</symbol>
+<semdeclpos>
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="5" begColumn="41" endLine="5" endColumn="49"/>
+</semdeclpos>
+</absnode>
+<absnode node="AtomExpr">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="5" begColumn="6" endLine="5" endColumn="6"/>
+<symbol token="INTCONST"    lexeme="1">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="5" begColumn="6" endLine="5" endColumn="6"/>
+</symbol>
+<semintvalue value="1"/>
+</absnode>
+</absnode>
+</absnode>
+</absnode>
+</absnode>
+<absnode node="Decls">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="5" begColumn="16" endLine="5" endColumn="49"/>
+<absnode node="FunDecl">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="5" begColumn="16" endLine="5" endColumn="39"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="5" begColumn="20" endLine="5" endColumn="20"/>
+<symbol token="IDENTIFIER"  lexeme="f">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="5" begColumn="20" endLine="5" endColumn="20"/>
+</symbol>
+</absnode>
+<absnode node="Decls">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="5" begColumn="22" endLine="5" endColumn="26"/>
+<absnode node="VarDecl">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="5" begColumn="22" endLine="5" endColumn="26"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="5" begColumn="22" endLine="5" endColumn="22"/>
+<symbol token="IDENTIFIER"  lexeme="j">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="5" begColumn="22" endLine="5" endColumn="22"/>
+</symbol>
+</absnode>
+<absnode node="AtomType" value="INT">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="5" begColumn="24" endLine="5" endColumn="26"/>
+</absnode>
+</absnode>
+</absnode>
+<absnode node="AtomType" value="INT">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="5" begColumn="29" endLine="5" endColumn="31"/>
+</absnode>
+<absnode node="BinExpr" value="ADD">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="5" begColumn="35" endLine="5" endColumn="37"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="5" begColumn="35" endLine="5" endColumn="35"/>
+<symbol token="IDENTIFIER"  lexeme="i">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="5" begColumn="35" endLine="5" endColumn="35"/>
+</symbol>
+<semdeclpos>
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="5" begColumn="41" endLine="5" endColumn="49"/>
+</semdeclpos>
+</absnode>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="5" begColumn="37" endLine="5" endColumn="37"/>
+<symbol token="IDENTIFIER"  lexeme="j">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="5" begColumn="37" endLine="5" endColumn="37"/>
+</symbol>
+<semdeclpos>
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="5" begColumn="22" endLine="5" endColumn="26"/>
+</semdeclpos>
+</absnode>
+</absnode>
+</absnode>
+<absnode node="VarDecl">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="5" begColumn="41" endLine="5" endColumn="49"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="5" begColumn="45" endLine="5" endColumn="45"/>
+<symbol token="IDENTIFIER"  lexeme="i">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="5" begColumn="45" endLine="5" endColumn="45"/>
+</symbol>
+</absnode>
+<absnode node="AtomType" value="INT">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="5" begColumn="47" endLine="5" endColumn="49"/>
+</absnode>
+</absnode>
+</absnode>
+</absnode>
+<absnode node="WhereExpr">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="9" begColumn="2" endLine="21" endColumn="6"/>
+<absnode node="Exprs">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="9" begColumn="2" endLine="9" endColumn="32"/>
+<absnode node="FunCall">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="9" begColumn="2" endLine="9" endColumn="11"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="9" begColumn="2" endLine="9" endColumn="4"/>
+<symbol token="IDENTIFIER"  lexeme="fac">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="9" begColumn="2" endLine="9" endColumn="4"/>
+</symbol>
+<semdeclpos>
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="15" begColumn="5" endLine="21" endColumn="6"/>
+</semdeclpos>
+</absnode>
+<absnode node="Exprs">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="9" begColumn="6" endLine="9" endColumn="11"/>
+<absnode node="AtomExpr">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="9" begColumn="6" endLine="9" endColumn="7"/>
+<symbol token="INTCONST"    lexeme="10">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="9" begColumn="6" endLine="9" endColumn="7"/>
+</symbol>
+<semintvalue value="10"/>
+</absnode>
+<absnode node="AtomExpr">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="9" begColumn="9" endLine="9" endColumn="11"/>
+<symbol token="STRINGCONST" lexeme="&#34;1&#34;">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="9" begColumn="9" endLine="9" endColumn="11"/>
+</symbol>
+</absnode>
+</absnode>
+</absnode>
+<absnode node="AssignStmt">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="9" begColumn="17" endLine="9" endColumn="32"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="9" begColumn="17" endLine="9" endColumn="17"/>
+<symbol token="IDENTIFIER"  lexeme="a">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="9" begColumn="17" endLine="9" endColumn="17"/>
+</symbol>
+<semdeclpos>
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="11" begColumn="1" endLine="11" endColumn="13"/>
+</semdeclpos>
+</absnode>
+<absnode node="BinExpr" value="ADD">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="9" begColumn="21" endLine="9" endColumn="32"/>
+<absnode node="AtomExpr">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="9" begColumn="21" endLine="9" endColumn="21"/>
+<symbol token="INTCONST"    lexeme="1">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="9" begColumn="21" endLine="9" endColumn="21"/>
+</symbol>
+<semintvalue value="1"/>
+</absnode>
+<absnode node="BinExpr" value="REC">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="9" begColumn="25" endLine="9" endColumn="32"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="9" begColumn="25" endLine="9" endColumn="30"/>
+<symbol token="IDENTIFIER"  lexeme="razred">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="9" begColumn="25" endLine="9" endColumn="30"/>
+</symbol>
+<semdeclpos>
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="13" begColumn="5" endLine="13" endColumn="52"/>
+</semdeclpos>
+</absnode>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="9" begColumn="32" endLine="9" endColumn="32"/>
+<symbol token="IDENTIFIER"  lexeme="a">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="9" begColumn="32" endLine="9" endColumn="32"/>
+</symbol>
+</absnode>
+</absnode>
+</absnode>
+</absnode>
+</absnode>
+<absnode node="Decls">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="11" begColumn="1" endLine="21" endColumn="6"/>
+<absnode node="VarDecl">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="11" begColumn="1" endLine="11" endColumn="13"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="11" begColumn="5" endLine="11" endColumn="5"/>
+<symbol token="IDENTIFIER"  lexeme="a">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="11" begColumn="5" endLine="11" endColumn="5"/>
+</symbol>
+</absnode>
+<absnode node="TypeName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="11" begColumn="7" endLine="11" endColumn="13"/>
+<symbol token="IDENTIFIER"  lexeme="integer">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="11" begColumn="7" endLine="11" endColumn="13"/>
+</symbol>
+<semdeclpos>
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="12" begColumn="5" endLine="12" endColumn="19"/>
+</semdeclpos>
+</absnode>
+</absnode>
+<absnode node="TypDecl">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="12" begColumn="5" endLine="12" endColumn="19"/>
+<absnode node="TypeName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="12" begColumn="9" endLine="12" endColumn="15"/>
+<symbol token="IDENTIFIER"  lexeme="integer">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="12" begColumn="9" endLine="12" endColumn="15"/>
+</symbol>
+</absnode>
+<absnode node="AtomType" value="INT">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="12" begColumn="17" endLine="12" endColumn="19"/>
+</absnode>
+</absnode>
+<absnode node="VarDecl">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="13" begColumn="5" endLine="13" endColumn="52"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="13" begColumn="9" endLine="13" endColumn="14"/>
+<symbol token="IDENTIFIER"  lexeme="razred">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="13" begColumn="9" endLine="13" endColumn="14"/>
+</symbol>
+</absnode>
+<absnode node="RecType">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="13" begColumn="16" endLine="13" endColumn="52"/>
+<absnode node="Decls">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="13" begColumn="20" endLine="13" endColumn="51"/>
+<absnode node="VarDecl">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="13" begColumn="20" endLine="13" endColumn="24"/>
+<absnode node="ExprName">
+<symbol token="IDENTIFIER"  lexeme="a">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="13" begColumn="20" endLine="13" endColumn="20"/>
+</symbol>
+</absnode>
+<absnode node="AtomType" value="INT">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="13" begColumn="22" endLine="13" endColumn="24"/>
+</absnode>
+</absnode>
+<absnode node="VarDecl">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="13" begColumn="28" endLine="13" endColumn="32"/>
+<absnode node="ExprName">
+<symbol token="IDENTIFIER"  lexeme="b">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="13" begColumn="28" endLine="13" endColumn="28"/>
+</symbol>
+</absnode>
+<absnode node="AtomType" value="INT">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="13" begColumn="30" endLine="13" endColumn="32"/>
+</absnode>
+</absnode>
+<absnode node="VarDecl">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="13" begColumn="35" endLine="13" endColumn="43"/>
+<absnode node="ExprName">
+<symbol token="IDENTIFIER"  lexeme="c">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="13" begColumn="35" endLine="13" endColumn="35"/>
+</symbol>
+</absnode>
+<absnode node="TypeName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="13" begColumn="37" endLine="13" endColumn="43"/>
+<symbol token="IDENTIFIER"  lexeme="integer">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="13" begColumn="37" endLine="13" endColumn="43"/>
+</symbol>
+<semdeclpos>
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="12" begColumn="5" endLine="12" endColumn="19"/>
+</semdeclpos>
+</absnode>
+</absnode>
+<absnode node="VarDecl">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="13" begColumn="46" endLine="13" endColumn="51"/>
+<absnode node="ExprName">
+<symbol token="IDENTIFIER"  lexeme="p">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="13" begColumn="46" endLine="13" endColumn="46"/>
+</symbol>
+</absnode>
+<absnode node="AtomType" value="REAL">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="13" begColumn="48" endLine="13" endColumn="51"/>
+</absnode>
+</absnode>
+</absnode>
+</absnode>
+</absnode>
+<absnode node="FunDecl">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="15" begColumn="5" endLine="21" endColumn="6"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="15" begColumn="9" endLine="15" endColumn="11"/>
+<symbol token="IDENTIFIER"  lexeme="fac">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="15" begColumn="9" endLine="15" endColumn="11"/>
+</symbol>
+</absnode>
+<absnode node="Decls">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="15" begColumn="13" endLine="15" endColumn="31"/>
+<absnode node="VarDecl">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="15" begColumn="13" endLine="15" endColumn="21"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="15" begColumn="13" endLine="15" endColumn="13"/>
+<symbol token="IDENTIFIER"  lexeme="i">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="15" begColumn="13" endLine="15" endColumn="13"/>
+</symbol>
+</absnode>
+<absnode node="TypeName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="15" begColumn="15" endLine="15" endColumn="21"/>
+<symbol token="IDENTIFIER"  lexeme="integer">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="15" begColumn="15" endLine="15" endColumn="21"/>
+</symbol>
+<semdeclpos>
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="12" begColumn="5" endLine="12" endColumn="19"/>
+</semdeclpos>
+</absnode>
+</absnode>
+<absnode node="VarDecl">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="15" begColumn="24" endLine="15" endColumn="31"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="15" begColumn="24" endLine="15" endColumn="24"/>
+<symbol token="IDENTIFIER"  lexeme="z">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="15" begColumn="24" endLine="15" endColumn="24"/>
+</symbol>
+</absnode>
+<absnode node="AtomType" value="STRING">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="15" begColumn="26" endLine="15" endColumn="31"/>
+</absnode>
+</absnode>
+</absnode>
+<absnode node="TypeName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="15" begColumn="34" endLine="15" endColumn="40"/>
+<symbol token="IDENTIFIER"  lexeme="integer">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="15" begColumn="34" endLine="15" endColumn="40"/>
+</symbol>
+<semdeclpos>
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="12" begColumn="5" endLine="12" endColumn="19"/>
+</semdeclpos>
+</absnode>
+<absnode node="IfStmt">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="17" begColumn="9" endLine="20" endColumn="25"/>
+<absnode node="BinExpr" value="LEQ">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="17" begColumn="12" endLine="17" endColumn="15"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="17" begColumn="12" endLine="17" endColumn="12"/>
+<symbol token="IDENTIFIER"  lexeme="i">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="17" begColumn="12" endLine="17" endColumn="12"/>
+</symbol>
+<semdeclpos>
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="15" begColumn="13" endLine="15" endColumn="21"/>
+</semdeclpos>
+</absnode>
+<absnode node="AtomExpr">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="17" begColumn="15" endLine="17" endColumn="15"/>
+<symbol token="INTCONST"    lexeme="2">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="17" begColumn="15" endLine="17" endColumn="15"/>
+</symbol>
+<semintvalue value="2"/>
+</absnode>
+</absnode>
+<absnode node="Exprs">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="18" begColumn="13" endLine="18" endColumn="13"/>
+<absnode node="AtomExpr">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="18" begColumn="13" endLine="18" endColumn="13"/>
+<symbol token="INTCONST"    lexeme="1">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="18" begColumn="13" endLine="18" endColumn="13"/>
+</symbol>
+<semintvalue value="1"/>
+</absnode>
+</absnode>
+<absnode node="Exprs">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="20" begColumn="13" endLine="20" endColumn="25"/>
+<absnode node="BinExpr" value="MUL">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="20" begColumn="13" endLine="20" endColumn="25"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="20" begColumn="13" endLine="20" endColumn="13"/>
+<symbol token="IDENTIFIER"  lexeme="i">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="20" begColumn="13" endLine="20" endColumn="13"/>
+</symbol>
+<semdeclpos>
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="15" begColumn="13" endLine="15" endColumn="21"/>
+</semdeclpos>
+</absnode>
+<absnode node="FunCall">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="20" begColumn="15" endLine="20" endColumn="25"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="20" begColumn="15" endLine="20" endColumn="17"/>
+<symbol token="IDENTIFIER"  lexeme="fac">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="20" begColumn="15" endLine="20" endColumn="17"/>
+</symbol>
+<semdeclpos>
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="15" begColumn="5" endLine="21" endColumn="6"/>
+</semdeclpos>
+</absnode>
+<absnode node="Exprs">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="20" begColumn="19" endLine="20" endColumn="25"/>
+<absnode node="BinExpr" value="SUB">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="20" begColumn="19" endLine="20" endColumn="21"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="20" begColumn="19" endLine="20" endColumn="19"/>
+<symbol token="IDENTIFIER"  lexeme="i">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="20" begColumn="19" endLine="20" endColumn="19"/>
+</symbol>
+<semdeclpos>
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="15" begColumn="13" endLine="15" endColumn="21"/>
+</semdeclpos>
+</absnode>
+<absnode node="AtomExpr">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="20" begColumn="21" endLine="20" endColumn="21"/>
+<symbol token="INTCONST"    lexeme="1">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="20" begColumn="21" endLine="20" endColumn="21"/>
+</symbol>
+<semintvalue value="1"/>
+</absnode>
+</absnode>
+<absnode node="AtomExpr">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="20" begColumn="23" endLine="20" endColumn="25"/>
+<symbol token="STRINGCONST" lexeme="&#34;3&#34;">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="20" begColumn="23" endLine="20" endColumn="25"/>
+</symbol>
+</absnode>
+</absnode>
+</absnode>
+</absnode>
+</absnode>
+</absnode>
+</absnode>
+</absnode>
+</absnode>
+<absnode node="WhereExpr">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="23" begColumn="7" endLine="60" endColumn="15"/>
+<absnode node="Exprs">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="23" begColumn="7" endLine="31" endColumn="33"/>
+<absnode node="AssignStmt">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="23" begColumn="7" endLine="23" endColumn="29"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="23" begColumn="7" endLine="23" endColumn="14"/>
+<symbol token="IDENTIFIER"  lexeme="besedilo">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="23" begColumn="7" endLine="23" endColumn="14"/>
+</symbol>
+<semdeclpos>
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="46" begColumn="1" endLine="46" endColumn="19"/>
+</semdeclpos>
+</absnode>
+<absnode node="AtomExpr">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="23" begColumn="18" endLine="23" endColumn="29"/>
+<symbol token="STRINGCONST" lexeme="&#34;Dober dan!&#34;">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="23" begColumn="18" endLine="23" endColumn="29"/>
+</symbol>
+</absnode>
+</absnode>
+<absnode node="WhileStmt">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="25" begColumn="9" endLine="27" endColumn="78"/>
+<absnode node="BinExpr" value="LTH">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="25" begColumn="15" endLine="25" endColumn="26"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="25" begColumn="15" endLine="25" endColumn="19"/>
+<symbol token="IDENTIFIER"  lexeme="racun">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="25" begColumn="15" endLine="25" endColumn="19"/>
+</symbol>
+<semdeclpos>
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="47" begColumn="1" endLine="47" endColumn="14"/>
+</semdeclpos>
+</absnode>
+<absnode node="AtomExpr">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="25" begColumn="23" endLine="25" endColumn="26"/>
+<symbol token="REALCONST"   lexeme="10.1">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="25" begColumn="23" endLine="25" endColumn="26"/>
+</symbol>
+</absnode>
+</absnode>
+<absnode node="Exprs">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="27" begColumn="17" endLine="27" endColumn="78"/>
+<absnode node="ForStmt">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="27" begColumn="17" endLine="27" endColumn="78"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="27" begColumn="17" endLine="27" endColumn="22"/>
+<symbol token="IDENTIFIER"  lexeme="prvoSt">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="27" begColumn="17" endLine="27" endColumn="22"/>
+</symbol>
+<semdeclpos>
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="48" begColumn="1" endLine="48" endColumn="18"/>
+</semdeclpos>
+</absnode>
+<absnode node="AtomExpr">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="27" begColumn="26" endLine="27" endColumn="26"/>
+<symbol token="INTCONST"    lexeme="1">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="27" begColumn="26" endLine="27" endColumn="26"/>
+</symbol>
+<semintvalue value="1"/>
+</absnode>
+<absnode node="AssignStmt">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="27" begColumn="31" endLine="27" endColumn="49"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="27" begColumn="31" endLine="27" endColumn="36"/>
+<symbol token="IDENTIFIER"  lexeme="prvoSt">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="27" begColumn="31" endLine="27" endColumn="36"/>
+</symbol>
+<semdeclpos>
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="48" begColumn="1" endLine="48" endColumn="18"/>
+</semdeclpos>
+</absnode>
+<absnode node="BinExpr" value="ADD">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="27" begColumn="40" endLine="27" endColumn="49"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="27" begColumn="40" endLine="27" endColumn="45"/>
+<symbol token="IDENTIFIER"  lexeme="prvoSt">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="27" begColumn="40" endLine="27" endColumn="45"/>
+</symbol>
+<semdeclpos>
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="48" begColumn="1" endLine="48" endColumn="18"/>
+</semdeclpos>
+</absnode>
+<absnode node="AtomExpr">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="27" begColumn="49" endLine="27" endColumn="49"/>
+<symbol token="INTCONST"    lexeme="1">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="27" begColumn="49" endLine="27" endColumn="49"/>
+</symbol>
+<semintvalue value="1"/>
+</absnode>
+</absnode>
+</absnode>
+<absnode node="Exprs">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="27" begColumn="55" endLine="27" endColumn="78"/>
+<absnode node="AssignStmt">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="27" begColumn="55" endLine="27" endColumn="78"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="27" begColumn="55" endLine="27" endColumn="59"/>
+<symbol token="IDENTIFIER"  lexeme="racun">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="27" begColumn="55" endLine="27" endColumn="59"/>
+</symbol>
+<semdeclpos>
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="47" begColumn="1" endLine="47" endColumn="14"/>
+</semdeclpos>
+</absnode>
+<absnode node="BinExpr" value="ADD">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="27" begColumn="63" endLine="27" endColumn="78"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="27" begColumn="63" endLine="27" endColumn="68"/>
+<symbol token="IDENTIFIER"  lexeme="prvoSt">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="27" begColumn="63" endLine="27" endColumn="68"/>
+</symbol>
+<semdeclpos>
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="48" begColumn="1" endLine="48" endColumn="18"/>
+</semdeclpos>
+</absnode>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="27" begColumn="72" endLine="27" endColumn="78"/>
+<symbol token="IDENTIFIER"  lexeme="drugoSt">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="27" begColumn="72" endLine="27" endColumn="78"/>
+</symbol>
+<semdeclpos>
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="50" begColumn="1" endLine="50" endColumn="15"/>
+</semdeclpos>
+</absnode>
+</absnode>
+</absnode>
+</absnode>
+</absnode>
+</absnode>
+</absnode>
+<absnode node="AssignStmt">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="31" begColumn="9" endLine="31" endColumn="33"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="31" begColumn="9" endLine="31" endColumn="10"/>
+<symbol token="IDENTIFIER"  lexeme="pi">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="31" begColumn="9" endLine="31" endColumn="10"/>
+</symbol>
+<semdeclpos>
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="51" begColumn="1" endLine="51" endColumn="11"/>
+</semdeclpos>
+</absnode>
+<absnode node="FunCall">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="31" begColumn="14" endLine="31" endColumn="33"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="31" begColumn="14" endLine="31" endColumn="24"/>
+<symbol token="IDENTIFIER"  lexeme="izracunajPi">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="31" begColumn="14" endLine="31" endColumn="24"/>
+</symbol>
+<semdeclpos>
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="52" begColumn="1" endLine="59" endColumn="2"/>
+</semdeclpos>
+</absnode>
+<absnode node="Exprs">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="31" begColumn="26" endLine="31" endColumn="33"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="31" begColumn="26" endLine="31" endColumn="30"/>
+<symbol token="IDENTIFIER"  lexeme="racun">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="31" begColumn="26" endLine="31" endColumn="30"/>
+</symbol>
+<semdeclpos>
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="47" begColumn="1" endLine="47" endColumn="14"/>
+</semdeclpos>
+</absnode>
+<absnode node="AtomExpr">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="31" begColumn="32" endLine="31" endColumn="33"/>
+<symbol token="STRINGCONST" lexeme="&#34;&#34;">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="31" begColumn="32" endLine="31" endColumn="33"/>
+</symbol>
+</absnode>
+</absnode>
+</absnode>
+</absnode>
+</absnode>
+<absnode node="Decls">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="46" begColumn="1" endLine="60" endColumn="15"/>
+<absnode node="VarDecl">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="46" begColumn="1" endLine="46" endColumn="19"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="46" begColumn="5" endLine="46" endColumn="12"/>
+<symbol token="IDENTIFIER"  lexeme="besedilo">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="46" begColumn="5" endLine="46" endColumn="12"/>
+</symbol>
+</absnode>
+<absnode node="AtomType" value="STRING">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="46" begColumn="14" endLine="46" endColumn="19"/>
+</absnode>
+</absnode>
+<absnode node="VarDecl">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="47" begColumn="1" endLine="47" endColumn="14"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="47" begColumn="5" endLine="47" endColumn="9"/>
+<symbol token="IDENTIFIER"  lexeme="racun">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="47" begColumn="5" endLine="47" endColumn="9"/>
+</symbol>
+</absnode>
+<absnode node="AtomType" value="REAL">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="47" begColumn="11" endLine="47" endColumn="14"/>
+</absnode>
+</absnode>
+<absnode node="VarDecl">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="48" begColumn="1" endLine="48" endColumn="18"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="48" begColumn="5" endLine="48" endColumn="10"/>
+<symbol token="IDENTIFIER"  lexeme="prvoSt">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="48" begColumn="5" endLine="48" endColumn="10"/>
+</symbol>
+</absnode>
+<absnode node="TypeName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="48" begColumn="12" endLine="48" endColumn="18"/>
+<symbol token="IDENTIFIER"  lexeme="mojTip2">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="48" begColumn="12" endLine="48" endColumn="18"/>
+</symbol>
+<semdeclpos>
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="49" begColumn="1" endLine="49" endColumn="15"/>
+</semdeclpos>
+</absnode>
+</absnode>
+<absnode node="TypDecl">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="49" begColumn="1" endLine="49" endColumn="15"/>
+<absnode node="TypeName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="49" begColumn="5" endLine="49" endColumn="11"/>
+<symbol token="IDENTIFIER"  lexeme="mojTip2">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="49" begColumn="5" endLine="49" endColumn="11"/>
+</symbol>
+</absnode>
+<absnode node="AtomType" value="INT">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="49" begColumn="13" endLine="49" endColumn="15"/>
+</absnode>
+</absnode>
+<absnode node="VarDecl">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="50" begColumn="1" endLine="50" endColumn="15"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="50" begColumn="5" endLine="50" endColumn="11"/>
+<symbol token="IDENTIFIER"  lexeme="drugoSt">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="50" begColumn="5" endLine="50" endColumn="11"/>
+</symbol>
+</absnode>
+<absnode node="AtomType" value="INT">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="50" begColumn="13" endLine="50" endColumn="15"/>
+</absnode>
+</absnode>
+<absnode node="VarDecl">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="51" begColumn="1" endLine="51" endColumn="11"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="51" begColumn="5" endLine="51" endColumn="6"/>
+<symbol token="IDENTIFIER"  lexeme="pi">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="51" begColumn="5" endLine="51" endColumn="6"/>
+</symbol>
+</absnode>
+<absnode node="AtomType" value="REAL">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="51" begColumn="8" endLine="51" endColumn="11"/>
+</absnode>
+</absnode>
+<absnode node="FunDecl">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="52" begColumn="1" endLine="59" endColumn="2"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="52" begColumn="5" endLine="52" endColumn="15"/>
+<symbol token="IDENTIFIER"  lexeme="izracunajPi">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="52" begColumn="5" endLine="52" endColumn="15"/>
+</symbol>
+</absnode>
+<absnode node="Decls">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="52" begColumn="17" endLine="52" endColumn="49"/>
+<absnode node="VarDecl">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="52" begColumn="17" endLine="52" endColumn="26"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="52" begColumn="17" endLine="52" endColumn="21"/>
+<symbol token="IDENTIFIER"  lexeme="racun">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="52" begColumn="17" endLine="52" endColumn="21"/>
+</symbol>
+</absnode>
+<absnode node="AtomType" value="REAL">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="52" begColumn="23" endLine="52" endColumn="26"/>
+</absnode>
+</absnode>
+<absnode node="VarDecl">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="52" begColumn="29" endLine="52" endColumn="49"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="52" begColumn="29" endLine="52" endColumn="42"/>
+<symbol token="IDENTIFIER"  lexeme="vidnaSamoVsfun">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="52" begColumn="29" endLine="52" endColumn="42"/>
+</symbol>
+</absnode>
+<absnode node="AtomType" value="STRING">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="52" begColumn="44" endLine="52" endColumn="49"/>
+</absnode>
+</absnode>
+</absnode>
+<absnode node="AtomType" value="REAL">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="52" begColumn="52" endLine="52" endColumn="55"/>
+</absnode>
+<absnode node="IfStmt">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="54" begColumn="5" endLine="58" endColumn="20"/>
+<absnode node="BinExpr" value="GTH">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="54" begColumn="8" endLine="54" endColumn="18"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="54" begColumn="8" endLine="54" endColumn="12"/>
+<symbol token="IDENTIFIER"  lexeme="racun">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="54" begColumn="8" endLine="54" endColumn="12"/>
+</symbol>
+<semdeclpos>
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="52" begColumn="17" endLine="52" endColumn="26"/>
+</semdeclpos>
+</absnode>
+<absnode node="AtomExpr">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="54" begColumn="16" endLine="54" endColumn="18"/>
+<symbol token="REALCONST"   lexeme="5.5">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="54" begColumn="16" endLine="54" endColumn="18"/>
+</symbol>
+</absnode>
+</absnode>
+<absnode node="Exprs">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="55" begColumn="10" endLine="56" endColumn="12"/>
+<absnode node="AssignStmt">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="55" begColumn="10" endLine="55" endColumn="32"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="55" begColumn="10" endLine="55" endColumn="23"/>
+<symbol token="IDENTIFIER"  lexeme="vidnaSamoVsfun">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="55" begColumn="10" endLine="55" endColumn="23"/>
+</symbol>
+<semdeclpos>
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="52" begColumn="29" endLine="52" endColumn="49"/>
+</semdeclpos>
+</absnode>
+<absnode node="AtomExpr">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="55" begColumn="27" endLine="55" endColumn="32"/>
+<symbol token="STRINGCONST" lexeme="&#34;loko&#34;">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="55" begColumn="27" endLine="55" endColumn="32"/>
+</symbol>
+</absnode>
+</absnode>
+<absnode node="AtomExpr">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="56" begColumn="9" endLine="56" endColumn="12"/>
+<symbol token="REALCONST"   lexeme="3.14">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="56" begColumn="9" endLine="56" endColumn="12"/>
+</symbol>
+</absnode>
+</absnode>
+<absnode node="Exprs">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="58" begColumn="9" endLine="58" endColumn="20"/>
+<absnode node="BinExpr" value="MUL">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="58" begColumn="9" endLine="58" endColumn="20"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="58" begColumn="9" endLine="58" endColumn="13"/>
+<symbol token="IDENTIFIER"  lexeme="racun">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="58" begColumn="9" endLine="58" endColumn="13"/>
+</symbol>
+<semdeclpos>
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="52" begColumn="17" endLine="52" endColumn="26"/>
+</semdeclpos>
+</absnode>
+<absnode node="AtomExpr">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="58" begColumn="17" endLine="58" endColumn="20"/>
+<symbol token="REALCONST"   lexeme="3.14">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="58" begColumn="17" endLine="58" endColumn="20"/>
+</symbol>
+</absnode>
+</absnode>
+</absnode>
+</absnode>
+</absnode>
+<absnode node="TypDecl">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="60" begColumn="1" endLine="60" endColumn="15"/>
+<absnode node="TypeName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="60" begColumn="5" endLine="60" endColumn="11"/>
+<symbol token="IDENTIFIER"  lexeme="integer">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="60" begColumn="5" endLine="60" endColumn="11"/>
+</symbol>
+</absnode>
+<absnode node="AtomType" value="INT">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="60" begColumn="13" endLine="60" endColumn="15"/>
+</absnode>
+</absnode>
+</absnode>
+</absnode>
+<absnode node="WhereExpr">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="63" begColumn="3" endLine="67" endColumn="14"/>
+<absnode node="Exprs">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="63" begColumn="3" endLine="63" endColumn="10"/>
+<absnode node="AssignStmt">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="63" begColumn="3" endLine="63" endColumn="10"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="63" begColumn="3" endLine="63" endColumn="3"/>
+<symbol token="IDENTIFIER"  lexeme="a">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="63" begColumn="3" endLine="63" endColumn="3"/>
+</symbol>
+<semdeclpos>
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="66" begColumn="1" endLine="66" endColumn="12"/>
+</semdeclpos>
+</absnode>
+<absnode node="BinExpr" value="ADD">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="63" begColumn="7" endLine="63" endColumn="10"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="63" begColumn="7" endLine="63" endColumn="7"/>
+<symbol token="IDENTIFIER"  lexeme="a">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="63" begColumn="7" endLine="63" endColumn="7"/>
+</symbol>
+<semdeclpos>
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="66" begColumn="1" endLine="66" endColumn="12"/>
+</semdeclpos>
+</absnode>
+<absnode node="AtomExpr">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="63" begColumn="10" endLine="63" endColumn="10"/>
+<symbol token="INTCONST"    lexeme="2">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="63" begColumn="10" endLine="63" endColumn="10"/>
+</symbol>
+<semintvalue value="2"/>
+</absnode>
+</absnode>
+</absnode>
+</absnode>
+<absnode node="Decls">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="66" begColumn="1" endLine="67" endColumn="14"/>
+<absnode node="VarDecl">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="66" begColumn="1" endLine="66" endColumn="12"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="66" begColumn="5" endLine="66" endColumn="5"/>
+<symbol token="IDENTIFIER"  lexeme="a">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="66" begColumn="5" endLine="66" endColumn="5"/>
+</symbol>
+</absnode>
+<absnode node="TypeName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="66" begColumn="7" endLine="66" endColumn="12"/>
+<symbol token="IDENTIFIER"  lexeme="mojTip">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="66" begColumn="7" endLine="66" endColumn="12"/>
+</symbol>
+<semdeclpos>
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="67" begColumn="1" endLine="67" endColumn="14"/>
+</semdeclpos>
+</absnode>
+</absnode>
+<absnode node="TypDecl">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="67" begColumn="1" endLine="67" endColumn="14"/>
+<absnode node="TypeName">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="67" begColumn="5" endLine="67" endColumn="10"/>
+<symbol token="IDENTIFIER"  lexeme="mojTip">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="67" begColumn="5" endLine="67" endColumn="10"/>
+</symbol>
+</absnode>
+<absnode node="AtomType" value="INT">
+<position filename="C:\Users\Validus\Desktop\SemAnalSample.txt" begLine="67" begColumn="12" endLine="67" endColumn="14"/>
+</absnode>
+</absnode>
+</absnode>
+</absnode>
+</absnode>
+</semanal>

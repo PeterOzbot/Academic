@@ -60,10 +60,20 @@ public class DeclarationResolver implements Visitor {
 	}
 
 	// Poskusa in obravnava iskanje imena
-	public static void FindName(AbsTree absNode, String name) {
+	public static void FindName(AbsTree absNode, String name,
+			Class<?> desiredType) {
 		try {
 			// preveri èe je med imeni
 			AbsDecl absDecl = names.fnd(name);
+
+			// preveri ce je pravi tip
+			if (desiredType != null) {
+				if (!desiredType.isInstance(absDecl)) {
+					Report.error("Variable - " + name
+							+ " ,not expected type - " + desiredType.getName()
+							+ ".", 1);
+				}
+			}
 
 			// ce je naredimo povezavo - dodamo v decls
 			setDecl(absNode, absDecl);

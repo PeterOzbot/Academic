@@ -49,10 +49,10 @@ public class DeclarationResolverMainTour implements Visitor {
 		if (acceptor.oper == AbsBinExpr.REC) {
 
 			// preveri èe obstaja tip
-			//acceptor.fstSubExpr.accept(this);
+			 acceptor.fstSubExpr.accept(this);
 
 			// preveri drugi del
-			//acceptor.sndSubExpr.accept(new DeclarationResolverRecTyp());
+			// acceptor.sndSubExpr.accept(new DeclarationResolverRecTyp());
 
 		} else {
 			// preveri oba dela posebej
@@ -74,7 +74,8 @@ public class DeclarationResolverMainTour implements Visitor {
 	public void visit(AbsExprName acceptor) {
 		// lahko pride iz : i + 2
 		// preveri èe je med imeni
-		DeclarationResolver.FindName(acceptor, acceptor.identifier.getLexeme());
+		DeclarationResolver.FindName(acceptor, acceptor.identifier.getLexeme(),
+				null);
 	}
 
 	@Override
@@ -87,12 +88,9 @@ public class DeclarationResolverMainTour implements Visitor {
 
 	@Override
 	public void visit(AbsForStmt acceptor) {
-		// TODO: ali je potrebno ugotovit ali je bil identifier deklariran do
-		// zdaj, ali je za naprej -> glede tega da ni tipa bi reku da za nazaj
-
 		// preveri èe je med imeni
 		DeclarationResolver.FindName(acceptor.name,
-				acceptor.name.identifier.getLexeme());
+				acceptor.name.identifier.getLexeme(), null);
 
 		// preveri se ostale dele for zanke
 		acceptor.hiBound.accept(this);
@@ -105,7 +103,7 @@ public class DeclarationResolverMainTour implements Visitor {
 
 		// preveri èe je med imeni
 		DeclarationResolver.FindName(acceptor.name,
-				acceptor.name.identifier.getLexeme());
+				acceptor.name.identifier.getLexeme(), AbsFunDecl.class);
 
 		// preveri se ostal del klica funkcije
 		acceptor.args.accept(this);
@@ -120,7 +118,7 @@ public class DeclarationResolverMainTour implements Visitor {
 		acceptor.thenExprs.accept(this);
 
 		// preveri else èe je dolocen
-		if(acceptor.elseExprs!= null)
+		if (acceptor.elseExprs != null)
 			acceptor.elseExprs.accept(this);
 	}
 
@@ -167,7 +165,8 @@ public class DeclarationResolverMainTour implements Visitor {
 
 	@Override
 	public void visit(AbsTypeName acceptor) {
-		// tukaj ne naredimo nic -> IDENTIFIER - se prebere zunaj
+		DeclarationResolver.FindName(acceptor, acceptor.identifier.getLexeme(),
+				null);
 	}
 
 	@Override
@@ -203,30 +202,16 @@ public class DeclarationResolverMainTour implements Visitor {
 	@Override
 	public void visit(AbsTypDecl acceptor) {
 		// ime se doda pri prvem preletu - DeclarationResolverFirstFlight
-		// v tem obhodu tukaj povezemo deklaracijo tipa in izrabo le tega
-		// ampak samo v primeru ce je custom tip
-		if (acceptor.type instanceof AbsTypeName) {
-			DeclarationResolver.FindName(acceptor.type,
-					((AbsTypeName) acceptor.type).identifier.getLexeme());
-		} else {
-			// ce ni custom tip se preveri ostali del tipa
-			acceptor.type.accept(this);
-		}
+		// preveri ostali del tipa
+		acceptor.type.accept(this);
+
 	}
 
 	@Override
 	public void visit(AbsVarDecl acceptor) {
 		// ime se doda pri prvem preletu - DeclarationResolverFirstFlight
 		// v tem obhodu tukaj povezemo deklaracijo tipa in izrabo le tega
-		// ampak samo v primeru ce je custom tip
-		if (acceptor.type instanceof AbsTypeName) {
-			DeclarationResolver.FindName(acceptor.type,
-					((AbsTypeName) acceptor.type).identifier.getLexeme());
-		}
-		// ce je record se doda, njegove dele oznacene z # da se ve
-		if (acceptor.type instanceof AbsRecType) {
-			acceptor.type.accept(new DeclarationResolverRecTyp());
-		}
+		acceptor.type.accept(this);
 	}
 
 	@Override
@@ -245,7 +230,7 @@ public class DeclarationResolverMainTour implements Visitor {
 
 		// preveriti expression
 		acceptor.expr.accept(this);
-		
+
 		// preveri tip
 		acceptor.type.accept(this);
 
