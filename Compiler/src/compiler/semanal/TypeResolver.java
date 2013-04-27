@@ -23,7 +23,7 @@ public class TypeResolver implements Visitor {
 		types.put(absNode, semType);
 	}
 
-	/** 
+	/**
 	 * Vrne tip vozlisca abstraktnega sintaksnega drevesa.
 	 * 
 	 * @param absNode
@@ -158,6 +158,7 @@ public class TypeResolver implements Visitor {
 				TypeResolver.setType(acceptor, ptrType.type);
 				return;
 			}
+
 			Report.error("Illegal operand type.", acceptor.getPosition(), 1);
 		}
 		case AbsUnExpr.AND: {
@@ -267,16 +268,16 @@ public class TypeResolver implements Visitor {
 			break;
 		case AbsBinExpr.REC:
 			// dobimo definicijo rec komponente
-			SemRecType semRecType = (SemRecType) fstSubExprSemType;
+			SemType semType = fstSubExprSemType.actualType();
+			if (!(semType instanceof SemRecType)) {
+				Report.error(
+						"Illegal operand type. First operand in AbsBinExpr.REC must be type of SemRecType",
+						acceptor.getPosition(), 1);
+			}
+			SemRecType semRecType = (SemRecType) semType;
 
 			// pridobimo in preverimo èe so res konkretna imena x1.x2
-			AbsExprName absExprNameFst = (AbsExprName) acceptor.fstSubExpr;
 			AbsExprName absExprNameSnd = (AbsExprName) acceptor.sndSubExpr;
-			if (absExprNameFst == null) {
-				Report.error(
-						"Rec call does not have AbsExprName as first statement.",
-						1);
-			}
 			if (absExprNameSnd == null) {
 				Report.error(
 						"Rec call does not have AbsExprName as second statement.",
@@ -285,10 +286,9 @@ public class TypeResolver implements Visitor {
 			// preverimo ce je druga komponenta med komponentami
 			if (!semRecType.compNames.contains(absExprNameSnd.identifier
 					.getLexeme())) {
-				Report.error("Illegal operand type. Record - "
-						+ absExprNameFst.identifier.getLexeme()
-						+ " does not have component - "
-						+ absExprNameSnd.identifier.getLexeme(),
+				Report.error(
+						"Illegal operand type. Record does not have component - "
+								+ absExprNameSnd.identifier.getLexeme(),
 						acceptor.fstSubExpr.getPosition(), 1);
 			}
 			// pridobimo tip druge komponente

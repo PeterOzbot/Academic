@@ -47,6 +47,8 @@ public class SemAtomType extends SemType {
 		xml.println("<semtype type=\"" + type + "\"/>");
 	}
 	
+	
+	
 	@Override
 	public SemType actualType() {
 		return this;
@@ -56,9 +58,9 @@ public class SemAtomType extends SemType {
 	public int size() {
 		switch (typ) {
 		case INT   : return 4;
-		case REAL  : return 8;
-		case BOOL  : return 1;
-		case STRING: return 8;
+		case REAL  : return 4;
+		case BOOL  : return 4;
+		case STRING: return 4;
 		case VOID  : return 0;
 		default:
 			Report.error("Internal error.", 1);

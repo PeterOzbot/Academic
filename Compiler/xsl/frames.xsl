@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-<xsl:template match="semanal">
+<xsl:template match="frames">
 	<html>
 		<body>
 			<xsl:apply-templates select="absnode"/>
@@ -29,6 +29,10 @@
     				<tr>
     					<xsl:apply-templates select="semtype"/>
     				</tr>
+    				<tr>
+    					<xsl:apply-templates select="frmframe"/>
+    					<xsl:apply-templates select="frmaccess"/>
+    				</tr>
  					<xsl:apply-templates select="semdeclpos"/>
     				<xsl:apply-templates select="semintvalue"/>
     			</table>
@@ -48,6 +52,25 @@
 			</td>
 		</tr>
 	</table>
+</xsl:template>
+
+<xsl:template match="frmframe">
+		<td align="center" valign="top" style="background-color:#F5DA69">
+			<xsl:variable name="label" select="@label"/>
+			<xsl:variable name="level" select="@level"/>
+			<xsl:variable name="fp" select="@fp"/>
+			<xsl:variable name="ra" select="@ra"/>
+			<xsl:variable name="size" select="@size"/>
+			FRAME: label=<xsl:value-of select="$label"/> level=<xsl:value-of select="$level"/> FP=<xsl:value-of select="$fp"/> RA=<xsl:value-of select="$ra"/> size=<xsl:value-of select="$size"/>
+		</td>
+</xsl:template>
+
+<xsl:template match="frmaccess">
+		<td align="center" valign="top" style="background-color:#F5DA69">
+			<xsl:variable name="level" select="@level"/>
+			<xsl:variable name="offset" select="@offset"/>
+			ACCESS: level=<xsl:value-of select="$level"/> offset=<xsl:value-of select="$offset"/>
+		</td>
 </xsl:template>
 
 <xsl:template match="semtype">

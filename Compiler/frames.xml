@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<?xml-stylesheet type="text/xsl" href="D:\Programiranje\Repositories\Git\Academic\Compiler\xsl/semanal.xsl"?>
-<semanal>
+<?xml-stylesheet type="text/xsl" href="D:\Programiranje\Repositories\Git\Academic\Compiler\xsl/frames.xsl"?>
+<frames>
 <absnode node="Exprs">
 <position filename="C:\Users\Validus\Desktop\Proteus\05-semanal-5.proteus" begLine="1" begColumn="3" endLine="5" endColumn="7"/>
 <absnode node="WhereExpr">
@@ -21,6 +21,9 @@
 <semdeclpos>
 <position filename="C:\Users\Validus\Desktop\Proteus\05-semanal-5.proteus" begLine="5" begColumn="1" endLine="5" endColumn="7"/>
 </semdeclpos>
+<semtype type="PTR">
+<semtype type="NAME" value="r"/>
+</semtype>
 </absnode>
 <semtype type="NAME" value="r"/>
 </absnode>
@@ -56,6 +59,7 @@
 <semdeclpos>
 <position filename="C:\Users\Validus\Desktop\Proteus\05-semanal-5.proteus" begLine="4" begColumn="1" endLine="4" endColumn="20"/>
 </semdeclpos>
+<semtype type="NAME" value="r"/>
 </absnode>
 <semtype type="PTR">
 <semtype type="NAME" value="r"/>
@@ -89,7 +93,7 @@
 <semtype type="INT"/>
 </absnode>
 <semtype type="INT"/>
-</absnode>
+<frmaccess level="-1" offset="0"/></absnode>
 <absnode node="VarDecl">
 <position filename="C:\Users\Validus\Desktop\Proteus\05-semanal-5.proteus" begLine="4" begColumn="17" endLine="4" endColumn="19"/>
 <absnode node="ExprName">
@@ -105,9 +109,10 @@
 <semdeclpos>
 <position filename="C:\Users\Validus\Desktop\Proteus\05-semanal-5.proteus" begLine="3" begColumn="1" endLine="3" endColumn="8"/>
 </semdeclpos>
-</absnode>
 <semtype type="NAME" value="p"/>
 </absnode>
+<semtype type="NAME" value="p"/>
+<frmaccess level="-1" offset="4"/></absnode>
 </absnode>
 <semtype type="REC">
 <semtype type="INT"/>
@@ -135,12 +140,13 @@
 <semdeclpos>
 <position filename="C:\Users\Validus\Desktop\Proteus\05-semanal-5.proteus" begLine="3" begColumn="1" endLine="3" endColumn="8"/>
 </semdeclpos>
-</absnode>
 <semtype type="NAME" value="p"/>
 </absnode>
+<semtype type="NAME" value="p"/>
+<frmaccess level="0" offset="0"/></absnode>
 </absnode>
 <semtype type="INT"/>
 </absnode>
 <semtype type="INT"/>
 </absnode>
-</semanal>
+</frames>

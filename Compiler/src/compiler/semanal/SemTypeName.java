@@ -22,7 +22,7 @@ public class SemTypeName extends SemType {
 	
 	@Override
 	public void toXML(PrintStream xml) {
-		xml.println("<semtype type=\"NAME\" value=\"" + name + "\"/>");
+		xml.println("<semtype type=\"NAME\" value=\"" + name  + "\"/>");
 	}
 
 	@Override

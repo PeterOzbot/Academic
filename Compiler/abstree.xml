@@ -1,39 +1,107 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="D:\Programiranje\Repositories\Git\Academic\Compiler\xsl/abstree.xsl"?>
 <abstree>
 <absnode node="Exprs">
-<position filename="C:\Users\Validus\Desktop\SemAnalSample2.txt" begLine="1" begColumn="2" endLine="1" endColumn="23"/>
+<position filename="C:\Users\Validus\Desktop\Proteus\05-semanal-5.proteus" begLine="1" begColumn="3" endLine="5" endColumn="7"/>
 <absnode node="WhereExpr">
-<position filename="C:\Users\Validus\Desktop\SemAnalSample2.txt" begLine="1" begColumn="2" endLine="1" endColumn="23"/>
+<position filename="C:\Users\Validus\Desktop\Proteus\05-semanal-5.proteus" begLine="1" begColumn="3" endLine="5" endColumn="7"/>
 <absnode node="Exprs">
-<position filename="C:\Users\Validus\Desktop\SemAnalSample2.txt" begLine="1" begColumn="2" endLine="1" endColumn="6"/>
-<absnode node="BinExpr" value="ADD">
-<position filename="C:\Users\Validus\Desktop\SemAnalSample2.txt" begLine="1" begColumn="2" endLine="1" endColumn="6"/>
+<position filename="C:\Users\Validus\Desktop\Proteus\05-semanal-5.proteus" begLine="1" begColumn="3" endLine="1" endColumn="7"/>
+<absnode node="BinExpr" value="REC">
+<position filename="C:\Users\Validus\Desktop\Proteus\05-semanal-5.proteus" begLine="1" begColumn="3" endLine="1" endColumn="7"/>
+<absnode node="Exprs">
+<position filename="C:\Users\Validus\Desktop\Proteus\05-semanal-5.proteus" begLine="1" begColumn="3" endLine="1" endColumn="4"/>
+<absnode node="UnExpr" value="MUL">
+<position filename="C:\Users\Validus\Desktop\Proteus\05-semanal-5.proteus" begLine="1" begColumn="3" endLine="1" endColumn="4"/>
 <absnode node="ExprName">
-<position filename="C:\Users\Validus\Desktop\SemAnalSample2.txt" begLine="1" begColumn="2" endLine="1" endColumn="2"/>
-<symbol token="IDENTIFIER"  lexeme="i">
-<position filename="C:\Users\Validus\Desktop\SemAnalSample2.txt" begLine="1" begColumn="2" endLine="1" endColumn="2"/>
+<position filename="C:\Users\Validus\Desktop\Proteus\05-semanal-5.proteus" begLine="1" begColumn="4" endLine="1" endColumn="4"/>
+<symbol token="IDENTIFIER"  lexeme="a">
+<position filename="C:\Users\Validus\Desktop\Proteus\05-semanal-5.proteus" begLine="1" begColumn="4" endLine="1" endColumn="4"/>
 </symbol>
 </absnode>
-<absnode node="AtomExpr">
-<position filename="C:\Users\Validus\Desktop\SemAnalSample2.txt" begLine="1" begColumn="6" endLine="1" endColumn="6"/>
-<symbol token="INTCONST"    lexeme="2">
-<position filename="C:\Users\Validus\Desktop\SemAnalSample2.txt" begLine="1" begColumn="6" endLine="1" endColumn="6"/>
+</absnode>
+</absnode>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\Proteus\05-semanal-5.proteus" begLine="1" begColumn="7" endLine="1" endColumn="7"/>
+<symbol token="IDENTIFIER"  lexeme="i">
+<position filename="C:\Users\Validus\Desktop\Proteus\05-semanal-5.proteus" begLine="1" begColumn="7" endLine="1" endColumn="7"/>
 </symbol>
 </absnode>
 </absnode>
 </absnode>
 <absnode node="Decls">
-<position filename="C:\Users\Validus\Desktop\SemAnalSample2.txt" begLine="1" begColumn="15" endLine="1" endColumn="23"/>
+<position filename="C:\Users\Validus\Desktop\Proteus\05-semanal-5.proteus" begLine="3" begColumn="1" endLine="5" endColumn="7"/>
+<absnode node="TypDecl">
+<position filename="C:\Users\Validus\Desktop\Proteus\05-semanal-5.proteus" begLine="3" begColumn="1" endLine="3" endColumn="8"/>
+<absnode node="TypeName">
+<position filename="C:\Users\Validus\Desktop\Proteus\05-semanal-5.proteus" begLine="3" begColumn="5" endLine="3" endColumn="5"/>
+<symbol token="IDENTIFIER"  lexeme="p">
+<position filename="C:\Users\Validus\Desktop\Proteus\05-semanal-5.proteus" begLine="3" begColumn="5" endLine="3" endColumn="5"/>
+</symbol>
+</absnode>
+<absnode node="PtrType">
+<position filename="C:\Users\Validus\Desktop\Proteus\05-semanal-5.proteus" begLine="3" begColumn="7" endLine="3" endColumn="8"/>
+<absnode node="TypeName">
+<position filename="C:\Users\Validus\Desktop\Proteus\05-semanal-5.proteus" begLine="3" begColumn="8" endLine="3" endColumn="8"/>
+<symbol token="IDENTIFIER"  lexeme="r">
+<position filename="C:\Users\Validus\Desktop\Proteus\05-semanal-5.proteus" begLine="3" begColumn="8" endLine="3" endColumn="8"/>
+</symbol>
+</absnode>
+</absnode>
+</absnode>
+<absnode node="TypDecl">
+<position filename="C:\Users\Validus\Desktop\Proteus\05-semanal-5.proteus" begLine="4" begColumn="1" endLine="4" endColumn="20"/>
+<absnode node="TypeName">
+<position filename="C:\Users\Validus\Desktop\Proteus\05-semanal-5.proteus" begLine="4" begColumn="5" endLine="4" endColumn="5"/>
+<symbol token="IDENTIFIER"  lexeme="r">
+<position filename="C:\Users\Validus\Desktop\Proteus\05-semanal-5.proteus" begLine="4" begColumn="5" endLine="4" endColumn="5"/>
+</symbol>
+</absnode>
+<absnode node="RecType">
+<position filename="C:\Users\Validus\Desktop\Proteus\05-semanal-5.proteus" begLine="4" begColumn="7" endLine="4" endColumn="20"/>
+<absnode node="Decls">
+<position filename="C:\Users\Validus\Desktop\Proteus\05-semanal-5.proteus" begLine="4" begColumn="11" endLine="4" endColumn="19"/>
 <absnode node="VarDecl">
-<position filename="C:\Users\Validus\Desktop\SemAnalSample2.txt" begLine="1" begColumn="15" endLine="1" endColumn="23"/>
+<position filename="C:\Users\Validus\Desktop\Proteus\05-semanal-5.proteus" begLine="4" begColumn="11" endLine="4" endColumn="15"/>
 <absnode node="ExprName">
-<position filename="C:\Users\Validus\Desktop\SemAnalSample2.txt" begLine="1" begColumn="19" endLine="1" endColumn="19"/>
 <symbol token="IDENTIFIER"  lexeme="i">
-<position filename="C:\Users\Validus\Desktop\SemAnalSample2.txt" begLine="1" begColumn="19" endLine="1" endColumn="19"/>
+<position filename="C:\Users\Validus\Desktop\Proteus\05-semanal-5.proteus" begLine="4" begColumn="11" endLine="4" endColumn="11"/>
 </symbol>
 </absnode>
 <absnode node="AtomType" value="INT">
-<position filename="C:\Users\Validus\Desktop\SemAnalSample2.txt" begLine="1" begColumn="21" endLine="1" endColumn="23"/>
+<position filename="C:\Users\Validus\Desktop\Proteus\05-semanal-5.proteus" begLine="4" begColumn="13" endLine="4" endColumn="15"/>
+</absnode>
+</absnode>
+<absnode node="VarDecl">
+<position filename="C:\Users\Validus\Desktop\Proteus\05-semanal-5.proteus" begLine="4" begColumn="17" endLine="4" endColumn="19"/>
+<absnode node="ExprName">
+<symbol token="IDENTIFIER"  lexeme="l">
+<position filename="C:\Users\Validus\Desktop\Proteus\05-semanal-5.proteus" begLine="4" begColumn="17" endLine="4" endColumn="17"/>
+</symbol>
+</absnode>
+<absnode node="TypeName">
+<position filename="C:\Users\Validus\Desktop\Proteus\05-semanal-5.proteus" begLine="4" begColumn="19" endLine="4" endColumn="19"/>
+<symbol token="IDENTIFIER"  lexeme="p">
+<position filename="C:\Users\Validus\Desktop\Proteus\05-semanal-5.proteus" begLine="4" begColumn="19" endLine="4" endColumn="19"/>
+</symbol>
+</absnode>
+</absnode>
+</absnode>
+</absnode>
+</absnode>
+<absnode node="VarDecl">
+<position filename="C:\Users\Validus\Desktop\Proteus\05-semanal-5.proteus" begLine="5" begColumn="1" endLine="5" endColumn="7"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\Proteus\05-semanal-5.proteus" begLine="5" begColumn="5" endLine="5" endColumn="5"/>
+<symbol token="IDENTIFIER"  lexeme="a">
+<position filename="C:\Users\Validus\Desktop\Proteus\05-semanal-5.proteus" begLine="5" begColumn="5" endLine="5" endColumn="5"/>
+</symbol>
+</absnode>
+<absnode node="TypeName">
+<position filename="C:\Users\Validus\Desktop\Proteus\05-semanal-5.proteus" begLine="5" begColumn="7" endLine="5" endColumn="7"/>
+<symbol token="IDENTIFIER"  lexeme="p">
+<position filename="C:\Users\Validus\Desktop\Proteus\05-semanal-5.proteus" begLine="5" begColumn="7" endLine="5" endColumn="7"/>
+</symbol>
 </absnode>
 </absnode>
 </absnode>

@@ -128,9 +128,7 @@ public class TypeResolverNameNamed implements Visitor {
 
 	@Override
 	public void visit(AbsRecType acceptor) {
-		// gremo cez tip
-		//acceptor.comps.accept(this);
-
+		// ne naredimo nic
 	}
 
 	@Override
@@ -157,7 +155,6 @@ public class TypeResolverNameNamed implements Visitor {
 	public void visit(AbsTypDecl acceptor) {
 		// preverimo tip
 		acceptor.type.accept(this);
-
 	}
 
 }

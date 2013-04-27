@@ -13,7 +13,6 @@ public class SymbolTable {
 	private HashMap<String, Stack<AbsDecl>> namesByDecls;
 	
 	/**	Globina gnezdenja.  */
-	@SuppressWarnings("unused")
 	private int scope;
 	
 	/** Imena po nivojih gnezdenja.  */

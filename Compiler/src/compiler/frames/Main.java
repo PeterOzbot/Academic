@@ -1,4 +1,4 @@
-package compiler.semanal;
+package compiler.frames;
 
 import java.io.*;
 
@@ -7,12 +7,12 @@ import compiler.lexanal.*;
 import compiler.synanal.*;
 import compiler.abstree.*;
 
-/** Izvede prevajanje do faze semanticne analize.  */
+/** Izvede prevajanje do faze izracuna klicnih zapisov.  */
 public class Main {
 
 	public static void main(String programName) {
 		try {
-			PrintStream xml = XML.open("semanal");
+			PrintStream xml = XML.open("frames");
 			{
 				LexAnal lexer = new LexAnal();
 				lexer.openSourceFile(programName);
@@ -22,12 +22,13 @@ public class Main {
 				absTree.accept(new compiler.semanal.ConstExprEvaluator());
 				absTree.accept(new compiler.semanal.DeclarationResolver());
 				absTree.accept(new compiler.semanal.TypeResolver());
-				absTree.accept(new compiler.semanal.PrintXML(xml));
+				absTree.accept(new compiler.frames.FrameResolver());
+				absTree.accept(new compiler.frames.PrintXML(xml));
 				lexer.closeSourceFile();
 			}
-			XML.close("semanal", xml);
+			XML.close("frames", xml);
 		} catch (IOException exception) {
-			Report.error("Cannot perform semantic analysis.", 1);
+			Report.error("Cannot compute.", 1);
 		}
 	}
 

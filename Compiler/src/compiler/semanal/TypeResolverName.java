@@ -116,7 +116,7 @@ public class TypeResolverName implements Visitor {
 		SemType semType = TypeResolver.getType(acceptor.type);
 
 		// dodamo ptr type
-		TypeResolver.setType(acceptor, semType);
+		TypeResolver.setType(acceptor, new SemPtrType(semType));
 	}
 
 	@Override

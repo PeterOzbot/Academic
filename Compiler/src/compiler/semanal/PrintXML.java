@@ -19,6 +19,11 @@ public class PrintXML implements Visitor {
 			acceptor.getPosition().toXML(xml);
 		acceptor.type.accept(this);
 		acceptor.size.accept(this);
+		{
+			SemType type = TypeResolver.getType(acceptor);
+			if (type != null)
+				type.toXML(xml);
+		}
 		xml.println("</absnode>");
 	}
 
@@ -28,6 +33,11 @@ public class PrintXML implements Visitor {
 			acceptor.getPosition().toXML(xml);
 		acceptor.fstSubExpr.accept(this);
 		acceptor.sndSubExpr.accept(this);
+		{
+			SemType type = TypeResolver.getType(acceptor);
+			if (type != null)
+				type.toXML(xml);
+		}
 		xml.println("</absnode>");
 	}
 
@@ -41,6 +51,11 @@ public class PrintXML implements Visitor {
 			Integer value = ConstExprEvaluator.getValue(acceptor);
 			if (value != null)
 				xml.println("<semintvalue value=\"" + value + "\"/>");
+		}
+		{
+			SemType type = TypeResolver.getType(acceptor);
+			if (type != null)
+				type.toXML(xml);
 		}
 		xml.println("</absnode>");
 	}
@@ -70,6 +85,11 @@ public class PrintXML implements Visitor {
 		xml.println("<absnode node=\"AtomType\" value=\"" + typName + "\">");
 		if (acceptor.getPosition() != null)
 			acceptor.getPosition().toXML(xml);
+		{
+			SemType type = TypeResolver.getType(acceptor);
+			if (type != null)
+				type.toXML(xml);
+		}
 		xml.println("</absnode>");
 	}
 
@@ -135,6 +155,11 @@ public class PrintXML implements Visitor {
 			if (value != null)
 				xml.println("<semintvalue value=\"" + value + "\"/>");
 		}
+		{
+			SemType type = TypeResolver.getType(acceptor);
+			if (type != null)
+				type.toXML(xml);
+		}
 		xml.println("</absnode>");
 	}
 
@@ -144,6 +169,11 @@ public class PrintXML implements Visitor {
 			acceptor.getPosition().toXML(xml);
 		for (AbsDecl decl : acceptor.decls)
 			decl.accept(this);
+		{
+			SemType type = TypeResolver.getType(acceptor);
+			if (type != null)
+				type.toXML(xml);
+		}
 		xml.println("</absnode>");
 	}
 
@@ -154,7 +184,8 @@ public class PrintXML implements Visitor {
 		acceptor.identifier.toXML(xml);
 		if (DeclarationResolver.getDecl(acceptor) != null) {
 			xml.println("<semdeclpos>");
-			if (DeclarationResolver.getDecl(acceptor).getPosition() != null)// dodal preverjanje da dela brez positionov
+			// TODO : dodal preverjanje da dela brez positionov
+			if (DeclarationResolver.getDecl(acceptor).getPosition() != null)
 				DeclarationResolver.getDecl(acceptor).getPosition().toXML(xml);
 			xml.println("</semdeclpos>");
 		}
@@ -167,6 +198,11 @@ public class PrintXML implements Visitor {
 			acceptor.getPosition().toXML(xml);
 		for (AbsExpr expr : acceptor.exprs)
 			expr.accept(this);
+		{
+			SemType type = TypeResolver.getType(acceptor);
+			if (type != null)
+				type.toXML(xml);
+		}
 		xml.println("</absnode>");
 	}
 
@@ -178,6 +214,11 @@ public class PrintXML implements Visitor {
 		acceptor.loBound.accept(this);
 		acceptor.hiBound.accept(this);
 		acceptor.loopExpr.accept(this);
+		{
+			SemType type = TypeResolver.getType(acceptor);
+			if (type != null)
+				type.toXML(xml);
+		}
 		xml.println("</absnode>");
 	}
 
@@ -187,6 +228,11 @@ public class PrintXML implements Visitor {
 			acceptor.getPosition().toXML(xml);
 		acceptor.name.accept(this);
 		acceptor.args.accept(this);
+		{
+			SemType type = TypeResolver.getType(acceptor);
+			if (type != null)
+				type.toXML(xml);
+		}
 		xml.println("</absnode>");
 	}
 
@@ -198,6 +244,11 @@ public class PrintXML implements Visitor {
 		acceptor.pars.accept(this);
 		acceptor.type.accept(this);
 		acceptor.expr.accept(this);
+		{
+			SemType type = TypeResolver.getType(acceptor);
+			if (type != null)
+				type.toXML(xml);
+		}
 		xml.println("</absnode>");
 	}
 
@@ -209,6 +260,11 @@ public class PrintXML implements Visitor {
 		acceptor.thenExprs.accept(this);
 		if (acceptor.elseExprs != null)
 			acceptor.elseExprs.accept(this);
+		{
+			SemType type = TypeResolver.getType(acceptor);
+			if (type != null)
+				type.toXML(xml);
+		}
 		xml.println("</absnode>");
 	}
 
@@ -217,6 +273,11 @@ public class PrintXML implements Visitor {
 		if (acceptor.getPosition() != null)
 			acceptor.getPosition().toXML(xml);
 		acceptor.type.accept(this);
+		{
+			SemType type = TypeResolver.getType(acceptor);
+			if (type != null)
+				type.toXML(xml);
+		}
 		xml.println("</absnode>");
 	}
 
@@ -225,6 +286,11 @@ public class PrintXML implements Visitor {
 		if (acceptor.getPosition() != null)
 			acceptor.getPosition().toXML(xml);
 		acceptor.comps.accept(this);
+		{
+			SemType type = TypeResolver.getType(acceptor);
+			if (type != null)
+				type.toXML(xml);
+		}
 		xml.println("</absnode>");
 	}
 
@@ -234,6 +300,11 @@ public class PrintXML implements Visitor {
 			acceptor.getPosition().toXML(xml);
 		acceptor.name.accept(this);
 		acceptor.type.accept(this);
+		{
+			SemType type = TypeResolver.getType(acceptor);
+			if (type != null)
+				type.toXML(xml);
+		}
 		xml.println("</absnode>");
 	}
 
@@ -244,7 +315,8 @@ public class PrintXML implements Visitor {
 		acceptor.identifier.toXML(xml);
 		if (DeclarationResolver.getDecl(acceptor) != null) {
 			xml.println("<semdeclpos>");
-			if (DeclarationResolver.getDecl(acceptor).getPosition() != null)// dodal preverjanje da dela brez positionov
+			// TODO: dodal preverjanje da dela brez positionov
+			if (DeclarationResolver.getDecl(acceptor).getPosition() != null)
 				DeclarationResolver.getDecl(acceptor).getPosition().toXML(xml);
 			xml.println("</semdeclpos>");
 		}
@@ -282,6 +354,11 @@ public class PrintXML implements Visitor {
 			if (value != null)
 				xml.println("<semintvalue value=\"" + value + "\"/>");
 		}
+		{
+			SemType type = TypeResolver.getType(acceptor);
+			if (type != null)
+				type.toXML(xml);
+		}
 		xml.println("</absnode>");
 	}
 
@@ -291,6 +368,11 @@ public class PrintXML implements Visitor {
 			acceptor.getPosition().toXML(xml);
 		acceptor.name.accept(this);
 		acceptor.type.accept(this);
+		{
+			SemType type = TypeResolver.getType(acceptor);
+			if (type != null)
+				type.toXML(xml);
+		}
 		xml.println("</absnode>");
 	}
 
@@ -300,6 +382,11 @@ public class PrintXML implements Visitor {
 			acceptor.getPosition().toXML(xml);
 		acceptor.subExpr.accept(this);
 		acceptor.decls.accept(this);
+		{
+			SemType type = TypeResolver.getType(acceptor);
+			if (type != null)
+				type.toXML(xml);
+		}
 		xml.println("</absnode>");
 	}
 
@@ -309,6 +396,11 @@ public class PrintXML implements Visitor {
 			acceptor.getPosition().toXML(xml);
 		acceptor.condExpr.accept(this);
 		acceptor.loopExpr.accept(this);
+		{
+			SemType type = TypeResolver.getType(acceptor);
+			if (type != null)
+				type.toXML(xml);
+		}
 		xml.println("</absnode>");
 	}
 

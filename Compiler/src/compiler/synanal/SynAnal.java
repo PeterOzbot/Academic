@@ -60,7 +60,7 @@ public class SynAnal {
 			if (symbol != null)
 				throw new ParseException();
 		} catch (ParseException exception) {
-			Report.error("Syntax error.", -1);
+			Report.error("Syntax error.", symbol.getPosition(), -1);
 		}
 		return abstraktnoDrevo;
 	}
@@ -111,9 +111,9 @@ public class SynAnal {
 			Symbol simbol = skip(Symbol.COMMA);
 			// v primeru vejice parsa naslednji Expression
 			AbsExpr absExpr = parseExpression();
-			if(absExpr == null)
-			{
-				Report.warning("Po vejici ni nobenega expressiona.",simbol.getPosition());
+			if (absExpr == null) {
+				Report.warning("Po vejici ni nobenega expressiona.",
+						simbol.getPosition());
 				throw new ParseException();
 			}
 			vectorIzrazov.add(absExpr);
