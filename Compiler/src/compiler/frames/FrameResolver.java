@@ -74,19 +74,19 @@ public class FrameResolver implements Visitor {
 	
 	public void visit(AbsFunCall acceptor) {
 		Frame frame = frms.peek();
-		frame.ensureOutArgsSize(acceptor.args.exprs.size() * 4 + 4);
+		frame.ensureOutArgsSize(acceptor.args.exprs.size() * 4 + 4);//TODO: zakaj še +4
 		for (AbsExpr arg: acceptor.args.exprs) arg.accept(this);
 	}
 	
 	public void visit(AbsFunDecl acceptor) {
 		Frame frame = frms.peek();
-		Frame newFrame = new Frame(acceptor.name.identifier.getLexeme(), frame.level + 1);
+		Frame newFrame = new Frame(acceptor.name.identifier.getLexeme(), frame.getLevel() + 1);
 		setFrame(acceptor, newFrame);
 		frms.push(newFrame);
 		int offset = +4;
 		for (AbsDecl decl: acceptor.pars.decls) {
 			AbsVarDecl varDecl = (AbsVarDecl) decl;
-			Access access = new Access(frame.level, offset); offset += 4;
+			Access access = new Access(frame.getLevel()+1, offset); offset += 4;//TODO: ali so deklaracije funkcije na istem levelu kot so deklaracije znotraj funkcije?
 			setAccess(varDecl, access);
 		}
 		acceptor.type.accept(this);
@@ -133,7 +133,7 @@ public class FrameResolver implements Visitor {
 		Frame frame = frms.peek();
 		SemType type = TypeResolver.getType(acceptor);
 		int offset = frame.addVariable(type.size());
-		Access access = new Access(frame.level, offset);
+		Access access = new Access(frame.getLevel(), offset);
 		setAccess(acceptor, access);
 		acceptor.type.accept(this);
 	}

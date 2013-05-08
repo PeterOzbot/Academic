@@ -4,58 +4,79 @@ import java.io.*;
 
 import compiler.*;
 
-/** Opis klicnega zapisa.  */
+/** Opis klicnega zapisa. */
 public class Frame implements XMLable {
-	
+
 	/** Labela funkcije. */
 	public Label label;
-	
-	/** Staticni nivo funkcije tega zapisa.  */
-	public int level;
-	
+
+	/** Staticni nivo funkcije tega zapisa. */
+	private int _level;
+
+	public void setLevel(int level) {
+		_level = level;
+	}
+
+	public int getLevel() {
+		return _level;
+	}
+
 	/** Odmik za shranjevanje FPja. */
 	public int oldFPoffset;
-	
+
 	/** Odmik za shranjevanje povratnega naslova. */
 	public int oldRAoffset;
-	
+
 	/** Velikost izhodnih argumentov. */
 	private int outArgsSize;
-	
+
 	/** Velikost klicnega zapisa. */
-	public int size;
-	
+	private int _size;
+
+	public void setSize(int size) {
+		_size = size;
+	}
+
+	public int getSize() {
+		return _size;
+	}
+
 	public Frame(String name, int level) {
 		this.label = new Label(name);
-		this.level = level;
+		this._level = level;
 		oldFPoffset = -4;
 		oldRAoffset = -8;
 		outArgsSize = 0;
-		size = 8;
+		_size = 8;
 	}
-	
-	/** Doda novo spremenljivko v klicni zapis in vrne njen odmik.
+
+	/**
+	 * Doda novo spremenljivko v klicni zapis in vrne njen odmik.
 	 * 
-	 * @param size Velikost nove spremenljivke v bytih.
+	 * @param size
+	 *            Velikost nove spremenljivke v bytih.
 	 * @return Odmik nove spremenljivke v bytih.
 	 */
 	public int addVariable(int size) {
-		int offset = this.size - 8;
+		int offset = 4 - this._size;
 		oldFPoffset -= size;
 		oldRAoffset -= size;
-		this.size += size;
+		this._size += size;
 		return offset;
 	}
-	
+
 	public void ensureOutArgsSize(int outArgsSize) {
-		if (outArgsSize <= this.outArgsSize) return;
+		if (outArgsSize <= this.outArgsSize)
+			return;
 		int diff = outArgsSize - this.outArgsSize;
 		this.outArgsSize += diff;
-		this.size += diff;
+		this._size += diff;
 	}
-	
+
 	public void toXML(PrintStream xml) {
-		xml.print("<frmframe label=\"" + label.label + "\" level=\"" + level + "\" fp=\"" + oldFPoffset + "\" ra=\"" + oldRAoffset + "\" size=\"" + size + "\"/>");
+		xml.print("<frmframe label=\"" + label.label + "\" level=\"" + _level
+				+ "\" fp=\"" + oldFPoffset + "\" ra=\"" + oldRAoffset
+				+ "\" size=\"" + _size + "\"/>");
 	}
 
 }
