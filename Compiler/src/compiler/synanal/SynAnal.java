@@ -38,6 +38,7 @@ public class SynAnal {
 	private LexAnal lexer;
 
 	private Symbol symbol;
+	private Symbol _previousSymbol;
 
 	/** Ustvari nov sintaksni analizator. */
 	public SynAnal(LexAnal lexer, PrintStream xml) {
@@ -60,6 +61,10 @@ public class SynAnal {
 			if (symbol != null)
 				throw new ParseException();
 		} catch (ParseException exception) {
+			if(symbol == null)
+			{
+				Report.error("Syntax error. Unfinished, missing atleast one symbol. Position is for last known symbol.", _previousSymbol.getPosition(), -1);
+			}else
 			Report.error("Syntax error.", symbol.getPosition(), -1);
 		}
 		return abstraktnoDrevo;
@@ -1312,6 +1317,7 @@ public class SynAnal {
 		if (xml != null)
 			skippedSymbol.toXML(xml);
 		symbol = lexer.getNextSymbol();
+		_previousSymbol = skippedSymbol;
 		return skippedSymbol;
 	}
 

@@ -33,6 +33,9 @@ public class Frame implements XMLable {
 	/** Velikost klicnega zapisa. */
 	private int _size;
 
+	// pozicija zadnje lokalne spremenljivke
+	private int _localVariableSize;
+
 	public void setSize(int size) {
 		_size = size;
 	}
@@ -48,6 +51,7 @@ public class Frame implements XMLable {
 		oldRAoffset = -8;
 		outArgsSize = 0;
 		_size = 8;
+		_localVariableSize = 0;
 	}
 
 	/**
@@ -58,7 +62,7 @@ public class Frame implements XMLable {
 	 * @return Odmik nove spremenljivke v bytih.
 	 */
 	public int addVariable(int size) {
-		int offset = 4 - this._size;
+		int offset = _localVariableSize = _localVariableSize - size;
 		oldFPoffset -= size;
 		oldRAoffset -= size;
 		this._size += size;
