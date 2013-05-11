@@ -17,12 +17,14 @@ public class Report {
 	/** Izpise obvestilo o napaki in konca izvajanje programa.  */
 	public static void error(String msg, int exitCode) {
 		System.err.println(":-( " + msg);
+		Thread.dumpStack();
 		System.exit(exitCode);
 	}
 	
 	/** Izpise obvestilo o napaki, ki je vezano na del vhodne datoteke, in konca izvajanje programa.  */
 	public static void error(String msg, Position position, int exitCode) {
 		System.err.println(":-( " + position + " " + msg);
+		Thread.dumpStack();
 		System.exit(exitCode);
 	}
 	
@@ -30,5 +32,4 @@ public class Report {
 	public static void information(String msg, Position position) {
 		System.out.println(":-| " + position + " " + msg );
 	}
-	
 }

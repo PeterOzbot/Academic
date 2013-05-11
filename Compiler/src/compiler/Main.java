@@ -11,7 +11,7 @@ public class Main {
 			Report.error("No file name specified.", 1);
 			break;
 		case 1:
-			compiler.frames.Main.main(args[0]);
+			compiler.imcode.Main.main(args[0]);
 			break;
 		case 2:
 			if (args[1].equals("lexanal")) compiler.lexanal.Main.main(args[0]); else
@@ -19,6 +19,7 @@ public class Main {
 			if (args[1].equals("abstree")) compiler.abstree.Main.main(args[0]); else
 			if (args[1].equals("semanal")) compiler.semanal.Main.main(args[0]); else
 			if (args[1].equals("frames" )) compiler.frames .Main.main(args[0]); else
+			if (args[1].equals("imcode" )) compiler.imcode .Main.main(args[0]); else
 			{
 				Report.warning("Illegal compiler phase specified.");
 				compiler.abstree.Main.main(args[0]);

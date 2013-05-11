@@ -12,6 +12,10 @@ public class Label implements XMLable {
 	/** Ime labele. */
 	public String label;
 
+	public Label(String count, String name) {
+		label = "L" + count + "::" + name;
+	}
+	
 	public Label(String name) {
 		label = "L" + (labelCounter++) + "::" + name;
 	}
