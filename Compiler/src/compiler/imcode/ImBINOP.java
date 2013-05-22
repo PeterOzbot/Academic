@@ -42,7 +42,22 @@ public class ImBINOP extends ImCode {
 	public static final int GTHs = 29;
 	public static final int LEQs = 30;
 	public static final int GEQs = 31;
-
+	
+	public static final int EQU = 32;
+	public static final int NEQ = 33;
+	public static final int LTH = 34;
+	public static final int GTH = 35;
+	public static final int LEQ = 36;
+	public static final int GEQ = 37;
+	public static final int ADD = 38;
+	public static final int SUB = 39;
+	public static final int MUL = 40;
+	public static final int DIV = 41;
+	public static final int MOD = 42;
+	
+	public static final int ARR = 43;
+	public static final int REC = 44;
+	
 	public final int oper;
 	
 	public final ImCode fstSubExpr;

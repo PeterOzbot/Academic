@@ -6,11 +6,11 @@ import compiler.lexanal.*;
 /** Atomarni izraz (konstanta osnovnega podatkovnega tipa). */
 public class AbsAtomExpr extends AbsExpr {
 
-	public static final int INT    = 0;
-	public static final int REAL   = 1;
-	public static final int BOOL   = 2;
+	public static final int INT = 0;
+	public static final int REAL = 1;
+	public static final int BOOL = 2;
 	public static final int STRING = 3;
-	public static final int VOID   = 4;
+	public static final int VOID = 4;
 
 	/** Konstanta. */
 	public final Symbol expr;
@@ -32,6 +32,9 @@ public class AbsAtomExpr extends AbsExpr {
 			}
 	}
 
+	/**
+	 * Pretvori tip simbola(staticno enumeracijo) v tip tega razreda(staticno enumeracijo)
+	 */
 	public int GetType() {
 		if (expr == null)
 			return VOID;

@@ -6,6 +6,9 @@ import compiler.Report;
 
 /** Leksikalni analizator. */
 public class LexAnal {
+	// constante
+	public static String True ="true";
+	public static String False ="false";
 	// nastavitve
 	private final Boolean REPORT_COMMENT = false;
 	private final Boolean REPORT_SYMBOL = false;
@@ -938,7 +941,7 @@ public class LexAnal {
 		if (simbol.equals("string")) {
 			return new Symbol(Symbol.STRING, simbol, _position.clone());
 		}
-		if (simbol.equals("true") || simbol.equals("false")) {
+		if (simbol.equals(True) || simbol.equals(False)) {
 			return new Symbol(Symbol.BOOLCONST, simbol, _position.clone());
 		}
 		if (simbol.matches(STRING_REGEX)) {

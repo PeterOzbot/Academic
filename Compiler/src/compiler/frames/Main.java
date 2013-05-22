@@ -4,6 +4,7 @@ import java.io.*;
 
 import compiler.*;
 import compiler.lexanal.*;
+import compiler.semanal.ConstExprEvaluator;
 import compiler.synanal.*;
 import compiler.abstree.*;
 
@@ -19,7 +20,7 @@ public class Main {
 				
 				SynAnal parser = new SynAnal(lexer, null);
 				AbsTree absTree = parser.parse();
-				absTree.accept(new compiler.semanal.ConstExprEvaluator());
+				absTree.accept(new ConstExprEvaluator());
 				absTree.accept(new compiler.semanal.DeclarationResolver());
 				absTree.accept(new compiler.semanal.TypeResolver());
 				absTree.accept(new compiler.frames.FrameResolver());

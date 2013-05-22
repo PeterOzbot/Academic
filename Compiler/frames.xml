@@ -2,408 +2,37 @@
 <?xml-stylesheet type="text/xsl" href="D:\Programiranje\Repositories\Git\Academic\Compiler\xsl/frames.xsl"?>
 <frames>
 <absnode node="Exprs">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="4" begColumn="1" endLine="9" endColumn="153"/>
+<position filename="C:\Users\Validus\Desktop\Proteus\P_07-ImCode-2.txt" begLine="11" begColumn="3" endLine="11" endColumn="125"/>
 <absnode node="WhereExpr">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="4" begColumn="1" endLine="9" endColumn="153"/>
-<absnode node="FunCall">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="4" begColumn="1" endLine="4" endColumn="20"/>
-<absnode node="ExprName">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="4" begColumn="1" endLine="4" endColumn="1"/>
-<symbol token="IDENTIFIER"  lexeme="f">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="4" begColumn="1" endLine="4" endColumn="1"/>
-</symbol>
-<semdeclpos>
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="1" endLine="9" endColumn="153"/>
-</semdeclpos>
-</absnode>
+<position filename="C:\Users\Validus\Desktop\Proteus\P_07-ImCode-2.txt" begLine="11" begColumn="3" endLine="11" endColumn="125"/>
 <absnode node="Exprs">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="4" begColumn="3" endLine="4" endColumn="20"/>
-<absnode node="AtomExpr">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="4" begColumn="3" endLine="4" endColumn="3"/>
-<symbol token="INTCONST"    lexeme="1">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="4" begColumn="3" endLine="4" endColumn="3"/>
-</symbol>
-<semintvalue value="1"/>
-<semtype type="INT"/>
-</absnode>
-<absnode node="AtomExpr">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="4" begColumn="5" endLine="4" endColumn="8"/>
-<symbol token="BOOLCONST"   lexeme="true">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="4" begColumn="5" endLine="4" endColumn="8"/>
-</symbol>
-<semtype type="BOOL"/>
-</absnode>
+<position filename="C:\Users\Validus\Desktop\Proteus\P_07-ImCode-2.txt" begLine="11" begColumn="3" endLine="11" endColumn="69"/>
+<absnode node="AssignStmt">
+<position filename="C:\Users\Validus\Desktop\Proteus\P_07-ImCode-2.txt" begLine="11" begColumn="3" endLine="11" endColumn="9"/>
 <absnode node="ExprName">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="4" begColumn="10" endLine="4" endColumn="10"/>
+<position filename="C:\Users\Validus\Desktop\Proteus\P_07-ImCode-2.txt" begLine="11" begColumn="3" endLine="11" endColumn="3"/>
 <symbol token="IDENTIFIER"  lexeme="a">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="4" begColumn="10" endLine="4" endColumn="10"/>
+<position filename="C:\Users\Validus\Desktop\Proteus\P_07-ImCode-2.txt" begLine="11" begColumn="3" endLine="11" endColumn="3"/>
 </symbol>
 <semdeclpos>
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="6" begColumn="1" endLine="6" endColumn="8"/>
+<position filename="C:\Users\Validus\Desktop\Proteus\P_07-ImCode-2.txt" begLine="11" begColumn="79" endLine="11" endColumn="87"/>
 </semdeclpos>
-<semtype type="ARR" value="10">
 <semtype type="INT"/>
-</semtype>
 </absnode>
+<absnode node="BinExpr" value="ADD">
+<position filename="C:\Users\Validus\Desktop\Proteus\P_07-ImCode-2.txt" begLine="11" begColumn="7" endLine="11" endColumn="9"/>
 <absnode node="AtomExpr">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="4" begColumn="12" endLine="4" endColumn="12"/>
+<position filename="C:\Users\Validus\Desktop\Proteus\P_07-ImCode-2.txt" begLine="11" begColumn="7" endLine="11" endColumn="7"/>
 <symbol token="INTCONST"    lexeme="1">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="4" begColumn="12" endLine="4" endColumn="12"/>
-</symbol>
-<semintvalue value="1"/>
-<semtype type="INT"/>
-</absnode>
-<absnode node="ExprName">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="4" begColumn="14" endLine="4" endColumn="20"/>
-<symbol token="IDENTIFIER"  lexeme="record2">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="4" begColumn="14" endLine="4" endColumn="20"/>
-</symbol>
-<semdeclpos>
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="7" begColumn="1" endLine="7" endColumn="37"/>
-</semdeclpos>
-<semtype type="REC">
-<semtype type="INT"/>
-<semtype type="NAME" value="aa"/>
-<semtype type="INT"/>
-</semtype>
-</absnode>
-<semtype type="REC">
-<semtype type="INT"/>
-<semtype type="NAME" value="aa"/>
-<semtype type="INT"/>
-</semtype>
-</absnode>
-<semtype type="INT"/>
-</absnode>
-<absnode node="Decls">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="5" begColumn="1" endLine="9" endColumn="153"/>
-<absnode node="TypDecl">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="5" begColumn="1" endLine="5" endColumn="17"/>
-<absnode node="TypeName">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="5" begColumn="5" endLine="5" endColumn="6"/>
-<symbol token="IDENTIFIER"  lexeme="aa">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="5" begColumn="5" endLine="5" endColumn="6"/>
-</symbol>
-</absnode>
-<absnode node="ArrType">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="5" begColumn="8" endLine="5" endColumn="17"/>
-<absnode node="AtomType" value="INT">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="5" begColumn="15" endLine="5" endColumn="17"/>
-<semtype type="INT"/>
-</absnode>
-<absnode node="AtomExpr">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="5" begColumn="12" endLine="5" endColumn="13"/>
-<symbol token="INTCONST"    lexeme="10">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="5" begColumn="12" endLine="5" endColumn="13"/>
-</symbol>
-<semintvalue value="10"/>
-</absnode>
-<semtype type="ARR" value="10">
-<semtype type="INT"/>
-</semtype>
-</absnode>
-<semtype type="ARR" value="10">
-<semtype type="INT"/>
-</semtype>
-</absnode>
-<absnode node="VarDecl">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="6" begColumn="1" endLine="6" endColumn="8"/>
-<absnode node="ExprName">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="6" begColumn="5" endLine="6" endColumn="5"/>
-<symbol token="IDENTIFIER"  lexeme="a">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="6" begColumn="5" endLine="6" endColumn="5"/>
-</symbol>
-</absnode>
-<absnode node="TypeName">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="6" begColumn="7" endLine="6" endColumn="8"/>
-<symbol token="IDENTIFIER"  lexeme="aa">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="6" begColumn="7" endLine="6" endColumn="8"/>
-</symbol>
-<semdeclpos>
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="5" begColumn="1" endLine="5" endColumn="17"/>
-</semdeclpos>
-<semtype type="NAME" value="aa"/>
-</absnode>
-<semtype type="NAME" value="aa"/>
-<frmaccess level="0" offset="-40"/></absnode>
-<absnode node="VarDecl">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="7" begColumn="1" endLine="7" endColumn="37"/>
-<absnode node="ExprName">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="7" begColumn="5" endLine="7" endColumn="11"/>
-<symbol token="IDENTIFIER"  lexeme="record2">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="7" begColumn="5" endLine="7" endColumn="11"/>
-</symbol>
-</absnode>
-<absnode node="RecType">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="7" begColumn="13" endLine="7" endColumn="37"/>
-<absnode node="Decls">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="7" begColumn="17" endLine="7" endColumn="36"/>
-<absnode node="VarDecl">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="7" begColumn="17" endLine="7" endColumn="21"/>
-<absnode node="ExprName">
-<symbol token="IDENTIFIER"  lexeme="i">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="7" begColumn="17" endLine="7" endColumn="17"/>
-</symbol>
-</absnode>
-<absnode node="AtomType" value="INT">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="7" begColumn="19" endLine="7" endColumn="21"/>
-<semtype type="INT"/>
-</absnode>
-<semtype type="INT"/>
-<frmaccess level="-1" offset="0"/></absnode>
-<absnode node="VarDecl">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="7" begColumn="23" endLine="7" endColumn="30"/>
-<absnode node="ExprName">
-<symbol token="IDENTIFIER"  lexeme="array">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="7" begColumn="23" endLine="7" endColumn="27"/>
-</symbol>
-</absnode>
-<absnode node="TypeName">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="7" begColumn="29" endLine="7" endColumn="30"/>
-<symbol token="IDENTIFIER"  lexeme="aa">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="7" begColumn="29" endLine="7" endColumn="30"/>
-</symbol>
-<semdeclpos>
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="5" begColumn="1" endLine="5" endColumn="17"/>
-</semdeclpos>
-<semtype type="NAME" value="aa"/>
-</absnode>
-<semtype type="NAME" value="aa"/>
-<frmaccess level="-1" offset="4"/></absnode>
-<absnode node="VarDecl">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="7" begColumn="32" endLine="7" endColumn="36"/>
-<absnode node="ExprName">
-<symbol token="IDENTIFIER"  lexeme="l">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="7" begColumn="32" endLine="7" endColumn="32"/>
-</symbol>
-</absnode>
-<absnode node="AtomType" value="INT">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="7" begColumn="34" endLine="7" endColumn="36"/>
-<semtype type="INT"/>
-</absnode>
-<semtype type="INT"/>
-<frmaccess level="-1" offset="44"/></absnode>
-</absnode>
-<semtype type="REC">
-<semtype type="INT"/>
-<semtype type="NAME" value="aa"/>
-<semtype type="INT"/>
-</semtype>
-</absnode>
-<semtype type="REC">
-<semtype type="INT"/>
-<semtype type="NAME" value="aa"/>
-<semtype type="INT"/>
-</semtype>
-<frmaccess level="0" offset="-88"/></absnode>
-<absnode node="VarDecl">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="8" begColumn="1" endLine="8" endColumn="10"/>
-<absnode node="ExprName">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="8" begColumn="5" endLine="8" endColumn="5"/>
-<symbol token="IDENTIFIER"  lexeme="p">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="8" begColumn="5" endLine="8" endColumn="5"/>
-</symbol>
-</absnode>
-<absnode node="AtomType" value="REAL">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="8" begColumn="7" endLine="8" endColumn="10"/>
-<semtype type="REAL"/>
-</absnode>
-<semtype type="REAL"/>
-<frmaccess level="0" offset="-92"/></absnode>
-<absnode node="FunDecl">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="1" endLine="9" endColumn="153"/>
-<absnode node="ExprName">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="5" endLine="9" endColumn="5"/>
-<symbol token="IDENTIFIER"  lexeme="f">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="5" endLine="9" endColumn="5"/>
-</symbol>
-</absnode>
-<absnode node="Decls">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="7" endLine="9" endColumn="63"/>
-<absnode node="VarDecl">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="7" endLine="9" endColumn="11"/>
-<absnode node="ExprName">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="7" endLine="9" endColumn="7"/>
-<symbol token="IDENTIFIER"  lexeme="i">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="7" endLine="9" endColumn="7"/>
-</symbol>
-</absnode>
-<absnode node="AtomType" value="INT">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="9" endLine="9" endColumn="11"/>
-<semtype type="INT"/>
-</absnode>
-<semtype type="INT"/>
-<frmaccess level="1" offset="4"/></absnode>
-<absnode node="VarDecl">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="13" endLine="9" endColumn="18"/>
-<absnode node="ExprName">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="13" endLine="9" endColumn="13"/>
-<symbol token="IDENTIFIER"  lexeme="j">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="13" endLine="9" endColumn="13"/>
-</symbol>
-</absnode>
-<absnode node="AtomType" value="BOOL">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="15" endLine="9" endColumn="18"/>
-<semtype type="BOOL"/>
-</absnode>
-<semtype type="BOOL"/>
-<frmaccess level="1" offset="8"/></absnode>
-<absnode node="VarDecl">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="20" endLine="9" endColumn="23"/>
-<absnode node="ExprName">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="20" endLine="9" endColumn="20"/>
-<symbol token="IDENTIFIER"  lexeme="k">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="20" endLine="9" endColumn="20"/>
-</symbol>
-</absnode>
-<absnode node="TypeName">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="22" endLine="9" endColumn="23"/>
-<symbol token="IDENTIFIER"  lexeme="aa">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="22" endLine="9" endColumn="23"/>
-</symbol>
-<semdeclpos>
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="5" begColumn="1" endLine="5" endColumn="17"/>
-</semdeclpos>
-<semtype type="NAME" value="aa"/>
-</absnode>
-<semtype type="NAME" value="aa"/>
-<frmaccess level="1" offset="12"/></absnode>
-<absnode node="VarDecl">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="25" endLine="9" endColumn="29"/>
-<absnode node="ExprName">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="25" endLine="9" endColumn="25"/>
-<symbol token="IDENTIFIER"  lexeme="o">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="25" endLine="9" endColumn="25"/>
-</symbol>
-</absnode>
-<absnode node="AtomType" value="INT">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="27" endLine="9" endColumn="29"/>
-<semtype type="INT"/>
-</absnode>
-<semtype type="INT"/>
-<frmaccess level="1" offset="52"/></absnode>
-<absnode node="VarDecl">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="31" endLine="9" endColumn="63"/>
-<absnode node="ExprName">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="31" endLine="9" endColumn="37"/>
-<symbol token="IDENTIFIER"  lexeme="record1">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="31" endLine="9" endColumn="37"/>
-</symbol>
-</absnode>
-<absnode node="RecType">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="39" endLine="9" endColumn="63"/>
-<absnode node="Decls">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="43" endLine="9" endColumn="62"/>
-<absnode node="VarDecl">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="43" endLine="9" endColumn="47"/>
-<absnode node="ExprName">
-<symbol token="IDENTIFIER"  lexeme="i">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="43" endLine="9" endColumn="43"/>
-</symbol>
-</absnode>
-<absnode node="AtomType" value="INT">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="45" endLine="9" endColumn="47"/>
-<semtype type="INT"/>
-</absnode>
-<semtype type="INT"/>
-</absnode>
-<absnode node="VarDecl">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="49" endLine="9" endColumn="56"/>
-<absnode node="ExprName">
-<symbol token="IDENTIFIER"  lexeme="array">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="49" endLine="9" endColumn="53"/>
-</symbol>
-</absnode>
-<absnode node="TypeName">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="55" endLine="9" endColumn="56"/>
-<symbol token="IDENTIFIER"  lexeme="aa">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="55" endLine="9" endColumn="56"/>
-</symbol>
-<semdeclpos>
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="5" begColumn="1" endLine="5" endColumn="17"/>
-</semdeclpos>
-<semtype type="NAME" value="aa"/>
-</absnode>
-<semtype type="NAME" value="aa"/>
-</absnode>
-<absnode node="VarDecl">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="58" endLine="9" endColumn="62"/>
-<absnode node="ExprName">
-<symbol token="IDENTIFIER"  lexeme="l">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="58" endLine="9" endColumn="58"/>
-</symbol>
-</absnode>
-<absnode node="AtomType" value="INT">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="60" endLine="9" endColumn="62"/>
-<semtype type="INT"/>
-</absnode>
-<semtype type="INT"/>
-</absnode>
-</absnode>
-<semtype type="REC">
-<semtype type="INT"/>
-<semtype type="NAME" value="aa"/>
-<semtype type="INT"/>
-</semtype>
-</absnode>
-<semtype type="REC">
-<semtype type="INT"/>
-<semtype type="NAME" value="aa"/>
-<semtype type="INT"/>
-</semtype>
-<frmaccess level="1" offset="56"/></absnode>
-</absnode>
-<absnode node="AtomType" value="INT">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="66" endLine="9" endColumn="68"/>
-<semtype type="INT"/>
-</absnode>
-<absnode node="WhereExpr">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="71" endLine="9" endColumn="151"/>
-<absnode node="Exprs">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="71" endLine="9" endColumn="97"/>
-<absnode node="BinExpr" value="ADD">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="71" endLine="9" endColumn="97"/>
-<absnode node="ExprName">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="71" endLine="9" endColumn="71"/>
-<symbol token="IDENTIFIER"  lexeme="i">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="71" endLine="9" endColumn="71"/>
-</symbol>
-<semdeclpos>
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="7" endLine="9" endColumn="11"/>
-</semdeclpos>
-<semtype type="INT"/>
-</absnode>
-<absnode node="FunCall">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="73" endLine="9" endColumn="97"/>
-<absnode node="ExprName">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="73" endLine="9" endColumn="73"/>
-<symbol token="IDENTIFIER"  lexeme="f">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="73" endLine="9" endColumn="73"/>
-</symbol>
-<semdeclpos>
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="1" endLine="9" endColumn="153"/>
-</semdeclpos>
-</absnode>
-<absnode node="Exprs">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="75" endLine="9" endColumn="97"/>
-<absnode node="BinExpr" value="ADD">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="75" endLine="9" endColumn="81"/>
-<absnode node="BinExpr" value="ADD">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="75" endLine="9" endColumn="79"/>
-<absnode node="BinExpr" value="ADD">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="75" endLine="9" endColumn="77"/>
-<absnode node="AtomExpr">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="75" endLine="9" endColumn="75"/>
-<symbol token="INTCONST"    lexeme="1">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="75" endLine="9" endColumn="75"/>
+<position filename="C:\Users\Validus\Desktop\Proteus\P_07-ImCode-2.txt" begLine="11" begColumn="7" endLine="11" endColumn="7"/>
 </symbol>
 <semintvalue value="1"/>
 <semtype type="INT"/>
 </absnode>
 <absnode node="AtomExpr">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="77" endLine="9" endColumn="77"/>
+<position filename="C:\Users\Validus\Desktop\Proteus\P_07-ImCode-2.txt" begLine="11" begColumn="9" endLine="11" endColumn="9"/>
 <symbol token="INTCONST"    lexeme="2">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="77" endLine="9" endColumn="77"/>
+<position filename="C:\Users\Validus\Desktop\Proteus\P_07-ImCode-2.txt" begLine="11" begColumn="9" endLine="11" endColumn="9"/>
 </symbol>
 <semintvalue value="2"/>
 <semtype type="INT"/>
@@ -411,181 +40,166 @@
 <semintvalue value="3"/>
 <semtype type="INT"/>
 </absnode>
-<absnode node="AtomExpr">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="79" endLine="9" endColumn="79"/>
-<symbol token="INTCONST"    lexeme="3">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="79" endLine="9" endColumn="79"/>
+<semtype type="INT"/>
+</absnode>
+<absnode node="AssignStmt">
+<position filename="C:\Users\Validus\Desktop\Proteus\P_07-ImCode-2.txt" begLine="11" begColumn="14" endLine="11" endColumn="24"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\Proteus\P_07-ImCode-2.txt" begLine="11" begColumn="14" endLine="11" endColumn="14"/>
+<symbol token="IDENTIFIER"  lexeme="b">
+<position filename="C:\Users\Validus\Desktop\Proteus\P_07-ImCode-2.txt" begLine="11" begColumn="14" endLine="11" endColumn="14"/>
 </symbol>
-<semintvalue value="3"/>
-<semtype type="INT"/>
+<semdeclpos>
+<position filename="C:\Users\Validus\Desktop\Proteus\P_07-ImCode-2.txt" begLine="11" begColumn="90" endLine="11" endColumn="99"/>
+</semdeclpos>
+<semtype type="REAL"/>
 </absnode>
-<semintvalue value="6"/>
-<semtype type="INT"/>
-</absnode>
+<absnode node="BinExpr" value="ADD">
+<position filename="C:\Users\Validus\Desktop\Proteus\P_07-ImCode-2.txt" begLine="11" begColumn="17" endLine="11" endColumn="24"/>
 <absnode node="AtomExpr">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="81" endLine="9" endColumn="81"/>
-<symbol token="INTCONST"    lexeme="4">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="81" endLine="9" endColumn="81"/>
+<position filename="C:\Users\Validus\Desktop\Proteus\P_07-ImCode-2.txt" begLine="11" begColumn="17" endLine="11" endColumn="19"/>
+<symbol token="REALCONST"   lexeme="1.2">
+<position filename="C:\Users\Validus\Desktop\Proteus\P_07-ImCode-2.txt" begLine="11" begColumn="17" endLine="11" endColumn="19"/>
 </symbol>
-<semintvalue value="4"/>
-<semtype type="INT"/>
-</absnode>
-<semintvalue value="10"/>
-<semtype type="INT"/>
+<semtype type="REAL"/>
 </absnode>
 <absnode node="AtomExpr">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="83" endLine="9" endColumn="86"/>
+<position filename="C:\Users\Validus\Desktop\Proteus\P_07-ImCode-2.txt" begLine="11" begColumn="22" endLine="11" endColumn="24"/>
+<symbol token="REALCONST"   lexeme="2.3">
+<position filename="C:\Users\Validus\Desktop\Proteus\P_07-ImCode-2.txt" begLine="11" begColumn="22" endLine="11" endColumn="24"/>
+</symbol>
+<semtype type="REAL"/>
+</absnode>
+<semtype type="REAL"/>
+</absnode>
+<semtype type="REAL"/>
+</absnode>
+<absnode node="AssignStmt">
+<position filename="C:\Users\Validus\Desktop\Proteus\P_07-ImCode-2.txt" begLine="11" begColumn="29" endLine="11" endColumn="36"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\Proteus\P_07-ImCode-2.txt" begLine="11" begColumn="29" endLine="11" endColumn="29"/>
+<symbol token="IDENTIFIER"  lexeme="c">
+<position filename="C:\Users\Validus\Desktop\Proteus\P_07-ImCode-2.txt" begLine="11" begColumn="29" endLine="11" endColumn="29"/>
+</symbol>
+<semdeclpos>
+<position filename="C:\Users\Validus\Desktop\Proteus\P_07-ImCode-2.txt" begLine="11" begColumn="102" endLine="11" endColumn="111"/>
+</semdeclpos>
+<semtype type="BOOL"/>
+</absnode>
+<absnode node="AtomExpr">
+<position filename="C:\Users\Validus\Desktop\Proteus\P_07-ImCode-2.txt" begLine="11" begColumn="33" endLine="11" endColumn="36"/>
 <symbol token="BOOLCONST"   lexeme="true">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="83" endLine="9" endColumn="86"/>
+<position filename="C:\Users\Validus\Desktop\Proteus\P_07-ImCode-2.txt" begLine="11" begColumn="33" endLine="11" endColumn="36"/>
 </symbol>
 <semtype type="BOOL"/>
 </absnode>
+<semtype type="BOOL"/>
+</absnode>
+<absnode node="AssignStmt">
+<position filename="C:\Users\Validus\Desktop\Proteus\P_07-ImCode-2.txt" begLine="11" begColumn="41" endLine="11" endColumn="49"/>
 <absnode node="ExprName">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="88" endLine="9" endColumn="88"/>
-<symbol token="IDENTIFIER"  lexeme="b">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="88" endLine="9" endColumn="88"/>
+<position filename="C:\Users\Validus\Desktop\Proteus\P_07-ImCode-2.txt" begLine="11" begColumn="41" endLine="11" endColumn="41"/>
+<symbol token="IDENTIFIER"  lexeme="c">
+<position filename="C:\Users\Validus\Desktop\Proteus\P_07-ImCode-2.txt" begLine="11" begColumn="41" endLine="11" endColumn="41"/>
 </symbol>
 <semdeclpos>
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="107" endLine="9" endColumn="114"/>
+<position filename="C:\Users\Validus\Desktop\Proteus\P_07-ImCode-2.txt" begLine="11" begColumn="102" endLine="11" endColumn="111"/>
 </semdeclpos>
-<semtype type="ARR" value="10">
-<semtype type="INT"/>
-</semtype>
+<semtype type="BOOL"/>
 </absnode>
 <absnode node="AtomExpr">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="90" endLine="9" endColumn="90"/>
-<symbol token="INTCONST"    lexeme="1">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="90" endLine="9" endColumn="90"/>
+<position filename="C:\Users\Validus\Desktop\Proteus\P_07-ImCode-2.txt" begLine="11" begColumn="45" endLine="11" endColumn="49"/>
+<symbol token="BOOLCONST"   lexeme="false">
+<position filename="C:\Users\Validus\Desktop\Proteus\P_07-ImCode-2.txt" begLine="11" begColumn="45" endLine="11" endColumn="49"/>
 </symbol>
-<semintvalue value="1"/>
-<semtype type="INT"/>
+<semtype type="BOOL"/>
 </absnode>
+<semtype type="BOOL"/>
+</absnode>
+<absnode node="AssignStmt">
+<position filename="C:\Users\Validus\Desktop\Proteus\P_07-ImCode-2.txt" begLine="11" begColumn="53" endLine="11" endColumn="69"/>
 <absnode node="ExprName">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="92" endLine="9" endColumn="97"/>
-<symbol token="IDENTIFIER"  lexeme="record">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="92" endLine="9" endColumn="97"/>
+<position filename="C:\Users\Validus\Desktop\Proteus\P_07-ImCode-2.txt" begLine="11" begColumn="53" endLine="11" endColumn="53"/>
+<symbol token="IDENTIFIER"  lexeme="d">
+<position filename="C:\Users\Validus\Desktop\Proteus\P_07-ImCode-2.txt" begLine="11" begColumn="53" endLine="11" endColumn="53"/>
 </symbol>
 <semdeclpos>
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="116" endLine="9" endColumn="151"/>
+<position filename="C:\Users\Validus\Desktop\Proteus\P_07-ImCode-2.txt" begLine="11" begColumn="114" endLine="11" endColumn="125"/>
 </semdeclpos>
-<semtype type="REC">
-<semtype type="INT"/>
-<semtype type="NAME" value="aa"/>
-<semtype type="INT"/>
-</semtype>
+<semtype type="STRING"/>
 </absnode>
-<semtype type="REC">
-<semtype type="INT"/>
-<semtype type="NAME" value="aa"/>
-<semtype type="INT"/>
-</semtype>
+<absnode node="AtomExpr">
+<position filename="C:\Users\Validus\Desktop\Proteus\P_07-ImCode-2.txt" begLine="11" begColumn="55" endLine="11" endColumn="69"/>
+<symbol token="STRINGCONST" lexeme="&#34;123-456-789-0&#34;">
+<position filename="C:\Users\Validus\Desktop\Proteus\P_07-ImCode-2.txt" begLine="11" begColumn="55" endLine="11" endColumn="69"/>
+</symbol>
+<semtype type="STRING"/>
 </absnode>
-<semtype type="INT"/>
+<semtype type="STRING"/>
 </absnode>
-<semtype type="INT"/>
-</absnode>
-<semtype type="INT"/>
+<semtype type="STRING"/>
 </absnode>
 <absnode node="Decls">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="107" endLine="9" endColumn="151"/>
+<position filename="C:\Users\Validus\Desktop\Proteus\P_07-ImCode-2.txt" begLine="11" begColumn="79" endLine="11" endColumn="125"/>
 <absnode node="VarDecl">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="107" endLine="9" endColumn="114"/>
+<position filename="C:\Users\Validus\Desktop\Proteus\P_07-ImCode-2.txt" begLine="11" begColumn="79" endLine="11" endColumn="87"/>
 <absnode node="ExprName">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="111" endLine="9" endColumn="111"/>
+<position filename="C:\Users\Validus\Desktop\Proteus\P_07-ImCode-2.txt" begLine="11" begColumn="83" endLine="11" endColumn="83"/>
+<symbol token="IDENTIFIER"  lexeme="a">
+<position filename="C:\Users\Validus\Desktop\Proteus\P_07-ImCode-2.txt" begLine="11" begColumn="83" endLine="11" endColumn="83"/>
+</symbol>
+</absnode>
+<absnode node="AtomType" value="INT">
+<position filename="C:\Users\Validus\Desktop\Proteus\P_07-ImCode-2.txt" begLine="11" begColumn="85" endLine="11" endColumn="87"/>
+<semtype type="INT"/>
+</absnode>
+<semtype type="INT"/>
+<frmaccess level="0" offset="-4"/></absnode>
+<absnode node="VarDecl">
+<position filename="C:\Users\Validus\Desktop\Proteus\P_07-ImCode-2.txt" begLine="11" begColumn="90" endLine="11" endColumn="99"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\Proteus\P_07-ImCode-2.txt" begLine="11" begColumn="94" endLine="11" endColumn="94"/>
 <symbol token="IDENTIFIER"  lexeme="b">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="111" endLine="9" endColumn="111"/>
+<position filename="C:\Users\Validus\Desktop\Proteus\P_07-ImCode-2.txt" begLine="11" begColumn="94" endLine="11" endColumn="94"/>
 </symbol>
 </absnode>
-<absnode node="TypeName">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="113" endLine="9" endColumn="114"/>
-<symbol token="IDENTIFIER"  lexeme="aa">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="113" endLine="9" endColumn="114"/>
-</symbol>
-<semdeclpos>
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="5" begColumn="1" endLine="5" endColumn="17"/>
-</semdeclpos>
-<semtype type="NAME" value="aa"/>
+<absnode node="AtomType" value="REAL">
+<position filename="C:\Users\Validus\Desktop\Proteus\P_07-ImCode-2.txt" begLine="11" begColumn="96" endLine="11" endColumn="99"/>
+<semtype type="REAL"/>
 </absnode>
-<semtype type="NAME" value="aa"/>
-<frmaccess level="1" offset="-40"/></absnode>
+<semtype type="REAL"/>
+<frmaccess level="0" offset="-8"/></absnode>
 <absnode node="VarDecl">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="116" endLine="9" endColumn="151"/>
+<position filename="C:\Users\Validus\Desktop\Proteus\P_07-ImCode-2.txt" begLine="11" begColumn="102" endLine="11" endColumn="111"/>
 <absnode node="ExprName">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="120" endLine="9" endColumn="125"/>
-<symbol token="IDENTIFIER"  lexeme="record">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="120" endLine="9" endColumn="125"/>
+<position filename="C:\Users\Validus\Desktop\Proteus\P_07-ImCode-2.txt" begLine="11" begColumn="106" endLine="11" endColumn="106"/>
+<symbol token="IDENTIFIER"  lexeme="c">
+<position filename="C:\Users\Validus\Desktop\Proteus\P_07-ImCode-2.txt" begLine="11" begColumn="106" endLine="11" endColumn="106"/>
 </symbol>
 </absnode>
-<absnode node="RecType">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="127" endLine="9" endColumn="151"/>
-<absnode node="Decls">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="131" endLine="9" endColumn="150"/>
+<absnode node="AtomType" value="BOOL">
+<position filename="C:\Users\Validus\Desktop\Proteus\P_07-ImCode-2.txt" begLine="11" begColumn="108" endLine="11" endColumn="111"/>
+<semtype type="BOOL"/>
+</absnode>
+<semtype type="BOOL"/>
+<frmaccess level="0" offset="-12"/></absnode>
 <absnode node="VarDecl">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="131" endLine="9" endColumn="135"/>
+<position filename="C:\Users\Validus\Desktop\Proteus\P_07-ImCode-2.txt" begLine="11" begColumn="114" endLine="11" endColumn="125"/>
 <absnode node="ExprName">
-<symbol token="IDENTIFIER"  lexeme="i">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="131" endLine="9" endColumn="131"/>
+<position filename="C:\Users\Validus\Desktop\Proteus\P_07-ImCode-2.txt" begLine="11" begColumn="118" endLine="11" endColumn="118"/>
+<symbol token="IDENTIFIER"  lexeme="d">
+<position filename="C:\Users\Validus\Desktop\Proteus\P_07-ImCode-2.txt" begLine="11" begColumn="118" endLine="11" endColumn="118"/>
 </symbol>
 </absnode>
-<absnode node="AtomType" value="INT">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="133" endLine="9" endColumn="135"/>
-<semtype type="INT"/>
+<absnode node="AtomType" value="STRING">
+<position filename="C:\Users\Validus\Desktop\Proteus\P_07-ImCode-2.txt" begLine="11" begColumn="120" endLine="11" endColumn="125"/>
+<semtype type="STRING"/>
 </absnode>
-<semtype type="INT"/>
-<frmaccess level="-1" offset="0"/></absnode>
-<absnode node="VarDecl">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="137" endLine="9" endColumn="144"/>
-<absnode node="ExprName">
-<symbol token="IDENTIFIER"  lexeme="array">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="137" endLine="9" endColumn="141"/>
-</symbol>
+<semtype type="STRING"/>
+<frmaccess level="0" offset="-16"/></absnode>
 </absnode>
-<absnode node="TypeName">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="143" endLine="9" endColumn="144"/>
-<symbol token="IDENTIFIER"  lexeme="aa">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="143" endLine="9" endColumn="144"/>
-</symbol>
-<semdeclpos>
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="5" begColumn="1" endLine="5" endColumn="17"/>
-</semdeclpos>
-<semtype type="NAME" value="aa"/>
+<semtype type="STRING"/>
 </absnode>
-<semtype type="NAME" value="aa"/>
-<frmaccess level="-1" offset="4"/></absnode>
-<absnode node="VarDecl">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="146" endLine="9" endColumn="150"/>
-<absnode node="ExprName">
-<symbol token="IDENTIFIER"  lexeme="l">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="146" endLine="9" endColumn="146"/>
-</symbol>
-</absnode>
-<absnode node="AtomType" value="INT">
-<position filename="C:\Users\Validus\Desktop\Proteus\06-frames-2.proteus" begLine="9" begColumn="148" endLine="9" endColumn="150"/>
-<semtype type="INT"/>
-</absnode>
-<semtype type="INT"/>
-<frmaccess level="-1" offset="44"/></absnode>
-</absnode>
-<semtype type="REC">
-<semtype type="INT"/>
-<semtype type="NAME" value="aa"/>
-<semtype type="INT"/>
-</semtype>
-</absnode>
-<semtype type="REC">
-<semtype type="INT"/>
-<semtype type="NAME" value="aa"/>
-<semtype type="INT"/>
-</semtype>
-<frmaccess level="1" offset="-88"/></absnode>
-</absnode>
-<semtype type="INT"/>
-</absnode>
-<semtype type="INT"/>
-<frmframe label="L1::f" level="1" fp="-92" ra="-96" size="200"/></absnode>
-</absnode>
-<semtype type="INT"/>
-</absnode>
-<semtype type="INT"/>
+<semtype type="STRING"/>
 </absnode>
 </frames>
