@@ -82,31 +82,44 @@ public class CodeGenerator implements Visitor {
 	public void visit(AbsBinExpr acceptor) {
 		// gremo cez levi del
 		acceptor.fstSubExpr.accept(this);
-		// gremo cez desni del
-		acceptor.sndSubExpr.accept(this);
+		// gremo cez desni del ce je tipa rec ne naredimo tega
+		if (acceptor.oper != AbsBinExpr.REC)
+			acceptor.sndSubExpr.accept(this);
 
-		// dobimo ImCode za oba
+		// dobimo ImCode za oba, ce je rec ne dobimo za drugega
 		ImCode fstSubExprImCode = getCode(acceptor.fstSubExpr);
-		ImCode sndSubExprImCode = getCode(acceptor.sndSubExpr);
+		ImCode sndSubExprImCode = null;
+		if (acceptor.oper != AbsBinExpr.REC)
+			sndSubExprImCode = getCode(acceptor.sndSubExpr);
 
-		// dobimo tip za obe strani + preverimo èe sta enaka
+		// dobimo tip za obe strani + preverimo èe sta enaka, ce je rec ne
+		// dobimo drugi del in ne preverimo
 		SemType fstSubExprSemType = TypeResolver.getType(acceptor.fstSubExpr);
-		SemType sndSubExprSemType = TypeResolver.getType(acceptor.sndSubExpr);
-		if (!TypeResolver.equal(fstSubExprSemType, sndSubExprSemType)) {
-			Report.error(
-					"Internal error. AbsBinExpr.fstSubExpr and AbsBinExpr.sndSubExpr type does not match.",
-					1);
+		SemType sndSubExprSemType = null;
+		if (acceptor.oper != AbsBinExpr.REC) {
+			sndSubExprSemType = TypeResolver.getType(acceptor.sndSubExpr);
+			if (!TypeResolver.equal(fstSubExprSemType, sndSubExprSemType)) {
+				Report.error(
+						"Internal error. AbsBinExpr.fstSubExpr and AbsBinExpr.sndSubExpr type does not match.",
+						1);
+			}
 		}
 		// nastavimo zastavice kakšen tip sta(gledamo samo prvi del - morata
-		// biti ista)
-		Boolean isBool = TypeResolver.equal(fstSubExprSemType, new SemAtomType(
-				SemAtomType.BOOL));
-		Boolean isInt = TypeResolver.equal(fstSubExprSemType, new SemAtomType(
-				SemAtomType.INT));
-		Boolean isReal = TypeResolver.equal(fstSubExprSemType, new SemAtomType(
-				SemAtomType.REAL));
-		Boolean isString = TypeResolver.equal(fstSubExprSemType,
-				new SemAtomType(SemAtomType.STRING));
+		// biti ista) - ce je rec ne delamo tega
+		Boolean isBool = false;
+		Boolean isInt = false;
+		Boolean isReal = false;
+		Boolean isString = false;
+		if (acceptor.oper != AbsBinExpr.REC) {
+			isBool = TypeResolver.equal(fstSubExprSemType, new SemAtomType(
+					SemAtomType.BOOL));
+			isInt = TypeResolver.equal(fstSubExprSemType, new SemAtomType(
+					SemAtomType.INT));
+			isReal = TypeResolver.equal(fstSubExprSemType, new SemAtomType(
+					SemAtomType.REAL));
+			isString = TypeResolver.equal(fstSubExprSemType, new SemAtomType(
+					SemAtomType.STRING));
+		}
 
 		// nastavimo kodo glede na operacijo
 		switch (acceptor.GetOperand()) {
@@ -337,6 +350,17 @@ public class CodeGenerator implements Visitor {
 			CodeGenerator.setCode(acceptor, arrCode);
 			break;
 		case ImBINOP.REC:
+			// dobimo ImCode v primeru ce je SEQ - itak je lahko samo en
+			if (fstSubExprImCode instanceof ImSEQ) {
+				ImSEQ fstSubExprImSEQ = (ImSEQ) fstSubExprImCode;
+				if (fstSubExprImSEQ.codes.size() != 1) {
+					Report.error(
+							"Internal error. AbsBinExpr.fstSubExpr as REC have multiple fstSubExpr expressions. What's up with that?.",
+							1);
+				} else {
+					fstSubExprImCode = fstSubExprImSEQ.codes.firstElement();
+				}
+			}
 			// ImCode za prvi del records more bit MEM
 			if (!(fstSubExprImCode instanceof ImMEM)) {
 				Report.error(
@@ -345,17 +369,36 @@ public class CodeGenerator implements Visitor {
 			}
 			ImMEM fstSubExprRecImMEM = (ImMEM) fstSubExprImCode;
 
-			// pridobimo Access za drugi del recorda - po piki
-			AbsVarDecl varDecl = (AbsVarDecl) DeclarationResolver
-					.getDecl(acceptor.sndSubExpr);
-			Access componentAccess = FrameResolver.getAccess(varDecl);
+			// dobimo tip recorda
+			SemRecType recordSemRecType = (SemRecType) TypeResolver.getType(
+					acceptor.fstSubExpr).actualType();
+			// dobimo ime drugega dela izraza ki je komponenta
+			String currentCompName = ((AbsExprName) acceptor.sndSubExpr).identifier
+					.getLexeme();
+			// poiscemo index deklaracije za komponento ki je drugi del izraza
+			int compIndex = -1;
+			for (String compName : recordSemRecType.compNames) {
+				if (compName.equals(currentCompName)) {
+					compIndex = recordSemRecType.compNames.indexOf(compName);
+					break;
+				}
+			}
+
+			// izracunamo offset
+			int offset = 0;
+			for (int localCompIndex = 0; localCompIndex < compIndex; localCompIndex++) {
+				offset = offset
+						+ recordSemRecType.compTypes.elementAt(localCompIndex)
+								.actualType().size();
+			}
 
 			// zgradimo izraz za record, drugi del je constanta odmika tipa
 			// drugega dela
 			ImCode recCode = new ImMEM(new ImBINOP(ImBINOP.ADDi,
-					fstSubExprRecImMEM.expr, new ImCONSTi(
-							componentAccess.offset)));
+					fstSubExprRecImMEM.expr, new ImCONSTi(offset)));
 			CodeGenerator.setCode(acceptor, recCode);
+			
+			break;
 		default:
 			Report.error("Internal error. No match for AbsBinExpr operand.", 1);
 		}
@@ -366,7 +409,7 @@ public class CodeGenerator implements Visitor {
 			decl.accept(this);
 	}
 
-	public void visit(AbsExprName acceptor) {// TODO - preglej ce je vredu
+	public void visit(AbsExprName acceptor) {
 		AbsVarDecl varDecl = (AbsVarDecl) DeclarationResolver.getDecl(acceptor);
 		Access varAccess = FrameResolver.getAccess(varDecl);
 		ImCode exprCode = new ImNAME("FP");
@@ -390,6 +433,13 @@ public class CodeGenerator implements Visitor {
 
 	public void visit(AbsForStmt acceptor) {
 		// TODO napak èe gre èez int loop,in se zacikla
+		// for i=253,255:5 , 3x more izvest '5', tako kot je:
+		// 253,254,255,0,1,2,3... - overflow
+		// mogoce tako da se pri incementu shrani v temp
+		// potem pogleda ce je manjsi od prejsnjega
+		// ce je gre ven L2
+		// ce ni gre L0
+		
 		// gremo cez vse dele
 		acceptor.loBound.accept(this);
 		acceptor.hiBound.accept(this);
@@ -446,28 +496,41 @@ public class CodeGenerator implements Visitor {
 		forStmtImSEQ.codes.add(new ImLABEL(label2));
 	}
 
-	public void visit(AbsFunCall acceptor) {// TODO - preglje ce je vredu
+	public void visit(AbsFunCall acceptor) {
+		//TODO:call z argumenti arr ali rec
 		Label funLabel;
 		int funLevel;
+		// pogledamo ce je sistemski klic
 		if (acceptor.name.identifier.getLexeme().equals("putInt")
 				|| acceptor.name.identifier.getLexeme().equals("getInt")) {
 			funLabel = new Label("sys", acceptor.name.identifier.getLexeme());
 			funLevel = 0;
 		} else {
+			// dobimo deklaracijo funkcije
 			AbsFunDecl funDecl = (AbsFunDecl) DeclarationResolver
 					.getDecl(acceptor.name);
+			// dobimo frame
 			Frame frame = FrameResolver.getFrame(funDecl);
 			funLabel = frame.label;
 			funLevel = frame.getLevel();
 		}
+		// dobimo SL
 		ImCode sl = new ImNAME("FP");
 		for (int i = 0; i <= _level - funLevel; i++)
 			sl = new ImMEM(sl);
 		ImCALL callCode = new ImCALL(funLabel, sl);
+		
+		// dodamo argumente in vlikosti
 		for (AbsExpr arg : acceptor.args.exprs) {
+			// gremo cez argument
 			arg.accept(this);
+			// dobimo ImCode
 			ImCode argCode = CodeGenerator.getCode(arg);
+			//dodamo  ImCode
 			callCode.args.add(argCode);
+			//TODO:size, upostevat arr in rec
+			// dodamo size
+			//callCode.sizes.add(e);
 		}
 		CodeGenerator.setCode(acceptor, callCode);
 	}
@@ -552,13 +615,13 @@ public class CodeGenerator implements Visitor {
 		// DONE
 	}
 
-	public void visit(AbsUnExpr acceptor) {
+	public void visit(AbsUnExpr acceptor){
 		acceptor.subExpr.accept(this);
 		SemType type = TypeResolver.getType(acceptor);
 		ImCode subCode = CodeGenerator.getCode(acceptor.subExpr);
 
 		switch (acceptor.oper) {
-		case AbsBinExpr.ADD:
+		case AbsUnExpr.ADD:
 			if (TypeResolver.equal(type, new SemAtomType(SemAtomType.INT)))
 				CodeGenerator.setCode(acceptor,
 						new ImUNOP(ImUNOP.ADDi, subCode));
@@ -566,13 +629,26 @@ public class CodeGenerator implements Visitor {
 				CodeGenerator.setCode(acceptor,
 						new ImUNOP(ImUNOP.ADDr, subCode));
 			break;
-		case AbsBinExpr.SUB:
+		case AbsUnExpr.SUB:
 			if (TypeResolver.equal(type, new SemAtomType(SemAtomType.INT)))
 				CodeGenerator.setCode(acceptor,
 						new ImUNOP(ImUNOP.SUBi, subCode));
 			if (TypeResolver.equal(type, new SemAtomType(SemAtomType.REAL)))
 				CodeGenerator.setCode(acceptor,
 						new ImUNOP(ImUNOP.SUBr, subCode));
+			break;
+		case AbsUnExpr.MUL:
+			setCode(acceptor, new ImMEM(subCode));
+			break;
+		case AbsUnExpr.AND:
+			if(!(subCode instanceof ImMEM))
+			{
+				Report.error(
+						"Internal error. AbsUnExpr.subExpr  ImCode not ImMEM.",
+						1);
+			}
+			ImMEM subExprImMEM = (ImMEM)subCode;
+			setCode(acceptor, subExprImMEM.expr);
 			break;
 
 		case AbsUnExpr.NOT:
@@ -587,6 +663,7 @@ public class CodeGenerator implements Visitor {
 	}
 
 	public void visit(AbsWhereExpr acceptor) {
+		acceptor.decls.accept(this);
 		acceptor.subExpr.accept(this);
 		ImCode subExprImCode = getCode(acceptor.subExpr);
 		setCode(acceptor, subExprImCode);

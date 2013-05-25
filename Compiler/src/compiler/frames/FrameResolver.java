@@ -121,6 +121,7 @@ public class FrameResolver implements Visitor {
 				frame.getLevel() + 1);
 		setFrame(acceptor, newFrame);
 		frms.push(newFrame);
+		//TODO: tukaj morejemo imet -offset in navzgor z upostevanje SL gor od FP
 		int offset = 4;// SL + 4 prejšnjega zapisa
 		for (AbsDecl decl : acceptor.pars.decls) {
 			AbsVarDecl varDecl = (AbsVarDecl) decl;
@@ -168,6 +169,7 @@ public class FrameResolver implements Visitor {
 	}
 
 	public void visit(AbsVarDecl acceptor) {
+		//TODO: tukaj morejo ime +offset dol od FP
 		// Lokalna spremenljivka.
 		// Parametre obdelamo pri AbsFunDecl.
 		// Komponente obdelamo pri AbsRecType.

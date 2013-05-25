@@ -12,22 +12,27 @@ import compiler.frames.*;
 public class ImCALL extends ImCode {
 
 	public final Label fun;
-	
+
 	public final ImCode sl;
-	
+
 	public final Vector<ImCode> args;
-	
+
+	public Vector<Integer> sizes;
+
 	public ImCALL(Label fun, ImCode sl) {
 		this.fun = fun;
 		this.sl = sl;
 		args = new Vector<ImCode>();
+		sizes = new Vector<Integer>();
 	}
 
 	@Override
 	public void toXML(PrintStream xml) {
-		xml.println("<iminstruction instr=\"CALL\" value=\"" + fun.label + "\">");
+		xml.println("<iminstruction instr=\"CALL\" value=\"" + fun.label
+				+ "\">");
 		sl.toXML(xml);
-		for (ImCode code : args) code.toXML(xml);
+		for (ImCode code : args)
+			code.toXML(xml);
 		xml.println("</iminstruction>");
 	}
 
