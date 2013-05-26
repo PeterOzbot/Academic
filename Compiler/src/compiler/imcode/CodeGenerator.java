@@ -397,7 +397,7 @@ public class CodeGenerator implements Visitor {
 			ImCode recCode = new ImMEM(new ImBINOP(ImBINOP.ADDi,
 					fstSubExprRecImMEM.expr, new ImCONSTi(offset)));
 			CodeGenerator.setCode(acceptor, recCode);
-			
+
 			break;
 		default:
 			Report.error("Internal error. No match for AbsBinExpr operand.", 1);
@@ -432,14 +432,7 @@ public class CodeGenerator implements Visitor {
 	}
 
 	public void visit(AbsForStmt acceptor) {
-		// TODO napak èe gre èez int loop,in se zacikla
-		// for i=253,255:5 , 3x more izvest '5', tako kot je:
-		// 253,254,255,0,1,2,3... - overflow
-		// mogoce tako da se pri incementu shrani v temp
-		// potem pogleda ce je manjsi od prejsnjega
-		// ce je gre ven L2
-		// ce ni gre L0
-		
+
 		// gremo cez vse dele
 		acceptor.loBound.accept(this);
 		acceptor.hiBound.accept(this);
@@ -481,12 +474,35 @@ public class CodeGenerator implements Visitor {
 		// dodamo glavni expression
 		forStmtImSEQ.codes.add(loopExprImCode);
 
+		// nova temp za hranit rezultat incrementa
+		// - za resit integer overflow infinity loop 253,254,255,0
+		ImTEMP incrementTempImTEMP = new ImTEMP(new Temp());
+
 		// naredimo increase števca - temp
 		ImBINOP incCOunterImBINOP = new ImBINOP(ImBINOP.ADDi, forVarImTEMP,
 				new ImCONSTi(1));
-		// naredimo MOVE števca poveèanega za ena v temp in dodamo
-		ImMOVE incCounterImMOVE = new ImMOVE(forVarImTEMP, incCOunterImBINOP);
+		// naredimo MOVE števca poveèanega za ena v temp za zacasen rezultat in
+		// dodamo
+		ImMOVE incCounterImMOVE = new ImMOVE(incrementTempImTEMP,
+				incCOunterImBINOP);
 		forStmtImSEQ.codes.add(incCounterImMOVE);
+
+		// pogoj da preverimo ce je novi razultat manjsi od starega
+		ImBINOP safetyCheckImBINOP = new ImBINOP(ImBINOP.LTHi,
+				incrementTempImTEMP, forVarImTEMP);
+		// nov label3
+		Label label3 = new Label("3", "SafetyCheck");
+		// JUMP za ta pogoj in dodamo
+		ImCJUMP safetyCheckImCJUMP = new ImCJUMP(safetyCheckImBINOP, label2,
+				label3);
+		forStmtImSEQ.codes.add(safetyCheckImCJUMP);
+
+		// dodamo label3
+		forStmtImSEQ.codes.add(new ImLABEL(label3));
+
+		// prestavimo zacasno povecano for premenljivko v for spr.
+		ImMOVE safetyCheckImMOVE = new ImMOVE(forVarImTEMP, incrementTempImTEMP);
+		forStmtImSEQ.codes.add(safetyCheckImMOVE);
 
 		// naredimo JUMP ter dodamo
 		ImJUMP jumpToMiddleImJUMP = new ImJUMP(label0);
@@ -497,7 +513,6 @@ public class CodeGenerator implements Visitor {
 	}
 
 	public void visit(AbsFunCall acceptor) {
-		//TODO:call z argumenti arr ali rec
 		Label funLabel;
 		int funLevel;
 		// pogledamo ce je sistemski klic
@@ -519,18 +534,26 @@ public class CodeGenerator implements Visitor {
 		for (int i = 0; i <= _level - funLevel; i++)
 			sl = new ImMEM(sl);
 		ImCALL callCode = new ImCALL(funLabel, sl);
-		
+
 		// dodamo argumente in vlikosti
 		for (AbsExpr arg : acceptor.args.exprs) {
 			// gremo cez argument
 			arg.accept(this);
 			// dobimo ImCode
 			ImCode argCode = CodeGenerator.getCode(arg);
-			//dodamo  ImCode
+			// dodamo ImCode
 			callCode.args.add(argCode);
-			//TODO:size, upostevat arr in rec
-			// dodamo size
-			//callCode.sizes.add(e);
+			// pridobimo tip
+			SemType argSemType = TypeResolver.getType(arg);
+			// ce je tipa ARR ali REC potem obdelamo posebej
+			if (argSemType instanceof SemRecType) {
+				callCode.sizes.add(0);// TODO:ali res?
+			} else if (argSemType instanceof SemArrType) {
+				callCode.sizes.add(0);// TODO:ali res?
+			} else // za vse ostale tipe preprosto damo size
+			{
+				callCode.sizes.add(argSemType.actualType().size());
+			}
 		}
 		CodeGenerator.setCode(acceptor, callCode);
 	}
@@ -615,7 +638,7 @@ public class CodeGenerator implements Visitor {
 		// DONE
 	}
 
-	public void visit(AbsUnExpr acceptor){
+	public void visit(AbsUnExpr acceptor) {
 		acceptor.subExpr.accept(this);
 		SemType type = TypeResolver.getType(acceptor);
 		ImCode subCode = CodeGenerator.getCode(acceptor.subExpr);
@@ -641,13 +664,12 @@ public class CodeGenerator implements Visitor {
 			setCode(acceptor, new ImMEM(subCode));
 			break;
 		case AbsUnExpr.AND:
-			if(!(subCode instanceof ImMEM))
-			{
+			if (!(subCode instanceof ImMEM)) {
 				Report.error(
 						"Internal error. AbsUnExpr.subExpr  ImCode not ImMEM.",
 						1);
 			}
-			ImMEM subExprImMEM = (ImMEM)subCode;
+			ImMEM subExprImMEM = (ImMEM) subCode;
 			setCode(acceptor, subExprImMEM.expr);
 			break;
 
