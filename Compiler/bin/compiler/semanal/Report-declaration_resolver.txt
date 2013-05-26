@@ -1,11 +1,11 @@
 V DeclarationResolver sem damo dodal podporne metode in prevezave klicev visitorja na DeclarationResolverMainTour.
 
-DeclarationResolverMainTour je implementiran za glavni obhod, preverja izrabo imen in izrabo tipov. Pri kakršni koli deklaraciji(še posebej pomembno pri where) klièe
+DeclarationResolverMainTour je implementiran za glavni obhod, preverja izrabo imen in izrabo tipov. Pri kakrsni koli deklaraciji(se posebej pomembno pri where) klice
 DeclarationResolverFirstFlight.
 
 DeclarationResolverFirstFlight je namenjen samo preletu cez deklaracije in vstavljanje deklaracijskih imen v simbolno tabelo.(vstavi v bistvu vse - celotno deklararcijo)
 
-Implementacija DeclarationResolverMainTour je v bistvu odveèna, kar ima bi lahko imel preprosto DeclarationResolver, 
+Implementacija DeclarationResolverMainTour je v bistvu odvecna, kar ima bi lahko imel preprosto DeclarationResolver, 
 ampak sem zacel z drugo idejo in ni razloga da bi brisal in popravljal, tako da sem pustil kot je zdaj.
 
 

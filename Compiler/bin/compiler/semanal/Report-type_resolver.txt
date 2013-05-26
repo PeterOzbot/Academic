@@ -1,10 +1,10 @@
-Naredil sem po istem principu prejšnje naloge.
+Naredil sem po istem principu prejsnje naloge.
 Pro grem z TypeResolverName cez deklaracije in zapisem imena.
 Potem grem se enkrat cez z TypeResolverNameNamed da povezen vse tipe ki so poljubni.
 Potem grem cez deklaracije in vse ostalo z TypeResolver, ki preveri vse potrebno.
 
 
-Vprašanja:
+Vprasanja:
 Ali a where var a:aa; typ aa:bb; typ bb:cc; typ cc:dd; typ dd:int; to vredu?
 Deklaracija tipa more biti tudi povezana?
 Deklaracija tipa lahko ima za tip neko drugo deklaracijo?

@@ -92,7 +92,7 @@ public class CodeGenerator implements Visitor {
 		if (acceptor.oper != AbsBinExpr.REC)
 			sndSubExprImCode = getCode(acceptor.sndSubExpr);
 
-		// dobimo tip za obe strani + preverimo èe sta enaka, ce je rec ne
+		// dobimo tip za obe strani + preverimo ce sta enaka, ce je rec ne
 		// dobimo drugi del in ne preverimo
 		SemType fstSubExprSemType = TypeResolver.getType(acceptor.fstSubExpr);
 		SemType sndSubExprSemType = null;
@@ -104,7 +104,7 @@ public class CodeGenerator implements Visitor {
 						1);
 			}
 		}
-		// nastavimo zastavice kakšen tip sta(gledamo samo prvi del - morata
+		// nastavimo zastavice kaksen tip sta(gledamo samo prvi del - morata
 		// biti ista) - ce je rec ne delamo tega
 		Boolean isBool = false;
 		Boolean isInt = false;
@@ -478,10 +478,10 @@ public class CodeGenerator implements Visitor {
 		// - za resit integer overflow infinity loop 253,254,255,0
 		ImTEMP incrementTempImTEMP = new ImTEMP(new Temp());
 
-		// naredimo increase števca - temp
+		// naredimo increase stevca - temp
 		ImBINOP incCOunterImBINOP = new ImBINOP(ImBINOP.ADDi, forVarImTEMP,
 				new ImCONSTi(1));
-		// naredimo MOVE števca poveèanega za ena v temp za zacasen rezultat in
+		// naredimo MOVE stevca povecanega za ena v temp za zacasen rezultat in
 		// dodamo
 		ImMOVE incCounterImMOVE = new ImMOVE(incrementTempImTEMP,
 				incCOunterImBINOP);

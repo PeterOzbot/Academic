@@ -63,7 +63,7 @@ public class DeclarationResolver implements Visitor {
 	public static void FindName(AbsTree absNode, String name,
 			Class<?> desiredType) {
 		try {
-			// preveri èe je med imeni
+			// preveri ce je med imeni
 			AbsDecl absDecl = names.fnd(name);
 
 			// preveri ce je pravi tip

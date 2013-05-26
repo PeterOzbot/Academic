@@ -1,7 +1,7 @@
-Prepisal sem tista pravila v kodo. Vse se rekurzivno klièe in ko se vse vrne je konec.
-Vecina metode ne vraèa exceptionov ampak se itak zgodi napaka ko bere naslednji znak in ni tak kot bi moral bit.
+Prepisal sem tista pravila v kodo. Vse se rekurzivno klice in ko se vse vrne je konec.
+Vecina metode ne vraca exceptionov ampak se itak zgodi napaka ko bere naslednji znak in ni tak kot bi moral bit.
 
-Spet sem malo popravljal druge razrede. Dodal sem equals razredu Position. Zato da sem lažje dobil napake.
+Spet sem malo popravljal druge razrede. Dodal sem equals razredu Position. Zato da sem lazje dobil napake.
 
 
 TODO:

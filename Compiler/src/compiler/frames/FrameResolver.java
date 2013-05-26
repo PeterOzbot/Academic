@@ -121,7 +121,7 @@ public class FrameResolver implements Visitor {
 				frame.getLevel() + 1);
 		setFrame(acceptor, newFrame);
 		frms.push(newFrame);
-		int offset = 4;// SL + 4 prejšnjega zapisa
+		int offset = 4;// SL + 4 prejsnjega zapisa
 		for (AbsDecl decl : acceptor.pars.decls) {
 			AbsVarDecl varDecl = (AbsVarDecl) decl;
 			SemType semType = TypeResolver.getType(varDecl);

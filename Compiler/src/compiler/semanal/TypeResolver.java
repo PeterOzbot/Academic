@@ -276,7 +276,7 @@ public class TypeResolver implements Visitor {
 			}
 			SemRecType semRecType = (SemRecType) semType;
 
-			// pridobimo in preverimo èe so res konkretna imena x1.x2
+			// pridobimo in preverimo ce so res konkretna imena x1.x2
 			AbsExprName absExprNameSnd = (AbsExprName) acceptor.sndSubExpr;
 			if (absExprNameSnd == null) {
 				Report.error(
@@ -445,7 +445,7 @@ public class TypeResolver implements Visitor {
 		// void, cene je tip klica funkcije tip elseExpr
 		if (semTypeElseExpr != null) {
 
-			// preverimo še da je tip else in then expr enak
+			// preverimo se da je tip else in then expr enak
 			if (!equal(semTypeThenExpr, semTypeElseExpr)) {
 				Report.error(
 						"Illegal operand type. Then and Else Expr should be the same type.",

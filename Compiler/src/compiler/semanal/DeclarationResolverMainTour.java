@@ -31,7 +31,7 @@ public class DeclarationResolverMainTour implements Visitor {
 	@Override
 	public void visit(AbsAssignStmt acceptor) {
 
-		// preveri èe je med imeni
+		// preveri ce je med imeni
 		acceptor.fstSubExpr.accept(this);
 
 		// prveri expression ki je drugi del
@@ -48,7 +48,7 @@ public class DeclarationResolverMainTour implements Visitor {
 		// rec je potrebno posebno obravnavat
 		if (acceptor.oper == AbsBinExpr.REC) {
 
-			// preveri èe obstaja tip
+			// preveri ce obstaja tip
 			 acceptor.fstSubExpr.accept(this);
 
 			// preveri drugi del
@@ -73,7 +73,7 @@ public class DeclarationResolverMainTour implements Visitor {
 	@Override
 	public void visit(AbsExprName acceptor) {
 		// lahko pride iz : i + 2
-		// preveri èe je med imeni
+		// preveri ce je med imeni
 		DeclarationResolver.FindName(acceptor, acceptor.identifier.getLexeme(),
 				null);
 	}
@@ -88,7 +88,7 @@ public class DeclarationResolverMainTour implements Visitor {
 
 	@Override
 	public void visit(AbsForStmt acceptor) {
-		// preveri èe je med imeni
+		// preveri ce je med imeni
 		DeclarationResolver.FindName(acceptor.name,
 				acceptor.name.identifier.getLexeme(), null);
 
@@ -101,7 +101,7 @@ public class DeclarationResolverMainTour implements Visitor {
 	@Override
 	public void visit(AbsFunCall acceptor) {
 
-		// preveri èe je med imeni
+		// preveri ce je med imeni
 		DeclarationResolver.FindName(acceptor.name,
 				acceptor.name.identifier.getLexeme(), AbsFunDecl.class);
 
@@ -117,7 +117,7 @@ public class DeclarationResolverMainTour implements Visitor {
 		// preveri then
 		acceptor.thenExprs.accept(this);
 
-		// preveri else èe je dolocen
+		// preveri else ce je dolocen
 		if (acceptor.elseExprs != null)
 			acceptor.elseExprs.accept(this);
 	}
@@ -134,7 +134,7 @@ public class DeclarationResolverMainTour implements Visitor {
 		// dodamo vse deklaracije
 		acceptor.decls.accept(declarationResolverFirstFlight);
 
-		// pregledamo deklaracije še s tem resolverjem
+		// pregledamo deklaracije se s tem resolverjem
 		acceptor.decls.accept(this);
 
 		// preverimo vse expression-e
