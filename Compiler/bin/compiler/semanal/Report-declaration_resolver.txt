@@ -1,0 +1,36 @@
+V DeclarationResolver sem damo dodal podporne metode in prevezave klicev visitorja na DeclarationResolverMainTour.
+
+DeclarationResolverMainTour je implementiran za glavni obhod, preverja izrabo imen in izrabo tipov. Pri kakršni koli deklaraciji(še posebej pomembno pri where) klièe
+DeclarationResolverFirstFlight.
+
+DeclarationResolverFirstFlight je namenjen samo preletu cez deklaracije in vstavljanje deklaracijskih imen v simbolno tabelo.(vstavi v bistvu vse - celotno deklararcijo)
+
+Implementacija DeclarationResolverMainTour je v bistvu odveèna, kar ima bi lahko imel preprosto DeclarationResolver, 
+ampak sem zacel z drugo idejo in ni razloga da bi brisal in popravljal, tako da sem pustil kot je zdaj.
+
+
+Navodila:
+- Nov scope je samo 
+	- pri deklaraciji funkcije -> tukaj lahko precesemo enkrat
+	- pri where - tukaj je potrebno prvo precesat naprej od where, potem kar je spredej
+- Deklaracije:
+	- deklaracija spr. - variable_decl
+	- deklaracija funkcije
+		- parametrov funkcije
+	- record component -> deklaracija ?
+	- deklaracija tipa
+- Izrabe:
+	- for
+	- post fix =
+	- postfix_expression.ident - tukaj potrebno pogledat v postfix_expression ce je vidna ali v globalnem trenutnem?
+	- klic funkcije ident(express)
+	- postfix ident
+	
+	Deklaracije: spodaj
+	Tip je lahko :
+		- AbsAtomType
+		- AbsTypeName - identifier
+		- AbsPtrType - *
+		- AbsArrType - ARR
+		- AbsRecType - record components
+		

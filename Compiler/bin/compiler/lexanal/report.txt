@@ -1,0 +1,24 @@
+Berem znak za znak do konca.
+
+Prvo preverim ce je belo besedilo.
+
+Potem preverim ce je nova vrstica. Narejeno imam tako da upostevam da je nova vrstica oznace z \r + \n ali \n. 
+Ce je \r ne dela.(naj tukaj omenim se eno tezavo, kjer sem delal je tab bil dolg 3 znake, tako da sem dodal nastavitev za dolzino tab-a)
+
+Potem preverim ce je zacetek String_Const in ce je se sprehodim cez in vrnem simbol.
+Pred vsakim tem preverjanjem preverim se ce je ze kaksen simbol v bufferju in ce je ga vrnem. 
+Samo v primeru String_Const si zapolnem in obravnavam string_Const naslednji klic.
+
+Potem preverim ce je ze kaj v bufferju in ce ni dodam znak in poskusam ugotovit kaj se gradi.
+Ce je ze kaksen znak v bufferju samo gradim naprej kar naj bi bilo. Edina posebnost je Real_Const. 
+To delam tako da najprej gradim stevilo in ko pridem do pike spremeni tip simbola ki ga gradim in nadaljujem z grajenjem Real_Const.
+
+Pravi tip simbola dolocim komaj na koncu, preden ga vrnem.
+
+Skoraj vse napake sporocam sproti.
+
+Naj nebi spreminjali ampak ni dosti:
+--Dodal sem si se en logging sistem, tako da sem lazje gledal kaj dela.(v Report metoda information(String msg, Position position))
+--Spremenil sem tudi Position razred. Dodal konstructor za inicializacijo. In dve metodi - za nastaviti zacetek in konec.
+ 
+Pri poziciji sem delal tako da prvi znak v vrstici zacne v stolpcu 1 in konca v stolpcu 1.

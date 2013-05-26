@@ -1,0 +1,8 @@
+Prepisal sem tista pravila v kodo. Vse se rekurzivno klièe in ko se vse vrne je konec.
+Vecina metode ne vraèa exceptionov ampak se itak zgodi napaka ko bere naslednji znak in ni tak kot bi moral bit.
+
+Spet sem malo popravljal druge razrede. Dodal sem equals razredu Position. Zato da sem lažje dobil napake.
+
+
+TODO:
+- ce ni nic faila pri vektorju ko hoce dat zadnji posisiton 
