@@ -2,6 +2,8 @@ package compiler.imcode;
 
 import java.io.*;
 
+import compiler.frames.Temp;
+
 /**
  * Unarni operator: izvede unarni operator na podizrazu in vrne rezultat.
  */
@@ -36,5 +38,14 @@ public class ImUNOP extends ImCode {
 		subExpr.toXML(xml);
 		xml.println("</iminstruction>");
 	}
-
+	
+	@Override
+	public void linearCode() {
+		if (linearCode != null) return;
+		subExpr.linearCode();
+		linearCodeResult = new Temp();
+		linearCode = new ImSEQ();
+		linearCode.codes.addAll(subExpr.linearCode.codes);
+		linearCode.codes.add(new ImMOVE(new ImTEMP(linearCodeResult), new ImUNOP(oper, new ImTEMP(subExpr.linearCodeResult))));
+	}
 }

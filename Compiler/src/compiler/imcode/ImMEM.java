@@ -1,6 +1,7 @@
 package compiler.imcode;
 
 import java.io.*;
+import compiler.frames.Temp;
 
 /**
  * Dostop do pomnilnika: vrne vrednost na naslovu, ki ga doloca vrednost
@@ -21,4 +22,13 @@ public class ImMEM extends ImCode {
 		xml.println("</iminstruction>");
 	}
 	
+	@Override
+	public void linearCode() {
+		if (linearCode != null) return;
+		expr.linearCode();
+		linearCodeResult = new Temp();
+		linearCode = new ImSEQ();
+		linearCode.codes.addAll(expr.linearCode.codes);
+		linearCode.codes.add(new ImMOVE(new ImTEMP(linearCodeResult), new ImMEM(new ImTEMP(expr.linearCodeResult))));
+	}
 }

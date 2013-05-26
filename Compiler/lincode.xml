@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="D:\Programiranje\Repositories\Git\Academic\Compiler\xsl/lincode.xsl"?>
+<lincode>
+<absnode node="Exprs">
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="1" begColumn="4" endLine="1" endColumn="28"/>
+<absnode node="WhereExpr">
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="1" begColumn="4" endLine="1" endColumn="28"/>
+<absnode node="Exprs">
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="1" begColumn="4" endLine="1" endColumn="10"/>
+<absnode node="AssignStmt">
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="1" begColumn="4" endLine="1" endColumn="10"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="1" begColumn="4" endLine="1" endColumn="4"/>
+<symbol token="IDENTIFIER"  lexeme="a">
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="1" begColumn="4" endLine="1" endColumn="4"/>
+</symbol>
+<semdeclpos>
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="1" begColumn="20" endLine="1" endColumn="28"/>
+</semdeclpos>
+<semtype type="INT"/>
+<iminstruction instr="MEM">
+<iminstruction instr="BINOP" value="ADDi">
+<iminstruction instr="NAME" value="FP"/>
+<iminstruction instr="CONSTi" value="-4"/>
+</iminstruction>
+</iminstruction>
+<iminstruction instr="SEQ">
+<iminstruction instr="MOVE">
+<iminstruction instr="TEMP" value="T0"/>
+<iminstruction instr="NAME" value="FP"/>
+</iminstruction>
+<iminstruction instr="MOVE">
+<iminstruction instr="TEMP" value="T1"/>
+<iminstruction instr="CONSTi" value="-4"/>
+</iminstruction>
+<iminstruction instr="MOVE">
+<iminstruction instr="TEMP" value="T2"/>
+<iminstruction instr="BINOP" value="ADDi">
+<iminstruction instr="TEMP" value="T0"/>
+<iminstruction instr="TEMP" value="T1"/>
+</iminstruction>
+</iminstruction>
+<iminstruction instr="MOVE">
+<iminstruction instr="TEMP" value="T3"/>
+<iminstruction instr="MEM">
+<iminstruction instr="TEMP" value="T2"/>
+</iminstruction>
+</iminstruction>
+</iminstruction>
+</absnode>
+<absnode node="BinExpr" value="ADD">
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="1" begColumn="8" endLine="1" endColumn="10"/>
+<absnode node="AtomExpr">
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="1" begColumn="8" endLine="1" endColumn="8"/>
+<symbol token="INTCONST"    lexeme="1">
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="1" begColumn="8" endLine="1" endColumn="8"/>
+</symbol>
+<semintvalue value="1"/>
+<semtype type="INT"/>
+<iminstruction instr="CONSTi" value="1"/>
+<iminstruction instr="SEQ">
+<iminstruction instr="MOVE">
+<iminstruction instr="TEMP" value="T4"/>
+<iminstruction instr="CONSTi" value="1"/>
+</iminstruction>
+</iminstruction>
+</absnode>
+<absnode node="AtomExpr">
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="1" begColumn="10" endLine="1" endColumn="10"/>
+<symbol token="INTCONST"    lexeme="2">
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="1" begColumn="10" endLine="1" endColumn="10"/>
+</symbol>
+<semintvalue value="2"/>
+<semtype type="INT"/>
+<iminstruction instr="CONSTi" value="2"/>
+<iminstruction instr="SEQ">
+<iminstruction instr="MOVE">
+<iminstruction instr="TEMP" value="T5"/>
+<iminstruction instr="CONSTi" value="2"/>
+</iminstruction>
+</iminstruction>
+</absnode>
+<semintvalue value="3"/>
+<semtype type="INT"/>
+<iminstruction instr="BINOP" value="ADDi">
+<iminstruction instr="CONSTi" value="1"/>
+<iminstruction instr="CONSTi" value="2"/>
+</iminstruction>
+<iminstruction instr="SEQ">
+<iminstruction instr="MOVE">
+<iminstruction instr="TEMP" value="T4"/>
+<iminstruction instr="CONSTi" value="1"/>
+</iminstruction>
+<iminstruction instr="MOVE">
+<iminstruction instr="TEMP" value="T5"/>
+<iminstruction instr="CONSTi" value="2"/>
+</iminstruction>
+<iminstruction instr="MOVE">
+<iminstruction instr="TEMP" value="T6"/>
+<iminstruction instr="BINOP" value="ADDi">
+<iminstruction instr="TEMP" value="T4"/>
+<iminstruction instr="TEMP" value="T5"/>
+</iminstruction>
+</iminstruction>
+</iminstruction>
+</absnode>
+<semtype type="INT"/>
+<iminstruction instr="MOVE">
+<iminstruction instr="MEM">
+<iminstruction instr="BINOP" value="ADDi">
+<iminstruction instr="NAME" value="FP"/>
+<iminstruction instr="CONSTi" value="-4"/>
+</iminstruction>
+</iminstruction>
+<iminstruction instr="BINOP" value="ADDi">
+<iminstruction instr="CONSTi" value="1"/>
+<iminstruction instr="CONSTi" value="2"/>
+</iminstruction>
+</iminstruction>
+<iminstruction instr="SEQ">
+<iminstruction instr="MOVE">
+<iminstruction instr="TEMP" value="T0"/>
+<iminstruction instr="NAME" value="FP"/>
+</iminstruction>
+<iminstruction instr="MOVE">
+<iminstruction instr="TEMP" value="T1"/>
+<iminstruction instr="CONSTi" value="-4"/>
+</iminstruction>
+<iminstruction instr="MOVE">
+<iminstruction instr="TEMP" value="T2"/>
+<iminstruction instr="BINOP" value="ADDi">
+<iminstruction instr="TEMP" value="T0"/>
+<iminstruction instr="TEMP" value="T1"/>
+</iminstruction>
+</iminstruction>
+<iminstruction instr="MOVE">
+<iminstruction instr="TEMP" value="T4"/>
+<iminstruction instr="CONSTi" value="1"/>
+</iminstruction>
+<iminstruction instr="MOVE">
+<iminstruction instr="TEMP" value="T5"/>
+<iminstruction instr="CONSTi" value="2"/>
+</iminstruction>
+<iminstruction instr="MOVE">
+<iminstruction instr="TEMP" value="T6"/>
+<iminstruction instr="BINOP" value="ADDi">
+<iminstruction instr="TEMP" value="T4"/>
+<iminstruction instr="TEMP" value="T5"/>
+</iminstruction>
+</iminstruction>
+<iminstruction instr="MOVE">
+<iminstruction instr="MEM">
+<iminstruction instr="TEMP" value="T2"/>
+</iminstruction>
+<iminstruction instr="TEMP" value="T6"/>
+</iminstruction>
+</iminstruction>
+</absnode>
+<semtype type="INT"/>
+<iminstruction instr="SEQ">
+<iminstruction instr="MOVE">
+<iminstruction instr="MEM">
+<iminstruction instr="BINOP" value="ADDi">
+<iminstruction instr="NAME" value="FP"/>
+<iminstruction instr="CONSTi" value="-4"/>
+</iminstruction>
+</iminstruction>
+<iminstruction instr="BINOP" value="ADDi">
+<iminstruction instr="CONSTi" value="1"/>
+<iminstruction instr="CONSTi" value="2"/>
+</iminstruction>
+</iminstruction>
+</iminstruction>
+<iminstruction instr="SEQ">
+<iminstruction instr="MOVE">
+<iminstruction instr="TEMP" value="T0"/>
+<iminstruction instr="NAME" value="FP"/>
+</iminstruction>
+<iminstruction instr="MOVE">
+<iminstruction instr="TEMP" value="T1"/>
+<iminstruction instr="CONSTi" value="-4"/>
+</iminstruction>
+<iminstruction instr="MOVE">
+<iminstruction instr="TEMP" value="T2"/>
+<iminstruction instr="BINOP" value="ADDi">
+<iminstruction instr="TEMP" value="T0"/>
+<iminstruction instr="TEMP" value="T1"/>
+</iminstruction>
+</iminstruction>
+<iminstruction instr="MOVE">
+<iminstruction instr="TEMP" value="T4"/>
+<iminstruction instr="CONSTi" value="1"/>
+</iminstruction>
+<iminstruction instr="MOVE">
+<iminstruction instr="TEMP" value="T5"/>
+<iminstruction instr="CONSTi" value="2"/>
+</iminstruction>
+<iminstruction instr="MOVE">
+<iminstruction instr="TEMP" value="T6"/>
+<iminstruction instr="BINOP" value="ADDi">
+<iminstruction instr="TEMP" value="T4"/>
+<iminstruction instr="TEMP" value="T5"/>
+</iminstruction>
+</iminstruction>
+<iminstruction instr="MOVE">
+<iminstruction instr="MEM">
+<iminstruction instr="TEMP" value="T2"/>
+</iminstruction>
+<iminstruction instr="TEMP" value="T6"/>
+</iminstruction>
+</iminstruction>
+</absnode>
+<absnode node="Decls">
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="1" begColumn="20" endLine="1" endColumn="28"/>
+<absnode node="VarDecl">
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="1" begColumn="20" endLine="1" endColumn="28"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="1" begColumn="24" endLine="1" endColumn="24"/>
+<symbol token="IDENTIFIER"  lexeme="a">
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="1" begColumn="24" endLine="1" endColumn="24"/>
+</symbol>
+</absnode>
+<absnode node="AtomType" value="INT">
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="1" begColumn="26" endLine="1" endColumn="28"/>
+<semtype type="INT"/>
+</absnode>
+<semtype type="INT"/>
+<frmaccess level="0" offset="-4"/></absnode>
+</absnode>
+<semtype type="INT"/>
+<iminstruction instr="SEQ">
+<iminstruction instr="MOVE">
+<iminstruction instr="MEM">
+<iminstruction instr="BINOP" value="ADDi">
+<iminstruction instr="NAME" value="FP"/>
+<iminstruction instr="CONSTi" value="-4"/>
+</iminstruction>
+</iminstruction>
+<iminstruction instr="BINOP" value="ADDi">
+<iminstruction instr="CONSTi" value="1"/>
+<iminstruction instr="CONSTi" value="2"/>
+</iminstruction>
+</iminstruction>
+</iminstruction>
+<iminstruction instr="SEQ">
+<iminstruction instr="MOVE">
+<iminstruction instr="TEMP" value="T0"/>
+<iminstruction instr="NAME" value="FP"/>
+</iminstruction>
+<iminstruction instr="MOVE">
+<iminstruction instr="TEMP" value="T1"/>
+<iminstruction instr="CONSTi" value="-4"/>
+</iminstruction>
+<iminstruction instr="MOVE">
+<iminstruction instr="TEMP" value="T2"/>
+<iminstruction instr="BINOP" value="ADDi">
+<iminstruction instr="TEMP" value="T0"/>
+<iminstruction instr="TEMP" value="T1"/>
+</iminstruction>
+</iminstruction>
+<iminstruction instr="MOVE">
+<iminstruction instr="TEMP" value="T4"/>
+<iminstruction instr="CONSTi" value="1"/>
+</iminstruction>
+<iminstruction instr="MOVE">
+<iminstruction instr="TEMP" value="T5"/>
+<iminstruction instr="CONSTi" value="2"/>
+</iminstruction>
+<iminstruction instr="MOVE">
+<iminstruction instr="TEMP" value="T6"/>
+<iminstruction instr="BINOP" value="ADDi">
+<iminstruction instr="TEMP" value="T4"/>
+<iminstruction instr="TEMP" value="T5"/>
+</iminstruction>
+</iminstruction>
+<iminstruction instr="MOVE">
+<iminstruction instr="MEM">
+<iminstruction instr="TEMP" value="T2"/>
+</iminstruction>
+<iminstruction instr="TEMP" value="T6"/>
+</iminstruction>
+</iminstruction>
+</absnode>
+<semtype type="INT"/>
+<iminstruction instr="SEQ">
+<iminstruction instr="SEQ">
+<iminstruction instr="MOVE">
+<iminstruction instr="MEM">
+<iminstruction instr="BINOP" value="ADDi">
+<iminstruction instr="NAME" value="FP"/>
+<iminstruction instr="CONSTi" value="-4"/>
+</iminstruction>
+</iminstruction>
+<iminstruction instr="BINOP" value="ADDi">
+<iminstruction instr="CONSTi" value="1"/>
+<iminstruction instr="CONSTi" value="2"/>
+</iminstruction>
+</iminstruction>
+</iminstruction>
+</iminstruction>
+<iminstruction instr="SEQ">
+<iminstruction instr="MOVE">
+<iminstruction instr="TEMP" value="T0"/>
+<iminstruction instr="NAME" value="FP"/>
+</iminstruction>
+<iminstruction instr="MOVE">
+<iminstruction instr="TEMP" value="T1"/>
+<iminstruction instr="CONSTi" value="-4"/>
+</iminstruction>
+<iminstruction instr="MOVE">
+<iminstruction instr="TEMP" value="T2"/>
+<iminstruction instr="BINOP" value="ADDi">
+<iminstruction instr="TEMP" value="T0"/>
+<iminstruction instr="TEMP" value="T1"/>
+</iminstruction>
+</iminstruction>
+<iminstruction instr="MOVE">
+<iminstruction instr="TEMP" value="T4"/>
+<iminstruction instr="CONSTi" value="1"/>
+</iminstruction>
+<iminstruction instr="MOVE">
+<iminstruction instr="TEMP" value="T5"/>
+<iminstruction instr="CONSTi" value="2"/>
+</iminstruction>
+<iminstruction instr="MOVE">
+<iminstruction instr="TEMP" value="T6"/>
+<iminstruction instr="BINOP" value="ADDi">
+<iminstruction instr="TEMP" value="T4"/>
+<iminstruction instr="TEMP" value="T5"/>
+</iminstruction>
+</iminstruction>
+<iminstruction instr="MOVE">
+<iminstruction instr="MEM">
+<iminstruction instr="TEMP" value="T2"/>
+</iminstruction>
+<iminstruction instr="TEMP" value="T6"/>
+</iminstruction>
+</iminstruction>
+</absnode>
+</lincode>

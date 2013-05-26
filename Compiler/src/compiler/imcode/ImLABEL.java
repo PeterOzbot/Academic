@@ -18,4 +18,11 @@ public class ImLABEL extends ImCode {
 		xml.println("<iminstruction instr=\"LABEL\" value=\"" + label.label + "\"/>");
 	}
 	
+	@Override
+	public void linearCode() {
+		if (linearCode != null) return;
+		linearCodeResult = new Temp();
+		linearCode = new ImSEQ();
+		linearCode.codes.add(this);
+	}
 }

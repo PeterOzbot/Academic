@@ -17,5 +17,12 @@ public class ImTEMP extends ImCode {
 	public void toXML(PrintStream xml) {
 		xml.println("<iminstruction instr=\"TEMP\" value=\"" + temp.temp + "\"/>");
 	}
-
+	
+	@Override
+	public void linearCode() {
+		if (linearCode != null) return;
+		linearCodeResult = new Temp();
+		linearCode = new ImSEQ();
+		linearCode.codes.add(new ImMOVE(new ImTEMP(linearCodeResult), this));
+	}
 }

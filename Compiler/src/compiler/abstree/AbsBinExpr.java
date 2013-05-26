@@ -2,7 +2,6 @@ package compiler.abstree;
 
 import compiler.Report;
 import compiler.imcode.ImBINOP;
-import compiler.lexanal.Symbol;
 
 /** Izraz z binarnim operatorjem. */
 public class AbsBinExpr extends AbsExpr {

@@ -29,4 +29,13 @@ public class ImCJUMP extends ImCode {
 		xml.println("</iminstruction>");
 	}
 	
+	@Override
+	public void linearCode() {
+		if (linearCode != null) return;
+		cond.linearCode();
+		linearCode = new ImSEQ();
+		linearCode.codes.addAll(cond.linearCode.codes);
+		linearCode.codes.add(new ImCJUMP(new ImTEMP(cond.linearCodeResult), thenLabel, elseLabel));
+		linearCodeResult = new Temp();
+	}
 }

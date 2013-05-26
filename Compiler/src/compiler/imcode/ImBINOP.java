@@ -2,6 +2,8 @@ package compiler.imcode;
 
 import java.io.*;
 
+import compiler.frames.Temp;
+
 /**
  * Binarni operator: izvede binarni operator nad podizrazoma in vrne rezultat.
  */
@@ -115,6 +117,18 @@ public class ImBINOP extends ImCode {
 		fstSubExpr.toXML(xml);
 		sndSubExpr.toXML(xml);
 		xml.println("</iminstruction>");
+	}
+	
+	@Override
+	public void linearCode() {
+		if (linearCode != null) return;
+		fstSubExpr.linearCode();
+		sndSubExpr.linearCode();
+		linearCodeResult = new Temp();
+		linearCode = new ImSEQ();
+		linearCode.codes.addAll(fstSubExpr.linearCode.codes);
+		linearCode.codes.addAll(sndSubExpr.linearCode.codes);
+		linearCode.codes.add(new ImMOVE(new ImTEMP(linearCodeResult), new ImBINOP(oper, new ImTEMP(fstSubExpr.linearCodeResult), new ImTEMP(sndSubExpr.linearCodeResult))));
 	}
 	
 }

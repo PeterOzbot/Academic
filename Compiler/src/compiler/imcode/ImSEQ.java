@@ -18,5 +18,18 @@ public class ImSEQ extends ImCode {
 		for (ImCode code : codes) code.toXML(xml);
 		xml.println("</iminstruction>");
 	}
-
+	
+	@Override
+	public void linearCode() {
+		if (linearCode != null) return;
+		linearCode = new ImSEQ();
+		for (ImCode code : codes) {
+			code.linearCode();
+			if (code.linearCode instanceof ImSEQ) {
+				linearCode.codes.addAll(((ImSEQ) code.linearCode).codes);
+			} else
+				linearCode.codes.add(code.linearCode);
+		}
+		linearCodeResult = codes.lastElement().linearCodeResult;
+	}
 }

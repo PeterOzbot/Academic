@@ -35,5 +35,20 @@ public class ImCALL extends ImCode {
 			code.toXML(xml);
 		xml.println("</iminstruction>");
 	}
-
+	
+	@Override
+	public void linearCode() {
+		if (linearCode != null) return;
+		linearCode = new ImSEQ();
+		sl.linearCode();
+		linearCode.codes.addAll(sl.linearCode.codes);
+		ImCALL call = new ImCALL(fun, new ImTEMP(sl.linearCodeResult));
+		for (ImCode arg : args) {
+			arg.linearCode();
+			linearCode.codes.addAll(arg.linearCode.codes);
+			call.args.add(new ImTEMP(arg.linearCodeResult));
+		}
+		linearCode.codes.add(call);
+		linearCodeResult = new Temp();
+	}
 }

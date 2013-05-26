@@ -17,5 +17,12 @@ public class ImJUMP extends ImCode {
 	public void toXML(PrintStream xml) {
 		xml.println("<iminstruction instr=\"JUMP\" value=\"" + label.label + "\"/>");
 	}
-
+	
+	@Override
+	public void linearCode() {
+		if (linearCode != null) return;
+		linearCodeResult = new Temp();
+		linearCode = new ImSEQ();
+		linearCode.codes.add(this);
+	}
 }
