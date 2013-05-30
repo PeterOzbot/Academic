@@ -1,0 +1,15 @@
+3 certifikati, banka, babica, rdeca kapica
+
+Avtentikacija v obe smeri:
+Streznik dovoli samo babici in rdeci kapici
+Client smo strezniku
+
+Ime iz certifikata iz parametra CN("CN=Babica")
+
+Avtentikacija pred prvim poslanim znakom.
+
+Client in Server iz ukazne vrstice s parametri:
+Client = IP Vrata PotServerCert PotClientPrivateCert PotClientPublicCert
+SERVER = IP Vrata PotDoCertifikatovClientov PotDoServerPrivatnegaCert PotDoServerJavnegaCert
+ 
+Server dela z veè uporabniki.
