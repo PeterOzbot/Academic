@@ -432,7 +432,6 @@ public class CodeGenerator implements Visitor {
 	}
 
 	public void visit(AbsForStmt acceptor) {
-
 		// gremo cez vse dele
 		acceptor.loBound.accept(this);
 		acceptor.hiBound.accept(this);
@@ -445,81 +444,60 @@ public class CodeGenerator implements Visitor {
 		// nova sekvenca
 		ImSEQ forStmtImSEQ = new ImSEQ();
 
-		// nova temp za var for-a
+		// nova zacasna spremenljivka
 		ImTEMP forVarImTEMP = new ImTEMP(new Temp());
+		// move loBound v temp
+		ImMOVE imMove = new ImMOVE(forVarImTEMP, loBoundImCode);
+		forStmtImSEQ.codes.add(imMove);
 
-		// prvo izracunamo lower bound in nastavimo spremenjivki
-		forStmtImSEQ.codes.add(new ImMOVE(forVarImTEMP, loBoundImCode));
-
-		// naredimo label0 in dodamo
+		// label0
 		Label label0 = new Label("0", "Start");
 		ImLABEL label0ImLABEL = new ImLABEL(label0);
 		forStmtImSEQ.codes.add(label0ImLABEL);
 
-		// naredimo label2
-		Label label2 = new Label("2", "End");
-
-		// naredimo pogoj
+		// jump
+		Label label1 = new Label("1", "1");
+		Label label2 = new Label("2", "2");
 		ImBINOP conditionImBINOP = new ImBINOP(ImBINOP.LEQi, forVarImTEMP,
 				hiBoundImCode);
-		// naredimo CJUMP in dodamo
-		ImCJUMP imCJUMP = new ImCJUMP(conditionImBINOP, label0, label2);
+		ImCJUMP imCJUMP = new ImCJUMP(conditionImBINOP, label1, label2);
 		forStmtImSEQ.codes.add(imCJUMP);
 
-		// naredimo label1 in dodamo
-		Label label1 = new Label("1", "Middle");
+		// label1
 		ImLABEL label1ImLABEL = new ImLABEL(label1);
 		forStmtImSEQ.codes.add(label1ImLABEL);
 
-		// dodamo glavni expression
+		// loop
 		forStmtImSEQ.codes.add(loopExprImCode);
 
-		// nova temp za hranit rezultat incrementa
-		// - za resit integer overflow infinity loop 253,254,255,0
-		ImTEMP incrementTempImTEMP = new ImTEMP(new Temp());
-
-		// naredimo increase stevca - temp
-		ImBINOP incCOunterImBINOP = new ImBINOP(ImBINOP.ADDi, forVarImTEMP,
+		// move
+		ImBINOP incrementImBINOP = new ImBINOP(ImBINOP.ADDi, forVarImTEMP,
 				new ImCONSTi(1));
-		// naredimo MOVE stevca povecanega za ena v temp za zacasen rezultat in
-		// dodamo
-		ImMOVE incCounterImMOVE = new ImMOVE(incrementTempImTEMP,
-				incCOunterImBINOP);
-		forStmtImSEQ.codes.add(incCounterImMOVE);
+		ImMOVE imMove2 = new ImMOVE(forVarImTEMP, incrementImBINOP);
+		forStmtImSEQ.codes.add(imMove2);
 
-		// pogoj da preverimo ce je novi razultat manjsi od starega
-		ImBINOP safetyCheckImBINOP = new ImBINOP(ImBINOP.LTHi,
-				incrementTempImTEMP, forVarImTEMP);
-		// nov label3
-		Label label3 = new Label("3", "SafetyCheck");
-		// JUMP za ta pogoj in dodamo
-		ImCJUMP safetyCheckImCJUMP = new ImCJUMP(safetyCheckImBINOP, label2,
-				label3);
-		forStmtImSEQ.codes.add(safetyCheckImCJUMP);
+		// jump
+		ImJUMP imJUMP = new ImJUMP(label0);
+		forStmtImSEQ.codes.add(imJUMP);
 
-		// dodamo label3
-		forStmtImSEQ.codes.add(new ImLABEL(label3));
+		// label2
+		ImLABEL label2ImLABEL = new ImLABEL(label2);
+		forStmtImSEQ.codes.add(label2ImLABEL);
 
-		// prestavimo zacasno povecano for premenljivko v for spr.
-		ImMOVE safetyCheckImMOVE = new ImMOVE(forVarImTEMP, incrementTempImTEMP);
-		forStmtImSEQ.codes.add(safetyCheckImMOVE);
-
-		// naredimo JUMP ter dodamo
-		ImJUMP jumpToMiddleImJUMP = new ImJUMP(label0);
-		forStmtImSEQ.codes.add(jumpToMiddleImJUMP);
-
-		// naredimo label2ImLABEL in dodamo
-		forStmtImSEQ.codes.add(new ImLABEL(label2));
+		// povezemo
+		setCode(acceptor, forStmtImSEQ);
 	}
 
 	public void visit(AbsFunCall acceptor) {
 		Label funLabel;
 		int funLevel;
+		ImCode sl = null;
 		// pogledamo ce je sistemski klic
-		if (acceptor.name.identifier.getLexeme().equals("putInt")
-				|| acceptor.name.identifier.getLexeme().equals("getInt")) {
+		if (LibSys.IsSystem(DeclarationResolver.getDecl(acceptor.name))) {
 			funLabel = new Label("sys", acceptor.name.identifier.getLexeme());
 			funLevel = 0;
+
+			sl = new ImCONSTi(0);
 		} else {
 			// dobimo deklaracijo funkcije
 			AbsFunDecl funDecl = (AbsFunDecl) DeclarationResolver
@@ -528,11 +506,13 @@ public class CodeGenerator implements Visitor {
 			Frame frame = FrameResolver.getFrame(funDecl);
 			funLabel = frame.label;
 			funLevel = frame.getLevel();
+
+			// dobimo SL
+			sl = new ImNAME("FP");
+			for (int i = 0; i <= _level - funLevel; i++)
+				sl = new ImMEM(sl);
 		}
-		// dobimo SL
-		ImCode sl = new ImNAME("FP");
-		for (int i = 0; i <= _level - funLevel; i++)
-			sl = new ImMEM(sl);
+
 		ImCALL callCode = new ImCALL(funLabel, sl);
 
 		// dodamo argumente in vlikosti
@@ -580,7 +560,7 @@ public class CodeGenerator implements Visitor {
 		}
 
 		// nova sekvenca
-		ImSEQ forStmtImSEQ = new ImSEQ();
+		ImSEQ ifStmtImSEQ = new ImSEQ();
 
 		// naredimo label0-then
 		Label label0 = new Label("0", "Then");
@@ -589,37 +569,40 @@ public class CodeGenerator implements Visitor {
 
 		// naredimo CJUMP za condition in dodamo
 		ImCJUMP conditionImCJUMP = new ImCJUMP(condExprImCode, label0, label1);
-		forStmtImSEQ.codes.add(conditionImCJUMP);
+		ifStmtImSEQ.codes.add(conditionImCJUMP);
 
 		// naredimo ImLABEL in dodamo
-		forStmtImSEQ.codes.add(new ImLABEL(label0));
+		ifStmtImSEQ.codes.add(new ImLABEL(label0));
 
 		// naredimo temp spremenjivko za rezultat
 		ImTEMP resultImTEMP = new ImTEMP(new Temp());
 		// premaknemo thenExpr v temp in dodamo
 		ImMOVE thenImMOVE = new ImMOVE(resultImTEMP, thenExprsImCode);
-		forStmtImSEQ.codes.add(thenImMOVE);
+		ifStmtImSEQ.codes.add(thenImMOVE);
 
 		// naredimo temp2 - konec
 		Label label2 = new Label("2", "End");
 		// dodamo jump na label2
-		forStmtImSEQ.codes.add(new ImJUMP(label2));
+		ifStmtImSEQ.codes.add(new ImJUMP(label2));
 
 		// naredimo ImLABEL za else in dodamo
-		forStmtImSEQ.codes.add(new ImLABEL(label1));
+		ifStmtImSEQ.codes.add(new ImLABEL(label1));
 
 		// ce ni else-a ne anredimo nic
 		if (acceptor.elseExprs != null) {
 			// premaknemo elseExpr v temp in dodamo
 			ImMOVE elseImMOVE = new ImMOVE(resultImTEMP, elseExprsImCode);
-			forStmtImSEQ.codes.add(elseImMOVE);
+			ifStmtImSEQ.codes.add(elseImMOVE);
 		}
 
 		// naredimo in dodamo label za konec
-		forStmtImSEQ.codes.add(new ImLABEL(label2));
+		ifStmtImSEQ.codes.add(new ImLABEL(label2));
 
 		// dodamo temp kot rezultat
-		forStmtImSEQ.codes.add(resultImTEMP);
+		ifStmtImSEQ.codes.add(resultImTEMP);
+
+		// povezemo
+		setCode(acceptor, ifStmtImSEQ);
 	}
 
 	public void visit(AbsPtrType acceptor) {
@@ -701,12 +684,12 @@ public class CodeGenerator implements Visitor {
 		ImCode loopExprImCode = getCode(acceptor.loopExpr);
 
 		// nova sekvenca
-		ImSEQ forStmtImSEQ = new ImSEQ();
+		ImSEQ whileStmtImSEQ = new ImSEQ();
 
 		// naredimo label0 in ImLABEL ter dodamo
 		Label label0 = new Label("0", "Condition");
 		ImLABEL label0ImLABEL = new ImLABEL(label0);
-		forStmtImSEQ.codes.add(label0ImLABEL);
+		whileStmtImSEQ.codes.add(label0ImLABEL);
 
 		// naredimo label1 - condition true
 		Label label1 = new Label("1", "Condition_True");
@@ -714,21 +697,24 @@ public class CodeGenerator implements Visitor {
 		Label label2 = new Label("2", "Condition_False");
 		// naredimo CJUMP in dodamo
 		ImCJUMP conditionImCJUMP = new ImCJUMP(condExprImCode, label1, label2);
-		forStmtImSEQ.codes.add(conditionImCJUMP);
+		whileStmtImSEQ.codes.add(conditionImCJUMP);
 
 		// naredimo ImLABEL za label1 in dodamo
 		ImLABEL label1ImLABEL = new ImLABEL(label1);
-		forStmtImSEQ.codes.add(label1ImLABEL);
+		whileStmtImSEQ.codes.add(label1ImLABEL);
 
 		// dodamo loopExpr
-		forStmtImSEQ.codes.add(loopExprImCode);
+		whileStmtImSEQ.codes.add(loopExprImCode);
 
 		// dodamo ImJUMP na label0 - zacetek
-		forStmtImSEQ.codes.add(new ImJUMP(label0));
+		whileStmtImSEQ.codes.add(new ImJUMP(label0));
 
 		// naredimo ImLABEL za label2 in dodamo
 		ImLABEL label2ImLABEL = new ImLABEL(label2);
-		forStmtImSEQ.codes.add(label2ImLABEL);
+		whileStmtImSEQ.codes.add(label2ImLABEL);
+		
+		// povezemo
+		setCode(acceptor, whileStmtImSEQ);
 	}
 
 }

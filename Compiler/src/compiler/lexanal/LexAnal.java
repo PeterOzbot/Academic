@@ -637,13 +637,13 @@ public class LexAnal {
 			}
 
 			// v komentarju so lahko samo znaki od 32-126
-			if (prebranaVrednost < 32 || prebranaVrednost > 126) {
-				Report.error("Nepravilen znak v komentarju = "
-						+ (char) prebranaVrednost, new Position(_programName,
-						_currentLineIndex, _currentColumnIndex,
-						_currentLineIndex + komentar.length(),
-						_currentColumnIndex), 1);
-			}
+			//if (prebranaVrednost < 32 || prebranaVrednost > 126) {
+				//Report.error("Nepravilen znak v komentarju = "
+					//	+ (char) prebranaVrednost, new Position(_programName,
+					//	_currentLineIndex, _currentColumnIndex,
+				//		_currentLineIndex + komentar.length(),
+			//			_currentColumnIndex), 1);
+			//}
 
 			// doda znak v celoten komentar
 			komentar.append(znak);

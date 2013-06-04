@@ -25,7 +25,7 @@ public class Main {
 				absTree.accept(new compiler.semanal.DeclarationResolver());
 				absTree.accept(new compiler.semanal.TypeResolver());
 				frameResolver = new compiler.frames.FrameResolver();
-				absTree.accept(new compiler.frames.FrameResolver());
+				absTree.accept(frameResolver);
 				absTree.accept(new compiler.imcode.CodeGenerator());
 				absTree.accept(new compiler.lincode.CodeGenerator());
 				absTree.accept(new compiler.lincode.PrintXML(xml));

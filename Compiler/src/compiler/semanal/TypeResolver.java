@@ -375,36 +375,44 @@ public class TypeResolver implements Visitor {
 
 	@Override
 	public void visit(AbsFunCall acceptor) {
-		// gremo cez exprs
+		// gremo cez argumente
 		acceptor.args.accept(this);
 
-		// dobimo tip funkcije
+		// dobimo deklaracijo funkcije
 		AbsDecl absDecl = DeclarationResolver.getDecl(acceptor.name);
 
-		// dobimo tip
-		SemType semType = TypeResolver.getType(absDecl);
-
-		// preverimo ce je stevilo ergumentov isto
-		int callNumberArgs = acceptor.args.exprs.size();
-		int declNumberArgs = ((AbsFunDecl) absDecl).pars.decls.size();
-		if (callNumberArgs != declNumberArgs) {
-			Report.error(
-					"Illegal operand type. Number of arguments missmatch.",
-					acceptor.getPosition(), 1);
-		}
-
-		// preverimo tip argumentov
-		for (int i = 0; i < declNumberArgs; i++) {
-			SemType semTypeCall = TypeResolver.getType(acceptor.args.exprs
-					.elementAt(i));
-			SemType semTypeDecl = TypeResolver
-					.getType(((AbsFunDecl) absDecl).pars.decls.elementAt(i));
-
-			// preveri enakost
-			if (!equal(semTypeDecl, semTypeCall)) {
+		SemType semType = null;
+		// ce je sistemski klic je potrebno drugaèe obravnavat
+		// preveri ce je sistemska funkcija
+		if (LibSys.IsSystem(absDecl)) {
+			acceptor.accept(new TypeResolverSys());
+			return;
+		} else {
+			// dobimo tip deklaracije
+			semType = TypeResolver.getType(absDecl);
+			
+			// preverimo ce je stevilo ergumentov isto
+			int callNumberArgs = acceptor.args.exprs.size();
+			int declNumberArgs = ((AbsFunDecl) absDecl).pars.decls.size();
+			if (callNumberArgs != declNumberArgs) {
 				Report.error(
-						"Illegal operand type. Function call argument wrong type.",
-						acceptor.args.exprs.elementAt(i).getPosition(), 1);
+						"Illegal operand type. Number of arguments missmatch.",
+						acceptor.getPosition(), 1);
+			}
+
+			// preverimo tip argumentov
+			for (int i = 0; i < declNumberArgs; i++) {
+				SemType semTypeCall = TypeResolver.getType(acceptor.args.exprs
+						.elementAt(i));
+				SemType semTypeDecl = TypeResolver
+						.getType(((AbsFunDecl) absDecl).pars.decls.elementAt(i));
+
+				// preveri enakost
+				if (!equal(semTypeDecl, semTypeCall)) {
+					Report.error(
+							"Illegal operand type. Function call argument wrong type.",
+							acceptor.args.exprs.elementAt(i).getPosition(), 1);
+				}
 			}
 		}
 
@@ -503,6 +511,9 @@ public class TypeResolver implements Visitor {
 			Report.error("Illegal operand type. HiBound not type Int.",
 					acceptor.name.getPosition(), 1);
 		}
+		
+		// gremo cez loop expression
+		acceptor.loopExpr.accept(this);
 
 		// celotna zanka for je void
 		TypeResolver.setType(acceptor, new SemAtomType(SemAtomType.VOID));

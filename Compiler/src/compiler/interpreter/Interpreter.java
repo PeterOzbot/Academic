@@ -8,7 +8,7 @@ import compiler.imcode.*;
 
 public class Interpreter {
 
-	public static boolean debug = true;
+	public static boolean debug = false;
 
 	/*--- staticni del navideznega stroja ---*/
 	
@@ -57,7 +57,7 @@ public class Interpreter {
 	
 		stM(sp + frame.oldFPoffset, fp);
 		fp = sp;
-		sp = sp - frame.getSize();
+		sp = sp - frame.getSize() -4;//TODO: -4 da je vkljuèen SL = ocitno prej nesme bit?
 		if (debug) {
 			System.out.println("[FP=" + fp + "]");
 			System.out.println("[SP=" + sp + "]");
@@ -81,7 +81,7 @@ public class Interpreter {
 		}
 		
 		fp = (Integer) ldM(fp + frame.oldFPoffset);
-		sp = sp + frame.getSize();
+		sp = sp + frame.getSize() +4;//TODO: +4 da je vkljuèen SL = ocitno prej nesme bit?
 		if (debug) {
 			System.out.println("[FP=" + fp + "]");
 			System.out.println("[SP=" + sp + "]");
@@ -171,23 +171,31 @@ public class Interpreter {
 		
 		if (instruction instanceof ImCALL) {
 			ImCALL instr = (ImCALL) instruction;
-			int offset = 0;
-			stM(sp + offset, execute(instr.sl)); offset += 4;
-			for (ImCode arg : instr.args) {
-				stM(sp + offset, execute(arg));
+			
+			if(!instr.fun.label.equals("L1::f"))
+			{
+				int offset = 0;
+				stM(sp + offset, execute(instr.sl)); 
 				offset += 4;
+				for (ImCode arg : instr.args) {
+					stM(sp + offset, execute(arg));
+					offset += 4;
+				}
 			}
+
+			
 			if (instr.fun.label.equals("Lsys::putInt")) {
 				System.out.println((Integer) ldM(sp + 4));
 				return null;
 			}
 			if (instr.fun.label.equals("Lsys::getInt")) {
 				Scanner scanner = new Scanner(System.in);
-				stM((Integer) ldM (sp + 4),scanner.nextInt());
+				stM((Integer) ldM(sp + 4),scanner.nextInt());
 				return null;
 			}
 			if (instr.fun.label.equals("Lsys::putString")) {
-				System.out.println((String) ldM(sp + 4));
+				Object value =  ldM(sp + 4);
+				System.out.println((String)value);
 				return null;
 			}
 			if (instr.fun.label.equals("Lsys::getString")) {
@@ -195,7 +203,10 @@ public class Interpreter {
 				stM((Integer) ldM (sp + 4),scanner.next());
 				return null;
 			}
+
+			
 			new Interpreter(compiler.lincode.CodeGenerator.framesByLabel.get(instr.fun), (ImSEQ) compiler.lincode.CodeGenerator.codesByLabel.get(instr.fun));
+			
 			return null;
 		}
 		

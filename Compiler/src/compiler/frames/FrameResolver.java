@@ -83,10 +83,16 @@ public class FrameResolver implements Visitor {
 		// dobimo deklaracijo funkcije
 		int argsSize = 0;
 		AbsDecl absDecl = DeclarationResolver.getDecl(acceptor.name);
+
 		if (absDecl instanceof AbsFunDecl) {
+			AbsFunDecl absFunDecl = (AbsFunDecl) absDecl;
+
+			// ce je sistemska ne naredimo nic
+			if (LibSys.IsSystem(absFunDecl.name.identifier.getLexeme())) {
+				return;
+			}
 
 			// gremo cez vse vhodne parametre
-			AbsFunDecl absFunDecl = (AbsFunDecl) absDecl;
 			for (AbsDecl absParamDecl : absFunDecl.pars.decls) {
 				if (absParamDecl instanceof AbsVarDecl) {
 

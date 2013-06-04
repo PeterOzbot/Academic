@@ -2,90 +2,39 @@
 <?xml-stylesheet type="text/xsl" href="D:\Programiranje\Repositories\Git\Academic\Compiler\xsl/imcode.xsl"?>
 <imcode>
 <absnode node="Exprs">
-<position filename="C:\Users\Validus\Desktop\Proteus\07-imcode-3.proteus" begLine="2" begColumn="1" endLine="2" endColumn="78"/>
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="12" begColumn="1" endLine="12" endColumn="72"/>
 <absnode node="WhereExpr">
-<position filename="C:\Users\Validus\Desktop\Proteus\07-imcode-3.proteus" begLine="2" begColumn="1" endLine="2" endColumn="78"/>
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="12" begColumn="1" endLine="12" endColumn="72"/>
 <absnode node="FunCall">
-<position filename="C:\Users\Validus\Desktop\Proteus\07-imcode-3.proteus" begLine="2" begColumn="1" endLine="2" endColumn="3"/>
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="12" begColumn="1" endLine="12" endColumn="5"/>
 <absnode node="ExprName">
-<position filename="C:\Users\Validus\Desktop\Proteus\07-imcode-3.proteus" begLine="2" begColumn="1" endLine="2" endColumn="1"/>
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="12" begColumn="1" endLine="12" endColumn="1"/>
 <symbol token="IDENTIFIER"  lexeme="f">
-<position filename="C:\Users\Validus\Desktop\Proteus\07-imcode-3.proteus" begLine="2" begColumn="1" endLine="2" endColumn="1"/>
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="12" begColumn="1" endLine="12" endColumn="1"/>
 </symbol>
 <semdeclpos>
-<position filename="C:\Users\Validus\Desktop\Proteus\07-imcode-3.proteus" begLine="2" begColumn="12" endLine="2" endColumn="78"/>
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="12" begColumn="15" endLine="12" endColumn="40"/>
 </semdeclpos>
 </absnode>
 <absnode node="Exprs">
-<position filename="C:\Users\Validus\Desktop\Proteus\07-imcode-3.proteus" begLine="2" begColumn="3" endLine="2" endColumn="3"/>
-<absnode node="AtomExpr">
-<position filename="C:\Users\Validus\Desktop\Proteus\07-imcode-3.proteus" begLine="2" begColumn="3" endLine="2" endColumn="3"/>
-<symbol token="INTCONST"    lexeme="1">
-<position filename="C:\Users\Validus\Desktop\Proteus\07-imcode-3.proteus" begLine="2" begColumn="3" endLine="2" endColumn="3"/>
-</symbol>
-<semintvalue value="1"/>
-<semtype type="INT"/>
-</absnode>
-<semtype type="INT"/>
-</absnode>
-<semtype type="INT"/>
-<iminstruction instr="CALL" value="L1::f">
-<iminstruction instr="NAME" value="FP"/>
-<iminstruction instr="CONSTi" value="1"/>
-</iminstruction>
-</absnode>
-<absnode node="Decls">
-<position filename="C:\Users\Validus\Desktop\Proteus\07-imcode-3.proteus" begLine="2" begColumn="12" endLine="2" endColumn="78"/>
-<absnode node="FunDecl">
-<position filename="C:\Users\Validus\Desktop\Proteus\07-imcode-3.proteus" begLine="2" begColumn="12" endLine="2" endColumn="78"/>
-<absnode node="ExprName">
-<position filename="C:\Users\Validus\Desktop\Proteus\07-imcode-3.proteus" begLine="2" begColumn="16" endLine="2" endColumn="16"/>
-<symbol token="IDENTIFIER"  lexeme="f">
-<position filename="C:\Users\Validus\Desktop\Proteus\07-imcode-3.proteus" begLine="2" begColumn="16" endLine="2" endColumn="16"/>
-</symbol>
-</absnode>
-<absnode node="Decls">
-<position filename="C:\Users\Validus\Desktop\Proteus\07-imcode-3.proteus" begLine="2" begColumn="18" endLine="2" endColumn="22"/>
-<absnode node="VarDecl">
-<position filename="C:\Users\Validus\Desktop\Proteus\07-imcode-3.proteus" begLine="2" begColumn="18" endLine="2" endColumn="22"/>
-<absnode node="ExprName">
-<position filename="C:\Users\Validus\Desktop\Proteus\07-imcode-3.proteus" begLine="2" begColumn="18" endLine="2" endColumn="18"/>
-<symbol token="IDENTIFIER"  lexeme="j">
-<position filename="C:\Users\Validus\Desktop\Proteus\07-imcode-3.proteus" begLine="2" begColumn="18" endLine="2" endColumn="18"/>
-</symbol>
-</absnode>
-<absnode node="AtomType" value="INT">
-<position filename="C:\Users\Validus\Desktop\Proteus\07-imcode-3.proteus" begLine="2" begColumn="20" endLine="2" endColumn="22"/>
-<semtype type="INT"/>
-</absnode>
-<semtype type="INT"/>
-<frmaccess level="1" offset="4"/></absnode>
-</absnode>
-<absnode node="AtomType" value="INT">
-<position filename="C:\Users\Validus\Desktop\Proteus\07-imcode-3.proteus" begLine="2" begColumn="25" endLine="2" endColumn="27"/>
-<semtype type="INT"/>
-</absnode>
-<absnode node="Exprs">
-<position filename="C:\Users\Validus\Desktop\Proteus\07-imcode-3.proteus" begLine="2" begColumn="30" endLine="2" endColumn="75"/>
-<absnode node="WhereExpr">
-<position filename="C:\Users\Validus\Desktop\Proteus\07-imcode-3.proteus" begLine="2" begColumn="30" endLine="2" endColumn="75"/>
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="12" begColumn="3" endLine="12" endColumn="5"/>
 <absnode node="FunCall">
-<position filename="C:\Users\Validus\Desktop\Proteus\07-imcode-3.proteus" begLine="2" begColumn="30" endLine="2" endColumn="32"/>
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="12" begColumn="3" endLine="12" endColumn="5"/>
 <absnode node="ExprName">
-<position filename="C:\Users\Validus\Desktop\Proteus\07-imcode-3.proteus" begLine="2" begColumn="30" endLine="2" endColumn="30"/>
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="12" begColumn="3" endLine="12" endColumn="3"/>
 <symbol token="IDENTIFIER"  lexeme="g">
-<position filename="C:\Users\Validus\Desktop\Proteus\07-imcode-3.proteus" begLine="2" begColumn="30" endLine="2" endColumn="30"/>
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="12" begColumn="3" endLine="12" endColumn="3"/>
 </symbol>
 <semdeclpos>
-<position filename="C:\Users\Validus\Desktop\Proteus\07-imcode-3.proteus" begLine="2" begColumn="41" endLine="2" endColumn="65"/>
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="12" begColumn="42" endLine="12" endColumn="72"/>
 </semdeclpos>
 </absnode>
 <absnode node="Exprs">
-<position filename="C:\Users\Validus\Desktop\Proteus\07-imcode-3.proteus" begLine="2" begColumn="32" endLine="2" endColumn="32"/>
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="12" begColumn="5" endLine="12" endColumn="5"/>
 <absnode node="AtomExpr">
-<position filename="C:\Users\Validus\Desktop\Proteus\07-imcode-3.proteus" begLine="2" begColumn="32" endLine="2" endColumn="32"/>
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="12" begColumn="5" endLine="12" endColumn="5"/>
 <symbol token="INTCONST"    lexeme="5">
-<position filename="C:\Users\Validus\Desktop\Proteus\07-imcode-3.proteus" begLine="2" begColumn="32" endLine="2" endColumn="32"/>
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="12" begColumn="5" endLine="12" endColumn="5"/>
 </symbol>
 <semintvalue value="5"/>
 <semtype type="INT"/>
@@ -98,181 +47,220 @@
 <iminstruction instr="CONSTi" value="5"/>
 </iminstruction>
 </absnode>
+<semtype type="INT"/>
+</absnode>
+<semtype type="VOID"/>
+<iminstruction instr="CALL" value="L1::f">
+<iminstruction instr="NAME" value="FP"/>
+<iminstruction instr="CALL" value="L2::g">
+<iminstruction instr="NAME" value="FP"/>
+<iminstruction instr="CONSTi" value="5"/>
+</iminstruction>
+</iminstruction>
+</absnode>
 <absnode node="Decls">
-<position filename="C:\Users\Validus\Desktop\Proteus\07-imcode-3.proteus" begLine="2" begColumn="41" endLine="2" endColumn="75"/>
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="12" begColumn="15" endLine="12" endColumn="72"/>
 <absnode node="FunDecl">
-<position filename="C:\Users\Validus\Desktop\Proteus\07-imcode-3.proteus" begLine="2" begColumn="41" endLine="2" endColumn="65"/>
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="12" begColumn="15" endLine="12" endColumn="40"/>
 <absnode node="ExprName">
-<position filename="C:\Users\Validus\Desktop\Proteus\07-imcode-3.proteus" begLine="2" begColumn="45" endLine="2" endColumn="45"/>
-<symbol token="IDENTIFIER"  lexeme="g">
-<position filename="C:\Users\Validus\Desktop\Proteus\07-imcode-3.proteus" begLine="2" begColumn="45" endLine="2" endColumn="45"/>
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="12" begColumn="19" endLine="12" endColumn="19"/>
+<symbol token="IDENTIFIER"  lexeme="f">
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="12" begColumn="19" endLine="12" endColumn="19"/>
 </symbol>
 </absnode>
 <absnode node="Decls">
-<position filename="C:\Users\Validus\Desktop\Proteus\07-imcode-3.proteus" begLine="2" begColumn="47" endLine="2" endColumn="51"/>
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="12" begColumn="21" endLine="12" endColumn="25"/>
 <absnode node="VarDecl">
-<position filename="C:\Users\Validus\Desktop\Proteus\07-imcode-3.proteus" begLine="2" begColumn="47" endLine="2" endColumn="51"/>
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="12" begColumn="21" endLine="12" endColumn="25"/>
 <absnode node="ExprName">
-<position filename="C:\Users\Validus\Desktop\Proteus\07-imcode-3.proteus" begLine="2" begColumn="47" endLine="2" endColumn="47"/>
-<symbol token="IDENTIFIER"  lexeme="k">
-<position filename="C:\Users\Validus\Desktop\Proteus\07-imcode-3.proteus" begLine="2" begColumn="47" endLine="2" endColumn="47"/>
-</symbol>
-</absnode>
-<absnode node="AtomType" value="INT">
-<position filename="C:\Users\Validus\Desktop\Proteus\07-imcode-3.proteus" begLine="2" begColumn="49" endLine="2" endColumn="51"/>
-<semtype type="INT"/>
-</absnode>
-<semtype type="INT"/>
-<frmaccess level="2" offset="4"/></absnode>
-</absnode>
-<absnode node="AtomType" value="INT">
-<position filename="C:\Users\Validus\Desktop\Proteus\07-imcode-3.proteus" begLine="2" begColumn="54" endLine="2" endColumn="56"/>
-<semtype type="INT"/>
-</absnode>
-<absnode node="BinExpr" value="ADD">
-<position filename="C:\Users\Validus\Desktop\Proteus\07-imcode-3.proteus" begLine="2" begColumn="59" endLine="2" endColumn="64"/>
-<absnode node="Exprs">
-<position filename="C:\Users\Validus\Desktop\Proteus\07-imcode-3.proteus" begLine="2" begColumn="59" endLine="2" endColumn="61"/>
-<absnode node="BinExpr" value="ADD">
-<position filename="C:\Users\Validus\Desktop\Proteus\07-imcode-3.proteus" begLine="2" begColumn="59" endLine="2" endColumn="61"/>
-<absnode node="ExprName">
-<position filename="C:\Users\Validus\Desktop\Proteus\07-imcode-3.proteus" begLine="2" begColumn="59" endLine="2" endColumn="59"/>
-<symbol token="IDENTIFIER"  lexeme="j">
-<position filename="C:\Users\Validus\Desktop\Proteus\07-imcode-3.proteus" begLine="2" begColumn="59" endLine="2" endColumn="59"/>
-</symbol>
-<semdeclpos>
-<position filename="C:\Users\Validus\Desktop\Proteus\07-imcode-3.proteus" begLine="2" begColumn="18" endLine="2" endColumn="22"/>
-</semdeclpos>
-<semtype type="INT"/>
-<iminstruction instr="MEM">
-<iminstruction instr="BINOP" value="ADDi">
-<iminstruction instr="MEM">
-<iminstruction instr="NAME" value="FP"/>
-</iminstruction>
-<iminstruction instr="CONSTi" value="4"/>
-</iminstruction>
-</iminstruction>
-</absnode>
-<absnode node="AtomExpr">
-<position filename="C:\Users\Validus\Desktop\Proteus\07-imcode-3.proteus" begLine="2" begColumn="61" endLine="2" endColumn="61"/>
-<symbol token="INTCONST"    lexeme="3">
-<position filename="C:\Users\Validus\Desktop\Proteus\07-imcode-3.proteus" begLine="2" begColumn="61" endLine="2" endColumn="61"/>
-</symbol>
-<semintvalue value="3"/>
-<semtype type="INT"/>
-</absnode>
-<semtype type="INT"/>
-<iminstruction instr="BINOP" value="ADDi">
-<iminstruction instr="MEM">
-<iminstruction instr="BINOP" value="ADDi">
-<iminstruction instr="MEM">
-<iminstruction instr="NAME" value="FP"/>
-</iminstruction>
-<iminstruction instr="CONSTi" value="4"/>
-</iminstruction>
-</iminstruction>
-<iminstruction instr="CONSTi" value="3"/>
-</iminstruction>
-</absnode>
-<semtype type="INT"/>
-<iminstruction instr="SEQ">
-<iminstruction instr="BINOP" value="ADDi">
-<iminstruction instr="MEM">
-<iminstruction instr="BINOP" value="ADDi">
-<iminstruction instr="MEM">
-<iminstruction instr="NAME" value="FP"/>
-</iminstruction>
-<iminstruction instr="CONSTi" value="4"/>
-</iminstruction>
-</iminstruction>
-<iminstruction instr="CONSTi" value="3"/>
-</iminstruction>
-</iminstruction>
-</absnode>
-<absnode node="ExprName">
-<position filename="C:\Users\Validus\Desktop\Proteus\07-imcode-3.proteus" begLine="2" begColumn="64" endLine="2" endColumn="64"/>
-<symbol token="IDENTIFIER"  lexeme="k">
-<position filename="C:\Users\Validus\Desktop\Proteus\07-imcode-3.proteus" begLine="2" begColumn="64" endLine="2" endColumn="64"/>
-</symbol>
-<semdeclpos>
-<position filename="C:\Users\Validus\Desktop\Proteus\07-imcode-3.proteus" begLine="2" begColumn="47" endLine="2" endColumn="51"/>
-</semdeclpos>
-<semtype type="INT"/>
-<iminstruction instr="MEM">
-<iminstruction instr="BINOP" value="ADDi">
-<iminstruction instr="NAME" value="FP"/>
-<iminstruction instr="CONSTi" value="4"/>
-</iminstruction>
-</iminstruction>
-</absnode>
-<semtype type="INT"/>
-<iminstruction instr="BINOP" value="ADDi">
-<iminstruction instr="SEQ">
-<iminstruction instr="BINOP" value="ADDi">
-<iminstruction instr="MEM">
-<iminstruction instr="BINOP" value="ADDi">
-<iminstruction instr="MEM">
-<iminstruction instr="NAME" value="FP"/>
-</iminstruction>
-<iminstruction instr="CONSTi" value="4"/>
-</iminstruction>
-</iminstruction>
-<iminstruction instr="CONSTi" value="3"/>
-</iminstruction>
-</iminstruction>
-<iminstruction instr="MEM">
-<iminstruction instr="BINOP" value="ADDi">
-<iminstruction instr="NAME" value="FP"/>
-<iminstruction instr="CONSTi" value="4"/>
-</iminstruction>
-</iminstruction>
-</iminstruction>
-</absnode>
-<semtype type="INT"/>
-<frmframe label="L2::g" level="2" fp="-4" ra="-8" size="8"/></absnode>
-<absnode node="VarDecl">
-<position filename="C:\Users\Validus\Desktop\Proteus\07-imcode-3.proteus" begLine="2" begColumn="67" endLine="2" endColumn="75"/>
-<absnode node="ExprName">
-<position filename="C:\Users\Validus\Desktop\Proteus\07-imcode-3.proteus" begLine="2" begColumn="71" endLine="2" endColumn="71"/>
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="12" begColumn="21" endLine="12" endColumn="21"/>
 <symbol token="IDENTIFIER"  lexeme="i">
-<position filename="C:\Users\Validus\Desktop\Proteus\07-imcode-3.proteus" begLine="2" begColumn="71" endLine="2" endColumn="71"/>
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="12" begColumn="21" endLine="12" endColumn="21"/>
 </symbol>
 </absnode>
 <absnode node="AtomType" value="INT">
-<position filename="C:\Users\Validus\Desktop\Proteus\07-imcode-3.proteus" begLine="2" begColumn="73" endLine="2" endColumn="75"/>
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="12" begColumn="23" endLine="12" endColumn="25"/>
 <semtype type="INT"/>
 </absnode>
 <semtype type="INT"/>
-<frmaccess level="1" offset="-4"/></absnode>
+<frmaccess level="1" offset="4"/></absnode>
 </absnode>
+<absnode node="AtomType" value="VOID">
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="12" begColumn="28" endLine="12" endColumn="29"/>
+<semtype type="VOID"/>
+</absnode>
+<absnode node="FunCall">
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="12" begColumn="31" endLine="12" endColumn="38"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="12" begColumn="31" endLine="12" endColumn="36"/>
+<symbol token="IDENTIFIER"  lexeme="putInt">
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="12" begColumn="31" endLine="12" endColumn="36"/>
+</symbol>
+<semdeclpos>
+<position filename="" begLine="0" begColumn="0" endLine="0" endColumn="0"/>
+</semdeclpos>
+</absnode>
+<absnode node="Exprs">
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="12" begColumn="38" endLine="12" endColumn="38"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="12" begColumn="38" endLine="12" endColumn="38"/>
+<symbol token="IDENTIFIER"  lexeme="i">
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="12" begColumn="38" endLine="12" endColumn="38"/>
+</symbol>
+<semdeclpos>
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="12" begColumn="21" endLine="12" endColumn="25"/>
+</semdeclpos>
 <semtype type="INT"/>
-<iminstruction instr="CALL" value="L2::g">
+<iminstruction instr="MEM">
+<iminstruction instr="BINOP" value="ADDi">
 <iminstruction instr="NAME" value="FP"/>
-<iminstruction instr="CONSTi" value="5"/>
+<iminstruction instr="CONSTi" value="4"/>
+</iminstruction>
+</iminstruction>
+</absnode>
+<semtype type="INT"/>
+</absnode>
+<semtype type="VOID"/>
+<iminstruction instr="CALL" value="Lsys::putInt">
+<iminstruction instr="CONSTi" value="0"/>
+<iminstruction instr="MEM">
+<iminstruction instr="BINOP" value="ADDi">
+<iminstruction instr="NAME" value="FP"/>
+<iminstruction instr="CONSTi" value="4"/>
+</iminstruction>
+</iminstruction>
+</iminstruction>
+</absnode>
+<semtype type="VOID"/>
+<frmframe label="L1::f" level="1" fp="-4" ra="-8" size="8"/></absnode>
+<absnode node="FunDecl">
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="12" begColumn="42" endLine="12" endColumn="72"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="12" begColumn="46" endLine="12" endColumn="46"/>
+<symbol token="IDENTIFIER"  lexeme="g">
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="12" begColumn="46" endLine="12" endColumn="46"/>
+</symbol>
+</absnode>
+<absnode node="Decls">
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="12" begColumn="48" endLine="12" endColumn="52"/>
+<absnode node="VarDecl">
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="12" begColumn="48" endLine="12" endColumn="52"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="12" begColumn="48" endLine="12" endColumn="48"/>
+<symbol token="IDENTIFIER"  lexeme="i">
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="12" begColumn="48" endLine="12" endColumn="48"/>
+</symbol>
+</absnode>
+<absnode node="AtomType" value="INT">
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="12" begColumn="50" endLine="12" endColumn="52"/>
+<semtype type="INT"/>
+</absnode>
+<semtype type="INT"/>
+<frmaccess level="1" offset="4"/></absnode>
+</absnode>
+<absnode node="AtomType" value="INT">
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="12" begColumn="55" endLine="12" endColumn="57"/>
+<semtype type="INT"/>
+</absnode>
+<absnode node="Exprs">
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="12" begColumn="60" endLine="12" endColumn="70"/>
+<absnode node="FunCall">
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="12" begColumn="60" endLine="12" endColumn="67"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="12" begColumn="60" endLine="12" endColumn="65"/>
+<symbol token="IDENTIFIER"  lexeme="putInt">
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="12" begColumn="60" endLine="12" endColumn="65"/>
+</symbol>
+<semdeclpos>
+<position filename="" begLine="0" begColumn="0" endLine="0" endColumn="0"/>
+</semdeclpos>
+</absnode>
+<absnode node="Exprs">
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="12" begColumn="67" endLine="12" endColumn="67"/>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="12" begColumn="67" endLine="12" endColumn="67"/>
+<symbol token="IDENTIFIER"  lexeme="i">
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="12" begColumn="67" endLine="12" endColumn="67"/>
+</symbol>
+<semdeclpos>
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="12" begColumn="48" endLine="12" endColumn="52"/>
+</semdeclpos>
+<semtype type="INT"/>
+<iminstruction instr="MEM">
+<iminstruction instr="BINOP" value="ADDi">
+<iminstruction instr="NAME" value="FP"/>
+<iminstruction instr="CONSTi" value="4"/>
+</iminstruction>
+</iminstruction>
+</absnode>
+<semtype type="INT"/>
+</absnode>
+<semtype type="VOID"/>
+<iminstruction instr="CALL" value="Lsys::putInt">
+<iminstruction instr="CONSTi" value="0"/>
+<iminstruction instr="MEM">
+<iminstruction instr="BINOP" value="ADDi">
+<iminstruction instr="NAME" value="FP"/>
+<iminstruction instr="CONSTi" value="4"/>
+</iminstruction>
+</iminstruction>
+</iminstruction>
+</absnode>
+<absnode node="ExprName">
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="12" begColumn="70" endLine="12" endColumn="70"/>
+<symbol token="IDENTIFIER"  lexeme="i">
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="12" begColumn="70" endLine="12" endColumn="70"/>
+</symbol>
+<semdeclpos>
+<position filename="C:\Users\Validus\Desktop\Proteus_Primeri\Proteus_test1.txt" begLine="12" begColumn="48" endLine="12" endColumn="52"/>
+</semdeclpos>
+<semtype type="INT"/>
+<iminstruction instr="MEM">
+<iminstruction instr="BINOP" value="ADDi">
+<iminstruction instr="NAME" value="FP"/>
+<iminstruction instr="CONSTi" value="4"/>
+</iminstruction>
 </iminstruction>
 </absnode>
 <semtype type="INT"/>
 <iminstruction instr="SEQ">
+<iminstruction instr="CALL" value="Lsys::putInt">
+<iminstruction instr="CONSTi" value="0"/>
+<iminstruction instr="MEM">
+<iminstruction instr="BINOP" value="ADDi">
+<iminstruction instr="NAME" value="FP"/>
+<iminstruction instr="CONSTi" value="4"/>
+</iminstruction>
+</iminstruction>
+</iminstruction>
+<iminstruction instr="MEM">
+<iminstruction instr="BINOP" value="ADDi">
+<iminstruction instr="NAME" value="FP"/>
+<iminstruction instr="CONSTi" value="4"/>
+</iminstruction>
+</iminstruction>
+</iminstruction>
+</absnode>
+<semtype type="INT"/>
+<frmframe label="L2::g" level="1" fp="-4" ra="-8" size="8"/></absnode>
+</absnode>
+<semtype type="VOID"/>
+<iminstruction instr="CALL" value="L1::f">
+<iminstruction instr="NAME" value="FP"/>
 <iminstruction instr="CALL" value="L2::g">
 <iminstruction instr="NAME" value="FP"/>
 <iminstruction instr="CONSTi" value="5"/>
 </iminstruction>
 </iminstruction>
 </absnode>
-<semtype type="INT"/>
-<frmframe label="L1::f" level="1" fp="-8" ra="-12" size="20"/></absnode>
-</absnode>
-<semtype type="INT"/>
-<iminstruction instr="CALL" value="L1::f">
-<iminstruction instr="NAME" value="FP"/>
-<iminstruction instr="CONSTi" value="1"/>
-</iminstruction>
-</absnode>
-<semtype type="INT"/>
+<semtype type="VOID"/>
 <iminstruction instr="SEQ">
 <iminstruction instr="CALL" value="L1::f">
 <iminstruction instr="NAME" value="FP"/>
-<iminstruction instr="CONSTi" value="1"/>
+<iminstruction instr="CALL" value="L2::g">
+<iminstruction instr="NAME" value="FP"/>
+<iminstruction instr="CONSTi" value="5"/>
+</iminstruction>
 </iminstruction>
 </iminstruction>
 </absnode>
