@@ -1,0 +1,82 @@
+// TODO: kao zascita da ni overflow napake - ne dela, ko bo cas
+		// gremo cez vse dele
+		acceptor.loBound.accept(this);
+		acceptor.hiBound.accept(this);
+		acceptor.loopExpr.accept(this);
+		// pridobimo ImCode za vse dele
+		ImCode loBoundImCode = getCode(acceptor.loBound);
+		ImCode hiBoundImCode = getCode(acceptor.hiBound);
+		ImCode loopExprImCode = getCode(acceptor.loopExpr);
+
+		// nova sekvenca
+		ImSEQ forStmtImSEQ = new ImSEQ();
+
+		// nova temp za var for-a
+		ImTEMP forVarImTEMP = new ImTEMP(new Temp());
+
+		// prvo izracunamo lower bound in nastavimo spremenjivki
+		forStmtImSEQ.codes.add(new ImMOVE(forVarImTEMP, loBoundImCode));
+
+		// naredimo label0 in dodamo
+		Label label0 = new Label("0", "Start");
+		ImLABEL label0ImLABEL = new ImLABEL(label0);
+		forStmtImSEQ.codes.add(label0ImLABEL);
+
+		// naredimo label2
+		Label label2 = new Label("2", "End");
+		
+		Label label1 = new Label("1", "Middle");
+
+		// naredimo pogoj
+		ImBINOP conditionImBINOP = new ImBINOP(ImBINOP.LEQi, forVarImTEMP,
+				hiBoundImCode);
+		// naredimo CJUMP in dodamo
+		ImCJUMP imCJUMP = new ImCJUMP(conditionImBINOP, label1, label2);
+		forStmtImSEQ.codes.add(imCJUMP);
+
+		// naredimo label1 in dodamo
+		ImLABEL label1ImLABEL = new ImLABEL(label1);
+		forStmtImSEQ.codes.add(label1ImLABEL);
+
+		// dodamo glavni expression
+		forStmtImSEQ.codes.add(loopExprImCode);
+
+		// nova temp za hranit rezultat incrementa
+		// - za resit integer overflow infinity loop 253,254,255,0
+		ImTEMP incrementTempImTEMP = new ImTEMP(new Temp());
+
+		// naredimo increase stevca - temp
+		ImBINOP incCOunterImBINOP = new ImBINOP(ImBINOP.ADDi, forVarImTEMP,
+				new ImCONSTi(1));
+		// naredimo MOVE stevca povecanega za ena v temp za zacasen rezultat in
+		// dodamo
+		ImMOVE incCounterImMOVE = new ImMOVE(incrementTempImTEMP,
+				incCOunterImBINOP);
+		forStmtImSEQ.codes.add(incCounterImMOVE);
+
+		// pogoj da preverimo ce je novi razultat manjsi od starega
+		ImBINOP safetyCheckImBINOP = new ImBINOP(ImBINOP.LTHi,
+				incrementTempImTEMP, forVarImTEMP);
+		// nov label3
+		Label label3 = new Label("3", "SafetyCheck");
+		// JUMP za ta pogoj in dodamo
+		ImCJUMP safetyCheckImCJUMP = new ImCJUMP(safetyCheckImBINOP, label2,
+				label3);
+		forStmtImSEQ.codes.add(safetyCheckImCJUMP);
+
+		// dodamo label3
+		forStmtImSEQ.codes.add(new ImLABEL(label3));
+
+		// prestavimo zacasno povecano for premenljivko v for spr.
+		ImMOVE safetyCheckImMOVE = new ImMOVE(forVarImTEMP, incrementTempImTEMP);
+		forStmtImSEQ.codes.add(safetyCheckImMOVE);
+
+		// naredimo JUMP ter dodamo
+		ImJUMP jumpToMiddleImJUMP = new ImJUMP(label0);
+		forStmtImSEQ.codes.add(jumpToMiddleImJUMP);
+
+		// naredimo label2ImLABEL in dodamo
+		forStmtImSEQ.codes.add(new ImLABEL(label2));
+
+		// povezemo
+		setCode(acceptor, forStmtImSEQ);
