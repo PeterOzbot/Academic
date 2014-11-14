@@ -1,0 +1,85 @@
+#
+# Spodnje funkcije so mala pomoc vsem, ki zelite obdelovati podatke v sistemu R
+#
+
+
+#na zacetku je potrebno nastaviti pot do vhodnih datotek
+setwd("Ustrezna pot do vasih datotek")
+
+#preberi vhodno datoteko
+d <- read.table("nba0809.txt", header = T, sep = ",")
+
+# Pomozna funkcija, ki izracuna povprecno vrednost statistik na podlagi podanih podatkov,
+# imena ekipe, datuma ter logicne vrednosti, ali nas zanimajo domace ali gostujoce tekme
+getAverageStats <- function(inputData, teamName, date, home)
+{
+	if (home)
+		sel <- inputData[which(inputData$HOME_NAME == teamName & inputData$DATE < date), 13:21]
+	else
+		sel <- inputData[which(inputData$AWAY_NAME == teamName & inputData$DATE < date), 4:12]
+
+	if (nrow(sel) > 0)
+		apply(sel, 2, mean)
+	else
+		NULL
+}
+
+# Funkcija prejme vhodne podatke in jih predela v ucno mnozico
+prepareDataSet <- function(inputData)
+{
+	# pripravimo prostor za nase podatke 
+	# (stevilo stolpcev poznamo, stevila vrstic pa ne, zato nastavimo enako kot v izhodiscni mnozici) 
+	outputData <- matrix(nrow = nrow(inputData), ncol=18)
+	
+	# vektor oznak zmagovalca posamezne tekme
+	winner <- vector()
+	
+	# stevec tekem
+	j <- 0
+
+	# za vsako vrstico izhodiscne tabele
+	for (i in 1:nrow(inputData))
+	{
+		# izracunaj povprecne statistike domacina (iz prejsnjih tekem)
+		homeStats <- getAverageStats(inputData, inputData$HOME_NAME[i], inputData$DATE[i], TRUE)
+		
+		# ce se jih ne da izracunati, gremo na naslednjo tekmo
+		if (is.null(homeStats))
+			next
+
+		# izracunaj povprecne statistike gosta (iz prejsnjih tekem)
+		awayStats <- getAverageStats(inputData, inputData$AWAY_NAME[i], inputData$DATE[i], FALSE)
+
+		# ce se jih ne da izracunati, gremo na naslednjo tekmo		
+		if (is.null(awayStats))
+			next
+	
+		# kdo je zmagovalec te tekme
+		if (inputData$HOME_PTS_FINAL[i] > inputData$AWAY_PTS_FINAL[i])
+			winner <- c(winner, "H")
+		else
+			winner <- c(winner, "A")
+
+		# povecamo stevec tekem
+		j <- j + 1
+
+		# vstavimo novo vrstico s statistikami
+		outputData[j,] <- c(awayStats, homeStats)
+	}
+
+	# obdrzimo samo polne vrstice (le-teh je j)
+	outputData <- data.frame(outputData[1:j,])
+
+	# dodamo stolpec z oznakami zmagovalcev
+	outputData <- cbind(outputData, winner)
+
+	# poimenujemo stolpce (imena statistik + zmagovalec)
+	colnames(outputData) <- c(colnames(inputData)[4:21], "WINNER")
+	
+	# vrnemo rezultat
+	outputData
+}
+
+# predelaj vhodne podatke v ucno mnozico
+train <- prepareDataSet(d)
+
