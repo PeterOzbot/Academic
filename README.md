@@ -1,23 +1,25 @@
-# Academic
+Academic
+=======
 Few projects from school which were interesting.
+<br><br>
 
 
-### Compiler
+#### Compiler
 
 Simple compiler for PROTEUS language written in Java.
 Included interpreter to run compiled programs.
 
 
-### AI
+#### AI
 
 Code writen in R for data minig and simple classification/regression.
 
 
-### Python
+#### Python
 
 Communication which uses certificates for authentication implemented with sockets in python.
 
 
-### Town Defense
+#### Town Defense
 
 Simple video game for iOS written in objective-c.
